@@ -10,10 +10,10 @@ const HeroSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       {/* Hero content */}
-      <div className="relative z-10 container mx-auto px-6 py-20">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="relative z-10 container mx-auto px-8 md:px-12 lg:px-16 py-20">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Text content */}
-          <div>
+          <div className="px-4 md:px-8">
             <div className="flex items-center gap-2 mb-6 justify-center">
               <Coffee className="w-6 h-6 text-primary" />
               <span className="text-muted-foreground uppercase tracking-wider text-sm font-medium">
@@ -30,7 +30,7 @@ const HeroSection = () => {
               desde Cero
             </h1>
             
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
               Más de 9 años de experiencia en desarrollo backend me respaldan 
               para guiarte en tiempo real en cada paso de tu carrera como developer.
