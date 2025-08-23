@@ -13,8 +13,8 @@ import {
 const features = [
   {
     icon: BookOpen,
-    title: "Metodología Probada",
-    description: "Sistema de enseñanza desarrollado a partir de años formando developers exitosos."
+    title: "Clases en Vivo",
+    description: "Aprende en tiempo real con interacción directa y resolución inmediata de dudas."
   },
   {
     icon: Code2,
@@ -23,8 +23,8 @@ const features = [
   },
   {
     icon: Users,
-    title: "Mentoría Personal",
-    description: "Acceso directo conmigo para resolver dudas y guiar tu progreso profesional."
+    title: "Mentoría en Directo",
+    description: "Acceso directo conmigo durante las clases para resolver dudas al instante."
   },
   {
     icon: Trophy,
@@ -43,8 +43,8 @@ const features = [
   },
   {
     icon: Clock,
-    title: "Flexibilidad Total",
-    description: "Estudia a tu ritmo con acceso permanente al contenido y actualizaciones."
+    title: "Horarios Online",
+    description: "Clases programadas en vivo con grabaciones disponibles para repasar."
   },
   {
     icon: Award,

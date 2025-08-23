@@ -32,9 +32,9 @@ const HeroSection = () => {
             </h1>
             
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
-              Te enseño Java desde los fundamentos hasta nivel profesional. 
+              Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
               Más de 9 años de experiencia en desarrollo backend me respaldan 
-              para guiarte en cada paso de tu carrera como developer.
+              para guiarte en tiempo real en cada paso de tu carrera como developer.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
@@ -55,16 +55,16 @@ const HeroSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 max-w-md mx-auto lg:mx-0">
               <div className="text-center lg:text-left">
+                <div className="text-2xl font-bold text-primary">En Vivo</div>
+                <div className="text-sm text-muted-foreground">Clases Online</div>
+              </div>
+              <div className="text-center lg:text-left">
                 <div className="text-2xl font-bold text-primary">9+</div>
-                <div className="text-sm text-muted-foreground">Años de Experiencia</div>
+                <div className="text-sm text-muted-foreground">Años Experiencia</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="text-2xl font-bold text-primary">100%</div>
-                <div className="text-sm text-muted-foreground">Contenido Práctico</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-2xl font-bold text-primary">24/7</div>
-                <div className="text-sm text-muted-foreground">Soporte Directo</div>
+                <div className="text-2xl font-bold text-primary">Directo</div>
+                <div className="text-sm text-muted-foreground">Conmigo</div>
               </div>
             </div>
           </div>

@@ -36,23 +36,24 @@ const CTASection = () => {
               </h2>
               
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Te acompaño personalmente en tu transformación profesional. 
-                Mi experiencia de 9+ años en backend es tu garantía de aprendizaje efectivo.
+                Te acompaño personalmente en vivo durante tu transformación profesional. 
+                Clases online en tiempo real donde mi experiencia de 9+ años en backend 
+                es tu garantía de aprendizaje efectivo.
               </p>
               
               {/* Benefits list */}
               <div className="grid md:grid-cols-3 gap-6 mb-12">
                 <div className="flex items-center gap-3 justify-center md:justify-start">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground">Acceso de por vida</span>
+                  <span className="text-foreground">Clases en vivo</span>
                 </div>
                 <div className="flex items-center gap-3 justify-center md:justify-start">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground">Mentoría incluida</span>
+                  <span className="text-foreground">Grabaciones incluidas</span>
                 </div>
                 <div className="flex items-center gap-3 justify-center md:justify-start">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground">Soporte directo</span>
+                  <span className="text-foreground">Mentoría directa</span>
                 </div>
               </div>
               
@@ -86,7 +87,7 @@ const CTASection = () => {
               </div>
               
               <p className="text-sm text-muted-foreground mt-6">
-                💰 Garantía de satisfacción - Respaldo total en tu aprendizaje
+                🎯 Política de Satisfacción: Si no quedas satisfecho, puedes retomar el curso una vez más sin costo adicional
               </p>
             </div>
           </Card>
