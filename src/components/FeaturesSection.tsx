@@ -55,7 +55,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="py-24 bg-java-dark relative overflow-hidden">
+    <section className="py-24 bg-course-dark relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute top-0 left-1/2 w-96 h-96 bg-tech-purple/10 rounded-full blur-3xl -translate-x-1/2"></div>
       

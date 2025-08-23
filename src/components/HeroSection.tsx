@@ -7,7 +7,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Background glow effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-java-orange/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-course-blue/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       {/* Hero content */}
@@ -72,7 +72,7 @@ const HeroSection = () => {
                 alt="Java Programming Course" 
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-java-dark/80 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-course-dark/80 via-transparent to-transparent"></div>
             </div>
             {/* Floating elements */}
             <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-primary rounded-lg shadow-accent flex items-center justify-center animate-bounce">

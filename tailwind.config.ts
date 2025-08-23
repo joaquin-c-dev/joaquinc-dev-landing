@@ -62,12 +62,14 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Java course theme colors
-				java: {
-					orange: 'hsl(var(--java-orange))',
-					'orange-glow': 'hsl(var(--java-orange-glow))',
-					dark: 'hsl(var(--java-dark))',
-					darker: 'hsl(var(--java-darker))'
+				// Course theme colors - Blue palette
+				course: {
+					blue: 'hsl(var(--course-blue))',
+					'blue-glow': 'hsl(var(--course-blue-glow))',
+					'blue-dark': 'hsl(var(--course-blue-dark))',
+					'blue-light': 'hsl(var(--course-blue-light))',
+					dark: 'hsl(var(--course-dark))',
+					darker: 'hsl(var(--course-darker))'
 				},
 				tech: {
 					cyan: 'hsl(var(--tech-cyan))',
