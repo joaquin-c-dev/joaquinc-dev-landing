@@ -61,7 +61,36 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Java course theme colors
+				java: {
+					orange: 'hsl(var(--java-orange))',
+					'orange-glow': 'hsl(var(--java-orange-glow))',
+					dark: 'hsl(var(--java-dark))',
+					darker: 'hsl(var(--java-darker))'
+				},
+				tech: {
+					cyan: 'hsl(var(--tech-cyan))',
+					'cyan-glow': 'hsl(var(--tech-cyan-glow))',
+					purple: 'hsl(var(--tech-purple))',
+					'purple-glow': 'hsl(var(--tech-purple-glow))'
 				}
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-card': 'var(--gradient-card)',
+				'gradient-glow': 'var(--gradient-glow)',
+				'gradient-accent': 'var(--gradient-accent)'
+			},
+			boxShadow: {
+				'glow': 'var(--shadow-glow)',
+				'glow-lg': 'var(--shadow-glow-lg)',
+				'card': 'var(--shadow-card)',
+				'accent': 'var(--shadow-accent)'
+			},
+			transitionProperty: {
+				'glow': 'var(--transition-glow)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
