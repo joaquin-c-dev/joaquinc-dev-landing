@@ -13,43 +13,43 @@ import {
 const features = [
   {
     icon: BookOpen,
-    title: "Desde Cero",
-    description: "No necesitas experiencia previa. Comenzamos desde los conceptos más básicos."
+    title: "Metodología Probada",
+    description: "Sistema de enseñanza desarrollado a partir de años formando developers exitosos."
   },
   {
     icon: Code2,
-    title: "Proyectos Reales",
-    description: "Construye aplicaciones completas que puedes añadir a tu portafolio."
+    title: "Proyectos del Mundo Real",
+    description: "Construye aplicaciones que realmente se usan en la industria tecnológica."
   },
   {
     icon: Users,
-    title: "Comunidad Activa",
-    description: "Únete a una comunidad de desarrolladores que te apoyará en tu aprendizaje."
+    title: "Mentoría Personal",
+    description: "Acceso directo conmigo para resolver dudas y guiar tu progreso profesional."
   },
   {
     icon: Trophy,
-    title: "Certificación",
-    description: "Obtén un certificado reconocido al completar el curso exitosamente."
+    title: "Certificado Respaldado",
+    description: "Certificación que avala tu conocimiento basada en mi experiencia profesional."
   },
   {
     icon: Lightbulb,
-    title: "Metodología Práctica",
-    description: "Aprende haciendo. Cada concepto se refuerza con ejercicios prácticos."
+    title: "Enfoque Práctico",
+    description: "Cada concepto se enseña con ejemplos reales de mi experiencia en la industria."
   },
   {
     icon: Rocket,
-    title: "Actualizado 2024",
-    description: "Contenido actualizado con las últimas versiones y mejores prácticas."
+    title: "Tecnologías Actuales",
+    description: "Te enseño las herramientas y frameworks que uso actualmente en producción."
   },
   {
     icon: Clock,
-    title: "A tu Ritmo",
-    description: "Acceso de por vida. Estudia cuando quieras y a la velocidad que prefieras."
+    title: "Flexibilidad Total",
+    description: "Estudia a tu ritmo con acceso permanente al contenido y actualizaciones."
   },
   {
     icon: Award,
-    title: "Instructor Experto",
-    description: "Aprende de un desarrollador con más de 10 años de experiencia en Java."
+    title: "Experiencia Comprobada",
+    description: "Más de 9 años desarrollando sistemas backend escalables con Java."
   }
 ];
 
@@ -62,14 +62,14 @@ const FeaturesSection = () => {
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            ¿Por qué elegir nuestro{" "}
+            ¿Por qué aprender{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              curso?
+              conmigo?
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Diseñado para llevarte de principiante a developer Java competente 
-            con una metodología probada y herramientas modernas.
+            Mi experiencia de 9+ años en desarrollo backend me permite enseñarte 
+            no solo la teoría, sino cómo se aplica Java en proyectos reales de la industria.
           </p>
         </div>
         

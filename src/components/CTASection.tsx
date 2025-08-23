@@ -24,20 +24,20 @@ const CTASection = () => {
                   <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                 ))}
                 <span className="ml-2 text-muted-foreground">
-                  <strong className="text-foreground">4.9/5</strong> basado en 500+ estudiantes
+                  <strong className="text-foreground">Metodología comprobada</strong> en la industria
                 </span>
               </div>
               
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                ¿Listo para convertirte en{" "}
+                ¿Listo para dar el salto a{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Java Developer?
                 </span>
               </h2>
               
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Únete a más de 1,000 estudiantes que ya han transformado su carrera profesional 
-                con nuestro curso de Java.
+                Te acompaño personalmente en tu transformación profesional. 
+                Mi experiencia de 9+ años en backend es tu garantía de aprendizaje efectivo.
               </p>
               
               {/* Benefits list */}
@@ -48,11 +48,11 @@ const CTASection = () => {
                 </div>
                 <div className="flex items-center gap-3 justify-center md:justify-start">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground">Certificado incluido</span>
+                  <span className="text-foreground">Mentoría incluida</span>
                 </div>
                 <div className="flex items-center gap-3 justify-center md:justify-start">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground">Soporte 24/7</span>
+                  <span className="text-foreground">Soporte directo</span>
                 </div>
               </div>
               
@@ -86,7 +86,7 @@ const CTASection = () => {
               </div>
               
               <p className="text-sm text-muted-foreground mt-6">
-                💰 Garantía de devolución de 30 días - Sin preguntas
+                💰 Garantía de satisfacción - Respaldo total en tu aprendizaje
               </p>
             </div>
           </Card>

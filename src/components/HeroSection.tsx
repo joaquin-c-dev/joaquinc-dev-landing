@@ -23,17 +23,18 @@ const HeroSection = () => {
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              Domina{" "}
+              Aprende{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 Java
               </span>
               <br />
-              Como un Pro
+              desde Cero
             </h1>
             
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
-              Aprende programación en Java desde los fundamentos hasta conceptos avanzados. 
-              Curso práctico con proyectos reales y mentorías personalizadas.
+              Te enseño Java desde los fundamentos hasta nivel profesional. 
+              Más de 9 años de experiencia en desarrollo backend me respaldan 
+              para guiarte en cada paso de tu carrera como developer.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
@@ -54,16 +55,16 @@ const HeroSection = () => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 max-w-md mx-auto lg:mx-0">
               <div className="text-center lg:text-left">
-                <div className="text-2xl font-bold text-primary">50+</div>
-                <div className="text-sm text-muted-foreground">Horas de Contenido</div>
+                <div className="text-2xl font-bold text-primary">9+</div>
+                <div className="text-sm text-muted-foreground">Años de Experiencia</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="text-2xl font-bold text-primary">15+</div>
-                <div className="text-sm text-muted-foreground">Proyectos Prácticos</div>
+                <div className="text-2xl font-bold text-primary">100%</div>
+                <div className="text-sm text-muted-foreground">Contenido Práctico</div>
               </div>
               <div className="text-center lg:text-left">
                 <div className="text-2xl font-bold text-primary">24/7</div>
-                <div className="text-sm text-muted-foreground">Soporte</div>
+                <div className="text-sm text-muted-foreground">Soporte Directo</div>
               </div>
             </div>
           </div>
