@@ -90,4 +90,14 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Stripe buy button custom styling */
+  .stripe-buy-button-container {
+    filter: drop-shadow(0 0 30px hsl(214 95% 65% / 0.3));
+    transition: filter 0.3s ease-in-out;
+  }
+
+  .stripe-buy-button-container:hover {
+    filter: drop-shadow(0 0 50px hsl(214 95% 65% / 0.4));
+  }
 }
