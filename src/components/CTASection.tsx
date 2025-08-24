@@ -67,7 +67,7 @@ const CTASection = () => {
               </div>
               
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex justify-center">
                 {/* Stripe Buy Button */}
                 <div className="stripe-buy-button-container">
                   <stripe-buy-button
@@ -76,14 +76,6 @@ const CTASection = () => {
                   >
                   </stripe-buy-button>
                 </div>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-primary/30 hover:border-primary/50 text-lg px-12 py-4"
-                >
-                  <Code className="w-5 h-5 mr-2" />
-                  Ver Demo Gratuita
-                </Button>
               </div>
               
               <p className="text-sm text-muted-foreground mt-6">
