@@ -53,8 +53,8 @@ const HeroSection = () => {
               {/* Stripe Buy Button */}
               <div className="stripe-buy-button-container">
                 <stripe-buy-button
-                  buy-button-id="buy_btn_1RzR2zAyQjZdu8i7sqQCgWAl"
-                  publishable-key="pk_test_51RzQPTAyQjZdu8i70FBAW5kc6JF0KXxpdPq7rO6rQrKPKtpFuuqLHJz6wLvbjQGuNr7fvj8uGd3MIUjaF0bocihO00zOLurAWP"
+                  buy-button-id="buy_btn_1RzUiOPfVaqv8srYXnq24hCy"
+                  publishable-key="pk_live_51RzQPOPfVaqv8srY2e9rKc4p53vZ6kqwfccL8HoQA7GfDidHaPaFpLM0F4iil0Z8yDwW1n1qfTOwMmlacpgrWXy200K0LeldsG"
                 >
                 </stripe-buy-button>
               </div>
