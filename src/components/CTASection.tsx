@@ -57,25 +57,6 @@ const CTASection = () => {
                 </div>
               </div>
               
-              {/* Course Schedule */}
-              <div className="mb-8 p-6 bg-primary/5 rounded-xl border border-primary/20">
-                <h3 className="text-xl font-semibold mb-4 text-primary">📅 Próximo Inicio</h3>
-                <div className="grid md:grid-cols-3 gap-4 text-center">
-                  <div>
-                    <div className="text-sm text-muted-foreground mb-1">Inicio</div>
-                    <div className="font-semibold text-foreground">1 de Noviembre</div>
-                  </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground mb-1">Modalidad</div>
-                    <div className="font-semibold text-foreground">Sabatina 9am - 2pm</div>
-                  </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground mb-1">Finalización</div>
-                    <div className="font-semibold text-foreground">20 de Diciembre</div>
-                  </div>
-                </div>
-              </div>
-              
               {/* Pricing */}
               <div className="mb-8">
                 <div className="text-center">
@@ -94,6 +75,25 @@ const CTASection = () => {
                     publishable-key="pk_test_51RzQPTAyQjZdu8i70FBAW5kc6JF0KXxpdPq7rO6rQrKPKtpFuuqLHJz6wLvbjQGuNr7fvj8uGd3MIUjaF0bocihO00zOLurAWP"
                   >
                   </stripe-buy-button>
+                </div>
+              </div>
+
+              {/* Course Schedule */}
+              <div className="mb-8 p-6 bg-primary/5 rounded-xl border border-primary/20">
+                <h3 className="text-xl font-semibold mb-4 text-primary">📅 Próximo Inicio</h3>
+                <div className="grid md:grid-cols-3 gap-4 text-center">
+                  <div>
+                    <div className="text-sm text-muted-foreground mb-1">Inicio</div>
+                    <div className="font-semibold text-foreground">1 de Noviembre</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-muted-foreground mb-1">Modalidad</div>
+                    <div className="font-semibold text-foreground">Sabatina 9am - 2pm</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-muted-foreground mb-1">Finalización</div>
+                    <div className="font-semibold text-foreground">20 de Diciembre</div>
+                  </div>
                 </div>
               </div>
               
