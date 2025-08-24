@@ -28,8 +28,8 @@ const features = [
   },
   {
     icon: Trophy,
-    title: "Certificado Respaldado",
-    description: "Certificación que avala tu conocimiento basada en mi experiencia profesional."
+    title: "Código Fuente Completo",
+    description: "Acceso total a todos los proyectos, ejercicios y código que desarrollemos juntos."
   },
   {
     icon: Lightbulb,
