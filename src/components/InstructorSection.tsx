@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Building2, GraduationCap, Code, Users, Award, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Building2, GraduationCap, Code, Users, Award, MapPin, Linkedin, ExternalLink } from "lucide-react";
 
 const InstructorSection = () => {
   const experiences = [
@@ -73,12 +74,37 @@ const InstructorSection = () => {
                 Tu Instructor
               </span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            
+            {/* Instructor Name & LinkedIn */}
+            <div className="mb-8">
+              <h2 className="text-4xl lg:text-6xl font-bold mb-4">
+                <span className="bg-gradient-primary bg-clip-text text-transparent">
+                  Joaquín Coronado Ramírez
+                </span>
+              </h2>
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <p className="text-xl text-muted-foreground">
+                  Head of Backend Development • Course Instructor
+                </p>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="border-primary/30 hover:border-primary/50 text-primary hover:text-primary"
+                  onClick={() => window.open('https://www.linkedin.com/in/joaquincr/', '_blank')}
+                >
+                  <Linkedin className="w-4 h-4 mr-2" />
+                  LinkedIn
+                  <ExternalLink className="w-3 h-3 ml-1" />
+                </Button>
+              </div>
+            </div>
+            
+            <h3 className="text-3xl lg:text-4xl font-bold mb-6">
               Aprende con un{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 Experto Real
               </span>
-            </h2>
+            </h3>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Más de 9 años desarrollando backend en empresas Fortune 500 y 8+ años 
               formando a la próxima generación de desarrolladores Java.
@@ -153,7 +179,7 @@ const InstructorSection = () => {
           </div>
 
           {/* Technical Skills */}
-          <div className="text-center">
+          <div className="text-center mb-12">
             <h3 className="text-2xl font-bold mb-6">Tecnologías Dominadas</h3>
             <div className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
               {skills.map((skill, index) => (
@@ -166,6 +192,29 @@ const InstructorSection = () => {
                 </Badge>
               ))}
             </div>
+          </div>
+
+          {/* LinkedIn CTA */}
+          <div className="text-center">
+            <Card className="p-8 bg-gradient-subtle border-primary/20 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Linkedin className="w-8 h-8 text-[#0077B5]" />
+                <h3 className="text-2xl font-bold">Conecta Conmigo</h3>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Sígueme en LinkedIn para ver más sobre mi experiencia profesional, 
+                proyectos actuales y contenido exclusivo sobre desarrollo backend.
+              </p>
+              <Button 
+                size="lg"
+                className="bg-[#0077B5] hover:bg-[#005885] text-white"
+                onClick={() => window.open('https://www.linkedin.com/in/joaquincr/', '_blank')}
+              >
+                <Linkedin className="w-5 h-5 mr-2" />
+                Ver Perfil de LinkedIn
+                <ExternalLink className="w-4 h-4 ml-2" />
+              </Button>
+            </Card>
           </div>
         </div>
       </div>
