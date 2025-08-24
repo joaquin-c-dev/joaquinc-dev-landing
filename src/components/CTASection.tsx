@@ -4,7 +4,7 @@ import { ArrowRight, Star, CheckCircle, Code } from "lucide-react";
 
 const CTASection = () => {
   return (
-    <section className="py-24 bg-course-darker relative overflow-hidden">
+    <section data-section="cta" className="py-24 bg-course-darker relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>
       <div className="absolute top-1/2 left-1/4 w-72 h-72 bg-tech-cyan/10 rounded-full blur-3xl"></div>
