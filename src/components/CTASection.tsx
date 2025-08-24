@@ -84,17 +84,13 @@ const CTASection = () => {
               
               {/* CTA Buttons */}
               <div className="flex justify-center">
-                {/* Stripe Buy Button with prominent styling */}
-                <div className="relative p-1 rounded-2xl bg-gradient-accent">
-                  <div className="bg-background rounded-xl p-4">
-                    <div className="stripe-buy-button-container">
-                       <stripe-buy-button
-                          buy-button-id="buy_btn_1RzUiOPfVaqv8srYXnq24hCy"
-                          publishable-key="pk_live_51RzQPOPfVaqv8srY2e9rKc4p53vZ6kqwfccL8HoQA7GfDidHaPaFpLM0F4iil0Z8yDwW1n1qfTOwMmlacpgrWXy200K0LeldsG"
-                        >
-                      </stripe-buy-button>
-                    </div>
-                  </div>
+                {/* Stripe Buy Button */}
+                <div className="stripe-buy-button-container">
+                   <stripe-buy-button
+                      buy-button-id="buy_btn_1RzUiOPfVaqv8srYXnq24hCy"
+                      publishable-key="pk_live_51RzQPOPfVaqv8srY2e9rKc4p53vZ6kqwfccL8HoQA7GfDidHaPaFpLM0F4iil0Z8yDwW1n1qfTOwMmlacpgrWXy200K0LeldsG"
+                    >
+                  </stripe-buy-button>
                 </div>
               </div>
               
