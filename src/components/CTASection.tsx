@@ -60,8 +60,8 @@ const CTASection = () => {
               {/* Pricing */}
               <div className="mb-8">
                 <div className="text-center">
-                  <div className="text-muted-foreground line-through text-2xl mb-2">$299</div>
-                  <div className="text-5xl font-bold text-primary mb-2">$99</div>
+                  <div className="text-muted-foreground line-through text-2xl mb-2">$8,500 MXN</div>
+                  <div className="text-5xl font-bold text-primary mb-2">$6,500 <span className="text-2xl">MXN</span></div>
                   <div className="text-muted-foreground">Oferta por tiempo limitado</div>
                 </div>
               </div>
