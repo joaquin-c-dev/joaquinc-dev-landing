@@ -59,7 +59,7 @@ const CTASection = () => {
               
               {/* Course Schedule */}
               <div className="mb-8 p-6 bg-primary/5 rounded-xl border border-primary/20">
-                <h3 className="text-xl font-semibold mb-4 text-primary">📅 Próxima Cohorte</h3>
+                <h3 className="text-xl font-semibold mb-4 text-primary">📅 Próximo Inicio</h3>
                 <div className="grid md:grid-cols-3 gap-4 text-center">
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">Inicio</div>
