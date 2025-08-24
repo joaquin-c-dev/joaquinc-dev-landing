@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Code, Coffee, Zap } from "lucide-react";
+import joaquinProfile from "@/assets/joaquin-profile.jpg";
 
 const HeroSection = () => {
   return (
@@ -14,6 +15,26 @@ const HeroSection = () => {
         <div className="max-w-5xl mx-auto text-center">
           {/* Text content */}
           <div className="px-4 md:px-8">
+            {/* Instructor Profile */}
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <img 
+                src={joaquinProfile}
+                alt="Joaquín Coronado Ramírez - Tu instructor de Java"
+                className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-3 border-primary/30 shadow-glow"
+              />
+              <div className="text-left">
+                <div className="text-primary font-semibold text-lg md:text-xl">
+                  Tu Instructor
+                </div>
+                <div className="text-foreground font-bold text-xl md:text-2xl">
+                  Joaquín Coronado Ramírez
+                </div>
+                <div className="text-muted-foreground text-sm md:text-base">
+                  Head of Backend • 9+ años experiencia
+                </div>
+              </div>
+            </div>
+            
             <div className="flex items-center gap-2 mb-6 justify-center">
               <Coffee className="w-6 h-6 text-primary" />
               <span className="text-muted-foreground uppercase tracking-wider text-sm font-medium">
