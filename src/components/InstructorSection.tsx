@@ -19,7 +19,7 @@ const InstructorSection = () => {
       ]
     },
     {
-      company: "Tec Gurus",
+      company: "Formación Profesional",
       role: "Course Instructor",
       period: "Feb 2017 - Actual (8+ años)",
       location: "Guadalajara, México",
