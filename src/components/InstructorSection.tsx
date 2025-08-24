@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Building2, GraduationCap, Code, Users, Award, MapPin, Linkedin, ExternalLink } from "lucide-react";
+import joaquinProfile from "@/assets/joaquin-profile.jpg";
 
 const InstructorSection = () => {
   const experiences = [
@@ -77,12 +78,26 @@ const InstructorSection = () => {
             
             {/* Instructor Name & LinkedIn */}
             <div className="mb-8">
+              {/* Profile Image */}
+              <div className="flex justify-center mb-6">
+                <div className="relative">
+                  <img 
+                    src={joaquinProfile}
+                    alt="Joaquín Coronado Ramírez - Java Instructor"
+                    className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/20 shadow-elegant"
+                  />
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                    <GraduationCap className="w-4 h-4 text-primary-foreground" />
+                  </div>
+                </div>
+              </div>
+              
               <h2 className="text-4xl lg:text-6xl font-bold mb-4">
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Joaquín Coronado Ramírez
                 </span>
               </h2>
-              <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
                 <p className="text-xl text-muted-foreground">
                   Head of Backend Development • Course Instructor
                 </p>
