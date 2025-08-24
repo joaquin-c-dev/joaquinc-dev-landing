@@ -18,107 +18,120 @@ import {
 const curriculumModules = [
   {
     icon: BookOpen,
-    title: "Fundamentos de Java",
-    duration: "8 horas",
+    title: "Introducción a Java",
+    duration: "4 horas",
     topics: [
-      "Sintaxis y estructura del lenguaje",
-      "Programación orientada a objetos",
-      "Collections y Streams",
-      "Manejo de excepciones",
-      "Generics y anotaciones"
+      "¿Qué es Java y cómo trabaja?",
+      "Java Virtual Machine (JVM)",
+      "JDK y JRE",
+      "Comandos java, javac",
+      "Java ES, Java EE, Jakarta",
+      "Empaquetado de aplicaciones (JAR y WAR)",
+      "Versiones en Java",
+      "Instalación del JDK y variable de entorno"
     ],
     color: "tech-blue"
   },
   {
     icon: Code2,
-    title: "Spring Framework Esencial",
-    duration: "12 horas",
+    title: "Fundamentos de Java",
+    duration: "8 horas",
     topics: [
-      "Inversión de control e inyección de dependencias",
-      "Spring Boot configuración y estructura",
-      "Profiles y configuraciones externas",
-      "Spring Data JPA",
-      "Validaciones con Bean Validation"
+      "Estructura de un programa en Java",
+      "Variables y tipos de datos",
+      "Palabra reservada 'var' y 'final'",
+      "Bases Hexadecimal, Octal, Binario",
+      "Conversión de tipos y manejo de cadenas",
+      "Operadores (asignación, aritméticos, relacionales, lógicos)",
+      "Sentencias de control (if, else, switch)",
+      "Ciclos (while, do-while, for, forEach)",
+      "Métodos y sobrecarga",
+      "Arreglos y uso de paquetes"
     ],
     color: "tech-green"
   },
   {
-    icon: Globe,
-    title: "API REST con Spring Boot",
-    duration: "10 horas",
+    icon: Boxes,
+    title: "Programación Orientada a Objetos",
+    duration: "8 horas",
     topics: [
-      "Construcción de APIs RESTful",
-      "Controllers y Request Mapping",
-      "Serialización y deserialización JSON",
-      "Manejo de errores y excepciones",
-      "Documentación con OpenAPI/Swagger"
+      "Abstracción, clases y objetos",
+      "Métodos y atributos",
+      "Constructor y sobrecarga de constructor",
+      "Palabras reservadas 'this' y 'super'",
+      "Contexto estático",
+      "Encapsulamiento y operadores de visibilidad",
+      "Setter y getters",
+      "Herencia y palabra reservada 'extends'",
+      "Sobreescritura de métodos (@Override)",
+      "Polimorfismo, clases abstractas e interfaces"
     ],
     color: "tech-purple"
   },
   {
-    icon: Database,
-    title: "Persistencia de Datos",
-    duration: "8 horas",
+    icon: Settings,
+    title: "Enumerables, Genericos y Collections",
+    duration: "4 horas",
     topics: [
-      "JPA y Hibernate avanzado",
-      "Diseño de base de datos relacional",
-      "Consultas JPQL y Criteria API",
-      "Transacciones y optimización",
-      "Migraciones con Flyway/Liquibase"
+      "Enumerables y sus atributos/métodos",
+      "Genericos y convenciones",
+      "Collections API",
+      "Listas (ArrayList, LinkedList)",
+      "Set (HashSet, TreeSet)",
+      "Map (HashMap, TreeMap)"
     ],
     color: "tech-orange"
   },
   {
     icon: Shield,
-    title: "Seguridad con Spring Security",
-    duration: "8 horas",
+    title: "Excepciones y Programación Funcional",
+    duration: "6 horas",
     topics: [
-      "Autenticación y autorización",
-      "JWT y OAuth2 implementación",
-      "Seguridad de endpoints",
-      "CORS y configuraciones de seguridad",
-      "Mejores prácticas de seguridad"
+      "Checked y Unchecked Exceptions",
+      "Throwable, Exception, RunTimeException",
+      "try, catch, finally",
+      "Throw y Throws",
+      "¿Qué es la programación funcional?",
+      "Expresiones Lambda y sintaxis",
+      "Interfaces funcionales",
+      "Métodos referenciados",
+      "Stream API y pipeline",
+      "Operaciones intermedias y terminales"
     ],
     color: "tech-red"
   },
   {
-    icon: TestTube,
-    title: "Testing Profesional",
-    duration: "6 horas",
+    icon: Globe,
+    title: "Introducción al Desarrollo Web",
+    duration: "4 horas",
     topics: [
-      "Unit testing con JUnit 5",
-      "Integration testing con TestContainers",
-      "Mocking con Mockito",
-      "Testing de APIs REST",
-      "Code coverage y calidad de código"
+      "¿Qué es el desarrollo web?",
+      "Arquitectura Cliente-Servidor",
+      "HTTP: protocolo de comunicación",
+      "Métodos HTTP (GET, POST, PUT, DELETE)",
+      "Estructura de una URL",
+      "Códigos de estado HTTP (200, 404, 500)",
+      "APIs y servicios REST"
     ],
     color: "tech-cyan"
   },
   {
-    icon: Cloud,
-    title: "Microservicios y Cloud",
-    duration: "10 horas",
-    topics: [
-      "Arquitectura de microservicios",
-      "Service Discovery con Eureka",
-      "API Gateway con Spring Cloud Gateway",
-      "Circuit Breaker y resilience patterns",
-      "Deployment en AWS/GCP"
-    ],
-    color: "course-blue"
-  },
-  {
-    icon: Boxes,
-    title: "DevOps y Containerización",
+    icon: Database,
+    title: "Spring Framework y MongoDB",
     duration: "6 horas",
     topics: [
-      "Docker y containerización",
-      "Docker Compose para desarrollo",
-      "CI/CD con GitHub Actions",
-      "Monitoring y logging",
-      "Performance optimization"
+      "Introducción al ecosistema Spring",
+      "¿Qué es Spring Framework y Spring Boot?",
+      "Inversión de Control (IoC) y Dependency Injection (DI)",
+      "Creación y gestión de Beans (@Component, @Service, @Repository)",
+      "Controladores REST (@RestController, @GetMapping, @PostMapping)",
+      "Manejo de parámetros y excepciones (@ExceptionHandler)",
+      "Introducción a MongoDB",
+      "Creación de documentos con @Document",
+      "Uso de MongoTemplate",
+      "Inserción y búsqueda de documentos"
     ],
-    color: "tech-yellow"
+    color: "course-blue"
   }
 ];
 
