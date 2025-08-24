@@ -15,26 +15,6 @@ const HeroSection = () => {
         <div className="max-w-5xl mx-auto text-center">
           {/* Text content */}
           <div className="px-4 md:px-8">
-            {/* Instructor Profile */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <img 
-                src={joaquinProfile}
-                alt="Joaquín Coronado Ramírez - Tu instructor de Java"
-                className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-3 border-primary/30 shadow-glow"
-              />
-              <div className="text-left">
-                <div className="text-primary font-semibold text-lg md:text-xl">
-                  Tu Instructor
-                </div>
-                <div className="text-foreground font-bold text-xl md:text-2xl">
-                  Joaquín Coronado Ramírez
-                </div>
-                <div className="text-muted-foreground text-sm md:text-base">
-                  Head of Backend • 9+ años experiencia
-                </div>
-              </div>
-            </div>
-            
             <div className="flex items-center gap-2 mb-6 justify-center">
               <Coffee className="w-6 h-6 text-primary" />
               <span className="text-muted-foreground uppercase tracking-wider text-sm font-medium">
@@ -51,11 +31,23 @@ const HeroSection = () => {
               desde Cero
             </h1>
             
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-6 max-w-3xl mx-auto">
               Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
               Más de 9 años de experiencia en desarrollo backend me respaldan 
               para guiarte en tiempo real en cada paso de tu carrera como developer.
             </p>
+            
+            {/* Instructor Profile - Subtle */}
+            <div className="flex items-center justify-center gap-3 mb-8 opacity-80">
+              <img 
+                src={joaquinProfile}
+                alt="Joaquín Coronado Ramírez"
+                className="w-10 h-10 rounded-full object-cover border-2 border-primary/20"
+              />
+              <div className="text-sm text-muted-foreground">
+                Con <span className="text-primary font-medium">Joaquín Coronado</span> • Head of Backend
+              </div>
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               {/* Stripe Buy Button - Small */}
