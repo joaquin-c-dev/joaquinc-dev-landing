@@ -8,10 +8,10 @@ const WhatsAppButton = () => {
   return (
     <button
       onClick={handleClick}
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+      className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group"
       style={{ 
-        background: 'var(--gradient-primary)',
-        boxShadow: 'var(--shadow-glow)'
+        background: 'linear-gradient(135deg, #25D366, #128C7E)',
+        boxShadow: '0 0 30px rgba(37, 211, 102, 0.3)'
       }}
       aria-label="Contactar por WhatsApp"
     >
