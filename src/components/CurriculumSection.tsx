@@ -200,12 +200,12 @@ const CurriculumSection = () => {
           {curriculumModules.map((module, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-glow hover:shadow-accent transition-all duration-500 hover:-translate-y-2 border-border/50 hover:border-primary/30 bg-gradient-card backdrop-blur-sm hover:bg-gradient-glow"
+              className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50"
             >
               <CardHeader className="pb-4">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg shadow-glow flex items-center justify-center group-hover:scale-110 group-hover:shadow-accent transition-all duration-500">
-                    <module.icon className="w-6 h-6 text-primary-foreground group-hover:drop-shadow-lg" />
+                  <div className="w-12 h-12 bg-gradient-primary rounded-lg shadow-card flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <module.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
@@ -234,7 +234,7 @@ const CurriculumSection = () => {
         
         {/* Additional Info */}
         <div className="mt-16 text-center">
-          <Card className="p-8 bg-gradient-card border-primary/20 max-w-3xl mx-auto shadow-glow hover:shadow-accent transition-all duration-500 backdrop-blur-sm">
+          <Card className="p-8 bg-gradient-card border-primary/20 max-w-3xl mx-auto">
             <div className="mb-6">
               <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-4">
