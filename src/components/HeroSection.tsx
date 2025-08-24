@@ -52,7 +52,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               {/* Stripe Buy Button */}
               <div className="stripe-buy-button-container">
-                <stripe-buy-button
+                 <stripe-buy-button
                   buy-button-id="buy_btn_1RzUiOPfVaqv8srYXnq24hCy"
                   publishable-key="pk_live_51RzQPOPfVaqv8srY2e9rKc4p53vZ6kqwfccL8HoQA7GfDidHaPaFpLM0F4iil0Z8yDwW1n1qfTOwMmlacpgrWXy200K0LeldsG"
                 >
