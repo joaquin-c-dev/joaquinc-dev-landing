@@ -23,12 +23,11 @@ const HeroSection = () => {
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              Aprende{" "}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Java
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Aprende Java
+                <br />
+                desde Cero
               </span>
-              <br />
-              desde Cero
             </h1>
             
             <p className="text-xl text-muted-foreground mb-6 max-w-3xl mx-auto">
