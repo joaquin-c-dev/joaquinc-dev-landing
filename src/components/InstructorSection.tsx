@@ -98,7 +98,7 @@ const InstructorSection = () => {
               </div>
               
               <h2 className="text-4xl lg:text-6xl font-bold mb-4">
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
+                <span className="bg-gradient-accent bg-clip-text text-transparent drop-shadow-lg animate-pulse">
                   Joaquín Coronado Ramírez
                 </span>
               </h2>
@@ -121,7 +121,7 @@ const InstructorSection = () => {
             
             <h3 className="text-3xl lg:text-4xl font-bold mb-6">
               Aprende con un{" "}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
                 Experto Real
               </span>
             </h3>
