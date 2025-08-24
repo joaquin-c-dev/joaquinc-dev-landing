@@ -37,11 +37,11 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              {/* Stripe Buy Button */}
+              {/* Stripe Buy Button - Small */}
               <div className="stripe-buy-button-container">
                 <stripe-buy-button
                   buy-button-id="buy_btn_1RzR2zAyQjZdu8i7sqQCgWAl"
-                  publishable-key="pk_test_51RzQPTAyQjZdu8i70FBAW5kc6JF0KXxpdPq7rO6rQrKPKtpFuuqLHJz6wLvbjQGuNr7fvj8uGd3MIUjaF0bocihO00zOLurAWP"
+                  publishable-key="pk_test_51RzQPTAyQjZdu8i70FBAW5kc6JF0KXxpdPq7rO6rQrKPKtpFuuqLHJz6wLvj8uGd3MIUjaF0bocihO00zOLurAWP"
                 >
                 </stripe-buy-button>
               </div>
