@@ -116,20 +116,31 @@ const curriculumModules = [
     color: "tech-cyan"
   },
   {
-    icon: Database,
-    title: "Spring Framework y MongoDB",
-    duration: "6 horas",
+    icon: Zap,
+    title: "Spring Framework/Spring Boot",
+    duration: "4 horas",
     topics: [
       "Introducción al ecosistema Spring",
-      "¿Qué es Spring Framework y Spring Boot?",
+      "¿Qué es Spring Framework y por qué usarlo?",
+      "Spring Boot y estructura de un proyecto",
       "Inversión de Control (IoC) y Dependency Injection (DI)",
       "Creación y gestión de Beans (@Component, @Service, @Repository)",
       "Controladores REST (@RestController, @GetMapping, @PostMapping)",
-      "Manejo de parámetros y excepciones (@ExceptionHandler)",
+      "Manejo de parámetros y excepciones (@ExceptionHandler)"
+    ],
+    color: "tech-green"
+  },
+  {
+    icon: Database,
+    title: "Persistencia de Datos con MongoDB",
+    duration: "2 horas",
+    topics: [
       "Introducción a MongoDB",
       "Creación de documentos con @Document",
+      "Definición de identificadores con @Id",
       "Uso de MongoTemplate",
-      "Inserción y búsqueda de documentos"
+      "Inserción de documentos (insert, save)",
+      "Búsqueda con find, findOne, findAll"
     ],
     color: "course-blue"
   }
