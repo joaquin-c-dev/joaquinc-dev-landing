@@ -3,6 +3,7 @@ import FeaturesSection from "@/components/FeaturesSection";
 import CurriculumSection from "@/components/CurriculumSection";
 import InstructorSection from "@/components/InstructorSection";
 import CTASection from "@/components/CTASection";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <CurriculumSection />
       <InstructorSection />
       <CTASection />
+      <WhatsAppButton />
     </div>
   );
 };

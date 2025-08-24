@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Star, CheckCircle, Code, MessageCircle } from "lucide-react";
+import { ArrowRight, Star, CheckCircle, Code } from "lucide-react";
 
 const CTASection = () => {
   return (
@@ -83,15 +83,6 @@ const CTASection = () => {
                 >
                   <Code className="w-5 h-5 mr-2" />
                   Ver Demo Gratuita
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-green-500/30 hover:border-green-500/50 text-green-600 hover:text-green-500 text-lg px-8 py-4"
-                  onClick={() => window.open('https://wa.me/523310881011?text=Hola%20Joaquín,%20me%20interesa%20el%20curso%20de%20Java', '_blank')}
-                >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Contactar por WhatsApp
                 </Button>
               </div>
               
