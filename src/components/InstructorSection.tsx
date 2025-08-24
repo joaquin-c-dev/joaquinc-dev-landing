@@ -64,8 +64,13 @@ const InstructorSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-subtle">
-      <div className="container mx-auto px-8 md:px-12 lg:px-16">
+    <section className="relative py-20 bg-gradient-subtle overflow-hidden">
+      {/* Background glow effects */}
+      <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>
+      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-course-blue/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-tech-cyan/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      
+      <div className="relative z-10 container mx-auto px-8 md:px-12 lg:px-16">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
