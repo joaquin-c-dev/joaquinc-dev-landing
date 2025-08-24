@@ -153,9 +153,11 @@ const CurriculumSection = () => {
 
   return (
     <section id="curriculum" className="py-24 bg-course-dark relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-tech-purple/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-course-blue/10 rounded-full blur-3xl"></div>
+      {/* Background glow effects */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-tech-purple/5 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-course-blue/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-glow opacity-20 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-course-blue/5 to-transparent"></div>
       
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-16">
@@ -198,12 +200,12 @@ const CurriculumSection = () => {
           {curriculumModules.map((module, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-glow transition-all duration-300 hover:-translate-y-1 border-border/50"
+              className="group hover:shadow-glow hover:shadow-accent transition-all duration-500 hover:-translate-y-2 border-border/50 hover:border-primary/30 bg-gradient-card backdrop-blur-sm hover:bg-gradient-glow"
             >
               <CardHeader className="pb-4">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg shadow-card flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <module.icon className="w-6 h-6 text-primary-foreground" />
+                  <div className="w-12 h-12 bg-gradient-primary rounded-lg shadow-glow flex items-center justify-center group-hover:scale-110 group-hover:shadow-accent transition-all duration-500">
+                    <module.icon className="w-6 h-6 text-primary-foreground group-hover:drop-shadow-lg" />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
@@ -232,7 +234,7 @@ const CurriculumSection = () => {
         
         {/* Additional Info */}
         <div className="mt-16 text-center">
-          <Card className="p-8 bg-gradient-card border-primary/20 max-w-3xl mx-auto">
+          <Card className="p-8 bg-gradient-card border-primary/20 max-w-3xl mx-auto shadow-glow hover:shadow-accent transition-all duration-500 backdrop-blur-sm">
             <div className="mb-6">
               <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-2xl font-bold mb-4">
