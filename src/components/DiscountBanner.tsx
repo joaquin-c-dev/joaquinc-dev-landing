@@ -25,23 +25,20 @@ const DiscountBanner = () => {
       <div className="absolute top-0 left-1/4 w-32 h-32 bg-tech-cyan/20 rounded-full blur-2xl animate-pulse"></div>
       <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-course-blue/30 rounded-full blur-xl animate-pulse"></div>
       
-      <div className="relative z-10 container mx-auto px-6 py-4">
+      <div className="relative z-10 container mx-auto px-6 py-2">
         <div className="flex items-center justify-between">
-          <div className="flex-1 text-center">
-            <div className="flex items-center justify-center gap-2 flex-wrap">
-              <Zap className="w-5 h-5 text-yellow-300 animate-pulse" />
-              <span className="text-white font-bold text-sm md:text-lg">
+          <div className="flex-1">
+            <div className="flex items-center justify-center gap-3 flex-wrap">
+              <Zap className="w-4 h-4 text-yellow-300 animate-pulse" />
+              <span className="text-white font-bold text-sm">
                 🔥 DESCUENTO DE LANZAMIENTO AGOSTO 2024
               </span>
-              <Zap className="w-5 h-5 text-yellow-300 animate-pulse" />
-            </div>
-            <div className="mt-1 flex items-center justify-center gap-2 flex-wrap text-white/90 text-xs md:text-sm">
-              <Clock className="w-4 h-4" />
-              <span className="font-semibold">¡Solo por tiempo limitado este mes!</span>
-              <span className="bg-white/20 px-2 py-1 rounded-full font-bold">
+              <Clock className="w-4 h-4 text-white/90" />
+              <span className="text-white/95 font-medium text-sm">¡Solo por tiempo limitado!</span>
+              <span className="bg-yellow-400/25 px-3 py-1 rounded-full font-bold text-yellow-100 text-sm border border-yellow-400/30">
                 $2,000 MXN de descuento
               </span>
-              <span className="bg-yellow-400/20 px-2 py-1 rounded-full font-bold text-yellow-100">
+              <span className="bg-green-400/25 px-3 py-1 rounded-full font-bold text-green-100 text-sm border border-green-400/30">
                 + 3 meses sin intereses
               </span>
             </div>
