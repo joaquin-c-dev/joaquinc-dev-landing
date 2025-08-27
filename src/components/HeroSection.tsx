@@ -56,7 +56,7 @@ const HeroSection = () => {
                 <Button 
                   size="lg"
                   className="relative bg-gradient-primary text-white font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 border border-primary/30"
-                  onClick={() => window.open('https://buy.stripe.com/3cI28td540uL7Nf0UAb3q00?prefilled_promo_code=LANZAMIENTO', '_blank')}
+                  onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
                 >
                   <span>Inscribirme Ahora</span>
                 </Button>
