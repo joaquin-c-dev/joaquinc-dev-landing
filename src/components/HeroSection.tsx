@@ -50,14 +50,26 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              {/* Custom Buy Button */}
-              <div className="stripe-buy-button-container">
+              {/* Modern CTA Button */}
+              <div className="group relative">
+                <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
                 <Button 
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4 rounded-lg transition-all duration-300"
+                  className="relative bg-gradient-primary hover:shadow-glow-lg text-primary-foreground font-bold text-xl px-12 py-6 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_60px_hsl(214_95%_65%/0.6)] border border-primary/30"
                   onClick={() => window.open('https://buy.stripe.com/3cI28td540uL7Nf0UAb3q00?prefilled_promo_code=LANZAMIENTO', '_blank')}
                 >
-                  🚀 Inscribirme Ahora
+                  <span className="flex items-center gap-3">
+                    <span className="text-2xl">🚀</span>
+                    <span>Inscribirme Ahora</span>
+                    <svg 
+                      className="w-6 h-6 transition-transform group-hover:translate-x-1" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
                 </Button>
               </div>
               <Button 

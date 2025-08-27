@@ -86,16 +86,31 @@ const CTASection = () => {
                 </div>
               </div>
               
-              {/* CTA Buttons */}
+              {/* Modern CTA Button */}
               <div className="flex justify-center">
-                {/* Custom Buy Button */}
-                <div className="stripe-buy-button-container">
+                <div className="group relative">
+                  <div className="absolute -inset-3 bg-gradient-accent rounded-3xl blur-2xl opacity-70 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
+                  <div className="absolute -inset-1 bg-gradient-primary rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
                   <Button 
                     size="lg"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4 rounded-lg transition-all duration-300"
+                    className="relative bg-gradient-primary hover:shadow-glow-lg text-primary-foreground font-bold text-2xl px-16 py-8 rounded-2xl transition-all duration-500 transform hover:scale-110 hover:shadow-[0_0_80px_hsl(214_95%_65%/0.8)] border-2 border-primary/40 overflow-hidden"
                     onClick={() => window.open('https://buy.stripe.com/3cI28td540uL7Nf0UAb3q00?prefilled_promo_code=LANZAMIENTO', '_blank')}
                   >
-                    🚀 Inscribirme Ahora
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                    <span className="relative flex items-center gap-4">
+                      <span className="text-3xl animate-bounce">🚀</span>
+                      <span className="bg-gradient-to-r from-white to-course-blue-light bg-clip-text text-transparent font-black">
+                        INSCRIBIRME AHORA
+                      </span>
+                      <svg 
+                        className="w-8 h-8 transition-transform group-hover:translate-x-2 group-hover:scale-110" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </span>
                   </Button>
                 </div>
               </div>
