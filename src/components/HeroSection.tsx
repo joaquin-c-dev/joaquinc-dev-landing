@@ -55,20 +55,10 @@ const HeroSection = () => {
                 <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
                 <Button 
                   size="lg"
-                  className="relative bg-gradient-primary hover:shadow-glow-lg text-primary-foreground font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_60px_hsl(214_95%_65%/0.6)] border border-primary/30"
+                  className="relative bg-gradient-primary text-white font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 border border-primary/30"
                   onClick={() => window.open('https://buy.stripe.com/3cI28td540uL7Nf0UAb3q00?prefilled_promo_code=LANZAMIENTO', '_blank')}
                 >
-                  <span className="flex items-center gap-3">
-                    <span>Inscribirme Ahora</span>
-                    <svg 
-                      className="w-5 h-5 transition-transform group-hover:translate-x-1" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </span>
+                  <span>Inscribirme Ahora</span>
                 </Button>
               </div>
               <Button 
