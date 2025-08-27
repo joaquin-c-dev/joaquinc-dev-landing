@@ -89,8 +89,8 @@ const CTASection = () => {
               {/* Modern CTA Button */}
               <div className="flex justify-center">
                 <div className="group relative">
-                  <div className="absolute -inset-3 bg-gradient-accent rounded-3xl blur-2xl opacity-70 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
-                  <div className="absolute -inset-1 bg-gradient-primary rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+                  <div className="absolute -inset-3 bg-gradient-accent rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-all duration-700"></div>
+                  <div className="absolute -inset-1 bg-gradient-primary rounded-2xl blur opacity-15 group-hover:opacity-25 transition-opacity duration-500"></div>
                   <Button 
                     size="lg"
                     className="relative bg-gradient-primary text-white font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 border border-primary/30"

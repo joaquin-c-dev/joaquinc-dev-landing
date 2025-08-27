@@ -52,7 +52,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               {/* Modern CTA Button */}
               <div className="group relative">
-                <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
                 <Button 
                   size="lg"
                   className="relative bg-gradient-primary text-white font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 border border-primary/30"
