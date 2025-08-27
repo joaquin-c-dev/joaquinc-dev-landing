@@ -88,13 +88,15 @@ const CTASection = () => {
               
               {/* CTA Buttons */}
               <div className="flex justify-center">
-                {/* Stripe Buy Button */}
+                {/* Custom Buy Button */}
                 <div className="stripe-buy-button-container">
-                   <stripe-buy-button
-                      buy-button-id="buy_btn_1RzUiOPfVaqv8srYXnq24hCy"
-                      publishable-key="pk_live_51RzQPOPfVaqv8srY2e9rKc4p53vZ6kqwfccL8HoQA7GfDidHaPaFpLM0F4iil0Z8yDwW1n1qfTOwMmlacpgrWXy200K0LeldsG"
-                    >
-                  </stripe-buy-button>
+                  <Button 
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4 rounded-lg transition-all duration-300"
+                    onClick={() => window.open('https://buy.stripe.com/3cI28td540uL7Nf0UAb3q00?prefilled_promo_code=LANZAMIENTO', '_blank')}
+                  >
+                    🚀 Inscribirme Ahora
+                  </Button>
                 </div>
               </div>
               

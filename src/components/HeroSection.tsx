@@ -50,13 +50,15 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              {/* Stripe Buy Button */}
+              {/* Custom Buy Button */}
               <div className="stripe-buy-button-container">
-                 <stripe-buy-button
-                  buy-button-id="buy_btn_1RzUiOPfVaqv8srYXnq24hCy"
-                  publishable-key="pk_live_51RzQPOPfVaqv8srY2e9rKc4p53vZ6kqwfccL8HoQA7GfDidHaPaFpLM0F4iil0Z8yDwW1n1qfTOwMmlacpgrWXy200K0LeldsG"
+                <Button 
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4 rounded-lg transition-all duration-300"
+                  onClick={() => window.open('https://buy.stripe.com/3cI28td540uL7Nf0UAb3q00?prefilled_promo_code=LANZAMIENTO', '_blank')}
                 >
-                </stripe-buy-button>
+                  🚀 Inscribirme Ahora
+                </Button>
               </div>
               <Button 
                 variant="outline" 
