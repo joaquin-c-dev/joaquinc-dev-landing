@@ -49,16 +49,15 @@ const DiscountBanner = () => {
           
           <div className="flex items-center gap-2 ml-4">
             <div className="relative">
-              {/* Animated glow background */}
-              <div className="absolute -inset-1 bg-gradient-accent rounded-lg blur-sm opacity-75 animate-pulse"></div>
-              <div className="absolute -inset-2 bg-gradient-accent rounded-lg blur-md opacity-50 animate-pulse delay-300"></div>
+              {/* Subtle animated glow border */}
+              <div className="absolute -inset-0.5 bg-gradient-accent rounded-lg blur-sm opacity-60 animate-pulse"></div>
               
               <Button
                 onClick={scrollToCTA}
-                size="lg"
-                className="relative bg-gradient-accent hover:bg-gradient-accent text-white border-0 font-bold shadow-glow-lg text-sm md:text-base px-6 md:px-8 py-3 md:py-4 transform hover:scale-105 transition-all duration-300"
+                size="sm"
+                className="relative bg-gradient-accent hover:bg-gradient-accent text-white border-0 font-bold text-xs md:text-sm px-4 md:px-5 py-2 md:py-3 transform hover:scale-105 transition-all duration-300"
               >
-                <ArrowDown className="w-5 h-5 mr-2 animate-bounce" />
+                <ArrowDown className="w-4 h-4 mr-1 animate-bounce" />
                 ¡APROVECHA YA!
               </Button>
             </div>
