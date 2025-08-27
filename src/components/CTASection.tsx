@@ -78,7 +78,11 @@ const CTASection = () => {
                 <div className="text-center">
                   <div className="text-muted-foreground line-through text-xl mb-1">$8,500 MXN</div>
                   <div className="text-4xl font-bold text-primary mb-1">$6,500 <span className="text-xl">MXN</span></div>
-                  <div className="text-muted-foreground text-sm">Oferta por tiempo limitado</div>
+                  <div className="text-muted-foreground text-sm mb-2">Oferta por tiempo limitado</div>
+                  <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
+                    <span className="text-primary font-semibold text-sm">💳 3 meses sin intereses</span>
+                    <span className="text-muted-foreground text-xs">o $2,167 MXN/mes</span>
+                  </div>
                 </div>
               </div>
               

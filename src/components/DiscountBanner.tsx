@@ -35,11 +35,14 @@ const DiscountBanner = () => {
               </span>
               <Zap className="w-5 h-5 text-yellow-300 animate-pulse" />
             </div>
-            <div className="mt-1 flex items-center justify-center gap-2 text-white/90 text-xs md:text-sm">
+            <div className="mt-1 flex items-center justify-center gap-2 flex-wrap text-white/90 text-xs md:text-sm">
               <Clock className="w-4 h-4" />
               <span className="font-semibold">¡Solo por tiempo limitado este mes!</span>
               <span className="bg-white/20 px-2 py-1 rounded-full font-bold">
                 $2,000 MXN de descuento
+              </span>
+              <span className="bg-yellow-400/20 px-2 py-1 rounded-full font-bold text-yellow-100">
+                + 3 meses sin intereses
               </span>
             </div>
           </div>
