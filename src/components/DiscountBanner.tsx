@@ -60,7 +60,7 @@ const DiscountBanner = () => {
               <Button
                 onClick={scrollToCTA}
                 size="sm"
-                className="relative bg-gradient-accent hover:bg-gradient-accent text-white border-0 font-bold text-xs md:text-sm px-4 md:px-5 py-2 md:py-3 transform hover:scale-105 transition-all duration-300"
+                className="relative bg-white hover:bg-white/95 text-primary border-0 font-bold text-xs md:text-sm px-4 md:px-5 py-2 md:py-3 transform hover:scale-105 transition-all duration-300"
               >
                 <ArrowDown className="w-4 h-4 mr-1 animate-bounce" />
                 ¡APROVECHA YA!
