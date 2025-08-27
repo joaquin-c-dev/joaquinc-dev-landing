@@ -25,22 +25,30 @@ const DiscountBanner = () => {
       <div className="absolute top-0 left-1/4 w-32 h-32 bg-tech-cyan/20 rounded-full blur-2xl animate-pulse"></div>
       <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-course-blue/30 rounded-full blur-xl animate-pulse"></div>
       
-      <div className="relative z-10 container mx-auto px-6 py-2">
-        <div className="flex items-center justify-between">
-          <div className="flex-1">
-            <div className="flex items-center justify-center gap-3 flex-wrap">
-              <Zap className="w-4 h-4 text-yellow-300 animate-pulse" />
-              <span className="text-white font-bold text-sm">
-                🔥 DESCUENTO DE LANZAMIENTO AGOSTO 2024
-              </span>
-              <Clock className="w-4 h-4 text-white/90" />
-              <span className="text-white/95 font-medium text-sm">¡Solo por tiempo limitado!</span>
-              <span className="bg-yellow-400/25 px-3 py-1 rounded-full font-bold text-yellow-100 text-sm border border-yellow-400/30">
-                $2,000 MXN de descuento
-              </span>
-              <span className="bg-green-400/25 px-3 py-1 rounded-full font-bold text-green-100 text-sm border border-green-400/30">
-                + 3 meses sin intereses
-              </span>
+      <div className="relative z-10 container mx-auto px-4 py-2">
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex-1 min-w-0">
+            {/* Mobile: Stack vertically, Desktop: Single line */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
+              {/* First line on mobile */}
+              <div className="flex items-center justify-center gap-2 flex-wrap">
+                <Zap className="w-4 h-4 text-yellow-300 animate-pulse" />
+                <span className="text-white font-bold text-xs sm:text-sm">
+                  🔥 DESCUENTO AGOSTO 2024
+                </span>
+                <Clock className="w-4 h-4 text-white/90 hidden sm:inline" />
+                <span className="text-white/95 font-medium text-xs sm:text-sm hidden sm:inline">¡Solo por tiempo limitado!</span>
+              </div>
+              
+              {/* Second line on mobile, same line on desktop */}
+              <div className="flex items-center justify-center gap-2 flex-wrap">
+                <span className="bg-yellow-400/25 px-2 py-1 rounded-full font-bold text-yellow-100 text-xs border border-yellow-400/30">
+                  $2,000 MXN OFF
+                </span>
+                <span className="bg-green-400/25 px-2 py-1 rounded-full font-bold text-green-100 text-xs border border-green-400/30">
+                  + 3 MSI
+                </span>
+              </div>
             </div>
           </div>
           
