@@ -34,7 +34,7 @@ const DiscountBanner = () => {
               <div className="flex items-center justify-center gap-2 flex-wrap">
                 <Zap className="w-4 h-4 text-yellow-300 animate-pulse" />
                 <span className="text-white font-bold text-xs sm:text-sm">
-                  🔥 DESCUENTO AGOSTO 2024
+                  🔥 DESCUENTO AGOSTO 2025
                 </span>
                 <Clock className="w-4 h-4 text-white/90 hidden sm:inline" />
                 <span className="text-white/95 font-medium text-xs sm:text-sm hidden sm:inline">¡Solo por tiempo limitado!</span>
