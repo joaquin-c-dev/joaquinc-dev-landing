@@ -40,8 +40,6 @@ const curriculumModules = [
       "Estructura de un programa en Java",
       "Variables y tipos de datos",
       "Palabra reservada 'var' y 'final'",
-      "Bases Hexadecimal, Octal, Binario",
-      "Conversión de tipos y manejo de cadenas",
       "Operadores (asignación, aritméticos, relacionales, lógicos)",
       "Sentencias de control (if, else, switch)",
       "Ciclos (while, do-while, for, forEach)",
@@ -77,8 +75,8 @@ const curriculumModules = [
       "Genericos y convenciones",
       "Collections API",
       "Listas (ArrayList, LinkedList)",
-      "Set (HashSet, TreeSet)",
-      "Map (HashMap, TreeMap)"
+      "Set - HashSet",
+      "Map - HashMap"
     ],
     color: "tech-orange"
   },
@@ -122,9 +120,9 @@ const curriculumModules = [
     topics: [
       "Introducción al ecosistema Spring",
       "¿Qué es Spring Framework y por qué usarlo?",
-      "Spring Boot y estructura de un proyecto",
       "Inversión de Control (IoC) y Dependency Injection (DI)",
       "Creación y gestión de Beans (@Component, @Service, @Repository)",
+      "Spring Boot y estructura de un proyecto",
       "Controladores REST (@RestController, @GetMapping, @PostMapping)",
       "Manejo de parámetros y excepciones (@ExceptionHandler)"
     ],
@@ -139,8 +137,7 @@ const curriculumModules = [
       "Creación de documentos con @Document",
       "Definición de identificadores con @Id",
       "Uso de MongoTemplate",
-      "Inserción de documentos (insert, save)",
-      "Búsqueda con find, findOne, findAll"
+      "Inserción de documentos (insert, save)"
     ],
     color: "course-blue"
   }
