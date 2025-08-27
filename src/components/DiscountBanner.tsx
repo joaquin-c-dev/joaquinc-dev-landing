@@ -55,7 +55,7 @@ const DiscountBanner = () => {
           <div className="flex items-center gap-2 ml-4">
             <div className="relative">
               {/* Subtle animated glow border */}
-              <div className="absolute -inset-0.5 bg-gradient-accent rounded-lg blur-sm opacity-60 animate-pulse"></div>
+              <div className="absolute -inset-1 bg-gradient-accent rounded-lg blur-sm opacity-70 animate-pulse"></div>
               
               <Button
                 onClick={scrollToCTA}
