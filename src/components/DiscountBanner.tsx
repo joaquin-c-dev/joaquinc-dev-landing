@@ -48,7 +48,7 @@ const DiscountBanner = () => {
                 <span className="bg-green-400/25 px-2 py-1 rounded-full font-bold text-green-100 text-xs border border-green-400/30">
                   + 3 MSI
                 </span>
-                <span className="text-white/95 font-medium text-xs sm:text-sm hidden sm:inline">¡Solo por tiempo limitado!</span>
+                <span className="text-yellow-200 font-medium text-xs sm:text-sm hidden sm:inline">¡Solo por tiempo limitado!</span>
                 <CountdownTimer className="text-xs" textColor="text-yellow-200" />
               </div>
             </div>
