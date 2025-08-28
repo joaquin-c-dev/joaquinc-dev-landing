@@ -13,7 +13,7 @@ const CountdownTimer = ({ className = "", textColor = "text-white" }: CountdownT
   return (
     <div className={`flex items-center gap-1 ${className}`}>
       <span className={`${textColor} font-mono font-bold`}>
-       ⏰ {formatNumber(timeLeft.hours)}:{formatNumber(timeLeft.minutes)}:{formatNumber(timeLeft.seconds)}
+       ⏰ {formatNumber(timeLeft.hours)} h {formatNumber(timeLeft.minutes)} min {formatNumber(timeLeft.seconds)} s
       </span>
     </div>
   );
