@@ -38,7 +38,6 @@ const DiscountBanner = () => {
                   🔥 DESCUENTO AGOSTO 2025
                 </span>
                 <Clock className="w-4 h-4 text-white/90 hidden sm:inline" />
-                <span className="text-white/95 font-medium text-xs sm:text-sm hidden sm:inline">¡Solo por tiempo limitado!</span>
               </div>
               
               {/* Second line on mobile, same line on desktop */}
@@ -49,7 +48,7 @@ const DiscountBanner = () => {
                 <span className="bg-green-400/25 px-2 py-1 rounded-full font-bold text-green-100 text-xs border border-green-400/30">
                   + 3 MSI
                 </span>
-                Por tiempo limitado 
+                <span className="text-white/95 font-medium text-xs sm:text-sm hidden sm:inline">¡Solo por tiempo limitado!</span>
                 <CountdownTimer className="text-xs" textColor="text-yellow-200" />
               </div>
             </div>
