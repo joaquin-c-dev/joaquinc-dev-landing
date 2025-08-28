@@ -14,53 +14,47 @@ interface CountdownContextType {
 
 const CountdownContext = createContext<CountdownContextType | undefined>(undefined);
 
-const COUNTDOWN_DURATION = 5 * 60 * 60 * 1000; // 5 hours in milliseconds
-const STORAGE_KEY = 'countdown_end_time';
+// Fixed end date - August 31, 2025 at 23:59:59 Mexico time (UTC-6)
+const END_DATE = new Date('2025-08-31T23:59:59-06:00').getTime();
 
 export const CountdownProvider = ({ children }: { children: ReactNode }) => {
   const [timeLeft, setTimeLeft] = useState<CountdownState>({
-    hours: 5,
+    hours: 0,
     minutes: 0,
     seconds: 0,
     isExpired: false,
   });
 
   useEffect(() => {
-    // Get or set end time
-    let endTime = localStorage.getItem(STORAGE_KEY);
-    if (!endTime) {
-      const newEndTime = Date.now() + COUNTDOWN_DURATION;
-      localStorage.setItem(STORAGE_KEY, newEndTime.toString());
-      endTime = newEndTime.toString();
-    }
-
-    const timer = setInterval(() => {
+    const calculateTimeLeft = () => {
       const now = Date.now();
-      const difference = parseInt(endTime!) - now;
+      const difference = END_DATE - now;
 
       if (difference > 0) {
-        const hours = Math.floor(difference / (1000 * 60 * 60));
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        setTimeLeft({ hours, minutes, seconds, isExpired: false });
+        // If more than 24 hours, show days + hours, otherwise just hours
+        const totalHours = days * 24 + hours;
+        
+        setTimeLeft({ 
+          hours: totalHours, 
+          minutes, 
+          seconds, 
+          isExpired: false 
+        });
       } else {
         setTimeLeft({ hours: 0, minutes: 0, seconds: 0, isExpired: true });
-        clearInterval(timer);
       }
-    }, 1000);
+    };
 
-    // Initial calculation
-    const now = Date.now();
-    const difference = parseInt(endTime) - now;
-    if (difference > 0) {
-      const hours = Math.floor(difference / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-      setTimeLeft({ hours, minutes, seconds, isExpired: false });
-    } else {
-      setTimeLeft({ hours: 0, minutes: 0, seconds: 0, isExpired: true });
-    }
+    // Calculate initial time
+    calculateTimeLeft();
+
+    // Update every second
+    const timer = setInterval(calculateTimeLeft, 1000);
 
     return () => clearInterval(timer);
   }, []);
