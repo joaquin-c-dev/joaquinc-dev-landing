@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, X } from "lucide-react";
+import CountdownTimer from "./CountdownTimer";
 
 const StickyBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -54,9 +55,12 @@ const StickyBanner = () => {
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           <div className="flex-1 text-center">
-            <span className="text-white font-semibold text-sm md:text-base">
-              🚀 ¡Transforma tu carrera! Oferta especial: $6,500 MXN (antes $8,500)
-            </span>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
+              <span className="text-white font-semibold text-sm md:text-base">
+                🚀 ¡Transforma tu carrera! Oferta especial: $6,500 MXN (antes $8,500)
+              </span>
+              <CountdownTimer className="text-xs md:text-sm" textColor="text-yellow-200" />
+            </div>
           </div>
           
           <div className="flex items-center gap-3">
