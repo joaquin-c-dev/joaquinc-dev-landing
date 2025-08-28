@@ -93,12 +93,17 @@ const HeroSection = () => {
             
             {/* Subtle pricing info */}
             <div className="mt-8 flex justify-center">
-              <div className="inline-flex items-center gap-3 bg-primary/5 px-6 py-3 rounded-full border border-primary/10 backdrop-blur-sm">
-                <span className="text-sm text-muted-foreground">Desde</span>
-                <span className="text-lg font-bold text-primary">$2,167</span>
-                <span className="text-sm text-muted-foreground">/mes</span>
-                <div className="w-1 h-1 bg-primary/40 rounded-full"></div>
-                <span className="text-xs text-primary/70">Sin intereses</span>
+              <div className="inline-flex flex-col items-center gap-2 bg-primary/5 px-6 py-4 rounded-xl border border-primary/10 backdrop-blur-sm">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-muted-foreground line-through">$8,500</span>
+                  <span className="text-xl font-bold text-primary">$6,500 MXN</span>
+                  <div className="px-2 py-1 bg-primary/20 text-xs font-semibold text-primary rounded-md">23% OFF</div>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <span className="text-muted-foreground">o desde</span>
+                  <span className="font-semibold text-primary">$2,167/mes</span>
+                  <span className="text-primary/70">sin intereses</span>
+                </div>
               </div>
             </div>
           </div>
