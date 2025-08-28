@@ -90,6 +90,17 @@ const HeroSection = () => {
                 <div className="text-sm text-muted-foreground">Conmigo</div>
               </div>
             </div>
+            
+            {/* Subtle pricing info */}
+            <div className="mt-8 flex justify-center">
+              <div className="inline-flex items-center gap-3 bg-primary/5 px-6 py-3 rounded-full border border-primary/10 backdrop-blur-sm">
+                <span className="text-sm text-muted-foreground">Desde</span>
+                <span className="text-lg font-bold text-primary">$2,167</span>
+                <span className="text-sm text-muted-foreground">/mes</span>
+                <div className="w-1 h-1 bg-primary/40 rounded-full"></div>
+                <span className="text-xs text-primary/70">Sin intereses</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
