@@ -27,9 +27,10 @@ const DiscountBanner = () => {
       <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-course-blue/30 rounded-full blur-xl animate-pulse"></div>
       
       <div className="relative z-10 container mx-auto px-4 py-2">
-        <div className="flex items-center justify-between gap-2">
+        {/* Mobile: Stack everything vertically, Desktop: Traditional horizontal layout */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-2">
           <div className="flex-1 min-w-0">
-            {/* Mobile: Stack vertically with clear separation, Desktop: Single line */}
+            {/* Content section */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
               {/* Title section */}
               <div className="flex items-center justify-center gap-2">
@@ -58,7 +59,8 @@ const DiscountBanner = () => {
             </div>
           </div>
           
-          <div className="flex items-center gap-2 ml-4">
+          {/* Buttons section - horizontal on mobile, same position on desktop */}
+          <div className="flex items-center justify-center sm:justify-end gap-2 sm:ml-4">
             <div className="relative">
               {/* Subtle animated glow border */}
               <div className="absolute -inset-1 bg-gradient-accent rounded-lg blur-sm opacity-70 animate-pulse"></div>
