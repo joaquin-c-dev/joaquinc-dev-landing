@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { X, Clock, Zap, ArrowDown } from "lucide-react";
+import CountdownTimer from "./CountdownTimer";
 
 const DiscountBanner = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -48,6 +49,7 @@ const DiscountBanner = () => {
                 <span className="bg-green-400/25 px-2 py-1 rounded-full font-bold text-green-100 text-xs border border-green-400/30">
                   + 3 MSI
                 </span>
+                <CountdownTimer className="text-xs" textColor="text-yellow-200" />
               </div>
             </div>
           </div>
