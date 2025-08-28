@@ -29,10 +29,10 @@ const DiscountBanner = () => {
       <div className="relative z-10 container mx-auto px-4 py-2">
         <div className="flex items-center justify-between gap-2">
           <div className="flex-1 min-w-0">
-            {/* Mobile: Stack vertically, Desktop: Single line */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
-              {/* First line on mobile */}
-              <div className="flex items-center justify-center gap-2 flex-wrap">
+            {/* Mobile: Stack vertically with clear separation, Desktop: Single line */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+              {/* Title section */}
+              <div className="flex items-center justify-center gap-2">
                 <Zap className="w-4 h-4 text-yellow-300 animate-pulse" />
                 <span className="text-white font-bold text-xs sm:text-sm">
                   🔥 DESCUENTO AGOSTO 2025
@@ -40,16 +40,20 @@ const DiscountBanner = () => {
                 <Clock className="w-4 h-4 text-white/90 hidden sm:inline" />
               </div>
               
-              {/* Second line on mobile, same line on desktop */}
-              <div className="flex items-center justify-center gap-2 flex-wrap">
-                <span className="bg-yellow-400/25 px-2 py-1 rounded-full font-bold text-yellow-100 text-xs border border-yellow-400/30">
-                  $2,000 MXN OFF
-                </span>
-                <span className="bg-green-400/25 px-2 py-1 rounded-full font-bold text-green-100 text-xs border border-green-400/30">
-                  + 3 MSI
-                </span>
-                <span className="text-yellow-200 font-medium text-xs sm:text-sm hidden sm:inline">¡Solo por tiempo limitado!</span>
-                <CountdownTimer className="text-xs" textColor="text-yellow-200" />
+              {/* Offers and countdown section */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+                <div className="flex items-center justify-center gap-2">
+                  <span className="bg-yellow-400/25 px-2 py-1 rounded-full font-bold text-yellow-100 text-xs border border-yellow-400/30">
+                    $2,000 MXN OFF
+                  </span>
+                  <span className="bg-green-400/25 px-2 py-1 rounded-full font-bold text-green-100 text-xs border border-green-400/30">
+                    + 3 MSI
+                  </span>
+                </div>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
+                  <span className="text-yellow-200 font-medium text-xs sm:text-sm hidden sm:inline">¡Solo por tiempo limitado!</span>
+                  <CountdownTimer className="text-xs" textColor="text-yellow-200" />
+                </div>
               </div>
             </div>
           </div>
