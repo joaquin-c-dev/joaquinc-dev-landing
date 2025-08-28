@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Code, Coffee, Zap } from "lucide-react";
 import joaquinProfile from "@/assets/joaquin-profile.jpg";
+import CountdownTimer from "./CountdownTimer";
 
 const HeroSection = () => {
   return (
@@ -103,6 +104,10 @@ const HeroSection = () => {
                   <span className="text-muted-foreground">o desde</span>
                   <span className="font-semibold text-primary">$2,167/mes</span>
                   <span className="text-primary/70">sin intereses</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <span>Oferta termina en:</span>
+                  <CountdownTimer textColor="text-primary" />
                 </div>
               </div>
             </div>
