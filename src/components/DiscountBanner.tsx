@@ -26,52 +26,50 @@ const DiscountBanner = () => {
       <div className="absolute top-0 left-1/4 w-32 h-32 bg-tech-cyan/20 rounded-full blur-2xl animate-pulse"></div>
       <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-course-blue/30 rounded-full blur-xl animate-pulse"></div>
       
-      <div className="relative z-10 container mx-auto px-4 py-2">
-        {/* Mobile: Stack everything vertically, Desktop: Traditional horizontal layout */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-2">
-          <div className="flex-1 min-w-0">
-            {/* Content section */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
-              {/* Title section */}
-              <div className="flex items-center justify-center gap-2">
-                <Zap className="w-4 h-4 text-yellow-300 animate-pulse" />
-                <span className="text-white font-bold text-xs sm:text-sm">
-                  🔥 DESCUENTO AGOSTO 2025
-                </span>
-                <Clock className="w-4 h-4 text-white/90 hidden sm:inline" />
-              </div>
-              
-              {/* Offers and countdown section */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
-                <div className="flex items-center justify-center gap-2">
-                  <span className="bg-yellow-400/25 px-2 py-1 rounded-full font-bold text-yellow-100 text-xs border border-yellow-400/30">
-                    $2,000 MXN OFF
-                  </span>
-                  <span className="bg-green-400/25 px-2 py-1 rounded-full font-bold text-green-100 text-xs border border-green-400/30">
-                    + 3 MSI
-                  </span>
-                </div>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
-                  <span className="text-yellow-200 font-medium text-xs sm:text-sm hidden sm:inline">¡Solo por tiempo limitado!</span>
-                  <CountdownTimer className="text-xs" textColor="text-yellow-200" />
-                </div>
-              </div>
+      <div className="relative z-10 container mx-auto px-4 py-3">
+        {/* Mobile: Clean vertical stack, Desktop: Horizontal layout */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-2">
+          
+          {/* Content section - better organized for mobile */}
+          <div className="flex-1 text-center sm:text-left">
+            
+            {/* Title - simplified for mobile */}
+            <div className="flex items-center justify-center sm:justify-start gap-2 mb-2 sm:mb-1">
+              <Zap className="w-4 h-4 text-yellow-300 animate-pulse" />
+              <span className="text-white font-bold text-sm sm:text-base">
+                🔥 OFERTA ESPECIAL
+              </span>
+            </div>
+            
+            {/* Discount badges - stacked better on mobile */}
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2 sm:mb-1">
+              <span className="bg-yellow-400/25 px-3 py-1 rounded-full font-bold text-yellow-100 text-xs sm:text-sm border border-yellow-400/30">
+                $2,000 OFF
+              </span>
+              <span className="bg-green-400/25 px-3 py-1 rounded-full font-bold text-green-100 text-xs sm:text-sm border border-green-400/30">
+                3 MSI
+              </span>
+            </div>
+            
+            {/* Countdown - more prominent on mobile */}
+            <div className="flex items-center justify-center sm:justify-start gap-2">
+              <Clock className="w-4 h-4 text-yellow-200" />
+              <span className="text-yellow-200 font-medium text-xs sm:text-sm">Termina en:</span>
+              <CountdownTimer className="text-sm font-bold" textColor="text-yellow-200" />
             </div>
           </div>
           
-          {/* Buttons section - horizontal on mobile, same position on desktop */}
-          <div className="flex items-center justify-center sm:justify-end gap-2 sm:ml-4">
+          {/* Action button - more prominent on mobile */}
+          <div className="flex items-center justify-center">
             <div className="relative">
-              {/* Subtle animated glow border */}
               <div className="absolute -inset-1 bg-gradient-accent rounded-lg blur-sm opacity-70 animate-pulse"></div>
-              
               <Button
                 onClick={scrollToCTA}
-                size="sm"
-                className="relative bg-white hover:bg-white/95 text-primary border-0 font-bold text-xs md:text-sm px-4 md:px-5 py-2 md:py-3 transform hover:scale-105 transition-all duration-300"
+                size="default"
+                className="relative bg-white hover:bg-white/95 text-primary border-0 font-bold text-sm px-6 py-3 transform hover:scale-105 transition-all duration-300"
               >
-                <ArrowDown className="w-4 h-4 mr-1 animate-bounce" />
-                ¡APROVECHA YA!
+                <ArrowDown className="w-4 h-4 mr-2 animate-bounce" />
+                ¡INSCRIBIRME YA!
               </Button>
             </div>
             
@@ -79,7 +77,7 @@ const DiscountBanner = () => {
               onClick={dismissBanner}
               size="sm"
               variant="ghost"
-              className="text-white/70 hover:text-white hover:bg-white/10 p-1 min-w-[32px]"
+              className="text-white/70 hover:text-white hover:bg-white/10 p-2 ml-2"
             >
               <X className="w-4 h-4" />
             </Button>
