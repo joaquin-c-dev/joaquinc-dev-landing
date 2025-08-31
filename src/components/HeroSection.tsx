@@ -18,11 +18,11 @@ const HeroSection = () => {
 
           {/* Main title */}
           <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6 leading-tight">
-            <div>Aprende{" "}
+            Aprende{" "}
             <span className="bg-gradient-accent bg-clip-text text-transparent">
               Java
-            </span></div>
-            <div>desde Cero</div>
+            </span>{" "}
+            desde Cero
           </h1>
           
           {/* Description */}
@@ -50,7 +50,7 @@ const HeroSection = () => {
               <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
               <div className="relative bg-card/50 backdrop-blur-md border border-primary/20 rounded-2xl p-4 shadow-xl">
                 <video 
-                  className="w-full max-w-lg lg:max-w-xl rounded-xl shadow-lg"
+                  className="w-full max-w-md lg:max-w-lg rounded-xl shadow-lg"
                   controls
                   autoPlay
                   muted
@@ -87,7 +87,7 @@ const HeroSection = () => {
               }}
             >
               <Code className="w-5 h-5 mr-2" />
-              Ver Contenido
+              Ver Temario
             </Button>
           </div>
           
