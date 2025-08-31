@@ -31,7 +31,7 @@ const DiscountBanner = () => {
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           
           {/* Content section - single compact line */}
-          <div className="flex items-center gap-1 sm:gap-3 flex-1 min-w-0">
+          <div className="flex items-center gap-1 sm:gap-3 flex-1 min-w-0 overflow-hidden">
             <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-300 animate-pulse flex-shrink-0" />
             <span className="text-white font-bold text-xs sm:text-sm flex-shrink-0">🔥</span>
             <span className="bg-yellow-400/25 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full font-bold text-yellow-100 text-xs border border-yellow-400/30 flex-shrink-0">
@@ -40,23 +40,24 @@ const DiscountBanner = () => {
             <span className="bg-green-400/25 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full font-bold text-green-100 text-xs border border-green-400/30 flex-shrink-0">
               3 MSI
             </span>
-            <div className="flex items-center gap-1 text-yellow-200 text-xs font-medium flex-shrink-0">
-              <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
-              <CountdownTimer className="text-xs font-bold" textColor="text-yellow-200" />
+            <div className="flex items-center gap-1 text-yellow-200 text-xs font-medium min-w-0">
+              <Clock className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+              <CountdownTimer className="text-xs font-bold whitespace-nowrap" textColor="text-yellow-200" />
             </div>
           </div>
           
-          {/* Action buttons - compact */}
-          <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+          {/* Action buttons - more compact */}
+          <div className="flex items-center gap-1 flex-shrink-0">
             <div className="relative">
               <div className="absolute -inset-0.5 bg-gradient-accent rounded-md blur-sm opacity-70 animate-pulse"></div>
               <Button
                 onClick={scrollToCTA}
                 size="sm"
-                className="relative bg-white hover:bg-white/95 text-primary border-0 font-bold text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 transform hover:scale-105 transition-all duration-300"
+                className="relative bg-white hover:bg-white/95 text-primary border-0 font-bold text-xs px-2 sm:px-3 py-1 sm:py-1.5 transform hover:scale-105 transition-all duration-300"
               >
-                <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 mr-1 animate-bounce" />
-                ¡INSCRIBIRME!
+                <ArrowDown className="w-3 h-3 mr-1 animate-bounce" />
+                <span className="hidden xs:inline">¡YA!</span>
+                <span className="xs:hidden">↓</span>
               </Button>
             </div>
             
@@ -64,9 +65,9 @@ const DiscountBanner = () => {
               onClick={dismissBanner}
               size="sm"
               variant="ghost"
-              className="text-white/70 hover:text-white hover:bg-white/10 p-1 min-w-[24px] sm:min-w-[32px]"
+              className="text-white/70 hover:text-white hover:bg-white/10 p-1"
             >
-              <X className="w-3 h-3 sm:w-4 sm:h-4" />
+              <X className="w-3 h-3" />
             </Button>
           </div>
         </div>
