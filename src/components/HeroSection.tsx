@@ -76,17 +76,15 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              {/* Modern CTA Button */}
-              <div className="group relative">
-                <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-                <Button 
-                  size="lg"
-                  className="relative bg-gradient-primary text-white font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 border border-primary/30"
-                  onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
-                >
-                  <span>Inscribirme Ahora</span>
-                </Button>
-              </div>
+              <Button 
+                variant="outline"
+                size="lg"
+                className="border-primary/30 hover:border-primary/50 text-lg px-8 py-4"
+                onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
+              >
+                <Zap className="w-5 h-5 mr-2" />
+                Inscribirme Ahora
+              </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
