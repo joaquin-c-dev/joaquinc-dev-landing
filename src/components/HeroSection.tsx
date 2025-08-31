@@ -15,6 +15,17 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 py-8">
         <div className="max-w-4xl mx-auto text-center">
           
+          {/* Instructor info - subtle */}
+          <div className="flex items-center justify-center gap-3 mb-6 opacity-70">
+            <img 
+              src={joaquinProfile}
+              alt="Joaquín Coronado Ramírez"
+              className="w-8 h-8 rounded-full object-cover border border-primary/20"
+            />
+            <div className="text-sm text-muted-foreground/80">
+              Con <span className="text-primary font-medium">Joaquín Coronado</span> • Head of Backend
+            </div>
+          </div>
 
           {/* Main title */}
           <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6 leading-tight">
