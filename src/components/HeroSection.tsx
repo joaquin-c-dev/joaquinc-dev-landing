@@ -12,44 +12,44 @@ const HeroSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       {/* Hero content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 py-4">
-        <div className="max-w-5xl mx-auto">
-          {/* Top instructor info */}
-          <div className="text-center mb-4">
-            <div className="flex items-center justify-center gap-3 mb-3 opacity-60">
-              <img 
-                src={joaquinProfile}
-                alt="Joaquín Coronado Ramírez"
-                className="w-6 h-6 rounded-full object-cover border border-primary/20"
-              />
-              <div className="text-xs text-muted-foreground/70">
-                Con <span className="text-primary/80 font-medium">Joaquín Coronado</span> • Head of Backend
-              </div>
+      <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 py-8">
+        <div className="max-w-4xl mx-auto text-center">
+          
+          {/* Instructor info - subtle */}
+          <div className="flex items-center justify-center gap-3 mb-6 opacity-70">
+            <img 
+              src={joaquinProfile}
+              alt="Joaquín Coronado Ramírez"
+              className="w-8 h-8 rounded-full object-cover border border-primary/20"
+            />
+            <div className="text-sm text-muted-foreground/80">
+              Con <span className="text-primary font-medium">Joaquín Coronado</span> • Head of Backend
             </div>
-
-            {/* Main title and description */}
-            <h1 className="text-xl sm:text-2xl lg:text-4xl font-bold mb-3 leading-tight opacity-90">
-              Aprende{" "}
-              <span className="bg-gradient-accent bg-clip-text text-transparent">
-                Java
-              </span>{" "}
-              desde Cero
-            </h1>
-            
-            <p className="text-base text-muted-foreground/80 mb-4 max-w-2xl mx-auto opacity-80">
-              Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
-              Más de 9 años de experiencia en desarrollo backend me respaldan 
-              para guiarte en tiempo real en cada paso de tu carrera como developer.
-            </p>
           </div>
 
-          {/* Video Section - Hero */}
-          <div className="flex justify-center mb-4">
+          {/* Main title */}
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6 leading-tight">
+            Aprende{" "}
+            <span className="bg-gradient-accent bg-clip-text text-transparent">
+              Java
+            </span>{" "}
+            desde Cero
+          </h1>
+          
+          {/* Description */}
+          <p className="text-lg text-muted-foreground/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
+            Más de 9 años de experiencia en desarrollo backend me respaldan 
+            para guiarte en tiempo real en cada paso de tu carrera como developer.
+          </p>
+
+          {/* Video Section */}
+          <div className="flex justify-center mb-8">
             <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-15 group-hover:opacity-25 transition-opacity duration-500"></div>
-              <div className="relative bg-card/60 backdrop-blur-md border-2 border-primary/30 rounded-2xl p-3 shadow-2xl">
+              <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+              <div className="relative bg-card/50 backdrop-blur-md border border-primary/20 rounded-2xl p-4 shadow-xl">
                 <video 
-                  className="w-full max-w-lg lg:max-w-2xl rounded-xl shadow-2xl"
+                  className="w-full max-w-md lg:max-w-lg rounded-xl shadow-lg"
                   controls
                   autoPlay
                   muted
@@ -62,57 +62,52 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-
-          {/* Remaining content */}
-          <div className="text-center px-2 md:px-4">
-            
-            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
-              {/* Primary CTA Button with glow effect */}
-              <div className="group relative">
-                <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-                <Button 
-                  size="default"
-                  className="relative bg-gradient-primary text-white text-base px-6 py-3 transition-all duration-300 hover:scale-105 shadow-elegant border border-primary/30"
-                  onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
-                >
-                  <Zap className="w-4 h-4 mr-2" />
-                  Inscribirme Ahora
-                </Button>
-              </div>
+          
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="group relative">
+              <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
               <Button 
-                variant="outline" 
-                size="default" 
-                className="border-primary/30 hover:border-primary/50 text-base px-6 py-3"
-                onClick={() => {
-                  const curriculumSection = document.getElementById('curriculum');
-                  curriculumSection?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                size="lg"
+                className="relative bg-gradient-primary text-white text-lg px-8 py-4 transition-all duration-300 hover:scale-105 shadow-elegant border border-primary/30"
+                onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
               >
-                <Code className="w-4 h-4 mr-2" />
-                Ver Contenido
+                <Zap className="w-5 h-5 mr-2" />
+                Inscribirme Ahora
               </Button>
             </div>
-            
-            {/* Subtle pricing info */}
-            <div className="flex justify-center">
-              <div className="inline-flex flex-col items-center gap-1 bg-primary/5 px-4 py-3 rounded-xl border border-primary/10 backdrop-blur-sm">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-muted-foreground line-through">$8,500</span>
-                  <span className="text-lg font-bold text-primary">$6,500 MXN</span>
-                  <div className="px-2 py-1 bg-primary/20 text-xs font-semibold text-primary rounded-md">23% OFF</div>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <span className="text-muted-foreground">o desde</span>
-                  <span className="font-semibold text-primary">$2,167/mes</span>
-                  <span className="text-primary/70">sin intereses</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <span>Oferta termina en:</span>
-                  <CountdownTimer textColor="text-primary" />
-                </div>
-              </div>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-primary/30 hover:border-primary/50 text-lg px-8 py-4 hover:bg-primary/5"
+              onClick={() => {
+                const curriculumSection = document.getElementById('curriculum');
+                curriculumSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <Code className="w-5 h-5 mr-2" />
+              Ver Contenido
+            </Button>
+          </div>
+          
+          {/* Pricing info */}
+          <div className="inline-flex flex-col items-center gap-3 bg-primary/5 px-8 py-6 rounded-2xl border border-primary/10 backdrop-blur-sm">
+            <div className="flex items-center gap-4">
+              <span className="text-lg text-muted-foreground line-through">$8,500</span>
+              <span className="text-2xl font-bold text-primary">$6,500 MXN</span>
+              <div className="px-3 py-1 bg-primary/20 text-sm font-semibold text-primary rounded-lg">23% OFF</div>
+            </div>
+            <div className="flex items-center gap-2 text-base">
+              <span className="text-muted-foreground">o desde</span>
+              <span className="font-bold text-primary">$2,167/mes</span>
+              <span className="text-primary/80">sin intereses</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span>Oferta termina en:</span>
+              <CountdownTimer textColor="text-primary" />
             </div>
           </div>
+
         </div>
       </div>
     </section>
