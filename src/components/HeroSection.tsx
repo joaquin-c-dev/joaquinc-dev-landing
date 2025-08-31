@@ -53,10 +53,10 @@ const HeroSection = () => {
             {/* Video Section - More Prominent */}
             <div className="flex justify-center mb-12">
               <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-accent rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                <div className="absolute -inset-2 bg-gradient-accent rounded-3xl blur-lg opacity-15 group-hover:opacity-25 transition-opacity duration-500"></div>
                 <div className="relative bg-card/60 backdrop-blur-md border-2 border-primary/30 rounded-3xl p-6 shadow-2xl">
                   <video 
-                    className="w-full max-w-lg lg:max-w-xl rounded-2xl shadow-2xl"
+                    className="w-full max-w-xl lg:max-w-2xl rounded-2xl shadow-2xl"
                     controls
                     autoPlay
                     muted
