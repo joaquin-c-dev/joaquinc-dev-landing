@@ -90,21 +90,55 @@ const HeroSection = () => {
             </Button>
           </div>
           
-          {/* Pricing info */}
-          <div className="inline-flex flex-col items-center gap-3 bg-primary/5 px-8 py-6 rounded-2xl border border-primary/10 backdrop-blur-sm">
-            <div className="flex items-center gap-4">
-              <span className="text-lg text-muted-foreground line-through">$8,500</span>
-              <span className="text-2xl font-bold text-primary">$6,500 MXN</span>
-              <div className="px-3 py-1 bg-primary/20 text-sm font-semibold text-primary rounded-lg">23% OFF</div>
+          {/* Pricing info with urgency */}
+          <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 border-2 border-red-500/30 rounded-2xl p-6 backdrop-blur-sm shadow-2xl max-w-md mx-auto">
+            {/* Urgency Header */}
+            <div className="text-center mb-4">
+              <div className="inline-flex items-center gap-2 bg-red-500/20 px-4 py-2 rounded-full border border-red-500/40 mb-3">
+                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                <span className="text-red-400 font-bold text-sm uppercase tracking-wide">
+                  ¡OFERTA POR TIEMPO LIMITADO!
+                </span>
+              </div>
+              
+              {/* Countdown */}
+              <div className="mb-4">
+                <p className="text-sm text-muted-foreground mb-2">La oferta termina en:</p>
+                <div className="bg-black/20 px-4 py-2 rounded-lg border border-primary/20">
+                  <CountdownTimer textColor="text-red-400 font-mono font-bold text-lg" />
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-base">
-              <span className="text-muted-foreground">o desde</span>
-              <span className="font-bold text-primary">$2,167/mes</span>
-              <span className="text-primary/80">sin intereses</span>
+
+            {/* Price Section */}
+            <div className="text-center mb-4">
+              <div className="flex items-center justify-center gap-4 mb-3">
+                <span className="text-2xl text-muted-foreground line-through opacity-60">$8,500</span>
+                <span className="text-4xl font-black text-white">$6,500</span>
+                <span className="text-sm text-muted-foreground">MXN</span>
+              </div>
+              
+              <div className="inline-flex items-center bg-gradient-to-r from-green-500/20 to-emerald-500/20 px-4 py-2 rounded-full border border-green-500/40 mb-4">
+                <span className="text-green-400 font-bold text-lg">¡Ahorras $2,000!</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>Oferta termina en:</span>
-              <CountdownTimer textColor="text-primary" />
+
+            {/* Payment Options */}
+            <div className="space-y-3 mb-4">
+              <div className="bg-primary/10 border border-primary/30 rounded-xl p-4">
+                <div className="text-center">
+                  <p className="text-lg font-bold text-primary mb-1">O paga en 3 meses</p>
+                  <p className="text-2xl font-black text-white">$2,167/mes</p>
+                  <p className="text-green-400 font-semibold">SIN INTERESES</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Benefits */}
+            <div className="text-center text-sm text-muted-foreground">
+              <p className="mb-2">✅ Acceso inmediato al curso</p>
+              <p className="mb-2">✅ Clases en vivo con Joaquín</p>
+              <p>✅ Certificado de finalización</p>
             </div>
           </div>
 
