@@ -15,6 +15,16 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 py-8">
         <div className="max-w-4xl mx-auto text-center">
           
+
+          {/* Main title */}
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6 leading-tight">
+            Aprende{" "}
+            <span className="bg-gradient-accent bg-clip-text text-transparent">
+              Java
+            </span>{" "}
+            desde Cero
+          </h1>
+
           {/* Instructor info - subtle */}
           <div className="flex items-center justify-center gap-3 mb-6 opacity-70">
             <img 
@@ -26,15 +36,6 @@ const HeroSection = () => {
               Con <span className="text-primary font-medium">Joaquín Coronado</span> • Head of Backend
             </div>
           </div>
-
-          {/* Main title */}
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6 leading-tight">
-            Aprende{" "}
-            <span className="bg-gradient-accent bg-clip-text text-transparent">
-              Java
-            </span>{" "}
-            desde Cero
-          </h1>
           
           {/* Description */}
           <p className="text-lg text-muted-foreground/90 mb-8 max-w-2xl mx-auto leading-relaxed">
