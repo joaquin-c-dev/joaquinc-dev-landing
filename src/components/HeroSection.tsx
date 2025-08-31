@@ -134,7 +134,7 @@ const HeroSection = () => {
                     23% DESCUENTO
                   </span>
                   <span className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs font-semibold">
-                    SIN INTERESES
+                    3 MESES SIN INTERESES
                   </span>
                 </div>
               </div>
@@ -142,10 +142,7 @@ const HeroSection = () => {
 
             {/* Benefits */}
             <div className="text-center text-sm text-muted-foreground space-y-1 mb-4">
-              <p>✅ Acceso inmediato al curso</p>
-              <p>✅ Clases en vivo con Joaquín</p>
-              <p>✅ Certificado de finalización</p>
-              <p className="text-green-400 font-semibold">✅ ¡Descuento + Sin intereses!</p>
+              <p className="text-green-400 font-semibold">✅ ¡Descuento + 3 meses sin intereses!</p>
             </div>
 
             {/* Offer CTA Button */}
