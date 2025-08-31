@@ -112,8 +112,8 @@ const HeroSection = () => {
 
             {/* Price Section */}
             <div className="text-center mb-4">
-              <div className="flex items-center justify-center gap-4 mb-3">
-                <span className="text-2xl text-muted-foreground line-through opacity-60">$8,500</span>
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <span className="text-xl text-muted-foreground line-through opacity-60">$8,500</span>
                 <span className="text-4xl font-black text-white">$6,500</span>
                 <span className="text-sm text-muted-foreground">MXN</span>
               </div>
@@ -123,22 +123,29 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Payment Options */}
-            <div className="space-y-3 mb-4">
-              <div className="bg-primary/10 border border-primary/30 rounded-xl p-4">
-                <div className="text-center">
-                  <p className="text-lg font-bold text-primary mb-1">O paga en 3 meses</p>
-                  <p className="text-2xl font-black text-white">$2,167/mes</p>
-                  <p className="text-green-400 font-semibold">SIN INTERESES</p>
+            {/* Combined Benefits */}
+            <div className="bg-primary/10 border border-primary/30 rounded-xl p-4 mb-4">
+              <div className="text-center">
+                <p className="text-sm text-muted-foreground mb-2">Con descuento + 3 meses sin intereses:</p>
+                <p className="text-3xl font-black text-white mb-1">$2,167</p>
+                <p className="text-primary font-bold">por mes</p>
+                <div className="flex items-center justify-center gap-2 mt-2">
+                  <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-semibold">
+                    23% DESCUENTO
+                  </span>
+                  <span className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs font-semibold">
+                    SIN INTERESES
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Benefits */}
-            <div className="text-center text-sm text-muted-foreground">
-              <p className="mb-2">✅ Acceso inmediato al curso</p>
-              <p className="mb-2">✅ Clases en vivo con Joaquín</p>
+            <div className="text-center text-sm text-muted-foreground space-y-1">
+              <p>✅ Acceso inmediato al curso</p>
+              <p>✅ Clases en vivo con Joaquín</p>
               <p>✅ Certificado de finalización</p>
+              <p className="text-green-400 font-semibold">✅ ¡Descuento + Sin intereses!</p>
             </div>
           </div>
 
