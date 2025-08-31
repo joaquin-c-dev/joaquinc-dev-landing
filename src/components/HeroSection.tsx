@@ -12,7 +12,7 @@ const HeroSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       {/* Hero content */}
-      <div className="relative z-10 container mx-auto px-8 md:px-12 lg:px-16 py-20">
+      <div className="relative z-10 container mx-auto px-8 md:px-12 lg:px-16 py-12">
         <div className="max-w-5xl mx-auto text-center">
           {/* Text content */}
           <div className="px-4 md:px-8">
@@ -39,7 +39,7 @@ const HeroSection = () => {
             </p>
             
             {/* Instructor Profile - Subtle */}
-            <div className="flex items-center justify-center gap-3 mb-8 opacity-60">
+            <div className="flex items-center justify-center gap-3 mb-6 opacity-60">
               <img 
                 src={joaquinProfile}
                 alt="Joaquín Coronado Ramírez"
@@ -51,10 +51,10 @@ const HeroSection = () => {
             </div>
 
             {/* Video Section - More Prominent */}
-            <div className="flex justify-center mb-12">
+            <div className="flex justify-center mb-8">
               <div className="relative group">
-                <div className="absolute -inset-2 bg-gradient-accent rounded-3xl blur-lg opacity-15 group-hover:opacity-25 transition-opacity duration-500"></div>
-                <div className="relative bg-card/60 backdrop-blur-md border-2 border-primary/30 rounded-3xl p-6 shadow-2xl">
+                <div className="absolute -inset-2 bg-gradient-accent rounded-3xl blur-lg opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="relative bg-card/60 backdrop-blur-md border-2 border-primary/30 rounded-3xl p-4 shadow-2xl">
                   <video 
                     className="w-full max-w-xl lg:max-w-2xl rounded-2xl shadow-2xl"
                     controls
@@ -66,16 +66,11 @@ const HeroSection = () => {
                     <source src="https://res.cloudinary.com/joaquin-test/video/upload/v1756623620/joaquin%20c.%20dev/java%20desde%20cero/GMT20250831-012428_Recording.cutfile.20250831065554802_1920x1080_fhlezz.mp4" type="video/mp4" />
                     Tu navegador no soporta el elemento de video.
                   </video>
-                  <div className="mt-6 text-center">
-                    <p className="text-base font-medium text-primary">
-                      Conoce qué aprenderás en el curso
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               {/* Primary CTA Button with glow effect */}
               <div className="group relative">
                 <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
