@@ -76,15 +76,18 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
-                variant="outline"
-                size="lg"
-                className="border-primary/30 hover:border-primary/50 text-lg px-8 py-4"
-                onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
-              >
-                <Zap className="w-5 h-5 mr-2" />
-                Inscribirme Ahora
-              </Button>
+              {/* Primary CTA Button with glow effect */}
+              <div className="group relative">
+                <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                <Button 
+                  size="lg"
+                  className="relative bg-gradient-primary text-white font-bold text-lg px-8 py-4 transition-all duration-300 hover:scale-105 shadow-elegant border border-primary/30"
+                  onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
+                >
+                  <Zap className="w-5 h-5 mr-2" />
+                  Inscribirme Ahora
+                </Button>
+              </div>
               <Button 
                 variant="outline" 
                 size="lg" 
