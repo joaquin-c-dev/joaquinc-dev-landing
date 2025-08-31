@@ -63,7 +63,7 @@ const HeroSection = () => {
                     poster="/placeholder.svg"
                     preload="metadata"
                   >
-                    <source src="https://player.cloudinary.com/embed/?cloud_name=joaquin-test&public_id=GMT20250831-021826_Clip_Clase_muestra_-_Java_desde_Cero_gnsdjh&profile=cld-default" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/joaquin-test/video/upload/v1756606949/GMT20250831-021826_Clip_Clase_muestra_-_Java_desde_Cero_oqqdzs.mp4" type="video/mp4" />
                     Tu navegador no soporta el elemento de video.
                   </video>
                   <div className="mt-4 text-center">
