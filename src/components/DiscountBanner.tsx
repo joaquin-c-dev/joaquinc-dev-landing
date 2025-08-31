@@ -53,12 +53,11 @@ const DiscountBanner = () => {
                   <div className="absolute -inset-0.5 bg-gradient-accent rounded-md blur-sm opacity-70 animate-pulse"></div>
                   <Button
                     onClick={scrollToCTA}
-                    variant="outline"
-                    size="lg"
-                    className="relative bg-white hover:bg-white/95 text-primary border-primary/30 hover:border-primary/50 text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300"
+                    size="sm"
+                    className="relative bg-white hover:bg-white/95 text-primary border-0 font-bold text-xs px-3 py-1.5 transform hover:scale-105 transition-all duration-300"
                   >
-                    <ArrowDown className="w-5 h-5 mr-2 animate-bounce" />
-                    Inscribirme
+                    <ArrowDown className="w-3 h-3 mr-1 animate-bounce" />
+                    ¡INSCRIBIRME!
                   </Button>
                 </div>
                 
