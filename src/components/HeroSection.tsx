@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Code, Coffee, Zap } from "lucide-react";
+import { Code, Zap } from "lucide-react";
 import joaquinProfile from "@/assets/joaquin-profile.jpg";
 import CountdownTimer from "./CountdownTimer";
 
@@ -14,15 +14,8 @@ const HeroSection = () => {
       {/* Hero content */}
       <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 py-4">
         <div className="max-w-5xl mx-auto">
-          {/* Top badge and instructor info */}
+          {/* Top instructor info */}
           <div className="text-center mb-4">
-            <div className="flex items-center gap-2 mb-2 justify-center opacity-70">
-              <Coffee className="w-4 h-4 text-primary/70" />
-              <span className="text-muted-foreground/80 uppercase tracking-wider text-xs font-medium">
-                Aprende Java desde Cero
-              </span>
-            </div>
-            
             <div className="flex items-center justify-center gap-3 mb-3 opacity-60">
               <img 
                 src={joaquinProfile}
@@ -99,22 +92,6 @@ const HeroSection = () => {
                 <Code className="w-4 h-4 mr-2" />
                 Ver Contenido
               </Button>
-            </div>
-            
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 max-w-xs mx-auto mb-4">
-              <div className="text-center">
-                <div className="text-lg font-bold text-primary">En Vivo</div>
-                <div className="text-xs text-muted-foreground">Clases Online</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg font-bold text-primary">9+</div>
-                <div className="text-xs text-muted-foreground">Años Experiencia</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg font-bold text-primary">Directo</div>
-                <div className="text-xs text-muted-foreground">Conmigo</div>
-              </div>
             </div>
             
             {/* Subtle pricing info */}
