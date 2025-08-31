@@ -58,6 +58,8 @@ const HeroSection = () => {
                   <video 
                     className="w-full max-w-md rounded-xl shadow-lg"
                     controls
+                    autoPlay
+                    muted
                     poster="/placeholder.svg"
                     preload="metadata"
                   >
