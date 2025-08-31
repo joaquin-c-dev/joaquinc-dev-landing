@@ -28,12 +28,11 @@ const HeroSection = () => {
             </div>
 
             {/* Main title and description */}
-            <h1 className="text-2xl lg:text-4xl font-bold mb-3 leading-tight opacity-90">
+            <h1 className="text-xl sm:text-2xl lg:text-4xl font-bold mb-3 leading-tight opacity-90">
               Aprende{" "}
               <span className="bg-gradient-accent bg-clip-text text-transparent">
                 Java
-              </span>
-              <br />
+              </span>{" "}
               desde Cero
             </h1>
             
