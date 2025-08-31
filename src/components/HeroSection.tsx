@@ -33,6 +33,22 @@ const HeroSection = () => {
                 Con <span className="text-primary/80 font-medium">Joaquín Coronado</span> • Head of Backend
               </div>
             </div>
+
+            {/* Main title and description */}
+            <h1 className="text-2xl lg:text-4xl font-bold mb-3 leading-tight opacity-90">
+              Aprende{" "}
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Java
+              </span>
+              <br />
+              desde Cero
+            </h1>
+            
+            <p className="text-base text-muted-foreground/80 mb-4 max-w-2xl mx-auto opacity-80">
+              Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
+              Más de 9 años de experiencia en desarrollo backend me respaldan 
+              para guiarte en tiempo real en cada paso de tu carrera como developer.
+            </p>
           </div>
 
           {/* Video Section - Hero */}
@@ -55,22 +71,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Main content around video */}
+          {/* Remaining content */}
           <div className="text-center px-2 md:px-4">
-            <h1 className="text-2xl lg:text-4xl font-bold mb-3 leading-tight opacity-90">
-              Aprende{" "}
-              <span className="bg-gradient-accent bg-clip-text text-transparent">
-                Java
-              </span>
-              <br />
-              desde Cero
-            </h1>
-            
-            <p className="text-base text-muted-foreground/80 mb-4 max-w-2xl mx-auto opacity-80">
-              Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
-              Más de 9 años de experiencia en desarrollo backend me respaldan 
-              para guiarte en tiempo real en cada paso de tu carrera como developer.
-            </p>
             
             <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
               {/* Primary CTA Button with glow effect */}
