@@ -24,18 +24,6 @@ const HeroSection = () => {
             </span>{" "}
             desde Cero
           </h1>
-
-          {/* Instructor info - subtle */}
-          <div className="flex items-center justify-center gap-3 mb-6 opacity-70">
-            <img 
-              src={joaquinProfile}
-              alt="Joaquín Coronado Ramírez"
-              className="w-8 h-8 rounded-full object-cover border border-primary/20"
-            />
-            <div className="text-sm text-muted-foreground/80">
-              Con <span className="text-primary font-medium">Joaquín Coronado</span> • Head of Backend
-            </div>
-          </div>
           
           {/* Description */}
           <p className="text-lg text-muted-foreground/90 mb-8 max-w-2xl mx-auto leading-relaxed">
