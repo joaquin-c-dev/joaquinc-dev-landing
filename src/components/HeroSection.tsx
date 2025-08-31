@@ -141,11 +141,23 @@ const HeroSection = () => {
             </div>
 
             {/* Benefits */}
-            <div className="text-center text-sm text-muted-foreground space-y-1">
+            <div className="text-center text-sm text-muted-foreground space-y-1 mb-4">
               <p>✅ Acceso inmediato al curso</p>
               <p>✅ Clases en vivo con Joaquín</p>
               <p>✅ Certificado de finalización</p>
               <p className="text-green-400 font-semibold">✅ ¡Descuento + Sin intereses!</p>
+            </div>
+
+            {/* Offer CTA Button */}
+            <div className="text-center">
+              <Button 
+                size="lg"
+                className="w-full bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white font-bold text-lg px-8 py-4 transition-all duration-300 hover:scale-105 shadow-xl border-0"
+                onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
+              >
+                <Zap className="w-5 h-5 mr-2" />
+                ¡Aprovechar Oferta!
+              </Button>
             </div>
           </div>
 
