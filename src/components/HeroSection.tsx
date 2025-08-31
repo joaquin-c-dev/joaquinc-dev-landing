@@ -50,7 +50,7 @@ const HeroSection = () => {
               <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
               <div className="relative bg-card/50 backdrop-blur-md border border-primary/20 rounded-2xl p-4 shadow-xl">
                 <video 
-                  className="w-full max-w-md lg:max-w-lg rounded-xl shadow-lg"
+                  className="w-full max-w-lg lg:max-w-xl rounded-xl shadow-lg"
                   controls
                   autoPlay
                   muted
