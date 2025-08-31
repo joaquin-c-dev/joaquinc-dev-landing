@@ -63,7 +63,7 @@ const HeroSection = () => {
                     poster="https://res.cloudinary.com/joaquin-test/image/upload/v1756607596/Screenshot_at_Aug_30_20-32-46_qgh3zx.png"
                     preload="metadata"
                   >
-                    <source src="https://res.cloudinary.com/joaquin-test/video/upload/v1756606949/GMT20250831-021826_Clip_Clase_muestra_-_Java_desde_Cero_oqqdzs.mp4" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/joaquin-test/video/upload/v1756623620/joaquin%20c.%20dev/java%20desde%20cero/GMT20250831-012428_Recording.cutfile.20250831065554802_1920x1080_fhlezz.mp4" type="video/mp4" />
                     Tu navegador no soporta el elemento de video.
                   </video>
                   <div className="mt-4 text-center">
