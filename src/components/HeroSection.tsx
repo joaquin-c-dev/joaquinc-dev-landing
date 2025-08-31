@@ -12,22 +12,22 @@ const HeroSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       {/* Hero content */}
-      <div className="relative z-10 container mx-auto px-8 md:px-12 lg:px-16 py-12">
-        <div className="max-w-6xl mx-auto">
+      <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 py-4">
+        <div className="max-w-5xl mx-auto">
           {/* Top badge and instructor info */}
-          <div className="text-center mb-8">
-            <div className="flex items-center gap-2 mb-3 justify-center opacity-70">
+          <div className="text-center mb-4">
+            <div className="flex items-center gap-2 mb-2 justify-center opacity-70">
               <Coffee className="w-4 h-4 text-primary/70" />
               <span className="text-muted-foreground/80 uppercase tracking-wider text-xs font-medium">
                 Aprende Java desde Cero
               </span>
             </div>
             
-            <div className="flex items-center justify-center gap-3 mb-4 opacity-60">
+            <div className="flex items-center justify-center gap-3 mb-3 opacity-60">
               <img 
                 src={joaquinProfile}
                 alt="Joaquín Coronado Ramírez"
-                className="w-8 h-8 rounded-full object-cover border border-primary/20"
+                className="w-6 h-6 rounded-full object-cover border border-primary/20"
               />
               <div className="text-xs text-muted-foreground/70">
                 Con <span className="text-primary/80 font-medium">Joaquín Coronado</span> • Head of Backend
@@ -36,12 +36,12 @@ const HeroSection = () => {
           </div>
 
           {/* Video Section - Hero */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-4">
             <div className="relative group">
-              <div className="absolute -inset-3 bg-gradient-accent rounded-3xl blur-2xl opacity-15 group-hover:opacity-25 transition-opacity duration-500"></div>
-              <div className="relative bg-card/60 backdrop-blur-md border-2 border-primary/30 rounded-3xl p-6 shadow-2xl">
+              <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-15 group-hover:opacity-25 transition-opacity duration-500"></div>
+              <div className="relative bg-card/60 backdrop-blur-md border-2 border-primary/30 rounded-2xl p-3 shadow-2xl">
                 <video 
-                  className="w-full max-w-2xl lg:max-w-4xl rounded-2xl shadow-2xl"
+                  className="w-full max-w-lg lg:max-w-2xl rounded-xl shadow-2xl"
                   controls
                   autoPlay
                   muted
@@ -56,8 +56,8 @@ const HeroSection = () => {
           </div>
 
           {/* Main content around video */}
-          <div className="text-center px-4 md:px-8">
-            <h1 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight opacity-90">
+          <div className="text-center px-2 md:px-4">
+            <h1 className="text-2xl lg:text-4xl font-bold mb-3 leading-tight opacity-90">
               Aprende{" "}
               <span className="bg-gradient-accent bg-clip-text text-transparent">
                 Java
@@ -66,61 +66,61 @@ const HeroSection = () => {
               desde Cero
             </h1>
             
-            <p className="text-lg text-muted-foreground/80 mb-8 max-w-3xl mx-auto opacity-80">
+            <p className="text-base text-muted-foreground/80 mb-4 max-w-2xl mx-auto opacity-80">
               Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
               Más de 9 años de experiencia en desarrollo backend me respaldan 
               para guiarte en tiempo real en cada paso de tu carrera como developer.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
               {/* Primary CTA Button with glow effect */}
               <div className="group relative">
                 <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                 <Button 
-                  size="lg"
-                  className="relative bg-gradient-primary text-white text-lg px-8 py-4 transition-all duration-300 hover:scale-105 shadow-elegant border border-primary/30"
+                  size="default"
+                  className="relative bg-gradient-primary text-white text-base px-6 py-3 transition-all duration-300 hover:scale-105 shadow-elegant border border-primary/30"
                   onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
                 >
-                  <Zap className="w-5 h-5 mr-2" />
+                  <Zap className="w-4 h-4 mr-2" />
                   Inscribirme Ahora
                 </Button>
               </div>
               <Button 
                 variant="outline" 
-                size="lg" 
-                className="border-primary/30 hover:border-primary/50 text-lg px-8 py-4"
+                size="default" 
+                className="border-primary/30 hover:border-primary/50 text-base px-6 py-3"
                 onClick={() => {
                   const curriculumSection = document.getElementById('curriculum');
                   curriculumSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                <Code className="w-5 h-5 mr-2" />
+                <Code className="w-4 h-4 mr-2" />
                 Ver Contenido
               </Button>
             </div>
             
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 max-w-md mx-auto mb-8">
+            <div className="grid grid-cols-3 gap-4 max-w-xs mx-auto mb-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">En Vivo</div>
-                <div className="text-sm text-muted-foreground">Clases Online</div>
+                <div className="text-lg font-bold text-primary">En Vivo</div>
+                <div className="text-xs text-muted-foreground">Clases Online</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">9+</div>
-                <div className="text-sm text-muted-foreground">Años Experiencia</div>
+                <div className="text-lg font-bold text-primary">9+</div>
+                <div className="text-xs text-muted-foreground">Años Experiencia</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">Directo</div>
-                <div className="text-sm text-muted-foreground">Conmigo</div>
+                <div className="text-lg font-bold text-primary">Directo</div>
+                <div className="text-xs text-muted-foreground">Conmigo</div>
               </div>
             </div>
             
             {/* Subtle pricing info */}
             <div className="flex justify-center">
-              <div className="inline-flex flex-col items-center gap-2 bg-primary/5 px-6 py-4 rounded-xl border border-primary/10 backdrop-blur-sm">
-                <div className="flex items-center gap-3">
+              <div className="inline-flex flex-col items-center gap-1 bg-primary/5 px-4 py-3 rounded-xl border border-primary/10 backdrop-blur-sm">
+                <div className="flex items-center gap-2">
                   <span className="text-sm text-muted-foreground line-through">$8,500</span>
-                  <span className="text-xl font-bold text-primary">$6,500 MXN</span>
+                  <span className="text-lg font-bold text-primary">$6,500 MXN</span>
                   <div className="px-2 py-1 bg-primary/20 text-xs font-semibold text-primary rounded-md">23% OFF</div>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
