@@ -63,7 +63,7 @@ const HeroSection = () => {
                     poster="/placeholder.svg"
                     preload="metadata"
                   >
-                    <source src="https://storage.googleapis.com/avena-bot.appspot.com/img/landing/es/interview_es.mp4" type="video/mp4" />
+                    <source src="https://us06web.zoom.us/clips/share/DR4gIYtGRzWCjZEeXohjzw" type="video/mp4" />
                     Tu navegador no soporta el elemento de video.
                   </video>
                   <div className="mt-4 text-center">
