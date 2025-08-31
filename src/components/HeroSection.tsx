@@ -13,33 +13,17 @@ const HeroSection = () => {
       
       {/* Hero content */}
       <div className="relative z-10 container mx-auto px-8 md:px-12 lg:px-16 py-12">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Text content */}
-          <div className="px-4 md:px-8">
-            <div className="flex items-center gap-2 mb-4 justify-center opacity-70">
-              <Coffee className="w-5 h-5 text-primary/70" />
+        <div className="max-w-6xl mx-auto">
+          {/* Top badge and instructor info */}
+          <div className="text-center mb-8">
+            <div className="flex items-center gap-2 mb-3 justify-center opacity-70">
+              <Coffee className="w-4 h-4 text-primary/70" />
               <span className="text-muted-foreground/80 uppercase tracking-wider text-xs font-medium">
                 Aprende Java desde Cero
               </span>
             </div>
             
-            <h1 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight opacity-90">
-              Aprende{" "}
-              <span className="bg-gradient-accent bg-clip-text text-transparent">
-                Java
-              </span>
-              <br />
-              desde Cero
-            </h1>
-            
-            <p className="text-lg text-muted-foreground/80 mb-4 max-w-2xl mx-auto opacity-80">
-              Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
-              Más de 9 años de experiencia en desarrollo backend me respaldan 
-              para guiarte en tiempo real en cada paso de tu carrera como developer.
-            </p>
-            
-            {/* Instructor Profile - Subtle */}
-            <div className="flex items-center justify-center gap-3 mb-6 opacity-60">
+            <div className="flex items-center justify-center gap-3 mb-4 opacity-60">
               <img 
                 src={joaquinProfile}
                 alt="Joaquín Coronado Ramírez"
@@ -49,37 +33,55 @@ const HeroSection = () => {
                 Con <span className="text-primary/80 font-medium">Joaquín Coronado</span> • Head of Backend
               </div>
             </div>
+          </div>
 
-            {/* Video Section - More Prominent */}
-            <div className="flex justify-center mb-8">
-              <div className="relative group">
-                <div className="absolute -inset-2 bg-gradient-accent rounded-3xl blur-lg opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
-                <div className="relative bg-card/60 backdrop-blur-md border-2 border-primary/30 rounded-3xl p-4 shadow-2xl">
-                  <video 
-                    className="w-full max-w-xl lg:max-w-2xl rounded-2xl shadow-2xl"
-                    controls
-                    autoPlay
-                    muted
-                    poster="https://res.cloudinary.com/joaquin-test/image/upload/v1756607596/Screenshot_at_Aug_30_20-32-46_qgh3zx.png"
-                    preload="metadata"
-                  >
-                    <source src="https://res.cloudinary.com/joaquin-test/video/upload/v1756623620/joaquin%20c.%20dev/java%20desde%20cero/GMT20250831-012428_Recording.cutfile.20250831065554802_1920x1080_fhlezz.mp4" type="video/mp4" />
-                    Tu navegador no soporta el elemento de video.
-                  </video>
-                </div>
+          {/* Video Section - Hero */}
+          <div className="flex justify-center mb-8">
+            <div className="relative group">
+              <div className="absolute -inset-3 bg-gradient-accent rounded-3xl blur-2xl opacity-15 group-hover:opacity-25 transition-opacity duration-500"></div>
+              <div className="relative bg-card/60 backdrop-blur-md border-2 border-primary/30 rounded-3xl p-6 shadow-2xl">
+                <video 
+                  className="w-full max-w-2xl lg:max-w-4xl rounded-2xl shadow-2xl"
+                  controls
+                  autoPlay
+                  muted
+                  poster="https://res.cloudinary.com/joaquin-test/image/upload/v1756607596/Screenshot_at_Aug_30_20-32-46_qgh3zx.png"
+                  preload="metadata"
+                >
+                  <source src="https://res.cloudinary.com/joaquin-test/video/upload/v1756623620/joaquin%20c.%20dev/java%20desde%20cero/GMT20250831-012428_Recording.cutfile.20250831065554802_1920x1080_fhlezz.mp4" type="video/mp4" />
+                  Tu navegador no soporta el elemento de video.
+                </video>
               </div>
             </div>
+          </div>
+
+          {/* Main content around video */}
+          <div className="text-center px-4 md:px-8">
+            <h1 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight opacity-90">
+              Aprende{" "}
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Java
+              </span>
+              <br />
+              desde Cero
+            </h1>
+            
+            <p className="text-lg text-muted-foreground/80 mb-8 max-w-3xl mx-auto opacity-80">
+              Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
+              Más de 9 años de experiencia en desarrollo backend me respaldan 
+              para guiarte en tiempo real en cada paso de tu carrera como developer.
+            </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               {/* Primary CTA Button with glow effect */}
               <div className="group relative">
                 <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                 <Button 
-                  size="default"
-                  className="relative bg-gradient-primary text-white text-base px-6 py-3 transition-all duration-300 hover:scale-105 shadow-elegant border border-primary/30"
+                  size="lg"
+                  className="relative bg-gradient-primary text-white text-lg px-8 py-4 transition-all duration-300 hover:scale-105 shadow-elegant border border-primary/30"
                   onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
                 >
-                  <Zap className="w-4 h-4 mr-2" />
+                  <Zap className="w-5 h-5 mr-2" />
                   Inscribirme Ahora
                 </Button>
               </div>
@@ -98,7 +100,7 @@ const HeroSection = () => {
             </div>
             
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 max-w-md mx-auto">
+            <div className="grid grid-cols-3 gap-8 max-w-md mx-auto mb-8">
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary">En Vivo</div>
                 <div className="text-sm text-muted-foreground">Clases Online</div>
@@ -114,7 +116,7 @@ const HeroSection = () => {
             </div>
             
             {/* Subtle pricing info */}
-            <div className="mt-8 flex justify-center">
+            <div className="flex justify-center">
               <div className="inline-flex flex-col items-center gap-2 bg-primary/5 px-6 py-4 rounded-xl border border-primary/10 backdrop-blur-sm">
                 <div className="flex items-center gap-3">
                   <span className="text-sm text-muted-foreground line-through">$8,500</span>
