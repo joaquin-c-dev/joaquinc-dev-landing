@@ -26,41 +26,37 @@ const DiscountBanner = () => {
       <div className="absolute top-0 left-1/4 w-32 h-32 bg-tech-cyan/20 rounded-full blur-2xl animate-pulse"></div>
       <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-course-blue/30 rounded-full blur-xl animate-pulse"></div>
       
-      <div className="relative z-10 container mx-auto px-4 py-3">
-        {/* Mobile: Two clean lines, Desktop: Horizontal layout */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-2">
+      <div className="relative z-10 container mx-auto px-4 py-2">
+        {/* Mobile: Single compact line, Desktop: Normal layout */}
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
           
-          {/* Content section - single line on mobile */}
-          <div className="flex-1 text-center sm:text-left">
-            {/* Mobile: Everything in one line, Desktop: Normal layout */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
-              {/* Single line text for mobile */}
-              <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-                <Zap className="w-4 h-4 text-yellow-300 animate-pulse" />
-                <span className="text-white font-bold text-sm">🔥 OFERTA:</span>
-                <span className="bg-yellow-400/25 px-2 py-1 rounded-full font-bold text-yellow-100 text-xs border border-yellow-400/30">
-                  $2,000 OFF
-                </span>
-                <span className="bg-green-400/25 px-2 py-1 rounded-full font-bold text-green-100 text-xs border border-green-400/30">
-                  3 MSI
-                </span>
-                <Clock className="w-4 h-4 text-yellow-200 hidden xs:inline" />
-                <CountdownTimer className="text-xs font-bold hidden xs:inline" textColor="text-yellow-200" />
-              </div>
+          {/* Content section - single compact line */}
+          <div className="flex items-center gap-1 sm:gap-3 flex-1 min-w-0">
+            <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-300 animate-pulse flex-shrink-0" />
+            <span className="text-white font-bold text-xs sm:text-sm flex-shrink-0">🔥</span>
+            <span className="bg-yellow-400/25 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full font-bold text-yellow-100 text-xs border border-yellow-400/30 flex-shrink-0">
+              $2K OFF
+            </span>
+            <span className="bg-green-400/25 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full font-bold text-green-100 text-xs border border-green-400/30 flex-shrink-0">
+              3 MSI
+            </span>
+            <div className="flex items-center gap-1 text-yellow-200 text-xs font-medium flex-shrink-0">
+              <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+              <CountdownTimer className="text-xs font-bold" textColor="text-yellow-200" />
             </div>
           </div>
           
-          {/* Action button - second line on mobile */}
-          <div className="flex items-center justify-center sm:justify-end">
+          {/* Action buttons - compact */}
+          <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
             <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-accent rounded-lg blur-sm opacity-70 animate-pulse"></div>
+              <div className="absolute -inset-0.5 bg-gradient-accent rounded-md blur-sm opacity-70 animate-pulse"></div>
               <Button
                 onClick={scrollToCTA}
-                size="default"
-                className="relative bg-white hover:bg-white/95 text-primary border-0 font-bold text-sm px-6 py-3 transform hover:scale-105 transition-all duration-300"
+                size="sm"
+                className="relative bg-white hover:bg-white/95 text-primary border-0 font-bold text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 transform hover:scale-105 transition-all duration-300"
               >
-                <ArrowDown className="w-4 h-4 mr-2 animate-bounce" />
-                ¡INSCRIBIRME YA!
+                <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 mr-1 animate-bounce" />
+                ¡INSCRIBIRME!
               </Button>
             </div>
             
@@ -68,9 +64,9 @@ const DiscountBanner = () => {
               onClick={dismissBanner}
               size="sm"
               variant="ghost"
-              className="text-white/70 hover:text-white hover:bg-white/10 p-2 ml-2"
+              className="text-white/70 hover:text-white hover:bg-white/10 p-1 min-w-[24px] sm:min-w-[32px]"
             >
-              <X className="w-4 h-4" />
+              <X className="w-3 h-3 sm:w-4 sm:h-4" />
             </Button>
           </div>
         </div>
