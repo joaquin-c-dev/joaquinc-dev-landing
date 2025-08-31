@@ -16,14 +16,14 @@ const HeroSection = () => {
         <div className="max-w-5xl mx-auto text-center">
           {/* Text content */}
           <div className="px-4 md:px-8">
-            <div className="flex items-center gap-2 mb-6 justify-center">
-              <Coffee className="w-6 h-6 text-primary" />
-              <span className="text-muted-foreground uppercase tracking-wider text-sm font-medium">
+            <div className="flex items-center gap-2 mb-4 justify-center opacity-70">
+              <Coffee className="w-5 h-5 text-primary/70" />
+              <span className="text-muted-foreground/80 uppercase tracking-wider text-xs font-medium">
                 Aprende Java desde Cero
               </span>
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight opacity-90">
               Aprende{" "}
               <span className="bg-gradient-accent bg-clip-text text-transparent">
                 Java
@@ -32,31 +32,31 @@ const HeroSection = () => {
               desde Cero
             </h1>
             
-            <p className="text-xl text-muted-foreground mb-6 max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground/80 mb-4 max-w-2xl mx-auto opacity-80">
               Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
               Más de 9 años de experiencia en desarrollo backend me respaldan 
               para guiarte en tiempo real en cada paso de tu carrera como developer.
             </p>
             
             {/* Instructor Profile - Subtle */}
-            <div className="flex items-center justify-center gap-3 mb-8 opacity-80">
+            <div className="flex items-center justify-center gap-3 mb-8 opacity-60">
               <img 
                 src={joaquinProfile}
                 alt="Joaquín Coronado Ramírez"
-                className="w-10 h-10 rounded-full object-cover border-2 border-primary/20"
+                className="w-8 h-8 rounded-full object-cover border border-primary/20"
               />
-              <div className="text-sm text-muted-foreground">
-                Con <span className="text-primary font-medium">Joaquín Coronado</span> • Head of Backend
+              <div className="text-xs text-muted-foreground/70">
+                Con <span className="text-primary/80 font-medium">Joaquín Coronado</span> • Head of Backend
               </div>
             </div>
 
-            {/* Video Section */}
+            {/* Video Section - More Prominent */}
             <div className="flex justify-center mb-12">
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-accent rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
-                <div className="relative bg-card/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-4 shadow-2xl">
+                <div className="absolute -inset-4 bg-gradient-accent rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                <div className="relative bg-card/60 backdrop-blur-md border-2 border-primary/30 rounded-3xl p-6 shadow-2xl">
                   <video 
-                    className="w-full max-w-md rounded-xl shadow-lg"
+                    className="w-full max-w-lg lg:max-w-xl rounded-2xl shadow-2xl"
                     controls
                     autoPlay
                     muted
@@ -66,8 +66,8 @@ const HeroSection = () => {
                     <source src="https://res.cloudinary.com/joaquin-test/video/upload/v1756623620/joaquin%20c.%20dev/java%20desde%20cero/GMT20250831-012428_Recording.cutfile.20250831065554802_1920x1080_fhlezz.mp4" type="video/mp4" />
                     Tu navegador no soporta el elemento de video.
                   </video>
-                  <div className="mt-4 text-center">
-                    <p className="text-sm text-muted-foreground">
+                  <div className="mt-6 text-center">
+                    <p className="text-base font-medium text-primary">
                       Conoce qué aprenderás en el curso
                     </p>
                   </div>
