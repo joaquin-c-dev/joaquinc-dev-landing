@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import whatsappLogo from "@/assets/whatsapp-logo.svg";
+import joaquinProfile from "@/assets/joaquin-profile.jpg";
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -100,7 +101,7 @@ const WhatsAppButton = () => {
             <div className="flex items-center gap-3 p-4" style={{ background: 'linear-gradient(135deg, #4CAF50, #2E7D32)' }}>
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/f5bf41a1-4ab7-4d61-a0a5-526490853347.png" 
+                  src={joaquinProfile} 
                   alt="Joaquín" 
                   className="w-12 h-12 rounded-full object-cover border-2 border-white/20"
                 />
