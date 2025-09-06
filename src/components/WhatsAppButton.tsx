@@ -6,6 +6,15 @@ const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
 
+  // Abrir chat automáticamente después de 3 segundos
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // Abrir chat cuando el usuario haga scroll más allá del video
   useEffect(() => {
     const handleScroll = () => {
