@@ -19,7 +19,7 @@ const curriculumModules = [
   {
     icon: BookOpen,
     title: "Introducción a Java",
-    duration: "4 horas",
+    duration: "4 hrs",
     topics: [
       "¿Qué es Java y cómo trabaja?",
       "Java Virtual Machine (JVM)",
@@ -35,7 +35,7 @@ const curriculumModules = [
   {
     icon: Code2,
     title: "Fundamentos de Java",
-    duration: "8 horas",
+    duration: "8 hrs",
     topics: [
       "Estructura de un programa en Java",
       "Variables y tipos de datos",
@@ -51,7 +51,7 @@ const curriculumModules = [
   {
     icon: Boxes,
     title: "Programación Orientada a Objetos",
-    duration: "8 horas",
+    duration: "8 hrs",
     topics: [
       "Abstracción, clases y objetos",
       "Métodos y atributos",
@@ -69,7 +69,7 @@ const curriculumModules = [
   {
     icon: Settings,
     title: "Enumerables, Genericos y Collections",
-    duration: "4 horas",
+    duration: "4 hrs",
     topics: [
       "Enumerables y sus atributos/métodos",
       "Genericos y convenciones",
@@ -83,7 +83,7 @@ const curriculumModules = [
   {
     icon: Shield,
     title: "Excepciones y Programación Funcional",
-    duration: "6 horas",
+    duration: "6 hrs",
     topics: [
       "Checked y Unchecked Exceptions",
       "Throwable, Exception, RunTimeException",
@@ -101,7 +101,7 @@ const curriculumModules = [
   {
     icon: Globe,
     title: "Introducción al Desarrollo Web",
-    duration: "4 horas",
+    duration: "4 hrs",
     topics: [
       "¿Qué es el desarrollo web?",
       "Arquitectura Cliente-Servidor",
@@ -116,7 +116,7 @@ const curriculumModules = [
   {
     icon: Zap,
     title: "Spring Framework/Spring Boot",
-    duration: "4 horas",
+    duration: "4 hrs",
     topics: [
       "Introducción al ecosistema Spring",
       "¿Qué es Spring Framework y por qué usarlo?",
@@ -131,7 +131,7 @@ const curriculumModules = [
   {
     icon: Database,
     title: "Persistencia de Datos con MongoDB",
-    duration: "2 horas",
+    duration: "2 hrs",
     topics: [
       "Introducción a MongoDB",
       "Creación de documentos con @Document",
@@ -172,7 +172,7 @@ const CurriculumSection = () => {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Un programa estructurado de {totalHours} horas que te llevará desde los fundamentos 
+            Un programa estructurado de {totalHours} hrs que te llevará desde los fundamentos 
             hasta implementaciones enterprise de Java y Spring Boot.
           </p>
           
@@ -180,7 +180,7 @@ const CurriculumSection = () => {
           <div className="flex flex-wrap gap-4 justify-center">
             <Badge variant="outline" className="px-4 py-2 text-base border-primary/30">
               <Clock className="w-4 h-4 mr-2" />
-              {totalHours} horas de contenido
+              {totalHours} hrs de contenido
             </Badge>
             <Badge variant="outline" className="px-4 py-2 text-base border-primary/30">
               <Boxes className="w-4 h-4 mr-2" />
