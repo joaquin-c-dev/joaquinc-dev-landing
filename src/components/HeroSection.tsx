@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Code, Zap } from "lucide-react";
+import { Code, Zap, Flame, CheckCircle, CreditCard, Lock } from "lucide-react";
 import joaquinProfile from "@/assets/joaquin-profile.jpg";
 import CountdownTimer from "./CountdownTimer";
 
@@ -91,71 +91,67 @@ const HeroSection = () => {
             </Button>
           </div>
           
-          {/* Pricing info with urgency */}
-          <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 border-2 border-red-500/30 rounded-2xl p-6 backdrop-blur-sm shadow-2xl max-w-md mx-auto">
-            {/* Urgency Header */}
+          {/* Optimized Pricing Section */}
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm shadow-2xl max-w-md mx-auto">
+            {/* Urgency Message */}
             <div className="text-center mb-4">
-              <div className="inline-flex items-center gap-2 bg-red-500/20 px-4 py-2 rounded-full border border-red-500/40 mb-3">
-                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                <span className="text-red-400 font-bold text-sm uppercase tracking-wide">
-                  ¡OFERTA POR TIEMPO LIMITADO!
-                </span>
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Flame className="w-5 h-5 text-red-500" />
+                <span className="text-red-400 font-bold text-lg">¡Solo por 48h! Esta oportunidad termina en:</span>
               </div>
-              
-              {/* Countdown */}
-              <div className="mb-4">
-                <p className="text-sm text-muted-foreground mb-2">La oferta termina en:</p>
-                <div className="bg-black/20 px-4 py-2 rounded-lg border border-primary/20">
-                  <CountdownTimer textColor="text-red-400 font-mono font-bold text-lg" />
-                </div>
-              </div>
+              <CountdownTimer textColor="text-red-400" />
+              <p className="text-red-300/80 text-sm mt-2">Quedan pocas horas para inscribirte con descuento</p>
             </div>
 
             {/* Price Section */}
             <div className="text-center mb-4">
-              <div className="flex items-center justify-center gap-3 mb-3">
-                <span className="text-xl text-muted-foreground line-through opacity-60">$8,500</span>
-                <span className="text-4xl font-black text-white">$6,500</span>
-                <span className="text-sm text-muted-foreground">MXN</span>
+              {/* Original price crossed out */}
+              <div className="text-neutral-400 line-through text-2xl mb-2">$8,500 MXN</div>
+              
+              {/* Current price highlighted */}
+              <div className="text-5xl font-black text-white mb-4">
+                $6,500 <span className="text-2xl font-normal">MXN</span>
               </div>
               
-              <div className="inline-flex items-center bg-gradient-to-r from-green-500/20 to-emerald-500/20 px-4 py-2 rounded-full border border-green-500/40 mb-4">
-                <span className="text-green-400 font-bold text-lg">¡Ahorras $2,000!</span>
-              </div>
-            </div>
-
-            {/* Combined Benefits */}
-            <div className="bg-primary/10 border border-primary/30 rounded-xl p-4 mb-4">
-              <div className="text-center">
-                <p className="text-sm text-muted-foreground mb-2">Con descuento + 3 meses sin intereses:</p>
-                <p className="text-3xl font-black text-white mb-1">$2,167</p>
-                <p className="text-primary font-bold">por mes</p>
-                <div className="flex items-center justify-center gap-2 mt-2">
-                  <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-semibold">
-                    23% DESCUENTO
-                  </span>
-                  <span className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs font-semibold">
-                    3 MESES SIN INTERESES
-                  </span>
+              {/* Combined benefit block */}
+              <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 mb-4">
+                <div className="text-green-400 font-bold text-lg mb-1">
+                  💰 Con descuento + 3 meses sin intereses
+                </div>
+                <div className="text-green-300 text-2xl font-bold">
+                  $2,167 / mes
+                </div>
+                <div className="text-green-200/70 text-sm mt-1">
+                  Ahorras $2,000 y pagas cómodamente
                 </div>
               </div>
             </div>
 
-            {/* Benefits */}
-            <div className="text-center text-sm text-muted-foreground space-y-1 mb-4">
-              <p className="text-green-400 font-semibold">✅ ¡Descuento + 3 meses sin intereses!</p>
-            </div>
-
-            {/* Offer CTA Button */}
-            <div className="text-center">
+            {/* Enhanced CTA Button */}
+            <div className="mb-4">
               <Button 
                 size="lg"
-                className="w-full bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white font-bold text-lg px-8 py-4 transition-all duration-300 hover:scale-105 shadow-xl border-0"
+                className="w-full bg-red-500 hover:bg-red-600 text-white font-black text-xl py-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl border-0"
                 onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
               >
-                <Zap className="w-5 h-5 mr-2" />
-                ¡Aprovechar Oferta!
+                🔥 Quiero mi lugar con descuento
               </Button>
+            </div>
+            
+            {/* Trust signals */}
+            <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
+              <div className="flex items-center gap-1">
+                <CheckCircle className="w-3 h-3 text-green-400" />
+                <span>Pago seguro</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <CreditCard className="w-3 h-3 text-green-400" />
+                <span>Todas las tarjetas</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Lock className="w-3 h-3 text-green-400" />
+                <span>Datos protegidos</span>
+              </div>
             </div>
           </div>
 
