@@ -38,7 +38,7 @@ const DiscountBanner = () => {
               <div className="flex items-center gap-1 sm:gap-3 flex-1 sm:flex-initial">
                 <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-300 animate-pulse flex-shrink-0" />
                 <span className="text-white font-bold text-xs sm:text-sm flex-shrink-0">🔥</span>
-                <span className="hidden sm:inline text-white font-medium text-sm mr-2">Lanzamiento Agosto:</span>
+                <span className="hidden sm:inline text-white font-medium text-sm mr-2">Lanzamiento Septiembre:</span>
                 <span className="bg-yellow-400/25 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full font-bold text-yellow-100 text-xs border border-yellow-400/30 flex-shrink-0">
                   $2K OFF
                 </span>
