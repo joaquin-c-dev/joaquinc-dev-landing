@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import whatsappLogo from "@/assets/whatsapp-logo.svg";
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Abrir chat automáticamente después de 3 segundos
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleWhatsAppClick = () => {
     window.open('https://wa.me/523310881011?text=Hola%20Joaquín,%20me%20interesa%20el%20curso%20de%20Java', '_blank');
