@@ -4,13 +4,20 @@ import whatsappLogo from "@/assets/whatsapp-logo.svg";
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Abrir chat cuando el usuario haga scroll
+  // Abrir chat cuando el usuario haga scroll más allá del video
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) { // Se abre después de hacer scroll de 100px
-        setIsOpen(true);
-        // Remover el event listener después de abrir para que solo se abra una vez
-        window.removeEventListener('scroll', handleScroll);
+      const videoElement = document.querySelector('video');
+      if (videoElement) {
+        const videoRect = videoElement.getBoundingClientRect();
+        const videoBottom = videoRect.bottom;
+        
+        // Si el video ya pasó por completo (bottom < 0), abrir el chat
+        if (videoBottom < 0) {
+          setIsOpen(true);
+          // Remover el event listener después de abrir para que solo se abra una vez
+          window.removeEventListener('scroll', handleScroll);
+        }
       }
     };
 
