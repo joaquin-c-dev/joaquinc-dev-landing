@@ -63,7 +63,7 @@ const WhatsAppButton = () => {
   };
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/523310881011?text=Hola%20Joaquín,%20me%20interesa%20el%20curso%20de%20Java', '_blank');
+    window.open('https://wa.me/523310881011?text=Hola!%20Me%20interesa%20el%20curso%20de%20Java.%20%C2%BFPuedes%20asesorarme%3F', '_blank');
     handleClose();
   };
 
