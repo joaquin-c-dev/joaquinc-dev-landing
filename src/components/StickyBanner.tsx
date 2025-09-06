@@ -57,7 +57,7 @@ const StickyBanner = () => {
           <div className="flex-1 text-center">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
               <span className="text-white font-semibold text-sm md:text-base">
-                🎓 ¡Descuento Estudiantes! Curso completo: $6,500 MXN (antes $8,500)
+                🚀 ¡Transforma tu carrera! Oferta especial: $6,500 MXN (antes $8,500)
               </span>
               <CountdownTimer className="text-xs md:text-sm" textColor="text-yellow-200" />
             </div>

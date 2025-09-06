@@ -80,7 +80,7 @@ const CTASection = () => {
                   <div className="text-muted-foreground line-through text-xl mb-1">$8,500 MXN</div>
                   <div className="text-4xl font-bold text-primary mb-1">$6,500 <span className="text-xl">MXN</span></div>
                   <div className="flex items-center justify-center gap-3 mb-2">
-                    <div className="text-muted-foreground text-sm">Descuento a estudiantes</div>
+                    <div className="text-muted-foreground text-sm">Oferta por tiempo limitado</div>
                     <CountdownTimer textColor="text-primary" />
                   </div>
                   <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
@@ -98,7 +98,7 @@ const CTASection = () => {
                   <Button 
                     size="lg"
                     className="relative bg-gradient-primary text-white font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 border border-primary/30"
-                    onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=ESTUDIANTES', '_blank')}
+                    onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
                   >
                     <span className="font-black">
                       INSCRIBIRME AHORA
