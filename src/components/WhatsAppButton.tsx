@@ -40,15 +40,9 @@ const WhatsAppButton = () => {
 
       {/* Chat Popup */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-end justify-end p-6">
-          {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm" 
-            onClick={() => setIsOpen(false)}
-          />
-          
+        <div className="fixed bottom-20 right-6 z-40 w-80 max-w-full animate-in slide-in-from-bottom-4 duration-300">
           {/* Chat Container */}
-          <div className="relative bg-card border border-border rounded-2xl shadow-glow-lg w-80 max-w-full animate-in slide-in-from-bottom-4 duration-300">
+          <div className="bg-card border border-border rounded-2xl shadow-glow-lg">
             {/* Header */}
             <div 
               className="flex items-center gap-3 p-4 rounded-t-2xl text-white"
