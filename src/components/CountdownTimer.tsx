@@ -1,4 +1,6 @@
 import { useCountdown } from "@/contexts/CountdownContext";
+import { useContext } from "react";
+import { CountdownContext } from "@/contexts/CountdownContext";
 
 interface CountdownTimerProps {
   className?: string;
@@ -6,7 +8,14 @@ interface CountdownTimerProps {
 }
 
 const CountdownTimer = ({ className = "", textColor = "text-white" }: CountdownTimerProps) => {
-  const { timeLeft, formatNumber } = useCountdown();
+  const context = useContext(CountdownContext);
+  
+  // Return null if context is not available (provider not ready yet)
+  if (!context) {
+    return null;
+  }
+  
+  const { timeLeft, formatNumber } = context;
 
   if (timeLeft.isExpired) return null;
 

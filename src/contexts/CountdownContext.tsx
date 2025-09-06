@@ -12,7 +12,7 @@ interface CountdownContextType {
   formatNumber: (num: number) => string;
 }
 
-const CountdownContext = createContext<CountdownContextType | undefined>(undefined);
+export const CountdownContext = createContext<CountdownContextType | undefined>(undefined);
 
 // Fixed end date - August 31, 2025 at 23:59:59 Mexico time (UTC-6)
 const END_DATE = new Date('2025-09-07T23:59:59-06:00').getTime();
