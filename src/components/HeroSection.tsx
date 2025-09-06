@@ -71,7 +71,7 @@ const HeroSection = () => {
               <Button 
                 size="lg"
                 className="relative bg-gradient-primary text-white text-lg px-8 py-4 transition-all duration-300 hover:scale-105 shadow-elegant border border-primary/30"
-                onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
+                onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=ESTUDIANTES', '_blank')}
               >
                 <Zap className="w-5 h-5 mr-2" />
                 Inscribirme Ahora
@@ -151,7 +151,7 @@ const HeroSection = () => {
               <Button 
                 size="lg"
                 className="w-full bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white font-bold text-lg px-8 py-4 transition-all duration-300 hover:scale-105 shadow-xl border-0"
-                onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
+                onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=ESTUDIANTES', '_blank')}
               >
                 <Zap className="w-5 h-5 mr-2" />
                 ¡Aprovechar Oferta!
