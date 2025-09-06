@@ -25,7 +25,9 @@ const CTASection = () => {
                   <Flame className="w-5 h-5 text-red-500" />
                   <span className="text-red-400 font-bold text-lg">¡Solo por 48h! Esta oportunidad termina en:</span>
                 </div>
-                <CountdownTimer textColor="text-red-400" />
+                <div className="flex justify-center">
+                  <CountdownTimer textColor="text-red-400" />
+                </div>
                 <p className="text-red-300/80 text-sm mt-2">Quedan pocas horas para inscribirte con descuento</p>
               </div>
               
