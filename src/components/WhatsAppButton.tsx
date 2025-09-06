@@ -50,60 +50,60 @@ const WhatsAppButton = () => {
       {isOpen && (
         <div className="fixed bottom-20 right-6 z-40 w-80 max-w-full animate-in slide-in-from-bottom-4 duration-300">
           {/* Chat Container */}
-          <div className="bg-card border border-border rounded-2xl shadow-glow-lg">
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
             {/* Header */}
-            <div 
-              className="flex items-center gap-3 p-4 rounded-t-2xl text-white"
-              style={{ 
-                background: 'linear-gradient(135deg, #25D366, #128C7E)'
-              }}
-            >
-              <img src={whatsappLogo} alt="WhatsApp" className="w-8 h-8" />
-              <div>
-                <h3 className="font-semibold">Joaquín - Instructor Java</h3>
-                <p className="text-sm text-white/90">En línea</p>
+            <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-green-600 to-green-700">
+              <div className="relative">
+                <img 
+                  src="/lovable-uploads/f5bf41a1-4ab7-4d61-a0a5-526490853347.png" 
+                  alt="Joaquín" 
+                  className="w-12 h-12 rounded-full object-cover border-2 border-white/20"
+                />
+                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white"></div>
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-white text-base">Joaquín - Instructor Java</h3>
+                <p className="text-sm text-white/90">Típicamente responderemos en minutos</p>
               </div>
               <button 
                 onClick={() => setIsOpen(false)}
-                className="ml-auto text-white/70 hover:text-white transition-colors"
+                className="text-white/70 hover:text-white transition-colors text-xl"
               >
                 ✕
               </button>
             </div>
             
-            {/* Message */}
-            <div className="p-4 space-y-3">
-              <div className="bg-secondary rounded-lg p-3">
-                <p className="text-sm text-foreground">
-                  ¡Hola! 👋 Soy Joaquín, tu instructor de Java.
-                </p>
+            {/* Messages */}
+            <div className="p-4 bg-gray-50 space-y-3 min-h-[200px]">
+              <div className="flex justify-start">
+                <div className="bg-white rounded-2xl rounded-bl-md px-4 py-2 shadow-sm max-w-[80%]">
+                  <p className="text-gray-800 text-sm">¡Hola!</p>
+                </div>
               </div>
               
-              <div className="bg-secondary rounded-lg p-3">
-                <p className="text-sm text-foreground">
-                  ¿Te interesa el curso? Escríbeme por WhatsApp y te ayudo con cualquier duda sobre el contenido, metodología o formas de pago. 🚀
-                </p>
+              <div className="flex justify-start">
+                <div className="bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm max-w-[85%]">
+                  <p className="text-gray-800 text-sm">
+                    ¿Estás pensando en aprender Java y tienes dudas?
+                  </p>
+                </div>
               </div>
               
-              <div className="bg-primary/10 rounded-lg p-3 border border-primary/20">
-                <p className="text-sm text-primary font-medium">
-                  💡 ¡Oferta especial limitada activa!
-                </p>
+              <div className="flex justify-start">
+                <div className="bg-white rounded-2xl rounded-bl-md px-4 py-2 shadow-sm max-w-[80%]">
+                  <p className="text-gray-800 text-sm">Yo te puedo ayudar.</p>
+                </div>
               </div>
             </div>
             
             {/* Action Button */}
-            <div className="p-4 border-t border-border">
+            <div className="p-4 bg-white">
               <button
                 onClick={handleWhatsAppClick}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-white font-medium transition-all duration-300 hover:scale-105"
-                style={{ 
-                  background: 'linear-gradient(135deg, #25D366, #128C7E)',
-                  boxShadow: '0 4px 15px rgba(37, 211, 102, 0.3)'
-                }}
+                className="w-full flex items-center justify-center gap-3 py-3 px-4 bg-green-500 hover:bg-green-600 text-white font-medium rounded-full transition-all duration-300 hover:scale-[1.02] shadow-lg"
               >
                 <img src={whatsappLogo} alt="WhatsApp" className="w-5 h-5" />
-                Enviar mensaje por WhatsApp
+                Contactar ahora
               </button>
             </div>
           </div>
