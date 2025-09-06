@@ -52,7 +52,7 @@ const WhatsAppButton = () => {
           {/* Chat Container */}
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
             {/* Header */}
-            <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-green-600 to-green-700">
+            <div className="flex items-center gap-3 p-4" style={{ background: 'linear-gradient(135deg, #4CAF50, #2E7D32)' }}>
               <div className="relative">
                 <img 
                   src="/lovable-uploads/f5bf41a1-4ab7-4d61-a0a5-526490853347.png" 
@@ -74,15 +74,15 @@ const WhatsAppButton = () => {
             </div>
             
             {/* Messages */}
-            <div className="p-4 bg-gray-50 space-y-3 min-h-[200px]">
+            <div className="p-4 bg-gray-100 space-y-3 min-h-[200px]">
               <div className="flex justify-start">
-                <div className="bg-white rounded-2xl rounded-bl-md px-4 py-2 shadow-sm max-w-[80%]">
+                <div className="bg-white rounded-2xl rounded-bl-md px-4 py-2 shadow-sm max-w-[80%] border border-gray-200">
                   <p className="text-gray-800 text-sm">¡Hola!</p>
                 </div>
               </div>
               
               <div className="flex justify-start">
-                <div className="bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm max-w-[85%]">
+                <div className="bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-200">
                   <p className="text-gray-800 text-sm">
                     ¿Estás pensando en aprender Java y tienes dudas?
                   </p>
@@ -90,17 +90,18 @@ const WhatsAppButton = () => {
               </div>
               
               <div className="flex justify-start">
-                <div className="bg-white rounded-2xl rounded-bl-md px-4 py-2 shadow-sm max-w-[80%]">
+                <div className="bg-white rounded-2xl rounded-bl-md px-4 py-2 shadow-sm max-w-[80%] border border-gray-200">
                   <p className="text-gray-800 text-sm">Yo te puedo ayudar.</p>
                 </div>
               </div>
             </div>
             
             {/* Action Button */}
-            <div className="p-4 bg-white">
+            <div className="p-4 bg-gray-100">
               <button
                 onClick={handleWhatsAppClick}
-                className="w-full flex items-center justify-center gap-3 py-3 px-4 bg-green-500 hover:bg-green-600 text-white font-medium rounded-full transition-all duration-300 hover:scale-[1.02] shadow-lg"
+                className="w-full flex items-center justify-center gap-3 py-3 px-4 text-white font-medium rounded-full transition-all duration-300 hover:scale-[1.02] shadow-lg"
+                style={{ background: 'linear-gradient(135deg, #25D366, #20B358)' }}
               >
                 <img src={whatsappLogo} alt="WhatsApp" className="w-5 h-5" />
                 Contactar ahora
