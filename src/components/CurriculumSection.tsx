@@ -166,9 +166,9 @@ const CurriculumSection = () => {
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Curriculum{" "}
+            Temario del{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Completo
+              Curso
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
