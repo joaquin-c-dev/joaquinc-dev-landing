@@ -3,6 +3,7 @@ import whatsappLogo from "@/assets/whatsapp-logo.svg";
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
 
   // Abrir chat cuando el usuario haga scroll más allá del video
   useEffect(() => {
@@ -28,14 +29,47 @@ const WhatsAppButton = () => {
     };
   }, []);
 
+  // Cerrar chat al hacer clic en la página
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const chatContainer = document.querySelector('[data-chat-container]');
+      const whatsappButton = document.querySelector('[data-whatsapp-button]');
+      
+      if (isOpen && 
+          chatContainer && 
+          whatsappButton &&
+          !chatContainer.contains(event.target as Node) &&
+          !whatsappButton.contains(event.target as Node)) {
+        handleClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  const handleClose = () => {
+    setIsFadingOut(true);
+    setTimeout(() => {
+      setIsOpen(false);
+      setIsFadingOut(false);
+    }, 300); // Duración del fadeout
+  };
+
   const handleWhatsAppClick = () => {
     window.open('https://wa.me/523310881011?text=Hola%20Joaquín,%20me%20interesa%20el%20curso%20de%20Java', '_blank');
-    setIsOpen(false);
+    handleClose();
   };
 
   return (
     <>
       <button
+        data-whatsapp-button
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group"
         style={{ 
@@ -55,9 +89,13 @@ const WhatsAppButton = () => {
 
       {/* Chat Popup */}
       {isOpen && (
-        <div className="fixed bottom-20 right-6 z-40 w-80 max-w-full animate-in slide-in-from-bottom-4 duration-300">
+        <div className={`fixed bottom-20 right-6 z-40 w-80 max-w-full transition-all duration-300 ${
+          isFadingOut 
+            ? 'animate-out fade-out slide-out-to-bottom-4' 
+            : 'animate-in slide-in-from-bottom-4 fade-in'
+        }`}>
           {/* Chat Container */}
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+          <div data-chat-container className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
             {/* Header */}
             <div className="flex items-center gap-3 p-4" style={{ background: 'linear-gradient(135deg, #4CAF50, #2E7D32)' }}>
               <div className="relative">
@@ -73,7 +111,7 @@ const WhatsAppButton = () => {
                 <p className="text-sm text-white/90">Típicamente responderemos en minutos</p>
               </div>
               <button 
-                onClick={() => setIsOpen(false)}
+                onClick={handleClose}
                 className="text-white/70 hover:text-white transition-colors text-xl"
               >
                 ✕
