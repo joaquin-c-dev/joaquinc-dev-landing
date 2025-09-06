@@ -4,13 +4,21 @@ import whatsappLogo from "@/assets/whatsapp-logo.svg";
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Abrir chat automáticamente después de 3 segundos
+  // Abrir chat cuando el usuario haga scroll
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 3000);
+    const handleScroll = () => {
+      if (window.scrollY > 100) { // Se abre después de hacer scroll de 100px
+        setIsOpen(true);
+        // Remover el event listener después de abrir para que solo se abra una vez
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
 
-    return () => clearTimeout(timer);
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleWhatsAppClick = () => {
