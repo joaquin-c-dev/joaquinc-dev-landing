@@ -123,21 +123,29 @@ const WhatsAppButton = () => {
             <div className="p-4 bg-gray-100 space-y-3 min-h-[200px]">
               <div className="flex justify-start">
                 <div className="bg-white rounded-2xl rounded-bl-md px-4 py-2 shadow-sm max-w-[80%] border border-gray-200">
-                  <p className="text-gray-800 text-sm">¡Hola!</p>
+                  <p className="text-gray-800 text-sm">¡Hola! 👋</p>
                 </div>
               </div>
               
               <div className="flex justify-start">
                 <div className="bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-200">
                   <p className="text-gray-800 text-sm">
-                    ¿Estás pensando en aprender Java y tienes dudas?
+                    Soy Joaquín, tu asesor personal en programación Java ☕
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex justify-start">
+                <div className="bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-200">
+                  <p className="text-gray-800 text-sm">
+                    Te voy a ayudar a crear tu ruta de aprendizaje personalizada 🚀
                   </p>
                 </div>
               </div>
               
               <div className="flex justify-start">
                 <div className="bg-white rounded-2xl rounded-bl-md px-4 py-2 shadow-sm max-w-[80%] border border-gray-200">
-                  <p className="text-gray-800 text-sm">Yo te puedo ayudar.</p>
+                  <p className="text-gray-800 text-sm">¡Escríbeme tus dudas!</p>
                 </div>
               </div>
             </div>
