@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Star, CheckCircle, Code } from "lucide-react";
+import { Clock, Flame, CheckCircle, Shield, CreditCard, Lock } from "lucide-react";
 import CountdownTimer from "./CountdownTimer";
 
 const CTASection = () => {
@@ -19,11 +19,14 @@ const CTASection = () => {
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-tech-cyan/20 rounded-full blur-xl"></div>
             
             <div className="relative z-10 text-center">
-              {/* Reviews */}
-              <div className="flex items-center justify-center gap-1 mb-3">
-                <span className="ml-2 text-muted-foreground">
-                  <strong className="text-foreground">Metodología comprobada</strong> en la industria
-                </span>
+              {/* Urgency Message */}
+              <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <Flame className="w-5 h-5 text-red-500" />
+                  <span className="text-red-400 font-bold text-lg">¡Solo por 48h! Esta oportunidad termina en:</span>
+                </div>
+                <CountdownTimer textColor="text-red-400" />
+                <p className="text-red-300/80 text-sm mt-2">Quedan pocas horas para inscribirte con descuento</p>
               </div>
               
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -74,40 +77,60 @@ const CTASection = () => {
                 </div>
               </div>
               
-              {/* Pricing */}
-              <div className="mb-6">
+              {/* Optimized Pricing Section */}
+              <div className="mb-6 p-6 bg-white/5 rounded-2xl border border-white/10">
                 <div className="text-center">
-                  <div className="text-muted-foreground line-through text-xl mb-1">$8,500 MXN</div>
-                  <div className="text-4xl font-bold text-primary mb-1">$6,500 <span className="text-xl">MXN</span></div>
-                  <div className="flex items-center justify-center gap-3 mb-2">
-                    <div className="text-muted-foreground text-sm">Oferta por tiempo limitado</div>
-                    <CountdownTimer textColor="text-primary" />
+                  {/* Original price crossed out */}
+                  <div className="text-neutral-400 line-through text-2xl mb-2">$8,500 MXN</div>
+                  
+                  {/* Current price highlighted */}
+                  <div className="text-5xl font-black text-white mb-4">
+                    $6,500 <span className="text-2xl font-normal">MXN</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
-                    <span className="text-primary font-semibold text-sm">💳 3 meses sin intereses</span>
-                    <span className="text-muted-foreground text-xs">o $2,167 MXN/mes</span>
+                  
+                  {/* Combined benefit block */}
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 mb-4">
+                    <div className="text-green-400 font-bold text-lg mb-1">
+                      💰 Con descuento + 3 meses sin intereses
+                    </div>
+                    <div className="text-green-300 text-2xl font-bold">
+                      $2,167 / mes
+                    </div>
+                    <div className="text-green-200/70 text-sm mt-1">
+                      Ahorras $2,000 y pagas cómodamente
+                    </div>
                   </div>
                 </div>
               </div>
               
-              {/* Modern CTA Button */}
-              <div className="flex justify-center">
-                <div className="group relative">
-                  <div className="absolute -inset-3 bg-gradient-accent rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-all duration-700"></div>
-                  <div className="absolute -inset-1 bg-gradient-primary rounded-2xl blur opacity-15 group-hover:opacity-25 transition-opacity duration-500"></div>
-                  <Button 
-                    size="lg"
-                    className="relative bg-gradient-primary text-white font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 border border-primary/30"
-                    onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
-                  >
-                    <span className="font-black">
-                      INSCRIBIRME AHORA
-                    </span>
-                  </Button>
+              {/* Enhanced CTA Button */}
+              <div className="mb-6">
+                <Button 
+                  size="lg"
+                  className="w-full bg-red-500 hover:bg-red-600 text-white font-black text-xl py-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl border-0"
+                  onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
+                >
+                  🔥 Quiero mi lugar con descuento
+                </Button>
+              </div>
+              
+              {/* Trust signals */}
+              <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground mb-6">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-400" />
+                  <span>Pago seguro</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CreditCard className="w-4 h-4 text-green-400" />
+                  <span>Todas las tarjetas</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Lock className="w-4 h-4 text-green-400" />
+                  <span>Datos protegidos</span>
                 </div>
               </div>
               
-              <p className="text-sm text-muted-foreground mt-6">
+              <p className="text-sm text-muted-foreground">
                 🎯 Política de Satisfacción: Si no quedas satisfecho, puedes retomar el curso una vez más sin costo adicional
               </p>
             </div>
