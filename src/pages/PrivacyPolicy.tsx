@@ -147,14 +147,14 @@ const PrivacyPolicy = () => {
                 <Mail className="w-6 h-6 text-primary mr-3" />
                 <div>
                   <p className="font-semibold text-foreground">Correo electrónico:</p>
-                  <p className="text-muted-foreground">contacto@cursosjava.com</p>
+                  <p className="text-muted-foreground">joaquincorram@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center p-4 bg-muted/50 rounded-lg">
                 <Phone className="w-6 h-6 text-primary mr-3" />
                 <div>
                   <p className="font-semibold text-foreground">Teléfono:</p>
-                  <p className="text-muted-foreground">+34 XXX XXX XXX</p>
+                  <p className="text-muted-foreground">3310881011</p>
                 </div>
               </div>
             </div>
