@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 interface CountdownState {
+  days: number;
   hours: number;
   minutes: number;
   seconds: number;
@@ -19,6 +20,7 @@ const END_DATE = new Date('2025-09-15T23:59:59-06:00').getTime();
 
 export const CountdownProvider = ({ children }: { children: ReactNode }) => {
   const [timeLeft, setTimeLeft] = useState<CountdownState>({
+    days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
@@ -36,17 +38,15 @@ export const CountdownProvider = ({ children }: { children: ReactNode }) => {
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        // If more than 24 hours, show days + hours, otherwise just hours
-        const totalHours = days * 24 + hours;
-        
         setTimeLeft({ 
-          hours: totalHours, 
+          days,
+          hours, 
           minutes, 
           seconds, 
           isExpired: false 
         });
       } else {
-        setTimeLeft({ hours: 0, minutes: 0, seconds: 0, isExpired: true });
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, isExpired: true });
       }
     };
 
