@@ -111,32 +111,30 @@ All colors MUST be HSL.
 
   /* Custom scrollbar styles */
   .custom-scrollbar::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: hsl(var(--secondary));
-    border-radius: 4px;
+    background: hsl(var(--muted) / 0.3);
+    border-radius: 3px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--tech-cyan)));
-    border-radius: 4px;
-    border: 1px solid hsl(var(--border));
+    background: hsl(var(--muted-foreground) / 0.2);
+    border-radius: 3px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, hsl(var(--course-blue-glow)), hsl(var(--tech-cyan-glow)));
-    box-shadow: 0 0 10px hsl(var(--primary) / 0.3);
+    background: hsl(var(--muted-foreground) / 0.4);
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb:active {
-    background: hsl(var(--primary));
+    background: hsl(var(--muted-foreground) / 0.5);
   }
 
   /* Firefox scrollbar */
   .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--primary)) hsl(var(--secondary));
+    scrollbar-color: hsl(var(--muted-foreground) / 0.2) transparent;
   }
 }
