@@ -52,8 +52,8 @@ const Navigation = () => {
   const navItems = [
     { name: "Inicio", path: "/" },
     { name: "Temario", path: "/temario" },
-    { name: "Precios", path: "/", action: "pricing" },
-    { name: "Acerca de mí", path: "/acerca-de-mi" }
+    { name: "Acerca de mí", path: "/acerca-de-mi" },
+    { name: "Precios", path: "/", action: "pricing" }
   ];
 
   return (
