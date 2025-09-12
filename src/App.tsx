@@ -7,6 +7,8 @@ import { CountdownProvider } from "@/contexts/CountdownContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Temario from "./pages/Temario";
+import AcercaDeMi from "./pages/AcercaDeMi";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +21,8 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/temario" element={<Temario />} />
+            <Route path="/acerca-de-mi" element={<AcercaDeMi />} />
             <Route path="/politicas-de-privacidad" element={<PrivacyPolicy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
