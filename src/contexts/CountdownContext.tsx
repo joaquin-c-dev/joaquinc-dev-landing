@@ -15,8 +15,8 @@ interface CountdownContextType {
 
 export const CountdownContext = createContext<CountdownContextType | undefined>(undefined);
 
-// Fixed end date - September 17, 2025 at 23:59:59 Mexico time (UTC-6)
-const END_DATE = new Date('2025-09-17T23:59:59-06:00').getTime();
+// Fixed end date - December 31, 2024 at 23:59:59 Mexico time (UTC-6)
+const END_DATE = new Date('2024-12-31T23:59:59-06:00').getTime();
 
 export const CountdownProvider = ({ children }: { children: ReactNode }) => {
   const [timeLeft, setTimeLeft] = useState<CountdownState>({
