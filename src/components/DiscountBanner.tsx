@@ -24,7 +24,7 @@ const DiscountBanner = () => {
       {/* Darker overlay for better text contrast */}
       <div className="absolute inset-0 bg-black/20"></div>
       
-      <div className="relative z-10 container mx-auto px-4 py-1.5">
+      <div className="relative z-10 container mx-auto px-4 py-1">
         <div className="flex items-center justify-between">
           {/* Left side - Special price offer in single line */}
           <div className="flex items-center gap-4">
