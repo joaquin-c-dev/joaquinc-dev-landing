@@ -78,6 +78,7 @@ const PricingSection = () => {
                   $3,250 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
                 <div className="text-lg text-muted-foreground">+ $3,250 al iniciar</div>
+                <div className="text-lg font-semibold text-foreground mt-1">Total: $6,500 MXN</div>
                 <div className="text-xs text-green-400 mt-1">Con descuento de lanzamiento</div>
               </div>
               
@@ -194,6 +195,7 @@ const PricingSection = () => {
                   $708 <span className="text-sm font-normal text-muted-foreground">/ mes</span>
                 </div>
                 <div className="text-lg text-muted-foreground">desde 12 meses</div>
+                <div className="text-lg font-semibold text-foreground mt-1">Total: $8,500 MXN</div>
                 <div className="text-xs text-muted-foreground mt-1">
                   6 meses: $1,417/mes • 12 meses: $708/mes
                 </div>
