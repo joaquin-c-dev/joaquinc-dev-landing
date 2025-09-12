@@ -20,18 +20,17 @@ const DiscountBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="relative bg-red-600 overflow-hidden">
+    <div className="relative bg-gradient-accent overflow-hidden">
       {/* Animated background effects */}
-      <div className="absolute inset-0 bg-red-700 opacity-20"></div>
+      <div className="absolute inset-0 bg-gradient-primary opacity-20"></div>
       
-      <div className="relative z-10 container mx-auto px-4 py-2">
+      <div className="relative z-10 container mx-auto px-4 py-1.5">
         <div className="flex items-center justify-between">
-          {/* Left side - Special price offer */}
+          {/* Left side - Special price offer in single line */}
           <div className="flex items-center gap-4">
-            <div className="flex flex-col">
-              <span className="text-white font-bold text-sm">🔥 Precio especial</span>
-              <span className="text-white/90 text-xs">$2,000 de descuento + 3 meses sin intereses</span>
-            </div>
+            <span className="text-white font-medium text-sm">
+              🔥 Precio especial $2,000 de descuento + 3 meses sin intereses
+            </span>
             
             {/* Subtle CTA */}
             <Button
