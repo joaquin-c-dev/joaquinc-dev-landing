@@ -88,7 +88,7 @@ const PricingSection = () => {
           </Card>
 
           {/* Plan 2 - Destacado (Centro) */}
-          <Card className="relative p-6 bg-gradient-primary border-2 border-primary shadow-glow-lg hover:shadow-glow-lg transition-all duration-300">
+          <Card className="relative p-6 bg-gradient-card border-2 border-primary shadow-glow-lg hover:shadow-glow-lg transition-all duration-300">
             {/* Most popular badge */}
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
               <div className="bg-gradient-accent text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
@@ -99,43 +99,43 @@ const PricingSection = () => {
             
             <div className="text-center">
               <div className="mb-4">
-                <Zap className="w-8 h-8 mx-auto mb-2 text-white" />
-                <h3 className="text-xl font-bold text-white">Recomendado</h3>
-                <p className="text-sm text-white/80">3 meses sin intereses</p>
+                <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
+                <h3 className="text-xl font-bold text-foreground">Recomendado</h3>
+                <p className="text-sm text-muted-foreground">3 meses sin intereses</p>
               </div>
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-xs text-white/60 line-through">$8,500 MXN</div>
-                <div className="text-4xl font-black text-white mb-1">
-                  $2,167 <span className="text-sm font-normal text-white/80">/ mes</span>
+                <div className="text-xs text-muted-foreground/60 line-through">$8,500 MXN</div>
+                <div className="text-4xl font-black text-foreground mb-1">
+                  $2,167 <span className="text-sm font-normal text-muted-foreground">/ mes</span>
                 </div>
-                <div className="text-lg text-white/90">Total: $6,500 MXN</div>
-                <div className="text-xs text-green-300 mt-1">Ahorras $2,000</div>
+                <div className="text-lg text-foreground">Total: $6,500 MXN</div>
+                <div className="text-xs text-green-400 mt-1">Ahorras $2,000</div>
               </div>
               
               {/* Features */}
               <ul className="space-y-3 mb-6 text-left">
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white flex-shrink-0" />
-                  <span className="text-sm text-white">3 meses sin intereses</span>
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">3 meses sin intereses</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white flex-shrink-0" />
-                  <span className="text-sm text-white">Descuento de lanzamiento</span>
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">Descuento de lanzamiento</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white flex-shrink-0" />
-                  <span className="text-sm text-white">Acceso completo</span>
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">Acceso completo</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white flex-shrink-0" />
-                  <span className="text-sm text-white">Soporte prioritario</span>
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">Soporte prioritario</span>
                 </li>
               </ul>
               
               <Button 
-                className="w-full bg-white text-primary hover:bg-white/90 font-bold"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold"
                 onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
               >
                 🔥 Elegir Plan Estrella
