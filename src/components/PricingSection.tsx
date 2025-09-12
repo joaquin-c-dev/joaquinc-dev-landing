@@ -48,11 +48,11 @@ const PricingSection = () => {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {/* Plan 1 - Dos Pagos */}
-          <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col overflow-hidden">
-            {/* Discount Ribbon */}
+          <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
+            {/* Discount Ribbon Container */}
             {isDiscountActive && (
-              <div className="absolute -top-2 -left-2 z-10">
-                <div className="bg-red-600 text-white px-12 py-2.5 text-sm font-bold transform -rotate-45 origin-center shadow-xl border border-red-700">
+              <div className="absolute -top-2 -left-2 w-24 h-12 overflow-hidden z-10">
+                <div className="bg-red-600 text-white px-12 py-2.5 text-sm font-bold transform -rotate-45 origin-center shadow-xl border border-red-700 absolute -left-6 top-2">
                   $2,000 OFF
                 </div>
               </div>
@@ -155,18 +155,18 @@ const PricingSection = () => {
           {/* Center plan changes based on promotion */}
           {isDiscountActive ? (
             // Plan 2 - Destacado (Centro) when promotion is active
-            <Card className="relative p-6 bg-gradient-card border-2 border-primary shadow-glow-lg hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col overflow-hidden">
+            <Card className="relative p-6 bg-gradient-card border-2 border-primary shadow-glow-lg hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
               {/* Most popular badge */}
-              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 z-40">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-50">
                 <div className="bg-gradient-accent text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
                   <Star className="w-3 h-3" />
                   MÁS ELEGIDO
                 </div>
               </div>
               
-              {/* Discount Ribbon */}
-              <div className="absolute -top-2 -left-2 z-10">
-                <div className="bg-red-600 text-white px-10 py-2.5 text-sm font-bold transform -rotate-45 origin-center shadow-xl border border-red-700">
+              {/* Discount Ribbon Container */}
+              <div className="absolute -top-2 -left-2 w-24 h-12 overflow-hidden z-10">
+                <div className="bg-red-600 text-white px-10 py-2.5 text-sm font-bold transform -rotate-45 origin-center shadow-xl border border-red-700 absolute -left-6 top-2">
                   $2K + 3MSI
                 </div>
               </div>
