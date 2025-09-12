@@ -43,15 +43,8 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16 py-2">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center shadow-card group-hover:scale-110 transition-transform duration-300">
-              <Code2 className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Java Course
-            </span>
-          </Link>
+          {/* Empty left side */}
+          <div></div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
