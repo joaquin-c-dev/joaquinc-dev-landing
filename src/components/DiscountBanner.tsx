@@ -13,9 +13,6 @@ const DiscountBanner = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Hide banner if discount is expired
-  if (timeLeft.isExpired) return null;
-
   useEffect(() => {
     const handleScroll = () => {
       const pricingSection = document.querySelector('section[data-section="pricing"]');
@@ -49,6 +46,9 @@ const DiscountBanner = () => {
   const dismissBannerHandler = () => {
     dismissBanner();
   };
+
+  // Hide banner if discount is expired - AFTER all hooks are called
+  if (timeLeft.isExpired) return null;
 
   if (!isBannerVisible || isHiddenByScroll) return null;
 
