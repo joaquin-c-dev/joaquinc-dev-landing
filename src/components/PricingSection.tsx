@@ -137,8 +137,9 @@ const PricingSection = () => {
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
                 <div className="text-2xl font-bold text-white mb-1">
-                  $2,167 / mes
+                  $2,167 / mes x 3 meses
                 </div>
+                <div className="text-sm text-muted-foreground mb-1">Sin intereses con tarjeta</div>
                 <div className="text-sm text-green-400">Ahorras $2,000</div>
               </div>
               
