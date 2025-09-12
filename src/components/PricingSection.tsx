@@ -110,7 +110,7 @@ const PricingSection = () => {
               <Button 
                 variant="outline"
                 className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
-                onClick={() => window.open('https://wa.me/5215500000000?text=Hola%2C%20me%20interesa%20el%20plan%20sin%20tarjeta%20del%20curso%20de%20Java.%20Por%20favor%20envíame%20los%20datos%20bancarios%20para%20realizar%20la%20transferencia%20del%20primer%20pago%20de%20%243%2C250%20MXN.', '_blank')}
+                onClick={() => window.open('https://wa.me/523310881011?text=Hola%2C%20me%20interesa%20el%20plan%20sin%20tarjeta%20del%20curso%20de%20Java.%20Por%20favor%20envíame%20los%20datos%20bancarios%20para%20realizar%20la%20transferencia%20del%20primer%20pago%20de%20%243%2C250%20MXN.', '_blank')}
               >
                 Hacer pago sin tarjeta
               </Button>
