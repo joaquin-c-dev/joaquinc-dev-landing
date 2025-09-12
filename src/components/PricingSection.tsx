@@ -69,11 +69,11 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-xl font-semibold text-white mb-1 flex items-center justify-center gap-2">
-                  <span className="text-xs text-muted-foreground/60 line-through">$8,500</span>
+                <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
+                  <span className="text-sm text-muted-foreground/60 line-through">$8,500</span>
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
-                <div className="text-2xl font-bold text-white mb-1">
+                <div className="text-xl font-semibold text-white mb-1">
                   $3,250 x 2 pagos
                 </div>
                 <div className="text-sm text-green-400">Ahorras $2,000</div>
@@ -132,11 +132,11 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-xl font-semibold text-white mb-1 flex items-center justify-center gap-2">
-                  <span className="text-xs text-muted-foreground/60 line-through">$8,500</span>
+                <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
+                  <span className="text-sm text-muted-foreground/60 line-through">$8,500</span>
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
-                <div className="text-2xl font-bold text-white mb-1">
+                <div className="text-xl font-semibold text-white mb-1">
                   $2,167 / mes x 3 meses
                 </div>
                 <div className="text-sm text-muted-foreground mb-1">Sin intereses con tarjeta</div>
@@ -191,10 +191,10 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-xl font-semibold text-white mb-1">
+                <div className="text-2xl font-bold text-white mb-1">
                   $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
-                <div className="text-2xl font-bold text-white mb-1">
+                <div className="text-xl font-semibold text-white mb-1">
                   Desde $708 / mes
                 </div>
                 <div className="text-xs text-muted-foreground">6 meses: $1,417/mes • 12 meses: $708/mes</div>
