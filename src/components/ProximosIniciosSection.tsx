@@ -39,7 +39,7 @@ const ProximosIniciosSection = () => {
               <div className="flex items-center gap-3">
                 <Calendar className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">1 Nov - 20 Dic 2024</div>
+                  <div className="font-semibold">1 Nov - 20 Dic 2025</div>
                   <div className="text-sm text-muted-foreground">8 semanas de duración</div>
                 </div>
               </div>
@@ -76,7 +76,7 @@ const ProximosIniciosSection = () => {
               <div className="flex items-center gap-3">
                 <Calendar className="w-5 h-5 text-tech-cyan flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">3 Nov - 4 Dic 2024</div>
+                  <div className="font-semibold">3 Nov - 4 Dic 2025</div>
                   <div className="text-sm text-muted-foreground">5 semanas de duración</div>
                 </div>
               </div>
