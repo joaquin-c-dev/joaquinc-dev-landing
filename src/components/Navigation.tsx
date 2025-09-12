@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Code2 } from "lucide-react";
 import { useBanner } from "@/contexts/BannerContext";
@@ -9,6 +9,7 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isBannerVisible } = useBanner();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,9 +21,38 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Handle scroll to pricing section when navigating from another page
+    const params = new URLSearchParams(location.search);
+    if (params.get('scroll') === 'pricing' && location.pathname === '/') {
+      setTimeout(() => {
+        const pricingSection = document.querySelector('section[data-section="pricing"]');
+        pricingSection?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      // Clean up URL
+      navigate('/', { replace: true });
+    }
+  }, [location, navigate]);
+
+  const handleNavClick = (item: any) => {
+    if (item.action === 'pricing') {
+      if (location.pathname === '/') {
+        // Already on home page, just scroll
+        const pricingSection = document.querySelector('section[data-section="pricing"]');
+        pricingSection?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Navigate to home page with scroll parameter
+        navigate('/?scroll=pricing');
+      }
+    } else {
+      navigate(item.path);
+    }
+  };
+
   const navItems = [
     { name: "Inicio", path: "/" },
     { name: "Temario", path: "/temario" },
+    { name: "Precios", path: "/", action: "pricing" },
     { name: "Acerca de mí", path: "/acerca-de-mi" }
   ];
 
@@ -39,17 +69,18 @@ const Navigation = () => {
           {/* Centered Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium ${
-                  location.pathname === item.path 
+              <button
+                key={item.name}
+                onClick={() => handleNavClick(item)}
+                className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer ${
+                  (location.pathname === item.path && !item.action) || 
+                  (item.action === 'pricing' && location.pathname === '/')
                     ? 'bg-gradient-accent bg-clip-text text-transparent' 
                     : ''
                 }`}
               >
                 {item.name}
-              </Link>
+              </button>
             ))}
           </div>
 
@@ -74,18 +105,21 @@ const Navigation = () => {
           <div className="md:hidden py-4 border-t border-border/50">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 ${
-                    location.pathname === item.path 
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    handleNavClick(item);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ${
+                    (location.pathname === item.path && !item.action) || 
+                    (item.action === 'pricing' && location.pathname === '/')
                       ? 'bg-gradient-accent bg-clip-text text-transparent' 
                       : ''
                   }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
-                </Link>
+                </button>
               ))}
             </div>
           </div>
