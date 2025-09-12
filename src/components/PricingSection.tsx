@@ -249,11 +249,10 @@ const PricingSection = () => {
                 </ul>
                 
                 <Button 
-                  variant="outline"
-                  className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
+                  className="w-full bg-gradient-accent hover:opacity-90 text-white font-bold mt-auto transition-all duration-300"
                   onClick={handleFlexibilityPlusClick}
                 >
-                  Hacer pago Flexible
+                  🔥 Hacer pago Flexible
                 </Button>
               </div>
             </Card>
@@ -361,10 +360,11 @@ const PricingSection = () => {
                 </ul>
                 
                 <Button 
-                  className="w-full bg-gradient-accent hover:opacity-90 text-white font-bold mt-auto transition-all duration-300"
+                  variant="outline"
+                  className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
                   onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01', '_blank')}
                 >
-                  🔥 Hacer pago preferente
+                  Hacer pago preferente
                 </Button>
               </div>
             </Card>
