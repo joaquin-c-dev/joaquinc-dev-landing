@@ -71,7 +71,7 @@ const AcercaDeMi = () => {
       <DiscountBanner />
       <Navigation />
       
-      <main className="pt-[99px] pb-16">
+      <main className="pt-[92px] pb-16">
         <section className="relative py-20 bg-gradient-subtle overflow-hidden">
           {/* Background glow effects */}
           <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>

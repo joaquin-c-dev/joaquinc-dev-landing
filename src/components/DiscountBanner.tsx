@@ -24,11 +24,11 @@ const DiscountBanner = () => {
       {/* Darker overlay for better text contrast */}
       <div className="absolute inset-0 bg-black/20"></div>
       
-      <div className="relative z-10 container mx-auto px-4 py-1">
+      <div className="relative z-10 container mx-auto px-4 py-0.5">
         <div className="flex items-center justify-between">
           {/* Left side - Special price offer in single line */}
           <div className="flex items-center gap-4">
-            <span className="text-white font-bold text-sm drop-shadow-sm">
+            <span className="text-white font-bold text-xs drop-shadow-sm">
               Precio especial $2,000 de descuento + 3 meses sin intereses
             </span>
             
@@ -37,7 +37,7 @@ const DiscountBanner = () => {
               onClick={scrollToPricing}
               size="sm"
               variant="outline"
-              className="bg-white/20 border-white/50 text-white hover:bg-white/30 hover:border-white/70 text-xs px-3 py-1 h-auto font-medium"
+              className="bg-white/20 border-white/50 text-white hover:bg-white/30 hover:border-white/70 text-xs px-2 py-0.5 h-auto font-medium"
             >
               Ver precios
             </Button>
@@ -46,8 +46,8 @@ const DiscountBanner = () => {
           {/* Right side - Timer and close button */}
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
-              <span className="text-white font-bold text-sm drop-shadow-sm">Por tiempo limitado:</span>
-              <CountdownTimer className="text-sm font-bold drop-shadow-sm" textColor="text-white" />
+              <span className="text-white font-bold text-xs drop-shadow-sm">Por tiempo limitado:</span>
+              <CountdownTimer className="text-xs font-bold drop-shadow-sm" textColor="text-white" />
             </div>
             <Button
               onClick={dismissBanner}
