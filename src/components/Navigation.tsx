@@ -42,19 +42,16 @@ const Navigation = () => {
       }`}
     >
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16 py-2">
-          {/* Empty left side */}
-          <div></div>
-
-          {/* Desktop Navigation */}
+        <div className="flex items-center justify-center h-16 py-2">
+          {/* Centered Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-foreground hover:text-primary transition-colors duration-200 font-medium ${
+                className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium ${
                   location.pathname === item.path 
-                    ? 'text-primary' 
+                    ? 'bg-gradient-accent bg-clip-text text-transparent' 
                     : ''
                 }`}
               >
@@ -63,29 +60,20 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* CTA Button - Desktop */}
-          <div className="hidden md:block">
-            <Button 
-              className="bg-gradient-accent text-white hover:opacity-90 transition-all duration-300"
-              onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
+          {/* Mobile Menu Button */}
+          <div className="md:hidden absolute right-6">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              Inscribirme
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </Button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </Button>
         </div>
 
         {/* Mobile Menu */}
@@ -96,9 +84,9 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-foreground hover:text-primary transition-colors duration-200 font-medium py-2 ${
+                  className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 ${
                     location.pathname === item.path 
-                      ? 'text-primary' 
+                      ? 'bg-gradient-accent bg-clip-text text-transparent' 
                       : ''
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -106,15 +94,6 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button 
-                className="bg-gradient-accent text-white hover:opacity-90 transition-all duration-300 mt-2"
-                onClick={() => {
-                  window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank');
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                Inscribirme
-              </Button>
             </div>
           </div>
         )}
