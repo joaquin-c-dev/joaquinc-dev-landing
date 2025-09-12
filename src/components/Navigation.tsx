@@ -3,13 +3,18 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Code2 } from "lucide-react";
 import { useBanner } from "@/contexts/BannerContext";
+import { useCountdown } from "@/contexts/CountdownContext";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isBannerVisible } = useBanner();
+  const { timeLeft } = useCountdown();
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Calculate if banner should actually be shown (visible and not expired)
+  const shouldShowBanner = isBannerVisible && !timeLeft.isExpired;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,7 +63,7 @@ const Navigation = () => {
 
   return (
     <nav 
-      className={`fixed ${isBannerVisible ? 'top-[32px]' : 'top-0'} left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed ${shouldShowBanner ? 'top-[32px]' : 'top-0'} left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled 
           ? 'bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg' 
           : 'bg-transparent'
