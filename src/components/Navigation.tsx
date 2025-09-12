@@ -6,7 +6,7 @@ import { Menu, X, Code2 } from "lucide-react";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isBannerHidden, setIsBannerHidden] = useState(false);
+  const [isBannerVisible, setIsBannerVisible] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
@@ -16,14 +16,28 @@ const Navigation = () => {
       
       // Check if banner should be hidden (same logic as DiscountBanner)
       const pricingSection = document.querySelector('section[data-section="pricing"]');
+      const bannerElement = document.querySelector('[data-banner="discount"]');
+      
+      let bannerHidden = false;
+      
       if (pricingSection) {
         const rect = pricingSection.getBoundingClientRect();
         const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
-        setIsBannerHidden(isInView);
+        bannerHidden = isInView;
       }
+      
+      // Also check if banner element exists (not dismissed)
+      if (!bannerElement) {
+        bannerHidden = true;
+      }
+      
+      setIsBannerVisible(!bannerHidden);
     };
 
     window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -35,7 +49,7 @@ const Navigation = () => {
 
   return (
     <nav 
-      className={`fixed ${isBannerHidden ? 'top-0' : 'top-[32px]'} left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed ${isBannerVisible ? 'top-[32px]' : 'top-0'} left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled 
           ? 'bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg' 
           : 'bg-transparent'
