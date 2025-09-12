@@ -74,10 +74,10 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-3xl font-black text-foreground mb-1">
+                <div className="text-3xl font-black text-muted-foreground mb-1">
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
-                <div className="text-2xl font-bold text-primary mb-1">
+                <div className="text-2xl font-bold text-white mb-1">
                   $3,250 x 2 pagos
                 </div>
                 <div className="text-sm text-green-400">Ahorras $2,000 del precio regular</div>
@@ -136,10 +136,10 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-3xl font-black text-foreground mb-1">
+                <div className="text-3xl font-black text-muted-foreground mb-1">
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
-                <div className="text-2xl font-bold text-primary mb-1">
+                <div className="text-2xl font-bold text-white mb-1">
                   $2,167 / mes
                 </div>
                 <div className="text-sm text-green-400">Ahorras $2,000 del precio regular</div>
@@ -193,10 +193,10 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-3xl font-black text-foreground mb-1">
+                <div className="text-3xl font-black text-muted-foreground mb-1">
                   $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
-                <div className="text-2xl font-bold text-primary mb-1">
+                <div className="text-2xl font-bold text-white mb-1">
                   Desde $708 / mes
                 </div>
                 <div className="text-xs text-muted-foreground">6 meses: $1,417/mes • 12 meses: $708/mes</div>
