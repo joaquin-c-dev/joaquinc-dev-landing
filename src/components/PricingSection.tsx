@@ -85,6 +85,10 @@ const PricingSection = () => {
               <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm">50% ahora, 50% al iniciar</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">Acceso completo al curso</span>
                 </li>
                 <li className="flex items-center gap-2">
@@ -98,10 +102,6 @@ const PricingSection = () => {
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">Código del proyecto final</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">50% ahora, 50% al iniciar</span>
                 </li>
               </ul>
               
@@ -146,6 +146,14 @@ const PricingSection = () => {
               <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">3 meses sin intereses</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">Soporte prioritario</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm text-foreground">Acceso completo al curso</span>
                 </li>
                 <li className="flex items-center gap-2">
@@ -159,14 +167,6 @@ const PricingSection = () => {
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm text-foreground">Código del proyecto final</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">3 meses sin intereses</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">Soporte prioritario</span>
                 </li>
               </ul>
               
@@ -203,6 +203,10 @@ const PricingSection = () => {
               <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm">6 a 12 meses sin intereses</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">Acceso completo al curso</span>
                 </li>
                 <li className="flex items-center gap-2">
@@ -216,10 +220,6 @@ const PricingSection = () => {
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">Código del proyecto final</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">6 a 12 meses sin intereses</span>
                 </li>
               </ul>
               
