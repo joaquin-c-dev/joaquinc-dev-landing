@@ -68,6 +68,25 @@ const PricingSection = () => {
                     <div className="text-xl font-semibold text-white mb-1">
                       $3,250 x 2 pagos
                     </div>
+                    
+                    {/* Countdown Timer */}
+                    <div className="mt-3 mb-1 p-2 bg-red-500/10 border border-red-500/20 rounded-lg">
+                      <div className="text-xs text-red-400 font-medium mb-1">⏰ Oferta termina en:</div>
+                      <div className="flex justify-center gap-1 text-xs">
+                        <div className="bg-red-500/20 px-1.5 py-0.5 rounded text-red-300 font-mono">
+                          {timeLeft.days.toString().padStart(2, '0')}d
+                        </div>
+                        <div className="bg-red-500/20 px-1.5 py-0.5 rounded text-red-300 font-mono">
+                          {timeLeft.hours.toString().padStart(2, '0')}h
+                        </div>
+                        <div className="bg-red-500/20 px-1.5 py-0.5 rounded text-red-300 font-mono">
+                          {timeLeft.minutes.toString().padStart(2, '0')}m
+                        </div>
+                        <div className="bg-red-500/20 px-1.5 py-0.5 rounded text-red-300 font-mono">
+                          {timeLeft.seconds.toString().padStart(2, '0')}s
+                        </div>
+                      </div>
+                    </div>
                   </>
                 ) : (
                   <>
@@ -154,6 +173,25 @@ const PricingSection = () => {
                     $2,167 / mes x 3 meses
                   </div>
                   <div className="text-sm text-muted-foreground mb-1">Sin intereses con tarjeta</div>
+                  
+                  {/* Countdown Timer */}
+                  <div className="mt-3 mb-1 p-2 bg-orange-500/10 border border-orange-500/20 rounded-lg">
+                    <div className="text-xs text-orange-400 font-medium mb-1">🔥 Descuento termina en:</div>
+                    <div className="flex justify-center gap-1 text-xs">
+                      <div className="bg-orange-500/20 px-1.5 py-0.5 rounded text-orange-300 font-mono">
+                        {timeLeft.days.toString().padStart(2, '0')}d
+                      </div>
+                      <div className="bg-orange-500/20 px-1.5 py-0.5 rounded text-orange-300 font-mono">
+                        {timeLeft.hours.toString().padStart(2, '0')}h
+                      </div>
+                      <div className="bg-orange-500/20 px-1.5 py-0.5 rounded text-orange-300 font-mono">
+                        {timeLeft.minutes.toString().padStart(2, '0')}m
+                      </div>
+                      <div className="bg-orange-500/20 px-1.5 py-0.5 rounded text-orange-300 font-mono">
+                        {timeLeft.seconds.toString().padStart(2, '0')}s
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 
                 {/* Features */}
