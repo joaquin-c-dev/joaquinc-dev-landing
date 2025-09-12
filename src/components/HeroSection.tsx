@@ -57,6 +57,7 @@ const HeroSection = () => {
                   controls
                   autoPlay
                   muted
+                  playsInline
                   poster="https://res.cloudinary.com/joaquin-test/image/upload/v1756607596/Screenshot_at_Aug_30_20-32-46_qgh3zx.png"
                   preload="metadata"
                 >
