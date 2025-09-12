@@ -1,10 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { X, Clock, Zap, ArrowDown } from "lucide-react";
 import CountdownTimer from "./CountdownTimer";
 
 const DiscountBanner = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const [isHiddenByScroll, setIsHiddenByScroll] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const pricingSection = document.querySelector('section[data-section="pricing"]');
+      if (pricingSection) {
+        const rect = pricingSection.getBoundingClientRect();
+        const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
+        setIsHiddenByScroll(isInView);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToPricing = () => {
     const pricingSection = document.querySelector('section[data-section="pricing"]');
@@ -17,7 +32,7 @@ const DiscountBanner = () => {
     setIsVisible(false);
   };
 
-  if (!isVisible) return null;
+  if (!isVisible || isHiddenByScroll) return null;
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-accent overflow-hidden">
