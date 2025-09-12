@@ -197,14 +197,21 @@ const PricingSection = () => {
                 <div className="text-xl font-semibold text-white mb-1">
                   Desde $708 / mes
                 </div>
-                <div className="text-xs text-muted-foreground">6 meses: $1,417/mes • 12 meses: $708/mes</div>
               </div>
               
               {/* Features */}
               <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">6 a 12 meses sin intereses</span>
+                  <span className="text-sm">6 meses: $1,417/mes</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm">12 meses: $708/mes</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm">Sin intereses</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
