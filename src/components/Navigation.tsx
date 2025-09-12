@@ -35,7 +35,7 @@ const Navigation = () => {
 
   return (
     <nav 
-      className={`fixed ${isBannerHidden ? 'top-0' : 'top-[28px]'} left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed ${isBannerHidden ? 'top-0' : 'top-[32px]'} left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled 
           ? 'bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg' 
           : 'bg-transparent'

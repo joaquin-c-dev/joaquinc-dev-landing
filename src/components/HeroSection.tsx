@@ -5,7 +5,7 @@ import CountdownTimer from "./CountdownTimer";
 
 const HeroSection = () => {
   return (
-    <section data-section="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-[92px]">
+    <section data-section="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-[96px]">
       {/* Background glow effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-course-blue/20 rounded-full blur-3xl animate-pulse"></div>
