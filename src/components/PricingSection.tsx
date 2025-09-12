@@ -75,7 +75,7 @@ const PricingSection = () => {
               {/* Price */}
               <div className="mb-6">
                 <div className="text-3xl font-black text-foreground mb-1">
-                  Total: $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                  $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
                 <div className="text-lg text-muted-foreground">$3,250 ahora + $3,250 al iniciar</div>
                 <div className="text-xs text-green-400 mt-1">Con descuento de lanzamiento</div>
@@ -135,7 +135,7 @@ const PricingSection = () => {
               {/* Price */}
               <div className="mb-6">
                 <div className="text-3xl font-black text-foreground mb-1">
-                  Total: $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                  $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
                 <div className="text-lg text-foreground">$2,167 / mes (3 meses)</div>
                 <div className="text-xs text-green-400 mt-1">Ahorras $2,000</div>
@@ -190,7 +190,7 @@ const PricingSection = () => {
               {/* Price */}
               <div className="mb-6">
                 <div className="text-3xl font-black text-foreground mb-1">
-                  Total: $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                  $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
                 <div className="text-lg text-muted-foreground">Desde $708 / mes (12 meses)</div>
                 <div className="text-xs text-muted-foreground mt-1">
