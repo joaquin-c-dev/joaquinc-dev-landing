@@ -138,7 +138,9 @@ const PricingSection = () => {
               <div className="mb-4">
                 <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
                 <h3 className="text-xl font-bold text-foreground">Preferente</h3>
-                <p className="text-sm text-muted-foreground">3 meses sin intereses</p>
+                {isDiscountActive && (
+                  <p className="text-sm text-muted-foreground">3 meses sin intereses</p>
+                )}
               </div>
               
               {/* Price */}
@@ -195,7 +197,16 @@ const PricingSection = () => {
               
               <Button 
                 className="w-full bg-gradient-accent hover:opacity-90 text-white font-bold mt-auto transition-all duration-300"
-                onClick={isDiscountActive ? handleRecommendedClick : () => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46M', '_blank')}
+                onClick={() => {
+                  const url = isDiscountActive 
+                    ? 'https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO'
+                    : 'https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01';
+                  if (isDiscountActive) {
+                    handleRecommendedClick();
+                  } else {
+                    window.open(url, '_blank');
+                  }
+                }}
               >
                 🔥 Hacer pago preferente
               </Button>
