@@ -82,7 +82,7 @@ const AcercaDeMi = () => {
       <DiscountBanner />
       <Navigation />
       
-      <main className={`${shouldShowBanner ? 'pt-[116px] md:pt-[96px]' : 'pt-16'} pb-16`}>
+      <main className={`${shouldShowBanner ? 'pt-[104px]' : 'pt-16'} pb-16`}>
         <section className="relative py-20 bg-gradient-subtle overflow-hidden">
           {/* Background glow effects */}
           <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>

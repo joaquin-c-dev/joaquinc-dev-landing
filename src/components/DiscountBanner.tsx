@@ -57,7 +57,7 @@ const DiscountBanner = () => {
       {/* Darker overlay for better text contrast */}
       <div className="absolute inset-0 bg-black/20"></div>
       
-      <div className="relative z-10 container mx-auto px-4 py-1 md:py-0.5">
+      <div className="relative z-10 container mx-auto px-4 py-0.5 md:py-0.5">
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between">
           {/* Left side - Special price offer in single line */}
@@ -96,33 +96,34 @@ const DiscountBanner = () => {
 
         {/* Mobile Layout */}
         <div className="md:hidden">
-          <div className="flex items-center justify-between mb-1">
+          <div className="flex items-center justify-between">
             <span className="text-white font-bold text-xs drop-shadow-sm">
               $2,000 de descuento + MSI
             </span>
-            <Button
-              onClick={dismissBannerHandler}
-              size="sm"
-              variant="ghost"
-              className="text-white/80 hover:text-white hover:bg-white/20 p-0.5"
-            >
-              <X className="w-3 h-3" />
-            </Button>
-          </div>
-          
-          <div className="flex items-center justify-between">
-            <Button
-              onClick={scrollToPricing}
-              size="sm"
-              variant="outline"
-              className="bg-white/20 border-white/50 text-white hover:bg-white/30 hover:border-white/70 text-xs px-2 py-1 h-auto font-medium"
-            >
-              Ver precios
-            </Button>
             
-            <div className="flex items-center gap-1">
-              <Clock className="w-3 h-3 text-white" />
-              <CountdownTimer className="text-xs font-bold drop-shadow-sm" textColor="text-white" />
+            <div className="flex items-center gap-2">
+              <Button
+                onClick={scrollToPricing}
+                size="sm"
+                variant="outline"
+                className="bg-white/20 border-white/50 text-white hover:bg-white/30 hover:border-white/70 text-xs px-2 py-0.5 h-auto font-medium"
+              >
+                Ver precios
+              </Button>
+              
+              <div className="flex items-center gap-1">
+                <Clock className="w-3 h-3 text-white" />
+                <CountdownTimer className="text-xs font-bold drop-shadow-sm" textColor="text-white" />
+              </div>
+              
+              <Button
+                onClick={dismissBannerHandler}
+                size="sm"
+                variant="ghost"
+                className="text-white/80 hover:text-white hover:bg-white/20 p-0.5"
+              >
+                <X className="w-3 h-3" />
+              </Button>
             </div>
           </div>
         </div>
