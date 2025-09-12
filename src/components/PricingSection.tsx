@@ -51,14 +51,14 @@ const PricingSection = () => {
           <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col overflow-hidden">
             {/* Discount Ribbon */}
             {isDiscountActive && (
-              <div className="absolute top-0 left-0 z-10">
-                <div className="bg-red-500 text-white px-10 py-2 text-xs font-bold transform -rotate-45 origin-top-left -translate-y-1 -translate-x-6 shadow-lg">
+              <div className="absolute -top-2 -left-2 z-10">
+                <div className="bg-red-600 text-white px-12 py-2.5 text-sm font-bold transform -rotate-45 origin-center shadow-xl border border-red-700">
                   $2,000 OFF
                 </div>
               </div>
             )}
             
-            <div className="text-center flex-grow flex flex-col pt-2">
+            <div className="text-center flex-grow flex flex-col pt-4">
               <div className="mb-4">
                 <Clock className="w-8 h-8 mx-auto mb-2 text-tech-cyan" />
                 <h3 className="text-xl font-bold text-foreground">Sin tarjeta</h3>
@@ -165,13 +165,13 @@ const PricingSection = () => {
               </div>
               
               {/* Discount Ribbon */}
-              <div className="absolute top-0 left-0 z-10">
-                <div className="bg-red-500 text-white px-8 py-2 text-xs font-bold transform -rotate-45 origin-top-left -translate-y-1 -translate-x-5 shadow-lg">
+              <div className="absolute -top-2 -left-2 z-10">
+                <div className="bg-red-600 text-white px-10 py-2.5 text-sm font-bold transform -rotate-45 origin-center shadow-xl border border-red-700">
                   $2K + 3MSI
                 </div>
               </div>
               
-              <div className="text-center flex-grow flex flex-col pt-4">
+              <div className="text-center flex-grow flex flex-col pt-6">
                 <div className="mb-4">
                   <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
                   <h3 className="text-xl font-bold text-foreground">Preferente</h3>
