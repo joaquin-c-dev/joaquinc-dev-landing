@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import joaquinProfile from "@/assets/joaquin-profile.jpg";
 import Navigation from "@/components/Navigation";
 import DiscountBanner from "@/components/DiscountBanner";
+import Footer from "@/components/Footer";
 
 const AcercaDeMi = () => {
   const experiences = [
@@ -258,6 +259,7 @@ const AcercaDeMi = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };

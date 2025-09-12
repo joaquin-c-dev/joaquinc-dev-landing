@@ -19,6 +19,7 @@ import {
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import DiscountBanner from "@/components/DiscountBanner";
+import Footer from "@/components/Footer";
 
 const curriculumModules = [
   {
@@ -301,6 +302,7 @@ const Temario = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Shield, Mail, Phone } from "lucide-react";
+import Footer from "@/components/Footer";
 
 const PrivacyPolicy = () => {
   return (
@@ -173,6 +174,7 @@ const PrivacyPolicy = () => {
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
