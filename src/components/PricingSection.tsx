@@ -48,12 +48,12 @@ const PricingSection = () => {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {/* Plan 1 - Dos Pagos */}
-          <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
-            {/* Discount Badge */}
+          <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col overflow-hidden">
+            {/* Discount Ribbon */}
             {isDiscountActive && (
-              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-10">
-                <div className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                  💰 Descuento $2,000
+              <div className="absolute -top-1 -left-1 z-10">
+                <div className="bg-red-500 text-white px-8 py-1 text-xs font-bold transform -rotate-45 -translate-x-4 translate-y-4 shadow-lg">
+                  $2,000 OFF
                 </div>
               </div>
             )}
@@ -155,19 +155,19 @@ const PricingSection = () => {
           {/* Center plan changes based on promotion */}
           {isDiscountActive ? (
             // Plan 2 - Destacado (Centro) when promotion is active
-            <Card className="relative p-6 bg-gradient-card border-2 border-primary shadow-glow-lg hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
+            <Card className="relative p-6 bg-gradient-card border-2 border-primary shadow-glow-lg hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col overflow-hidden">
               {/* Most popular badge */}
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
                 <div className="bg-gradient-accent text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
                   <Star className="w-3 h-3" />
                   MÁS ELEGIDO
                 </div>
               </div>
               
-              {/* Discount Badge */}
-              <div className="absolute -top-2 left-4">
-                <div className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                  🎯 $2,000 + 3MSI
+              {/* Discount Ribbon */}
+              <div className="absolute -top-1 -left-1 z-10">
+                <div className="bg-red-500 text-white px-6 py-1 text-xs font-bold transform -rotate-45 -translate-x-3 translate-y-4 shadow-lg">
+                  $2K + 3MSI
                 </div>
               </div>
               
