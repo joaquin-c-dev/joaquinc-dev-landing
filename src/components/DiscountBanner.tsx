@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { X, Clock, Zap, ArrowDown } from "lucide-react";
 import CountdownTimer from "./CountdownTimer";
+import { useBanner } from "@/contexts/BannerContext";
 
 const DiscountBanner = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const { isBannerVisible, dismissBanner, setBannerVisible } = useBanner();
   const [isHiddenByScroll, setIsHiddenByScroll] = useState(false);
 
   useEffect(() => {
@@ -14,12 +15,17 @@ const DiscountBanner = () => {
         const rect = pricingSection.getBoundingClientRect();
         const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
         setIsHiddenByScroll(isInView);
+        setBannerVisible(!isInView);
+      } else {
+        setIsHiddenByScroll(false);
+        setBannerVisible(true);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [setBannerVisible]);
 
   const scrollToPricing = () => {
     const pricingSection = document.querySelector('section[data-section="pricing"]');
@@ -28,11 +34,11 @@ const DiscountBanner = () => {
     }
   };
 
-  const dismissBanner = () => {
-    setIsVisible(false);
+  const dismissBannerHandler = () => {
+    dismissBanner();
   };
 
-  if (!isVisible || isHiddenByScroll) return null;
+  if (!isBannerVisible || isHiddenByScroll) return null;
 
   return (
     <div data-banner="discount" className="fixed top-0 left-0 right-0 z-50 bg-gradient-accent overflow-hidden">
@@ -65,7 +71,7 @@ const DiscountBanner = () => {
               <CountdownTimer className="text-xs font-bold drop-shadow-sm" textColor="text-white" />
             </div>
             <Button
-              onClick={dismissBanner}
+              onClick={dismissBannerHandler}
               size="sm"
               variant="ghost"
               className="text-white/80 hover:text-white hover:bg-white/20 p-1"

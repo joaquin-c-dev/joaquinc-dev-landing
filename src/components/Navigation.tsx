@@ -2,42 +2,21 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Code2 } from "lucide-react";
+import { useBanner } from "@/contexts/BannerContext";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isBannerVisible, setIsBannerVisible] = useState(true);
+  const { isBannerVisible } = useBanner();
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setIsScrolled(scrollTop > 50);
-      
-      // Check if banner should be hidden (same logic as DiscountBanner)
-      const pricingSection = document.querySelector('section[data-section="pricing"]');
-      const bannerElement = document.querySelector('[data-banner="discount"]');
-      
-      let bannerHidden = false;
-      
-      if (pricingSection) {
-        const rect = pricingSection.getBoundingClientRect();
-        const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
-        bannerHidden = isInView;
-      }
-      
-      // Also check if banner element exists (not dismissed)
-      if (!bannerElement) {
-        bannerHidden = true;
-      }
-      
-      setIsBannerVisible(!bannerHidden);
     };
 
     window.addEventListener('scroll', handleScroll);
-    // Initial check
-    handleScroll();
-    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
