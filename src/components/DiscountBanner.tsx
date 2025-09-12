@@ -3,10 +3,13 @@ import { Button } from "@/components/ui/button";
 import { X, Clock, Zap, ArrowDown } from "lucide-react";
 import CountdownTimer from "./CountdownTimer";
 import { useBanner } from "@/contexts/BannerContext";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const DiscountBanner = () => {
   const { isBannerVisible, dismissBanner, setBannerVisible } = useBanner();
   const [isHiddenByScroll, setIsHiddenByScroll] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,9 +31,13 @@ const DiscountBanner = () => {
   }, [setBannerVisible]);
 
   const scrollToPricing = () => {
-    const pricingSection = document.querySelector('section[data-section="pricing"]');
-    if (pricingSection) {
-      pricingSection.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === '/') {
+      // Already on home page, just scroll
+      const pricingSection = document.querySelector('section[data-section="pricing"]');
+      pricingSection?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Navigate to home page with scroll parameter
+      navigate('/?scroll=pricing');
     }
   };
 
