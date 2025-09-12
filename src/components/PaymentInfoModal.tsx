@@ -46,7 +46,7 @@ const PaymentInfoModal = ({ isOpen, onClose, onContinue }: PaymentInfoModalProps
             </ul>
           </div>
           
-          <div className="border rounded-lg overflow-hidden flex-1 min-h-0">
+          <div className="border rounded-lg overflow-hidden" style={{ maxHeight: '45vh' }}>
             <img 
               src="/lovable-uploads/e2b392f1-4e3e-4231-a8b4-3e3bdcd41721.png" 
               alt="Opciones de planes de cuotas disponibles" 
