@@ -67,11 +67,6 @@ const PricingSection = () => {
                 <p className="text-sm text-muted-foreground">Dos pagos cómodos</p>
               </div>
               
-              {/* Popular badge */}
-              <div className="inline-block bg-tech-cyan/10 text-tech-cyan px-3 py-1 rounded-full text-xs font-medium mb-4 border border-tech-cyan/20">
-                💡 Más popular
-              </div>
-              
               {/* Price */}
               <div className="mb-6">
                 <div className="text-xl font-semibold text-white mb-1">
