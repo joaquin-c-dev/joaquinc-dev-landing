@@ -186,7 +186,7 @@ const PricingSection = () => {
               <div className="mb-4">
                 <Clock className="w-8 h-8 mx-auto mb-2 text-tech-purple" />
                 <h3 className="text-xl font-bold text-foreground">Flexible</h3>
-                <p className="text-sm text-muted-foreground">Hasta 12 meses</p>
+                <p className="text-sm text-muted-foreground">Hasta 12 meses <span className="text-muted-foreground">sin intereses</span></p>
               </div>
               
               {/* Price */}
@@ -203,15 +203,15 @@ const PricingSection = () => {
               <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">6 MSI: $1,417/mes <span className="text-muted-foreground">sin intereses</span></span>
+                  <span className="text-sm">6 MSI: $1,417/mes</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">9 MSI: $944/mes <span className="text-muted-foreground">sin intereses</span></span>
+                  <span className="text-sm">9 MSI: $944/mes</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">12 MSI: $708/mes <span className="text-muted-foreground">sin intereses</span></span>
+                  <span className="text-sm">12 MSI: $708/mes</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
