@@ -74,7 +74,7 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-xl font-semibold text-muted-foreground mb-1">
+                <div className="text-xl font-semibold text-white mb-1">
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
                 <div className="text-2xl font-bold text-white mb-1">
@@ -136,7 +136,7 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-xl font-semibold text-muted-foreground mb-1">
+                <div className="text-xl font-semibold text-white mb-1">
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
                 <div className="text-2xl font-bold text-white mb-1">
@@ -193,7 +193,7 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-xl font-semibold text-muted-foreground mb-1">
+                <div className="text-xl font-semibold text-white mb-1">
                   $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
                 <div className="text-2xl font-bold text-white mb-1">
