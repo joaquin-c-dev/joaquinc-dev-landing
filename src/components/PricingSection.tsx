@@ -49,6 +49,15 @@ const PricingSection = () => {
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {/* Plan 1 - Dos Pagos */}
           <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
+            {/* Discount Badge */}
+            {isDiscountActive && (
+              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-10">
+                <div className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                  💰 Descuento $2,000
+                </div>
+              </div>
+            )}
+            
             <div className="text-center flex-grow flex flex-col">
               <div className="mb-4">
                 <Clock className="w-8 h-8 mx-auto mb-2 text-tech-cyan" />
@@ -152,6 +161,13 @@ const PricingSection = () => {
                 <div className="bg-gradient-accent text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
                   <Star className="w-3 h-3" />
                   MÁS ELEGIDO
+                </div>
+              </div>
+              
+              {/* Discount Badge */}
+              <div className="absolute -top-2 left-4">
+                <div className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                  🎯 $2,000 + 3MSI
                 </div>
               </div>
               
