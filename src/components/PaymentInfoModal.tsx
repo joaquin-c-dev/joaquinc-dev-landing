@@ -17,7 +17,7 @@ interface PaymentInfoModalProps {
 const PaymentInfoModal = ({ isOpen, onClose, onContinue }: PaymentInfoModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-lg w-[90vw] max-h-[95vh] p-4">
+      <DialogContent className="max-w-2xl w-[90vw] max-h-[95vh] p-4">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-lg">
             <AlertCircle className="w-4 h-4 text-primary" />
@@ -50,7 +50,7 @@ const PaymentInfoModal = ({ isOpen, onClose, onContinue }: PaymentInfoModalProps
             <img 
               src="/lovable-uploads/e2b392f1-4e3e-4231-a8b4-3e3bdcd41721.png" 
               alt="Opciones de planes de cuotas disponibles" 
-              className="w-full h-auto max-h-[250px] object-contain"
+              className="w-full h-auto max-h-[350px] object-contain"
             />
           </div>
           
