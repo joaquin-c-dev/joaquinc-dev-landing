@@ -124,155 +124,251 @@ const PricingSection = () => {
             </div>
           </Card>
 
-          {/* Plan 2 - Destacado (Centro) */}
-          <Card className="relative p-6 bg-gradient-card border-2 border-primary shadow-glow-lg hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
-            {/* Most popular badge */}
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-              <div className="bg-gradient-accent text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                <Star className="w-3 h-3" />
-                MÁS ELEGIDO
+          {/* Center plan changes based on promotion */}
+          {isDiscountActive ? (
+            // Plan 2 - Destacado (Centro) when promotion is active
+            <Card className="relative p-6 bg-gradient-card border-2 border-primary shadow-glow-lg hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
+              {/* Most popular badge */}
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <div className="bg-gradient-accent text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                  <Star className="w-3 h-3" />
+                  MÁS ELEGIDO
+                </div>
               </div>
-            </div>
-            
-            <div className="text-center flex-grow flex flex-col">
-              <div className="mb-4">
-                <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
-                <h3 className="text-xl font-bold text-foreground">Preferente</h3>
-                {isDiscountActive && (
+              
+              <div className="text-center flex-grow flex flex-col">
+                <div className="mb-4">
+                  <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
+                  <h3 className="text-xl font-bold text-foreground">Preferente</h3>
                   <p className="text-sm text-muted-foreground">3 meses sin intereses</p>
-                )}
-              </div>
-              
-              {/* Price */}
-              <div className="mb-6">
-                {isDiscountActive ? (
-                  <>
-                    <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
-                      <span className="text-sm text-muted-foreground/60 line-through">$8,500</span>
-                      $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
-                    </div>
-                    <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
-                    <div className="text-xl font-semibold text-white mb-1">
-                      $2,167 / mes x 3 meses
-                    </div>
-                    <div className="text-sm text-muted-foreground mb-1">Sin intereses con tarjeta</div>
-                  </>
-                ) : (
-                  <>
-                    <div className="text-2xl font-bold text-white mb-1">
-                      $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
-                    </div>
-                    <div className="text-xl font-semibold text-white mb-1">
-                      Precio completo
-                    </div>
-                  </>
-                )}
-              </div>
-              
-              {/* Features */}
-              <ul className="space-y-3 mb-6 text-left flex-grow">
-                {isDiscountActive && (
+                </div>
+                
+                {/* Price */}
+                <div className="mb-6">
+                  <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
+                    <span className="text-sm text-muted-foreground/60 line-through">$8,500</span>
+                    $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                  </div>
+                  <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
+                  <div className="text-xl font-semibold text-white mb-1">
+                    $2,167 / mes x 3 meses
+                  </div>
+                  <div className="text-sm text-muted-foreground mb-1">Sin intereses con tarjeta</div>
+                </div>
+                
+                {/* Features */}
+                <ul className="space-y-3 mb-6 text-left flex-grow">
                   <li className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
                     <span className="text-sm text-foreground">3 meses sin intereses</span>
                   </li>
-                )}
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">Acceso completo al curso</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">Grabaciones incluidas</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">Material bibliográfico</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">Código del proyecto final</span>
-                </li>
-              </ul>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm text-foreground">Acceso completo al curso</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm text-foreground">Grabaciones incluidas</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm text-foreground">Material bibliográfico</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm text-foreground">Código del proyecto final</span>
+                  </li>
+                </ul>
+                
+                <Button 
+                  className="w-full bg-gradient-accent hover:opacity-90 text-white font-bold mt-auto transition-all duration-300"
+                  onClick={handleRecommendedClick}
+                >
+                  🔥 Hacer pago preferente
+                </Button>
+              </div>
+            </Card>
+          ) : (
+            // Plan Flexible in center when promotion expires
+            <Card className="relative p-6 bg-gradient-card border-2 border-primary shadow-glow-lg hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
+              {/* Most popular badge */}
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <div className="bg-gradient-accent text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                  <Star className="w-3 h-3" />
+                  MÁS ELEGIDO
+                </div>
+              </div>
               
-              <Button 
-                className="w-full bg-gradient-accent hover:opacity-90 text-white font-bold mt-auto transition-all duration-300"
-                onClick={() => {
-                  const url = isDiscountActive 
-                    ? 'https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO'
-                    : 'https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01';
-                  if (isDiscountActive) {
-                    handleRecommendedClick();
-                  } else {
-                    window.open(url, '_blank');
-                  }
-                }}
-              >
-                🔥 Hacer pago preferente
-              </Button>
-            </div>
-          </Card>
+              <div className="text-center flex-grow flex flex-col">
+                <div className="mb-4">
+                  <Clock className="w-8 h-8 mx-auto mb-2 text-tech-purple" />
+                  <h3 className="text-xl font-bold text-foreground">Flexible</h3>
+                  <p className="text-sm text-muted-foreground">Hasta 12 meses <span className="text-muted-foreground">sin intereses</span></p>
+                </div>
+                
+                {/* Price */}
+                <div className="mb-6">
+                  <div className="text-2xl font-bold text-white mb-1">
+                    $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                  </div>
+                  <div className="text-xl font-semibold text-white mb-1">
+                    Desde $708 / mes
+                  </div>
+                </div>
+                
+                {/* Features */}
+                <ul className="space-y-3 mb-6 text-left flex-grow">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">6 MSI: $1,417/mes</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">9 MSI: $944/mes</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">12 MSI: $708/mes</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">Acceso completo al curso</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">Grabaciones incluidas</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">Material bibliográfico</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">Código del proyecto final</span>
+                  </li>
+                </ul>
+                
+                <Button 
+                  variant="outline"
+                  className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
+                  onClick={handleFlexibilityPlusClick}
+                >
+                  Hacer pago Flexible
+                </Button>
+              </div>
+            </Card>
+          )}
 
-          {/* Plan 3 - Sin Descuento */}
-          <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
-            <div className="text-center flex-grow flex flex-col">
-              <div className="mb-4">
-                <Clock className="w-8 h-8 mx-auto mb-2 text-tech-purple" />
-                <h3 className="text-xl font-bold text-foreground">Flexible</h3>
-                <p className="text-sm text-muted-foreground">Hasta 12 meses <span className="text-muted-foreground">sin intereses</span></p>
-              </div>
-              
-              {/* Price */}
-              <div className="mb-6">
-                <div className="text-2xl font-bold text-white mb-1">
-                  $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+          {/* Right plan changes based on promotion */}
+          {isDiscountActive ? (
+            // Plan 3 - Flexible (Right) when promotion is active
+            <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
+              <div className="text-center flex-grow flex flex-col">
+                <div className="mb-4">
+                  <Clock className="w-8 h-8 mx-auto mb-2 text-tech-purple" />
+                  <h3 className="text-xl font-bold text-foreground">Flexible</h3>
+                  <p className="text-sm text-muted-foreground">Hasta 12 meses <span className="text-muted-foreground">sin intereses</span></p>
                 </div>
-                <div className="text-xl font-semibold text-white mb-1">
-                  Desde $708 / mes
+                
+                {/* Price */}
+                <div className="mb-6">
+                  <div className="text-2xl font-bold text-white mb-1">
+                    $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                  </div>
+                  <div className="text-xl font-semibold text-white mb-1">
+                    Desde $708 / mes
+                  </div>
                 </div>
+                
+                {/* Features */}
+                <ul className="space-y-3 mb-6 text-left flex-grow">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">6 MSI: $1,417/mes</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">9 MSI: $944/mes</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">12 MSI: $708/mes</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">Acceso completo al curso</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">Grabaciones incluidas</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">Material bibliográfico</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm">Código del proyecto final</span>
+                  </li>
+                </ul>
+                
+                <Button 
+                  variant="outline"
+                  className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
+                  onClick={handleFlexibilityPlusClick}
+                >
+                  Hacer pago Flexible
+                </Button>
               </div>
-              
-              {/* Features */}
-              <ul className="space-y-3 mb-6 text-left flex-grow">
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">6 MSI: $1,417/mes</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">9 MSI: $944/mes</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">12 MSI: $708/mes</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">Acceso completo al curso</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">Grabaciones incluidas</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">Material bibliográfico</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">Código del proyecto final</span>
-                </li>
-              </ul>
-              
-              <Button 
-                variant="outline"
-                className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
-                onClick={handleFlexibilityPlusClick}
-              >
-                Hacer pago Flexible
-              </Button>
-            </div>
-          </Card>
+            </Card>
+          ) : (
+            // Plan Preferente (Right) when promotion expires
+            <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
+              <div className="text-center flex-grow flex flex-col">
+                <div className="mb-4">
+                  <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
+                  <h3 className="text-xl font-bold text-foreground">Preferente</h3>
+                </div>
+                
+                {/* Price */}
+                <div className="mb-6">
+                  <div className="text-2xl font-bold text-white mb-1">
+                    $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                  </div>
+                  <div className="text-xl font-semibold text-white mb-1">
+                    Precio completo
+                  </div>
+                </div>
+                
+                {/* Features */}
+                <ul className="space-y-3 mb-6 text-left flex-grow">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm text-foreground">Acceso completo al curso</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm text-foreground">Grabaciones incluidas</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm text-foreground">Material bibliográfico</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm text-foreground">Código del proyecto final</span>
+                  </li>
+                </ul>
+                
+                <Button 
+                  className="w-full bg-gradient-accent hover:opacity-90 text-white font-bold mt-auto transition-all duration-300"
+                  onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01', '_blank')}
+                >
+                  🔥 Hacer pago preferente
+                </Button>
+              </div>
+            </Card>
+          )}
         </div>
         
         {/* Bottom info */}
