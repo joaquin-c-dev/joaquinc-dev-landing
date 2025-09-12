@@ -4,7 +4,7 @@ import { Check, Zap, Star, Clock } from "lucide-react";
 
 const PricingSection = () => {
   return (
-    <section data-section="pricing" className="py-16 bg-course-darker relative overflow-hidden">
+    <section data-section="pricing" className="py-16 bg-course-darker relative overflow-hidden min-h-screen flex items-center">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-course-blue/20 rounded-full blur-3xl animate-pulse"></div>
