@@ -1,8 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, Zap, Star, Clock } from "lucide-react";
+import { useState } from "react";
+import PaymentInfoModal from "./PaymentInfoModal";
 
 const PricingSection = () => {
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+
+  const handleFlexibilityPlusClick = () => {
+    setShowPaymentModal(true);
+  };
+
+  const handleContinueToPayment = () => {
+    setShowPaymentModal(false);
+    window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01', '_blank');
+  };
+
   return (
     <section data-section="pricing" className="py-16 bg-course-darker relative overflow-hidden min-h-screen flex items-center">
       {/* Background effects */}
@@ -186,7 +199,7 @@ const PricingSection = () => {
               <Button 
                 variant="outline"
                 className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 mt-auto"
-                onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01', '_blank')}
+                onClick={handleFlexibilityPlusClick}
               >
                 Elegir Plan
               </Button>
@@ -199,6 +212,12 @@ const PricingSection = () => {
           <p>💳 Aceptamos todas las tarjetas • 🔒 Pago 100% seguro • 🎯 Garantía de satisfacción</p>
         </div>
       </div>
+
+      <PaymentInfoModal 
+        isOpen={showPaymentModal}
+        onClose={() => setShowPaymentModal(false)}
+        onContinue={handleContinueToPayment}
+      />
     </section>
   );
 };
