@@ -80,7 +80,7 @@ const PricingSection = () => {
                 <div className="text-2xl font-bold text-white mb-1">
                   $3,250 x 2 pagos
                 </div>
-                <div className="text-sm text-green-400">Ahorras $2,000 del precio regular</div>
+                <div className="text-sm text-green-400">Ahorras $2,000</div>
               </div>
               
               {/* Features */}
@@ -142,7 +142,7 @@ const PricingSection = () => {
                 <div className="text-2xl font-bold text-white mb-1">
                   $2,167 / mes
                 </div>
-                <div className="text-sm text-green-400">Ahorras $2,000 del precio regular</div>
+                <div className="text-sm text-green-400">Ahorras $2,000</div>
               </div>
               
               {/* Features */}
