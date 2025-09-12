@@ -87,6 +87,10 @@ const PricingSection = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm">No necesitas tarjeta de crédito</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">Acceso completo al curso</span>
                 </li>
                 <li className="flex items-center gap-2">
@@ -108,7 +112,7 @@ const PricingSection = () => {
                 className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 mt-auto"
                 onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
               >
-                Elegir Plan
+                Hacer pago sin tarjeta
               </Button>
             </div>
           </Card>
@@ -151,10 +155,6 @@ const PricingSection = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">Soporte prioritario</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm text-foreground">Acceso completo al curso</span>
                 </li>
                 <li className="flex items-center gap-2">
@@ -175,7 +175,7 @@ const PricingSection = () => {
                 className="w-full bg-gradient-accent hover:opacity-90 text-white font-bold mt-auto transition-all duration-300"
                 onClick={handleRecommendedClick}
               >
-                🔥 Elegir Plan Estrella
+                🔥 Hacer pago preferente
               </Button>
             </div>
           </Card>
@@ -236,7 +236,7 @@ const PricingSection = () => {
                 className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 mt-auto"
                 onClick={handleFlexibilityPlusClick}
               >
-                Elegir Plan
+                Hacer pago Flexible
               </Button>
             </div>
           </Card>
