@@ -51,14 +51,14 @@ const PricingSection = () => {
           <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
             {/* Discount Ribbon Container */}
             {isDiscountActive && (
-              <div className="absolute -top-2 -left-2 w-24 h-12 overflow-hidden z-10">
-                <div className="bg-red-600 text-white px-12 py-2.5 text-sm font-bold transform -rotate-45 origin-center shadow-xl border border-red-700 absolute -left-6 top-2">
+              <div className="absolute top-0 left-0 w-32 h-16 overflow-hidden z-10">
+                <div className="bg-red-600 text-white px-8 py-1.5 text-xs font-bold transform -rotate-45 absolute -left-8 top-4 shadow-xl border border-red-700">
                   $2,000 OFF
                 </div>
               </div>
             )}
             
-            <div className="text-center flex-grow flex flex-col pt-4">
+            <div className="text-center flex-grow flex flex-col pt-2">
               <div className="mb-4">
                 <Clock className="w-8 h-8 mx-auto mb-2 text-tech-cyan" />
                 <h3 className="text-xl font-bold text-foreground">Sin tarjeta</h3>
@@ -165,8 +165,8 @@ const PricingSection = () => {
               </div>
               
               {/* Discount Ribbon Container */}
-              <div className="absolute -top-2 -left-2 w-24 h-12 overflow-hidden z-10">
-                <div className="bg-red-600 text-white px-10 py-2.5 text-sm font-bold transform -rotate-45 origin-center shadow-xl border border-red-700 absolute -left-6 top-2">
+              <div className="absolute top-0 left-0 w-32 h-16 overflow-hidden z-10">
+                <div className="bg-red-600 text-white px-6 py-1.5 text-xs font-bold transform -rotate-45 absolute -left-6 top-4 shadow-xl border border-red-700">
                   $2K + 3MSI
                 </div>
               </div>
