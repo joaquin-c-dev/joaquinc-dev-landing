@@ -7,6 +7,7 @@ import { useBanner } from "@/contexts/BannerContext";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isPricingSectionInView, setIsPricingSectionInView] = useState(false);
   const { isBannerVisible } = useBanner();
   const location = useLocation();
   const navigate = useNavigate();
@@ -15,11 +16,24 @@ const Navigation = () => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setIsScrolled(scrollTop > 50);
+      
+      // Check if pricing section is in view
+      if (location.pathname === '/') {
+        const pricingSection = document.querySelector('section[data-section="pricing"]');
+        if (pricingSection) {
+          const rect = pricingSection.getBoundingClientRect();
+          const isInView = rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5;
+          setIsPricingSectionInView(isInView);
+        }
+      } else {
+        setIsPricingSectionInView(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     // Handle scroll to pricing section when navigating from another page
@@ -74,7 +88,7 @@ const Navigation = () => {
                 onClick={() => handleNavClick(item)}
                 className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer ${
                   (location.pathname === item.path && !item.action) || 
-                  (item.action === 'pricing' && location.pathname === '/')
+                  (item.action === 'pricing' && isPricingSectionInView)
                     ? 'bg-gradient-accent bg-clip-text text-transparent' 
                     : ''
                 }`}
@@ -113,7 +127,7 @@ const Navigation = () => {
                   }}
                   className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ${
                     (location.pathname === item.path && !item.action) || 
-                    (item.action === 'pricing' && location.pathname === '/')
+                    (item.action === 'pricing' && isPricingSectionInView)
                       ? 'bg-gradient-accent bg-clip-text text-transparent' 
                       : ''
                   }`}
