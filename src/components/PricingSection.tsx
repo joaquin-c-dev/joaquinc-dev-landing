@@ -3,10 +3,13 @@ import { Card } from "@/components/ui/card";
 import { Check, Zap, Star, Clock } from "lucide-react";
 import { useState } from "react";
 import PaymentInfoModal from "./PaymentInfoModal";
+import { useCountdown } from "@/contexts/CountdownContext";
 
 const PricingSection = () => {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showRecommendedModal, setShowRecommendedModal] = useState(false);
+  const { timeLeft } = useCountdown();
+  const isDiscountActive = !timeLeft.isExpired;
 
   const handleFlexibilityPlusClick = () => {
     setShowPaymentModal(true);
@@ -55,14 +58,27 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
-                  <span className="text-sm text-muted-foreground/60 line-through">$8,500</span>
-                  $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
-                </div>
-                <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
-                <div className="text-xl font-semibold text-white mb-1">
-                  $3,250 x 2 pagos
-                </div>
+                {isDiscountActive ? (
+                  <>
+                    <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
+                      <span className="text-sm text-muted-foreground/60 line-through">$8,500</span>
+                      $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                    </div>
+                    <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
+                    <div className="text-xl font-semibold text-white mb-1">
+                      $3,250 x 2 pagos
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="text-2xl font-bold text-white mb-1">
+                      $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                    </div>
+                    <div className="text-xl font-semibold text-white mb-1">
+                      $4,250 x 2 pagos
+                    </div>
+                  </>
+                )}
               </div>
               
               {/* Features */}
@@ -96,7 +112,12 @@ const PricingSection = () => {
               <Button 
                 variant="outline"
                 className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
-                onClick={() => window.open('https://wa.me/523310881011?text=Hola%2C%20me%20interesa%20el%20plan%20sin%20tarjeta%20del%20curso%20de%20Java.%20Por%20favor%20envíame%20los%20datos%20bancarios%20para%20realizar%20la%20transferencia%20del%20primer%20pago%20de%20%243%2C250%20MXN.', '_blank')}
+                onClick={() => {
+                  const message = isDiscountActive 
+                    ? 'Hola%2C%20me%20interesa%20el%20plan%20sin%20tarjeta%20del%20curso%20de%20Java.%20Por%20favor%20envíame%20los%20datos%20bancarios%20para%20realizar%20la%20transferencia%20del%20primer%20pago%20de%20%243%2C250%20MXN.'
+                    : 'Hola%2C%20me%20interesa%20el%20plan%20sin%20tarjeta%20del%20curso%20de%20Java.%20Por%20favor%20envíame%20los%20datos%20bancarios%20para%20realizar%20la%20transferencia%20del%20primer%20pago%20de%20%244%2C250%20MXN.';
+                  window.open(`https://wa.me/523310881011?text=${message}`, '_blank');
+                }}
               >
                 Hacer pago sin tarjeta
               </Button>
@@ -122,23 +143,38 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
-                  <span className="text-sm text-muted-foreground/60 line-through">$8,500</span>
-                  $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
-                </div>
-                <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
-                <div className="text-xl font-semibold text-white mb-1">
-                  $2,167 / mes x 3 meses
-                </div>
-                <div className="text-sm text-muted-foreground mb-1">Sin intereses con tarjeta</div>
+                {isDiscountActive ? (
+                  <>
+                    <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
+                      <span className="text-sm text-muted-foreground/60 line-through">$8,500</span>
+                      $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                    </div>
+                    <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
+                    <div className="text-xl font-semibold text-white mb-1">
+                      $2,167 / mes x 3 meses
+                    </div>
+                    <div className="text-sm text-muted-foreground mb-1">Sin intereses con tarjeta</div>
+                  </>
+                ) : (
+                  <>
+                    <div className="text-2xl font-bold text-white mb-1">
+                      $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                    </div>
+                    <div className="text-xl font-semibold text-white mb-1">
+                      Precio completo
+                    </div>
+                  </>
+                )}
               </div>
               
               {/* Features */}
               <ul className="space-y-3 mb-6 text-left flex-grow">
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">3 meses sin intereses</span>
-                </li>
+                {isDiscountActive && (
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-sm text-foreground">3 meses sin intereses</span>
+                  </li>
+                )}
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm text-foreground">Acceso completo al curso</span>
@@ -159,7 +195,7 @@ const PricingSection = () => {
               
               <Button 
                 className="w-full bg-gradient-accent hover:opacity-90 text-white font-bold mt-auto transition-all duration-300"
-                onClick={handleRecommendedClick}
+                onClick={isDiscountActive ? handleRecommendedClick : () => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46M', '_blank')}
               >
                 🔥 Hacer pago preferente
               </Button>
