@@ -17,7 +17,7 @@ interface PaymentInfoModalProps {
 const PaymentInfoModal = ({ isOpen, onClose, onContinue }: PaymentInfoModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <DialogContent className="max-w-4xl w-[95vw] max-h-[95vh] p-4">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-xl">
             <AlertCircle className="w-5 h-5 text-primary" />
@@ -25,48 +25,50 @@ const PaymentInfoModal = ({ isOpen, onClose, onContinue }: PaymentInfoModalProps
           </DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-4">
-          <div className="bg-muted/30 p-4 rounded-lg border border-primary/20">
-            <h3 className="font-semibold text-foreground mb-2">
-              Para acceder a las opciones de meses sin intereses:
-            </h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold">1.</span>
-                <span>NO debe estar aplicado ningún cupón de descuento</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold">2.</span>
-                <span>Debes ingresar una tarjeta de crédito válida</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold">3.</span>
-                <span>Marca la opción "Pagar en cuotas (meses sin intereses)"</span>
-              </li>
-            </ul>
+        <div className="grid md:grid-cols-2 gap-4 items-start">
+          <div className="space-y-3">
+            <div className="bg-muted/30 p-3 rounded-lg border border-primary/20">
+              <h3 className="font-semibold text-foreground mb-2 text-sm">
+                Para acceder a las opciones de meses sin intereses:
+              </h3>
+              <ul className="space-y-1.5 text-xs text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary font-bold">1.</span>
+                  <span>NO debe estar aplicado ningún cupón de descuento</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary font-bold">2.</span>
+                  <span>Debes ingresar una tarjeta de crédito válida</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary font-bold">3.</span>
+                  <span>Marca la opción "Pagar en cuotas (meses sin intereses)"</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="bg-tech-cyan/10 p-3 rounded-lg border border-tech-cyan/20">
+              <p className="text-xs text-foreground">
+                <strong>Nota:</strong> Una vez que completes estos pasos, podrás seleccionar 
+                entre las diferentes opciones de cuotas (3, 6, 9 o 12 meses) según tu preferencia.
+              </p>
+            </div>
           </div>
           
           <div className="border rounded-lg overflow-hidden">
             <img 
               src="/lovable-uploads/e2b392f1-4e3e-4231-a8b4-3e3bdcd41721.png" 
               alt="Opciones de planes de cuotas disponibles" 
-              className="w-full h-auto"
+              className="w-full h-auto max-h-[400px] object-contain"
             />
-          </div>
-          
-          <div className="bg-tech-cyan/10 p-3 rounded-lg border border-tech-cyan/20">
-            <p className="text-sm text-foreground">
-              <strong>Nota:</strong> Una vez que completes estos pasos, podrás seleccionar 
-              entre las diferentes opciones de cuotas (3, 6, 9 o 12 meses) según tu preferencia.
-            </p>
           </div>
         </div>
         
-        <DialogFooter className="gap-2">
-          <Button variant="outline" onClick={onClose}>
+        <DialogFooter className="gap-2 mt-4">
+          <Button variant="outline" onClick={onClose} size="sm">
             Cancelar
           </Button>
-          <Button onClick={onContinue} className="bg-primary hover:bg-primary/90">
+          <Button onClick={onContinue} className="bg-primary hover:bg-primary/90" size="sm">
             Entendido, Continuar
           </Button>
         </DialogFooter>
