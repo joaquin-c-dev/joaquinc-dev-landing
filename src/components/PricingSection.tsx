@@ -73,10 +73,10 @@ const PricingSection = () => {
                   <span className="text-sm text-muted-foreground/60 line-through">$8,500</span>
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
+                <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
                 <div className="text-xl font-semibold text-white mb-1">
                   $3,250 x 2 pagos
                 </div>
-                <div className="text-sm text-green-400">Ahorras $2,000</div>
               </div>
               
               {/* Features */}
@@ -136,11 +136,11 @@ const PricingSection = () => {
                   <span className="text-sm text-muted-foreground/60 line-through">$8,500</span>
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
+                <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
                 <div className="text-xl font-semibold text-white mb-1">
                   $2,167 / mes x 3 meses
                 </div>
                 <div className="text-sm text-muted-foreground mb-1">Sin intereses con tarjeta</div>
-                <div className="text-sm text-green-400">Ahorras $2,000</div>
               </div>
               
               {/* Features */}
