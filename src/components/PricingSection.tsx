@@ -159,7 +159,7 @@ const PricingSection = () => {
               </ul>
               
               <Button 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold mt-auto"
+                className="w-full bg-gradient-accent hover:opacity-90 text-white font-bold mt-auto transition-all duration-300"
                 onClick={handleRecommendedClick}
               >
                 🔥 Elegir Plan Estrella
