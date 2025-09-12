@@ -203,15 +203,15 @@ const PricingSection = () => {
               <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">6 meses: $1,417/mes <span className="text-muted-foreground">sin intereses</span></span>
+                  <span className="text-sm">6 MSI: $1,417/mes <span className="text-muted-foreground">sin intereses</span></span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">9 meses: $944/mes <span className="text-muted-foreground">sin intereses</span></span>
+                  <span className="text-sm">9 MSI: $944/mes <span className="text-muted-foreground">sin intereses</span></span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">12 meses: $708/mes <span className="text-muted-foreground">sin intereses</span></span>
+                  <span className="text-sm">12 MSI: $708/mes <span className="text-muted-foreground">sin intereses</span></span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
