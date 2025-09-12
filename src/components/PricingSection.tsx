@@ -63,7 +63,7 @@ const PricingSection = () => {
             <div className="text-center flex-grow flex flex-col">
               <div className="mb-4">
                 <Clock className="w-8 h-8 mx-auto mb-2 text-tech-cyan" />
-                <h3 className="text-xl font-bold text-foreground">Flexibilidad</h3>
+                <h3 className="text-xl font-bold text-foreground">Sin tarjeta</h3>
                 <p className="text-sm text-muted-foreground">Dos pagos cómodos</p>
               </div>
               
@@ -123,7 +123,7 @@ const PricingSection = () => {
             <div className="text-center flex-grow flex flex-col">
               <div className="mb-4">
                 <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
-                <h3 className="text-xl font-bold text-foreground">Recomendado</h3>
+                <h3 className="text-xl font-bold text-foreground">Preferente</h3>
                 <p className="text-sm text-muted-foreground">3 meses sin intereses</p>
               </div>
               
@@ -171,7 +171,7 @@ const PricingSection = () => {
             <div className="text-center flex-grow flex flex-col">
               <div className="mb-4">
                 <Clock className="w-8 h-8 mx-auto mb-2 text-tech-purple" />
-                <h3 className="text-xl font-bold text-foreground">Flexibilidad Plus</h3>
+                <h3 className="text-xl font-bold text-foreground">Flexible</h3>
                 <p className="text-sm text-muted-foreground">Hasta 12 meses</p>
               </div>
               
