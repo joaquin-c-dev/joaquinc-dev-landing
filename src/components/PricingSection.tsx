@@ -75,10 +75,9 @@ const PricingSection = () => {
               {/* Price */}
               <div className="mb-6">
                 <div className="text-3xl font-black text-foreground mb-1">
-                  $3,250 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                  Total: $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
-                <div className="text-lg text-muted-foreground">+ $3,250 al iniciar</div>
-                <div className="text-lg font-semibold text-foreground mt-1">Total: $6,500 MXN</div>
+                <div className="text-lg text-muted-foreground">$3,250 ahora + $3,250 al iniciar</div>
                 <div className="text-xs text-green-400 mt-1">Con descuento de lanzamiento</div>
               </div>
               
@@ -135,11 +134,10 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-xs text-muted-foreground/60 line-through">$8,500 MXN</div>
-                <div className="text-4xl font-black text-foreground mb-1">
-                  $2,167 <span className="text-sm font-normal text-muted-foreground">/ mes</span>
+                <div className="text-3xl font-black text-foreground mb-1">
+                  Total: $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
-                <div className="text-lg text-foreground">Total: $6,500 MXN</div>
+                <div className="text-lg text-foreground">$2,167 / mes (3 meses)</div>
                 <div className="text-xs text-green-400 mt-1">Ahorras $2,000</div>
               </div>
               
@@ -192,10 +190,9 @@ const PricingSection = () => {
               {/* Price */}
               <div className="mb-6">
                 <div className="text-3xl font-black text-foreground mb-1">
-                  $708 <span className="text-sm font-normal text-muted-foreground">/ mes</span>
+                  Total: $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
-                <div className="text-lg text-muted-foreground">desde 12 meses</div>
-                <div className="text-lg font-semibold text-foreground mt-1">Total: $8,500 MXN</div>
+                <div className="text-lg text-muted-foreground">Desde $708 / mes (12 meses)</div>
                 <div className="text-xs text-muted-foreground mt-1">
                   6 meses: $1,417/mes • 12 meses: $708/mes
                 </div>
