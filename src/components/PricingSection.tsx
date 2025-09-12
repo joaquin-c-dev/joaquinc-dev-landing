@@ -51,14 +51,14 @@ const PricingSection = () => {
           <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col overflow-hidden">
             {/* Discount Ribbon */}
             {isDiscountActive && (
-              <div className="absolute -top-1 -left-1 z-10">
-                <div className="bg-red-500 text-white px-8 py-1 text-xs font-bold transform -rotate-45 -translate-x-4 translate-y-4 shadow-lg">
+              <div className="absolute top-0 left-0 z-10">
+                <div className="bg-red-500 text-white px-10 py-2 text-xs font-bold transform -rotate-45 origin-top-left -translate-y-1 -translate-x-6 shadow-lg">
                   $2,000 OFF
                 </div>
               </div>
             )}
             
-            <div className="text-center flex-grow flex flex-col">
+            <div className="text-center flex-grow flex flex-col pt-2">
               <div className="mb-4">
                 <Clock className="w-8 h-8 mx-auto mb-2 text-tech-cyan" />
                 <h3 className="text-xl font-bold text-foreground">Sin tarjeta</h3>
@@ -157,7 +157,7 @@ const PricingSection = () => {
             // Plan 2 - Destacado (Centro) when promotion is active
             <Card className="relative p-6 bg-gradient-card border-2 border-primary shadow-glow-lg hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col overflow-hidden">
               {/* Most popular badge */}
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-30">
                 <div className="bg-gradient-accent text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
                   <Star className="w-3 h-3" />
                   MÁS ELEGIDO
@@ -165,13 +165,13 @@ const PricingSection = () => {
               </div>
               
               {/* Discount Ribbon */}
-              <div className="absolute -top-1 -left-1 z-10">
-                <div className="bg-red-500 text-white px-6 py-1 text-xs font-bold transform -rotate-45 -translate-x-3 translate-y-4 shadow-lg">
+              <div className="absolute top-0 left-0 z-10">
+                <div className="bg-red-500 text-white px-8 py-2 text-xs font-bold transform -rotate-45 origin-top-left -translate-y-1 -translate-x-5 shadow-lg">
                   $2K + 3MSI
                 </div>
               </div>
               
-              <div className="text-center flex-grow flex flex-col">
+              <div className="text-center flex-grow flex flex-col pt-4">
                 <div className="mb-4">
                   <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
                   <h3 className="text-xl font-bold text-foreground">Preferente</h3>
