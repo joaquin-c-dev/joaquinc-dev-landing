@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import CurriculumSection from "@/components/CurriculumSection";
+import PricingSection from "@/components/PricingSection";
 import InstructorSection from "@/components/InstructorSection";
 import CTASection from "@/components/CTASection";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -13,6 +14,7 @@ const Index = () => {
       <StickyBanner />
       <HeroSection />
       <CurriculumSection />
+      <PricingSection />
       <InstructorSection />
       <CTASection />
       <WhatsAppButton />
