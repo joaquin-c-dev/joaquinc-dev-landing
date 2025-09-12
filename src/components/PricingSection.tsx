@@ -69,6 +69,7 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
+                <div className="text-xs text-muted-foreground/60 line-through mb-1">$8,500 MXN</div>
                 <div className="text-xl font-semibold text-white mb-1">
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
@@ -131,6 +132,7 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
+                <div className="text-xs text-muted-foreground/60 line-through mb-1">$8,500 MXN</div>
                 <div className="text-xl font-semibold text-white mb-1">
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
