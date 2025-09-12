@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import PricingSection from "@/components/PricingSection";
+import ProximosIniciosSection from "@/components/ProximosIniciosSection";
 import DiscountBanner from "@/components/DiscountBanner";
 import Navigation from "@/components/Navigation";
 
@@ -9,6 +10,7 @@ const Index = () => {
       <DiscountBanner />
       <Navigation />
       <HeroSection />
+      <ProximosIniciosSection />
       <PricingSection />
     </div>
   );
