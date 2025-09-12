@@ -97,7 +97,7 @@ const HeroSection = () => {
             <div className="text-center mb-4">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Flame className="w-5 h-5 text-red-500" />
-                <span className="text-red-400 font-bold text-lg">¡Solo por 48h! Esta oportunidad termina en:</span>
+                <span className="text-red-400 font-bold text-lg">¡Tiempo limitado! Esta oportunidad termina en:</span>
               </div>
               <div className="flex justify-center">
                 <CountdownTimer textColor="text-red-400" />
