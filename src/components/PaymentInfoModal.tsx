@@ -68,7 +68,7 @@ const PaymentInfoModal = ({ isOpen, onClose, onContinue }: PaymentInfoModalProps
           <Button variant="outline" onClick={onClose} size="sm">
             Cancelar
           </Button>
-          <Button onClick={onContinue} className="bg-primary hover:bg-primary/90" size="sm">
+          <Button onClick={onContinue} className="bg-gradient-accent hover:opacity-90 text-white" size="sm">
             Entendido, Continuar
           </Button>
         </DialogFooter>
