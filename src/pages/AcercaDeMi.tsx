@@ -9,10 +9,12 @@ import DiscountBanner from "@/components/DiscountBanner";
 import Footer from "@/components/Footer";
 import { useCountdown } from "@/contexts/CountdownContext";
 import { useBanner } from "@/contexts/BannerContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const AcercaDeMi = () => {
   const { isBannerVisible } = useBanner();
   const { timeLeft } = useCountdown();
+  const isMobile = useIsMobile();
   
   // Calculate if banner should actually be shown (visible and not expired)
   const shouldShowBanner = isBannerVisible && !timeLeft.isExpired;
@@ -80,7 +82,7 @@ const AcercaDeMi = () => {
       <DiscountBanner />
       <Navigation />
       
-      <main className={`${shouldShowBanner ? 'pt-[96px]' : 'pt-16'} pb-16`}>
+      <main className={`${shouldShowBanner ? 'pt-[116px] md:pt-[96px]' : 'pt-16'} pb-16`}>
         <section className="relative py-20 bg-gradient-subtle overflow-hidden">
           {/* Background glow effects */}
           <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>

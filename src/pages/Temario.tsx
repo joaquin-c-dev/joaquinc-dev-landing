@@ -22,6 +22,7 @@ import DiscountBanner from "@/components/DiscountBanner";
 import Footer from "@/components/Footer";
 import { useCountdown } from "@/contexts/CountdownContext";
 import { useBanner } from "@/contexts/BannerContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const curriculumModules = [
   {
@@ -154,6 +155,7 @@ const curriculumModules = [
 const Temario = () => {
   const { isBannerVisible } = useBanner();
   const { timeLeft } = useCountdown();
+  const isMobile = useIsMobile();
   
   // Calculate if banner should actually be shown (visible and not expired)
   const shouldShowBanner = isBannerVisible && !timeLeft.isExpired;
@@ -167,7 +169,7 @@ const Temario = () => {
       <DiscountBanner />
       <Navigation />
       
-      <main className={`${shouldShowBanner ? 'pt-[96px]' : 'pt-16'} pb-16`}>
+      <main className={`${shouldShowBanner ? 'pt-[116px] md:pt-[96px]' : 'pt-16'} pb-16`}>
         <section className="py-16 bg-course-dark relative overflow-hidden">
           {/* Background glow effects */}
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-tech-purple/5 rounded-full blur-3xl animate-pulse"></div>

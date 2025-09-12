@@ -65,7 +65,7 @@ const Navigation = () => {
 
   return (
     <nav 
-      className={`fixed ${shouldShowBanner ? 'top-[32px]' : 'top-0'} left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed ${shouldShowBanner ? 'top-[52px] md:top-[32px]' : 'top-0'} left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled || isMobile
           ? 'bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg' 
           : 'bg-transparent'
