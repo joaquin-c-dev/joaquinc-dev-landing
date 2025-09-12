@@ -5,6 +5,7 @@ import { Building2, GraduationCap, Code, Users, Award, MapPin, Linkedin, Externa
 import { Link } from "react-router-dom";
 import joaquinProfile from "@/assets/joaquin-profile.jpg";
 import Navigation from "@/components/Navigation";
+import DiscountBanner from "@/components/DiscountBanner";
 
 const AcercaDeMi = () => {
   const experiences = [
@@ -67,9 +68,10 @@ const AcercaDeMi = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <DiscountBanner />
       <Navigation />
       
-      <main className="pt-24 pb-16">
+      <main className="pt-[108px] pb-16">
         <section className="relative py-20 bg-gradient-subtle overflow-hidden">
           {/* Background glow effects */}
           <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>
