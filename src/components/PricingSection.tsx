@@ -36,8 +36,8 @@ const PricingSection = () => {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {/* Plan 1 - Dos Pagos */}
-          <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300">
-            <div className="text-center">
+          <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
+            <div className="text-center flex-grow flex flex-col">
               <div className="mb-4">
                 <Clock className="w-8 h-8 mx-auto mb-2 text-tech-cyan" />
                 <h3 className="text-xl font-bold text-foreground">Flexibilidad</h3>
@@ -59,7 +59,7 @@ const PricingSection = () => {
               </div>
               
               {/* Features */}
-              <ul className="space-y-3 mb-6 text-left">
+              <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">50% ahora, 50% al iniciar</span>
@@ -79,7 +79,7 @@ const PricingSection = () => {
               </ul>
               
               <Button 
-                className="w-full bg-tech-cyan hover:bg-tech-cyan-glow text-white"
+                className="w-full bg-tech-cyan hover:bg-tech-cyan-glow text-white mt-auto"
                 onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
               >
                 Elegir Plan
@@ -88,7 +88,7 @@ const PricingSection = () => {
           </Card>
 
           {/* Plan 2 - Destacado (Centro) */}
-          <Card className="relative p-6 bg-gradient-card border-2 border-primary shadow-glow-lg hover:shadow-glow-lg transition-all duration-300">
+          <Card className="relative p-6 bg-gradient-card border-2 border-primary shadow-glow-lg hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
             {/* Most popular badge */}
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
               <div className="bg-gradient-accent text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
@@ -97,7 +97,7 @@ const PricingSection = () => {
               </div>
             </div>
             
-            <div className="text-center">
+            <div className="text-center flex-grow flex flex-col">
               <div className="mb-4">
                 <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
                 <h3 className="text-xl font-bold text-foreground">Recomendado</h3>
@@ -115,7 +115,7 @@ const PricingSection = () => {
               </div>
               
               {/* Features */}
-              <ul className="space-y-3 mb-6 text-left">
+              <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm text-foreground">3 meses sin intereses</span>
@@ -135,7 +135,7 @@ const PricingSection = () => {
               </ul>
               
               <Button 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold mt-auto"
                 onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
               >
                 🔥 Elegir Plan Estrella
@@ -144,8 +144,8 @@ const PricingSection = () => {
           </Card>
 
           {/* Plan 3 - Sin Descuento */}
-          <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300">
-            <div className="text-center">
+          <Card className="relative p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300 h-full flex flex-col">
+            <div className="text-center flex-grow flex flex-col">
               <div className="mb-4">
                 <Clock className="w-8 h-8 mx-auto mb-2 text-tech-purple" />
                 <h3 className="text-xl font-bold text-foreground">Flexibilidad Plus</h3>
@@ -164,7 +164,7 @@ const PricingSection = () => {
               </div>
               
               {/* Features */}
-              <ul className="space-y-3 mb-6 text-left">
+              <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">6 a 12 meses sin intereses</span>
@@ -185,7 +185,7 @@ const PricingSection = () => {
               
               <Button 
                 variant="outline"
-                className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5"
+                className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 mt-auto"
                 onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01', '_blank')}
               >
                 Elegir Plan
