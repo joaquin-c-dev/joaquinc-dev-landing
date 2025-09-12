@@ -1,5 +1,4 @@
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Calendar, Clock, Users, BookOpen } from "lucide-react";
 
 const ProximosIniciosSection = () => {
@@ -53,13 +52,6 @@ const ProximosIniciosSection = () => {
                 </div>
               </div>
             </div>
-
-            <Button 
-              className="w-full bg-primary hover:bg-primary/90"
-              onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
-            >
-              Inscribirme Modalidad Sabatina
-            </Button>
           </Card>
 
           {/* Modalidad Entre Semana */}
@@ -97,14 +89,6 @@ const ProximosIniciosSection = () => {
                 </div>
               </div>
             </div>
-
-            <Button 
-              variant="outline" 
-              className="w-full border-tech-cyan text-tech-cyan hover:bg-tech-cyan hover:text-white"
-              onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
-            >
-              Inscribirme Modalidad Entre Semana
-            </Button>
           </Card>
         </div>
       </div>
