@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Code, Zap, Flame, CheckCircle, CreditCard, Lock } from "lucide-react";
 import joaquinProfile from "@/assets/joaquin-profile.jpg";
 import CountdownTimer from "./CountdownTimer";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section data-section="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-[96px]">
       {/* Background glow effects */}
@@ -81,10 +84,7 @@ const HeroSection = () => {
               variant="outline" 
               size="lg" 
               className="border-primary/30 hover:border-primary/50 text-base px-6 py-3 hover:bg-primary/5 min-w-[180px] h-[48px]"
-              onClick={() => {
-                const curriculumSection = document.getElementById('curriculum');
-                curriculumSection?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={() => navigate('/temario')}
             >
               <Code className="w-5 h-5 mr-2" />
               Ver Temario
