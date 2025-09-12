@@ -85,19 +85,23 @@ const PricingSection = () => {
               <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">50% ahora, 50% al iniciar</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">Acceso completo al curso</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">Mentoría personalizada</span>
+                  <span className="text-sm">Grabaciones incluidas</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">Grabaciones incluidas</span>
+                  <span className="text-sm">Material bibliográfico</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm">Código del proyecto final</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm">50% ahora, 50% al iniciar</span>
                 </li>
               </ul>
               
@@ -142,15 +146,23 @@ const PricingSection = () => {
               <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">Acceso completo al curso</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">Grabaciones incluidas</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">Material bibliográfico</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">Código del proyecto final</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm text-foreground">3 meses sin intereses</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">Descuento de lanzamiento</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">Acceso completo</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
@@ -191,19 +203,23 @@ const PricingSection = () => {
               <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">6 a 12 meses sin intereses</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">Precio completo: $8,500</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   <span className="text-sm">Acceso completo al curso</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">Mentoría incluida</span>
+                  <span className="text-sm">Grabaciones incluidas</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm">Material bibliográfico</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm">Código del proyecto final</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm">6 a 12 meses sin intereses</span>
                 </li>
               </ul>
               
