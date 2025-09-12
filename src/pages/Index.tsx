@@ -1,5 +1,5 @@
 import HeroSection from "@/components/HeroSection";
-import PricingSection from "@/components/PricingSection";
+import ProximosIniciosSection from "@/components/ProximosIniciosSection";
 import CTASection from "@/components/CTASection";
 import DiscountBanner from "@/components/DiscountBanner";
 import Navigation from "@/components/Navigation";
@@ -10,7 +10,7 @@ const Index = () => {
       <DiscountBanner />
       <Navigation />
       <HeroSection />
-      <PricingSection />
+      <ProximosIniciosSection />
       <CTASection />
     </div>
   );
