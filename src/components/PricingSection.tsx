@@ -41,20 +41,6 @@ const PricingSection = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Diferentes opciones de pago para que puedas comenzar tu carrera como Java Developer
           </p>
-          
-          {/* Toggle buttons */}
-          <div className="flex justify-center mt-6">
-            <div className="bg-secondary/50 p-1 rounded-xl border border-primary/20">
-              <div className="flex">
-                <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium">
-                  Planes de Pago
-                </button>
-                <button className="px-4 py-2 rounded-lg text-muted-foreground text-sm font-medium hover:text-foreground">
-                  Pago Único
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
