@@ -109,7 +109,7 @@ const PricingSection = () => {
               
               <Button 
                 variant="outline"
-                className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 mt-auto"
+                className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
                 onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
               >
                 Hacer pago sin tarjeta
@@ -233,7 +233,7 @@ const PricingSection = () => {
               
               <Button 
                 variant="outline"
-                className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 mt-auto"
+                className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
                 onClick={handleFlexibilityPlusClick}
               >
                 Hacer pago Flexible
