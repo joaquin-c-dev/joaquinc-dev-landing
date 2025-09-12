@@ -3,13 +3,18 @@ import { Button } from "@/components/ui/button";
 import { X, Clock, Zap, ArrowDown } from "lucide-react";
 import CountdownTimer from "./CountdownTimer";
 import { useBanner } from "@/contexts/BannerContext";
+import { useCountdown } from "@/contexts/CountdownContext";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const DiscountBanner = () => {
   const { isBannerVisible, dismissBanner, setBannerVisible } = useBanner();
+  const { timeLeft } = useCountdown();
   const [isHiddenByScroll, setIsHiddenByScroll] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Hide banner if discount is expired
+  if (timeLeft.isExpired) return null;
 
   useEffect(() => {
     const handleScroll = () => {
