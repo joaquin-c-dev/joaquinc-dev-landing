@@ -1,6 +1,5 @@
 import HeroSection from "@/components/HeroSection";
 import PricingSection from "@/components/PricingSection";
-import CTASection from "@/components/CTASection";
 import DiscountBanner from "@/components/DiscountBanner";
 import Navigation from "@/components/Navigation";
 
@@ -11,7 +10,6 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <PricingSection />
-      <CTASection />
     </div>
   );
 };
