@@ -102,7 +102,8 @@ const PricingSection = () => {
               </ul>
               
               <Button 
-                className="w-full bg-tech-cyan hover:bg-tech-cyan-glow text-white mt-auto"
+                variant="outline"
+                className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 mt-auto"
                 onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
               >
                 Elegir Plan
