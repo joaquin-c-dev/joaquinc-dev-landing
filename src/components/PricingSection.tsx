@@ -6,14 +6,24 @@ import PaymentInfoModal from "./PaymentInfoModal";
 
 const PricingSection = () => {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [showRecommendedModal, setShowRecommendedModal] = useState(false);
 
   const handleFlexibilityPlusClick = () => {
     setShowPaymentModal(true);
   };
 
+  const handleRecommendedClick = () => {
+    setShowRecommendedModal(true);
+  };
+
   const handleContinueToPayment = () => {
     setShowPaymentModal(false);
     window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01', '_blank');
+  };
+
+  const handleContinueToRecommendedPayment = () => {
+    setShowRecommendedModal(false);
+    window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank');
   };
 
   return (
@@ -149,7 +159,7 @@ const PricingSection = () => {
               
               <Button 
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold mt-auto"
-                onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
+                onClick={handleRecommendedClick}
               >
                 🔥 Elegir Plan Estrella
               </Button>
@@ -217,6 +227,20 @@ const PricingSection = () => {
         isOpen={showPaymentModal}
         onClose={() => setShowPaymentModal(false)}
         onContinue={handleContinueToPayment}
+      />
+
+      <PaymentInfoModal 
+        isOpen={showRecommendedModal}
+        onClose={() => setShowRecommendedModal(false)}
+        onContinue={handleContinueToRecommendedPayment}
+        imageUrl="/lovable-uploads/7b90d68c-d7a3-401a-85e0-61c099402133.png"
+        title="Información Importante - Plan Recomendado"
+        conditions={[
+          "El cupón LANZAMIENTO debe estar activo",
+          "Debes ingresar una tarjeta de crédito válida",
+          "Da clic en la opción \"Pagar en cuotas (meses sin intereses)\""
+        ]}
+        note="Solo tienes la opción de 3 meses habilitada con este plan."
       />
     </section>
   );

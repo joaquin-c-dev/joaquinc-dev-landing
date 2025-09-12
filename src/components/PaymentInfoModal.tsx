@@ -12,16 +12,32 @@ interface PaymentInfoModalProps {
   isOpen: boolean;
   onClose: () => void;
   onContinue: () => void;
+  imageUrl?: string;
+  title?: string;
+  conditions?: string[];
+  note?: string;
 }
 
-const PaymentInfoModal = ({ isOpen, onClose, onContinue }: PaymentInfoModalProps) => {
+const PaymentInfoModal = ({ 
+  isOpen, 
+  onClose, 
+  onContinue, 
+  imageUrl = "/lovable-uploads/e2b392f1-4e3e-4231-a8b4-3e3bdcd41721.png",
+  title = "Información Importante - Planes de Cuotas",
+  conditions = [
+    "NO debe estar aplicado ningún cupón de descuento",
+    "Debes ingresar una tarjeta de crédito válida", 
+    "Marca la opción \"Pagar en cuotas (meses sin intereses)\""
+  ],
+  note = "Una vez que completes estos pasos, podrás seleccionar entre las diferentes opciones de cuotas (3, 6, 9 o 12 meses)."
+}: PaymentInfoModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl w-[95vw] max-h-[98vh] p-3 overflow-hidden flex flex-col">
         <DialogHeader className="flex-shrink-0 pb-2">
           <DialogTitle className="flex items-center gap-2 text-base">
             <AlertCircle className="w-4 h-4 text-primary" />
-            Información Importante - Planes de Cuotas
+            {title}
           </DialogTitle>
         </DialogHeader>
         
@@ -31,24 +47,18 @@ const PaymentInfoModal = ({ isOpen, onClose, onContinue }: PaymentInfoModalProps
               Para acceder a las opciones de meses sin intereses:
             </h3>
             <ul className="space-y-0.5 text-xs text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold">1.</span>
-                <span>NO debe estar aplicado ningún cupón de descuento</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold">2.</span>
-                <span>Debes ingresar una tarjeta de crédito válida</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-primary font-bold">3.</span>
-                <span>Marca la opción "Pagar en cuotas (meses sin intereses)"</span>
-              </li>
+              {conditions.map((condition, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <span className="text-primary font-bold">{index + 1}.</span>
+                  <span>{condition}</span>
+                </li>
+              ))}
             </ul>
           </div>
           
           <div className="border rounded-lg overflow-hidden flex-shrink-0">
             <img 
-              src="/lovable-uploads/e2b392f1-4e3e-4231-a8b4-3e3bdcd41721.png" 
+              src={imageUrl} 
               alt="Opciones de planes de cuotas disponibles" 
               className="w-full h-auto max-h-[50vh] object-contain"
             />
@@ -56,8 +66,7 @@ const PaymentInfoModal = ({ isOpen, onClose, onContinue }: PaymentInfoModalProps
           
           <div className="bg-tech-cyan/10 p-1.5 rounded-lg border border-tech-cyan/20 flex-shrink-0">
             <p className="text-xs text-foreground">
-              <strong>Nota:</strong> Una vez que completes estos pasos, podrás seleccionar 
-              entre las diferentes opciones de cuotas (3, 6, 9 o 12 meses).
+              <strong>Nota:</strong> {note}
             </p>
           </div>
         </div>
