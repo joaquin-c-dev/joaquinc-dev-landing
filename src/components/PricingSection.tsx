@@ -88,7 +88,7 @@ const PricingSection = () => {
           </Card>
 
           {/* Plan 2 - Destacado (Centro) */}
-          <Card className="relative p-6 bg-gradient-primary border-2 border-primary shadow-glow-lg scale-105 hover:scale-[1.02] transition-all duration-300">
+          <Card className="relative p-6 bg-gradient-primary border-2 border-primary shadow-glow-lg scale-105 hover:scale-[1.02] hover:shadow-glow-lg transition-all duration-300">
             {/* Most popular badge */}
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
               <div className="bg-gradient-accent text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
