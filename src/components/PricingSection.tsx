@@ -69,7 +69,7 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-xl font-semibold text-white mb-1 flex items-center gap-2">
+                <div className="text-xl font-semibold text-white mb-1 flex items-center justify-center gap-2">
                   <span className="text-xs text-muted-foreground/60 line-through">$8,500</span>
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
@@ -132,7 +132,7 @@ const PricingSection = () => {
               
               {/* Price */}
               <div className="mb-6">
-                <div className="text-xl font-semibold text-white mb-1 flex items-center gap-2">
+                <div className="text-xl font-semibold text-white mb-1 flex items-center justify-center gap-2">
                   <span className="text-xs text-muted-foreground/60 line-through">$8,500</span>
                   $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
