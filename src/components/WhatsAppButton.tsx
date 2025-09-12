@@ -5,18 +5,24 @@ import joaquinProfile from "@/assets/joaquin-profile.jpg";
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
+  const [hasAutoOpened, setHasAutoOpened] = useState(false);
 
   // Abrir chat automáticamente después de 3 segundos
   useEffect(() => {
+    if (hasAutoOpened) return;
+    
     const timer = setTimeout(() => {
       setIsOpen(true);
+      setHasAutoOpened(true);
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [hasAutoOpened]);
 
   // Abrir chat cuando el usuario haga scroll más allá del video
   useEffect(() => {
+    if (hasAutoOpened) return;
+    
     const handleScroll = () => {
       const videoElement = document.querySelector('video');
       if (videoElement) {
@@ -26,6 +32,7 @@ const WhatsAppButton = () => {
         // Si el video ya pasó por completo (bottom < 0), abrir el chat
         if (videoBottom < 0) {
           setIsOpen(true);
+          setHasAutoOpened(true);
           // Remover el event listener después de abrir para que solo se abra una vez
           window.removeEventListener('scroll', handleScroll);
         }
@@ -37,7 +44,7 @@ const WhatsAppButton = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [hasAutoOpened]);
 
   // Cerrar chat al hacer clic en la página
   useEffect(() => {
