@@ -6,10 +6,10 @@ import CountdownTimer from "./CountdownTimer";
 const DiscountBanner = () => {
   const [isVisible, setIsVisible] = useState(true);
 
-  const scrollToCTA = () => {
-    const ctaSection = document.querySelector('section[data-section="cta"]');
-    if (ctaSection) {
-      ctaSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToPricing = () => {
+    const pricingSection = document.querySelector('section[data-section="pricing"]');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -20,20 +20,28 @@ const DiscountBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="relative bg-gradient-primary overflow-hidden">
+    <div className="relative bg-red-600 overflow-hidden">
       {/* Animated background effects */}
-      <div className="absolute inset-0 bg-gradient-accent opacity-30"></div>
-      <div className="absolute top-0 left-1/4 w-32 h-32 bg-tech-cyan/20 rounded-full blur-2xl animate-pulse"></div>
-      <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-course-blue/30 rounded-full blur-xl animate-pulse"></div>
+      <div className="absolute inset-0 bg-red-700 opacity-20"></div>
       
-      <div className="relative z-10 container mx-auto px-4 py-3">
+      <div className="relative z-10 container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           {/* Left side - Special price offer */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <div className="flex flex-col">
               <span className="text-white font-bold text-sm">🔥 Precio especial</span>
               <span className="text-white/90 text-xs">$2,000 de descuento + 3 meses sin intereses</span>
             </div>
+            
+            {/* Subtle CTA */}
+            <Button
+              onClick={scrollToPricing}
+              size="sm"
+              variant="outline"
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 text-xs px-3 py-1 h-auto"
+            >
+              Ver precios
+            </Button>
           </div>
           
           {/* Right side - Timer and close button */}
