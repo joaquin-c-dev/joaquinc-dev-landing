@@ -26,7 +26,7 @@ const TallerJava = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-28 pb-12 px-6">
+      <section className="pt-32 pb-12 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <Badge variant="secondary" className="mb-4">
             <Code className="w-4 h-4 mr-2" />
