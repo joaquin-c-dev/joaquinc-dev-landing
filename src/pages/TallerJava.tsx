@@ -1,0 +1,188 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import DiscountBanner from "@/components/DiscountBanner";
+import { Calendar, Clock, MapPin, Users, Code, CheckCircle } from "lucide-react";
+
+const TallerJava = () => {
+  const handleCTAClick = () => {
+    window.open('https://buy.stripe.com/5kQ14pghg2CTaZr8n2b3q02', '_blank');
+  };
+
+  const features = [
+    "Conceptos fundamentales de POO",
+    "Clases y objetos en Java",
+    "Herencia y polimorfismo",
+    "Encapsulamiento y abstracción",
+    "Ejercicios prácticos",
+    "Certificado de participación"
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      <DiscountBanner />
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="pt-24 pb-12 px-6">
+        <div className="container mx-auto max-w-4xl text-center">
+          <Badge variant="secondary" className="mb-4">
+            <Code className="w-4 h-4 mr-2" />
+            Taller Especializado
+          </Badge>
+          
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-accent bg-clip-text text-transparent">
+            Programación Orientada a Objetos con Java
+          </h1>
+          
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Domina los conceptos fundamentales de la POO y aprende a aplicarlos eficientemente en Java. 
+            Un taller intensivo diseñado para llevarte al siguiente nivel.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <Card className="border-primary/20">
+              <CardContent className="pt-6 text-center">
+                <Calendar className="w-8 h-8 text-primary mx-auto mb-2" />
+                <h3 className="font-semibold mb-1">Fechas</h3>
+                <p className="text-sm text-muted-foreground">4 y 11 de Septiembre</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-primary/20">
+              <CardContent className="pt-6 text-center">
+                <Clock className="w-8 h-8 text-primary mx-auto mb-2" />
+                <h3 className="font-semibold mb-1">Horario</h3>
+                <p className="text-sm text-muted-foreground">9:00 AM - 2:00 PM</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-primary/20">
+              <CardContent className="pt-6 text-center">
+                <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
+                <h3 className="font-semibold mb-1">Modalidad</h3>
+                <p className="text-sm text-muted-foreground">En línea</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="py-12 px-6">
+        <div className="container mx-auto max-w-4xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            {/* What you'll learn */}
+            <div>
+              <h2 className="text-3xl font-bold mb-6">¿Qué aprenderás?</h2>
+              <div className="space-y-4">
+                {features.map((feature, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-muted-foreground">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Pricing Card */}
+            <div>
+              <Card className="border-primary/20 bg-gradient-to-br from-background to-muted/20">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl">Inversión del Taller</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center space-y-6">
+                  <div>
+                    <div className="text-4xl font-bold text-primary mb-2">
+                      $499 MXN
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Pago único • Incluye material y certificado
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                      <Users className="w-4 h-4" />
+                      <span>Cupos limitados</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="w-4 h-4" />
+                      <span>Acceso inmediato</span>
+                    </div>
+                  </div>
+                  
+                  <Button 
+                    onClick={handleCTAClick}
+                    size="lg" 
+                    className="w-full text-lg font-semibold py-3"
+                  >
+                    🚀 Reservar mi lugar
+                  </Button>
+                  
+                  <p className="text-xs text-muted-foreground">
+                    Pago seguro con Stripe • Todas las tarjetas aceptadas
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Details Section */}
+      <section className="py-12 px-6 bg-muted/30">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl font-bold text-center mb-12">Detalles del Taller</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Calendar className="w-5 h-5 text-primary" />
+                  Cronograma
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h4 className="font-semibold">Sábado 4 de Septiembre</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Fundamentos de POO, clases y objetos, encapsulamiento
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold">Sábado 11 de Septiembre</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Herencia, polimorfismo, abstracción y ejercicios finales
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Code className="w-5 h-5 text-primary" />
+                  Requisitos
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <p className="text-sm">• Conocimientos básicos de Java</p>
+                <p className="text-sm">• IDE instalado (Eclipse, IntelliJ o NetBeans)</p>
+                <p className="text-sm">• Conexión estable a internet</p>
+                <p className="text-sm">• Ganas de aprender 🚀</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default TallerJava;
