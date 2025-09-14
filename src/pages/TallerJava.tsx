@@ -115,13 +115,16 @@ const TallerJava = () => {
                     </div>
                   </div>
                   
-                  <Button 
-                    onClick={handleCTAClick}
-                    size="lg" 
-                    className="w-full text-lg font-semibold py-3"
-                  >
-                    🚀 Reservar mi lugar
-                  </Button>
+                  <div className="group relative">
+                    <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                    <Button 
+                      onClick={handleCTAClick}
+                      size="lg" 
+                      className="relative bg-gradient-accent text-white text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
+                    >
+                      🚀 Reservar mi lugar
+                    </Button>
+                  </div>
                   
                   <p className="text-xs text-muted-foreground">
                     Pago seguro con Stripe • Todas las tarjetas aceptadas

@@ -28,7 +28,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/temario" element={<Temario />} />
-              <Route path="/taller-java" element={<TallerJava />} />
+              <Route path="/taller-poo" element={<TallerJava />} />
               <Route path="/acerca-de-mi" element={<AcercaDeMi />} />
               <Route path="/politicas-de-privacidad" element={<PrivacyPolicy />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
