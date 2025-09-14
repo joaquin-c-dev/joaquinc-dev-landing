@@ -122,7 +122,7 @@ const TallerJava = () => {
                       size="lg" 
                       className="relative bg-gradient-accent text-white text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
                     >
-                      🚀 Reservar mi lugar
+                      Inscribirme
                     </Button>
                   </div>
                   
