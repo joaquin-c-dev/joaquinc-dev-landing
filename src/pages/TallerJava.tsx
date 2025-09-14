@@ -47,7 +47,7 @@ const TallerJava = () => {
               <CardContent className="pt-6 text-center">
                 <Calendar className="w-8 h-8 text-primary mx-auto mb-2" />
                 <h3 className="font-semibold mb-1">Fechas</h3>
-                <p className="text-sm text-muted-foreground">4 y 11 de Septiembre</p>
+                <p className="text-sm text-muted-foreground">4 y 11 de Osctubre</p>
               </CardContent>
             </Card>
             
@@ -111,7 +111,7 @@ const TallerJava = () => {
                     </div>
                     <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                       <CheckCircle className="w-4 h-4" />
-                      <span>Inicia: 4 de Septiembre</span>
+                      <span>Inicia: 4 de Octubre</span>
                     </div>
                   </div>
                   
@@ -151,13 +151,13 @@ const TallerJava = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <h4 className="font-semibold">Sábado 4 de Septiembre</h4>
+                  <h4 className="font-semibold">Sábado 4 de Octubre</h4>
                   <p className="text-sm text-muted-foreground">
                     Fundamentos de POO, clases y objetos, encapsulamiento
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold">Sábado 11 de Septiembre</h4>
+                  <h4 className="font-semibold">Sábado 11 de Octubre</h4>
                   <p className="text-sm text-muted-foreground">
                     Herencia, polimorfismo, abstracción y ejercicios finales
                   </p>
@@ -174,7 +174,7 @@ const TallerJava = () => {
               </CardHeader>
               <CardContent className="space-y-2">
                 <p className="text-sm">• Conocimientos básicos de Java</p>
-                <p className="text-sm">• IDE instalado (Eclipse, IntelliJ o NetBeans)</p>
+                <p className="text-sm">• IDE instalado (Eclipse o IntelliJ)</p>
                 <p className="text-sm">• Conexión estable a internet</p>
                 <p className="text-sm">• Ganas de aprender 🚀</p>
               </CardContent>
