@@ -17,7 +17,7 @@ const TallerJava = () => {
     "Herencia y polimorfismo",
     "Encapsulamiento y abstracción",
     "Ejercicios prácticos",
-    "Certificado de participación"
+    "Proyecto final integrador"
   ];
 
   return (
@@ -34,7 +34,7 @@ const TallerJava = () => {
           </Badge>
           
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-accent bg-clip-text text-transparent">
-            Programación Orientada a Objetos con Java
+            Taller de POO
           </h1>
           
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -100,7 +100,7 @@ const TallerJava = () => {
                       $499 MXN
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Pago único • Incluye material y certificado
+                      Pago único • Incluye material del taller
                     </p>
                   </div>
                   
@@ -111,7 +111,7 @@ const TallerJava = () => {
                     </div>
                     <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                       <CheckCircle className="w-4 h-4" />
-                      <span>Acceso inmediato</span>
+                      <span>Inicia: 4 de Septiembre</span>
                     </div>
                   </div>
                   

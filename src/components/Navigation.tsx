@@ -59,7 +59,6 @@ const Navigation = () => {
   const navItems = [
     { name: "Inicio", path: "/" },
     { name: "Temario", path: "/temario" },
-    { name: "Taller Java", path: "/taller-java" },
     { name: "Acerca de mí", path: "/acerca-de-mi" },
     { name: "Precios", path: "/", action: "pricing" }
   ];
