@@ -51,6 +51,9 @@ const Navigation = () => {
         // Navigate to home page with scroll parameter
         navigate('/?scroll=pricing');
       }
+    } else if (item.path === '/' && location.pathname === '/') {
+      // If clicking "Inicio" while on home page, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       navigate(item.path);
     }
