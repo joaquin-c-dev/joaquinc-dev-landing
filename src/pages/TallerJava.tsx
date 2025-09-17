@@ -47,7 +47,7 @@ const TallerJava = () => {
               <CardContent className="pt-6 text-center">
                 <Calendar className="w-8 h-8 text-primary mx-auto mb-2" />
                 <h3 className="font-semibold mb-1">Fechas</h3>
-                <p className="text-sm text-muted-foreground">4 y 11 de Osctubre</p>
+                <p className="text-sm text-muted-foreground">11 y 18 de Osctubre</p>
               </CardContent>
             </Card>
             
@@ -111,7 +111,7 @@ const TallerJava = () => {
                     </div>
                     <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                       <CheckCircle className="w-4 h-4" />
-                      <span>Inicia: 4 de Octubre</span>
+                      <span>Inicia: 11 de Octubre</span>
                     </div>
                   </div>
                   
