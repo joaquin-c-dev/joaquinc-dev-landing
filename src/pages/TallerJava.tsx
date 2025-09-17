@@ -151,13 +151,13 @@ const TallerJava = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <h4 className="font-semibold">Sábado 4 de Octubre</h4>
+                  <h4 className="font-semibold">Sábado 11 de Octubre</h4>
                   <p className="text-sm text-muted-foreground">
                     Fundamentos de POO, clases y objetos, encapsulamiento
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold">Sábado 11 de Octubre</h4>
+                  <h4 className="font-semibold">Sábado 18 de Octubre</h4>
                   <p className="text-sm text-muted-foreground">
                     Herencia, polimorfismo, abstracción y ejercicios finales
                   </p>
