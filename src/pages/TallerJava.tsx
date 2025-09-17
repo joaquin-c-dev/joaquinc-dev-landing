@@ -8,7 +8,7 @@ import { Calendar, Clock, MapPin, Users, Code, CheckCircle } from "lucide-react"
 
 const TallerJava = () => {
   const handleCTAClick = () => {
-    window.open('https://buy.stripe.com/5kQ14pghg2CTaZr8n2b3q02', '_blank');
+    window.open('https://buy.stripe.com/9B69AV1mmfpF8Rj32Ib3q03', '_blank');
   };
 
   const features = [
@@ -97,7 +97,7 @@ const TallerJava = () => {
                 <CardContent className="text-center space-y-6">
                   <div>
                     <div className="text-4xl font-bold text-primary mb-2">
-                      $499 MXN
+                      $340.00 MXN
                     </div>
                     <p className="text-sm text-muted-foreground">
                       Pago único • Incluye material del taller
