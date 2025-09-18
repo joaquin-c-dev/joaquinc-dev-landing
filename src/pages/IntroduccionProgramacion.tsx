@@ -283,7 +283,7 @@ const IntroduccionProgramacion = () => {
                       >
                         <Button 
                           size="lg" 
-                          className="relative bg-gradient-primary hover:bg-gradient-primary/90 text-primary-foreground shadow-elegant hover:shadow-glow transition-all duration-300 text-lg font-semibold py-3 w-full border border-primary/30"
+                          className="relative bg-gradient-to-r from-primary via-primary-glow to-primary text-primary-foreground shadow-elegant hover:shadow-glow transition-all duration-300 text-lg font-semibold py-3 w-full border border-primary/30 hover:from-primary/90 hover:via-primary-glow/90 hover:to-primary/90"
                         >
                           Inscribirme Ahora
                         </Button>
