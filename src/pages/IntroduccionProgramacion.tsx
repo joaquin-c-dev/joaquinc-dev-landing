@@ -199,109 +199,107 @@ const IntroduccionProgramacion = () => {
 
         {/* Content Section */}
         <section className="py-12 px-6">
-          <div className="container mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              
-              {/* Curriculum */}
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Temario Completo</h2>
-                <div className="grid gap-4">
-                  {curriculumModules.map((module, index) => {
-                    const IconComponent = module.icon;
-                    return (
-                      <Card key={index} className="group hover:shadow-lg transition-all duration-300 border hover:border-primary/20">
-                        <CardContent className="p-4">
-                          <div className="flex items-start gap-4">
-                            <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                              <IconComponent className="w-5 h-5 text-primary" />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-2 mb-2">
-                                <h3 className="font-semibold text-sm group-hover:text-primary transition-colors">
-                                  {module.title}
-                                </h3>
-                                <Badge variant="secondary" className="text-xs">
-                                  {module.duration}
-                                </Badge>
-                              </div>
-                              <ul className="space-y-1">
-                                {module.topics.slice(0, 3).map((topic, topicIndex) => (
-                                  <li key={topicIndex} className="text-xs text-muted-foreground flex items-start gap-2">
-                                    <div className="w-1 h-1 rounded-full bg-primary/60 flex-shrink-0 mt-2" />
-                                    {topic}
-                                  </li>
-                                ))}
-                                {module.topics.length > 3 && (
-                                  <li className="text-xs text-muted-foreground italic">
-                                    +{module.topics.length - 3} temas más...
-                                  </li>
-                                )}
-                              </ul>
-                            </div>
+          <div className="container mx-auto max-w-4xl">
+            
+            {/* Curriculum */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold mb-6 text-center">Temario Completo</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {curriculumModules.map((module, index) => {
+                  const IconComponent = module.icon;
+                  return (
+                    <Card key={index} className="group hover:shadow-lg transition-all duration-300 border hover:border-primary/20">
+                      <CardContent className="p-4">
+                        <div className="flex items-start gap-4">
+                          <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                            <IconComponent className="w-5 h-5 text-primary" />
                           </div>
-                        </CardContent>
-                      </Card>
-                    );
-                  })}
-                </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-2">
+                              <h3 className="font-semibold text-sm group-hover:text-primary transition-colors">
+                                {module.title}
+                              </h3>
+                              <Badge variant="secondary" className="text-xs">
+                                {module.duration}
+                              </Badge>
+                            </div>
+                            <ul className="space-y-1">
+                              {module.topics.slice(0, 3).map((topic, topicIndex) => (
+                                <li key={topicIndex} className="text-xs text-muted-foreground flex items-start gap-2">
+                                  <div className="w-1 h-1 rounded-full bg-primary/60 flex-shrink-0 mt-2" />
+                                  {topic}
+                                </li>
+                              ))}
+                              {module.topics.length > 3 && (
+                                <li className="text-xs text-muted-foreground italic">
+                                  +{module.topics.length - 3} temas más...
+                                </li>
+                              )}
+                            </ul>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
               </div>
+            </div>
 
-              {/* Pricing Card */}
-              <div className="lg:sticky lg:top-8 h-fit">
-                <Card className="border-primary/20 bg-gradient-to-br from-background to-muted/20">
-                  <CardHeader className="text-center">
-                    <CardTitle className="text-2xl">Inversión del Curso</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center space-y-6">
-                    <div>
-                      <div className="mb-2">
-                        <span className="text-lg text-muted-foreground line-through">$6,500 MXN</span>
-                      </div>
-                      <div className="text-4xl font-bold text-primary mb-2">
-                        $4,500 MXN
-                      </div>
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 text-sm font-medium mb-2">
-                        <span>💸 Cupón aplicado: -$2,000</span>
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        Curso completo de {totalHours} horas • Material incluido
-                      </p>
+            {/* Pricing Card */}
+            <div className="max-w-md mx-auto">
+              <Card className="border-primary/20 bg-gradient-to-br from-background to-muted/20">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl">Inversión del Curso</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center space-y-6">
+                  <div>
+                    <div className="mb-2">
+                      <span className="text-lg text-muted-foreground line-through">$6,500 MXN</span>
                     </div>
-                    
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                        <Code className="w-4 h-4" />
-                        <span>{curriculumModules.length} módulos completos</span>
-                      </div>
-                      <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                        <Terminal className="w-4 h-4" />
-                        <span>Ejercicios prácticos incluidos</span>
-                      </div>
+                    <div className="text-4xl font-bold text-primary mb-2">
+                      $4,500 MXN
                     </div>
-                    
-                    <div className="group relative">
-                      <div className="absolute -inset-1 bg-gradient-primary rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-                      <a 
-                        href="https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-full"
-                      >
-                        <Button 
-                          size="lg" 
-                          className="relative bg-gradient-primary text-primary-foreground text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
-                        >
-                          Pagar Ahora
-                        </Button>
-                      </a>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 text-sm font-medium mb-2">
+                      <span>💸 Cupón aplicado: -$2,000</span>
                     </div>
-                    
-                    <p className="text-xs text-muted-foreground">
-                      Pago seguro con Stripe • Todas las tarjetas aceptadas
+                    <p className="text-sm text-muted-foreground">
+                      Curso completo de {totalHours} horas • Material incluido
                     </p>
-                  </CardContent>
-                </Card>
-              </div>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                      <Code className="w-4 h-4" />
+                      <span>{curriculumModules.length} módulos completos</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                      <Terminal className="w-4 h-4" />
+                      <span>Ejercicios prácticos incluidos</span>
+                    </div>
+                  </div>
+                  
+                  <div className="group relative">
+                    <div className="absolute -inset-1 bg-gradient-primary rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                    <a 
+                      href="https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full"
+                    >
+                      <Button 
+                        size="lg" 
+                        className="relative bg-gradient-primary text-primary-foreground text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
+                      >
+                        Pagar Ahora
+                      </Button>
+                    </a>
+                  </div>
+                  
+                  <p className="text-xs text-muted-foreground">
+                    Pago seguro con Stripe • Todas las tarjetas aceptadas
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
