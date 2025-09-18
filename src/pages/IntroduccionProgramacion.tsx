@@ -24,7 +24,7 @@ const curriculumModules = [
   {
     icon: Code,
     title: "Introducción a la programación",
-    duration: "4 horas",
+    duration: "3 horas",
     topics: [
       "¿Qué es un algoritmo?",
       "¿Cómo descomponer un problema en pasos pequeños?",
@@ -51,7 +51,7 @@ const curriculumModules = [
   {
     icon: Type,
     title: "Variables y tipos de datos",
-    duration: "5 horas",
+    duration: "4 horas",
     topics: [
       "Declaración e inicialización",
       "Tipos primitivos",
@@ -65,7 +65,7 @@ const curriculumModules = [
   {
     icon: Calculator,
     title: "Operadores",
-    duration: "3 horas",
+    duration: "2 horas",
     topics: [
       "Aritméticos (+, -, *, /)",
       "Relacionales (>, <, !=, ==...)",
@@ -76,7 +76,7 @@ const curriculumModules = [
   {
     icon: GitBranch,
     title: "Estructuras de control",
-    duration: "6 horas",
+    duration: "4 horas",
     topics: [
       "if",
       "else",
@@ -90,7 +90,7 @@ const curriculumModules = [
   {
     icon: RotateCcw,
     title: "Ciclos",
-    duration: "5 horas",
+    duration: "4 horas",
     topics: [
       "while",
       "do-while",
@@ -102,7 +102,7 @@ const curriculumModules = [
   {
     icon: Grid3X3,
     title: "Arreglos",
-    duration: "6 horas",
+    duration: "4 horas",
     topics: [
       "Propiedades de los arreglos",
       "Arreglos: declaración, inicialización, recorrido",
@@ -113,7 +113,7 @@ const curriculumModules = [
   {
     icon: Zap,
     title: "Funciones",
-    duration: "5 horas",
+    duration: "3 horas",
     topics: [
       "Definición y sintaxis",
       "Parámetros y retorno de valores",
@@ -125,7 +125,7 @@ const curriculumModules = [
   {
     icon: Layers,
     title: "Introducción a POO",
-    duration: "4 horas",
+    duration: "3 horas",
     topics: [
       "Abstracción: Clase y Objeto",
       "Encapsulamiento",
@@ -205,7 +205,7 @@ const IntroduccionProgramacion = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <div className="grid md:grid-cols-2 gap-6 mb-16">
               {curriculumModules.map((module, index) => {
                 const IconComponent = module.icon;
                 return (
