@@ -64,6 +64,7 @@ const Navigation = () => {
     { name: "Temario", path: "/temario" },
     { name: "Acerca de mí", path: "/acerca-de-mi" },
     { name: "Taller POO", path: "/taller-poo" },
+    { name: "Intro Programación", path: "/introduccion-programacion" },
     { name: "Precios", path: "/", action: "pricing" }
   ];
 
