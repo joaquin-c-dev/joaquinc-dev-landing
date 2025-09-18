@@ -224,17 +224,12 @@ const IntroduccionProgramacion = () => {
                               </Badge>
                             </div>
                             <ul className="space-y-1">
-                              {module.topics.slice(0, 3).map((topic, topicIndex) => (
+                              {module.topics.map((topic, topicIndex) => (
                                 <li key={topicIndex} className="text-xs text-muted-foreground flex items-start gap-2">
                                   <div className="w-1 h-1 rounded-full bg-primary/60 flex-shrink-0 mt-2" />
                                   {topic}
                                 </li>
                               ))}
-                              {module.topics.length > 3 && (
-                                <li className="text-xs text-muted-foreground italic">
-                                  +{module.topics.length - 3} temas más...
-                                </li>
-                              )}
                             </ul>
                           </div>
                         </div>
