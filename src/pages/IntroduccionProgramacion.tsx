@@ -154,178 +154,154 @@ const IntroduccionProgramacion = () => {
       
       <main className={`${shouldShowBanner ? 'pt-28' : 'pt-16'} pb-12`}>
         {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
-          <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-          
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="text-center max-w-4xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
-                <Code className="w-4 h-4" />
-                <span className="text-sm font-medium">Curso Completo</span>
-              </div>
+        <section className="pt-32 pb-12 px-6">
+          <div className="container mx-auto max-w-4xl text-center">
+            <Badge variant="secondary" className="mb-4">
+              <Code className="w-4 h-4 mr-2" />
+              Curso Completo
+            </Badge>
+            
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+              Introducción a la Programación
+            </h1>
+            
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Aprende los fundamentos de la programación desde cero. Un curso completo que te llevará desde los conceptos básicos hasta la programación orientada a objetos.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <Card className="border-primary/20">
+                <CardContent className="pt-6 text-center">
+                  <Terminal className="w-8 h-8 text-primary mx-auto mb-2" />
+                  <h3 className="font-semibold mb-1">Duración</h3>
+                  <p className="text-sm text-muted-foreground">{totalHours} horas</p>
+                </CardContent>
+              </Card>
               
-              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-6">
-                Introducción a la Programación
-              </h1>
+              <Card className="border-primary/20">
+                <CardContent className="pt-6 text-center">
+                  <Layers className="w-8 h-8 text-primary mx-auto mb-2" />
+                  <h3 className="font-semibold mb-1">Módulos</h3>
+                  <p className="text-sm text-muted-foreground">{curriculumModules.length} módulos</p>
+                </CardContent>
+              </Card>
               
-              <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Aprende los fundamentos de la programación desde cero. Un curso completo que te llevará desde los conceptos básicos hasta la programación orientada a objetos.
-              </p>
-              
-              <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">{totalHours}h</div>
-                  <div className="text-sm text-muted-foreground">Total</div>
-                </div>
-                <div className="w-px h-12 bg-border" />
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">{curriculumModules.length}</div>
-                  <div className="text-sm text-muted-foreground">Módulos</div>
-                </div>
-                <div className="w-px h-12 bg-border" />
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">100%</div>
-                  <div className="text-sm text-muted-foreground">Práctico</div>
-                </div>
-              </div>
+              <Card className="border-primary/20">
+                <CardContent className="pt-6 text-center">
+                  <Code className="w-8 h-8 text-primary mx-auto mb-2" />
+                  <h3 className="font-semibold mb-1">Modalidad</h3>
+                  <p className="text-sm text-muted-foreground">100% Práctico</p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
-        {/* Curriculum Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Temario Completo
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Un programa estructurado que te llevará paso a paso desde los conceptos más básicos hasta la programación orientada a objetos.
-              </p>
-            </div>
+        {/* Content Section */}
+        <section className="py-12 px-6">
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              
+              {/* Curriculum */}
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Temario Completo</h2>
+                <div className="grid gap-4">
+                  {curriculumModules.map((module, index) => {
+                    const IconComponent = module.icon;
+                    return (
+                      <Card key={index} className="group hover:shadow-lg transition-all duration-300 border hover:border-primary/20">
+                        <CardContent className="p-4">
+                          <div className="flex items-start gap-4">
+                            <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                              <IconComponent className="w-5 h-5 text-primary" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 mb-2">
+                                <h3 className="font-semibold text-sm group-hover:text-primary transition-colors">
+                                  {module.title}
+                                </h3>
+                                <Badge variant="secondary" className="text-xs">
+                                  {module.duration}
+                                </Badge>
+                              </div>
+                              <ul className="space-y-1">
+                                {module.topics.slice(0, 3).map((topic, topicIndex) => (
+                                  <li key={topicIndex} className="text-xs text-muted-foreground flex items-start gap-2">
+                                    <div className="w-1 h-1 rounded-full bg-primary/60 flex-shrink-0 mt-2" />
+                                    {topic}
+                                  </li>
+                                ))}
+                                {module.topics.length > 3 && (
+                                  <li className="text-xs text-muted-foreground italic">
+                                    +{module.topics.length - 3} temas más...
+                                  </li>
+                                )}
+                              </ul>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-16">
-              {curriculumModules.map((module, index) => {
-                const IconComponent = module.icon;
-                return (
-                  <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
-                    <CardHeader className="pb-4">
-                      <div className="flex items-start gap-4">
-                        <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                          <IconComponent className="w-6 h-6 text-primary" />
-                        </div>
-                        <div className="flex-1">
-                          <CardTitle className="text-lg mb-2 group-hover:text-primary transition-colors">
-                            {module.title}
-                          </CardTitle>
-                          <Badge variant="secondary" className="text-xs">
-                            {module.duration}
-                          </Badge>
-                        </div>
+              {/* Pricing Card */}
+              <div className="lg:sticky lg:top-8 h-fit">
+                <Card className="border-primary/20 bg-gradient-to-br from-background to-muted/20">
+                  <CardHeader className="text-center">
+                    <CardTitle className="text-2xl">Inversión del Curso</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center space-y-6">
+                    <div>
+                      <div className="mb-2">
+                        <span className="text-lg text-muted-foreground line-through">$6,500 MXN</span>
                       </div>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2">
-                        {module.topics.map((topic, topicIndex) => (
-                          <li key={topicIndex} className="text-sm text-muted-foreground flex items-start gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary/60 flex-shrink-0 mt-2" />
-                            {topic}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-
-            {/* Methodology Section */}
-            <div className="max-w-4xl mx-auto">
-              <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
-                <CardHeader className="text-center pb-4">
-                  <CardTitle className="text-2xl font-bold text-primary">
-                    Metodología del Curso
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid md:grid-cols-3 gap-8">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Code className="w-6 h-6 text-primary" />
+                      <div className="text-4xl font-bold text-primary mb-2">
+                        $4,500 MXN
                       </div>
-                      <h3 className="font-semibold mb-2">Teoría Aplicada</h3>
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 text-green-600 text-sm font-medium mb-2">
+                        <span>💸 Cupón aplicado: -$2,000</span>
+                      </div>
                       <p className="text-sm text-muted-foreground">
-                        Conceptos explicados de forma clara con ejemplos prácticos inmediatos.
+                        Curso completo de {totalHours} horas • Material incluido
                       </p>
                     </div>
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Terminal className="w-6 h-6 text-primary" />
+                    
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                        <Code className="w-4 h-4" />
+                        <span>{curriculumModules.length} módulos completos</span>
                       </div>
-                      <h3 className="font-semibold mb-2">Práctica Inmediata</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Cada tema incluye ejercicios prácticos para reforzar el aprendizaje.
-                      </p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Layers className="w-6 h-6 text-primary" />
+                      <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                        <Terminal className="w-4 h-4" />
+                        <span>Ejercicios prácticos incluidos</span>
                       </div>
-                      <h3 className="font-semibold mb-2">Proyectos Reales</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Construye proyectos que puedes agregar a tu portafolio profesional.
-                      </p>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Pricing Section */}
-            <div className="max-w-md mx-auto mb-16">
-              <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
-                <CardHeader className="text-center pb-4">
-                  <CardTitle className="text-2xl font-bold text-primary">
-                    Precio del Curso
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-4">
-                    $6,500 MXN
-                  </div>
-                  <p className="text-muted-foreground mb-6">
-                    Curso completo de {totalHours} horas
-                  </p>
-                  <a 
-                    href="https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button 
-                      size="lg" 
-                      className="w-full bg-gradient-primary hover:bg-gradient-primary/90 text-primary-foreground shadow-elegant hover:shadow-glow transition-all duration-300 px-8 py-4 text-lg font-semibold"
-                    >
-                      Pagar Ahora
-                    </Button>
-                  </a>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* CTA Section */}
-            <div className="text-center mt-16">
-              <Link to="/?scroll=pricing">
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-primary hover:bg-gradient-primary/90 text-primary-foreground shadow-elegant hover:shadow-glow transition-all duration-300 px-8 py-4 text-lg font-semibold"
-                >
-                  Inscribirme Ahora
-                </Button>
-              </Link>
-              <p className="text-sm text-muted-foreground mt-4">
-                Comienza tu carrera en programación hoy mismo
-              </p>
+                    
+                    <div className="group relative">
+                      <div className="absolute -inset-1 bg-gradient-primary rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                      <a 
+                        href="https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full"
+                      >
+                        <Button 
+                          size="lg" 
+                          className="relative bg-gradient-primary text-primary-foreground text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
+                        >
+                          Pagar Ahora
+                        </Button>
+                      </a>
+                    </div>
+                    
+                    <p className="text-xs text-muted-foreground">
+                      Pago seguro con Stripe • Todas las tarjetas aceptadas
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </section>
