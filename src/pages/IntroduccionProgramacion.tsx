@@ -282,6 +282,37 @@ const IntroduccionProgramacion = () => {
               </Card>
             </div>
 
+            {/* Pricing Section */}
+            <div className="max-w-md mx-auto mb-16">
+              <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
+                <CardHeader className="text-center pb-4">
+                  <CardTitle className="text-2xl font-bold text-primary">
+                    Precio del Curso
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-4">
+                    $6,500 MXN
+                  </div>
+                  <p className="text-muted-foreground mb-6">
+                    Curso completo de {totalHours} horas
+                  </p>
+                  <a 
+                    href="https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button 
+                      size="lg" 
+                      className="w-full bg-gradient-primary hover:bg-gradient-primary/90 text-primary-foreground shadow-elegant hover:shadow-glow transition-all duration-300 px-8 py-4 text-lg font-semibold"
+                    >
+                      Pagar Ahora
+                    </Button>
+                  </a>
+                </CardContent>
+              </Card>
+            </div>
+
             {/* CTA Section */}
             <div className="text-center mt-16">
               <Link to="/?scroll=pricing">
