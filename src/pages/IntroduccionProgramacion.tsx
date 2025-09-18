@@ -273,22 +273,22 @@ const IntroduccionProgramacion = () => {
                     </div>
                   </div>
                   
-                  <div className="group relative">
-                    <div className="absolute -inset-1 bg-gradient-primary rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-                    <a 
-                      href="https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full"
-                    >
-                      <Button 
-                        size="lg" 
-                        className="relative bg-gradient-primary text-primary-foreground text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
+                    <div className="group relative">
+                      <div className="absolute -inset-1 bg-gradient-primary rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                      <a 
+                        href="https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04?prefilled_promo_code=INTRO"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full"
                       >
-                        Pagar Ahora
-                      </Button>
-                    </a>
-                  </div>
+                        <Button 
+                          size="lg" 
+                          className="relative bg-gradient-primary hover:bg-gradient-primary/90 text-primary-foreground shadow-elegant hover:shadow-glow transition-all duration-300 text-lg font-semibold py-3 w-full border border-primary/30"
+                        >
+                          Inscribirme Ahora
+                        </Button>
+                      </a>
+                    </div>
                   
                   <p className="text-xs text-muted-foreground">
                     Pago seguro con Stripe • Todas las tarjetas aceptadas
