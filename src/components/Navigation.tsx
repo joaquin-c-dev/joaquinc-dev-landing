@@ -106,13 +106,13 @@ const Navigation = () => {
             {/* Cursos Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer flex items-center gap-1 ${
+                <button className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer flex items-center gap-1 group ${
                   courseItems.some(course => location.pathname === course.path)
                     ? 'bg-gradient-accent bg-clip-text text-transparent' 
                     : ''
                 }`}>
                   Cursos
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-4 h-4 group-hover:text-transparent group-hover:bg-gradient-accent group-hover:bg-clip-text transition-all duration-200" />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-background/95 backdrop-blur-md border border-border/50 z-50">
