@@ -115,7 +115,7 @@ const Navigation = () => {
                   <ChevronDown className="w-4 h-4" />
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-background/95 backdrop-blur-md border border-border/50 z-50">
+              <DropdownMenuContent className="border border-border/50 z-50">
                 {courseItems.map((course) => (
                 <DropdownMenuItem
                   key={course.name}
