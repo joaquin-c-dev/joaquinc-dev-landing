@@ -8,19 +8,17 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section data-section="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-[96px]">
+    <section data-section="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Background glow effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-course-blue/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       {/* Hero content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 py-8">
-        <div className="max-w-4xl mx-auto text-center">
-          
-
+      <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 py-4 mt-24">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
           {/* Main title */}
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6 leading-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
             <div>Aprende{" "}
             <span className="bg-gradient-accent bg-clip-text text-transparent">
               Java
@@ -29,14 +27,14 @@ const HeroSection = () => {
           </h1>
           
           {/* Description */}
-          <p className="text-lg text-muted-foreground/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base lg:text-lg text-muted-foreground/90 max-w-2xl mx-auto leading-relaxed">
             Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
             Más de 9 años de experiencia en desarrollo backend me respaldan 
             para guiarte en tiempo real en cada paso de tu carrera como developer.
           </p>
 
-              {/* Instructor info - subtle */}
-          <div className="flex items-center justify-center gap-3 mb-6 opacity-70">
+          {/* Instructor info - subtle */}
+          <div className="flex items-center justify-center gap-3 opacity-70">
             <img 
               src={joaquinProfile}
               alt="Joaquín Coronado Ramírez"
@@ -48,12 +46,12 @@ const HeroSection = () => {
           </div>
 
           {/* Video Section */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center">
             <div className="relative group">
               <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
-              <div className="relative bg-card/50 backdrop-blur-md border border-primary/20 rounded-2xl p-4 shadow-xl">
+              <div className="relative bg-card/50 backdrop-blur-md border border-primary/20 rounded-2xl p-3 shadow-xl">
                 <video 
-                  className="w-full max-w-lg lg:max-w-xl rounded-xl shadow-lg"
+                  className="w-full max-w-md lg:max-w-lg rounded-xl shadow-lg"
                   controls
                   autoPlay
                   muted
@@ -69,7 +67,7 @@ const HeroSection = () => {
           </div>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <div className="group relative">
               <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
               <Button 
