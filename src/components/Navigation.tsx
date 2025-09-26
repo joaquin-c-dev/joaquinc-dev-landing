@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X, Code2, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useBanner } from "@/contexts/BannerContext";
 import { useCountdown } from "@/contexts/CountdownContext";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -63,9 +69,12 @@ const Navigation = () => {
     { name: "Inicio", path: "/" },
     { name: "Temario", path: "/temario" },
     { name: "Acerca de mí", path: "/acerca-de-mi" },
-    { name: "Taller POO", path: "/taller-poo" },
-    { name: "Intro Programación", path: "/introduccion-programacion" },
     { name: "Precios", path: "/", action: "pricing" }
+  ];
+
+  const courseItems = [
+    { name: "Introducción a la programación", path: "/introduccion-programacion" },
+    { name: "Taller de POO", path: "/taller-poo" }
   ];
 
   return (
@@ -80,7 +89,51 @@ const Navigation = () => {
         <div className="flex items-center justify-center h-16 py-2">
           {/* Centered Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+            {navItems.slice(0, 3).map((item) => (
+              <button
+                key={item.name}
+                onClick={() => handleNavClick(item)}
+                className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer ${
+                  location.pathname === item.path && !item.action
+                    ? 'bg-gradient-accent bg-clip-text text-transparent' 
+                    : ''
+                }`}
+              >
+                {item.name}
+              </button>
+            ))}
+            
+            {/* Cursos Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer flex items-center gap-1 ${
+                  courseItems.some(course => location.pathname === course.path)
+                    ? 'bg-gradient-accent bg-clip-text text-transparent' 
+                    : ''
+                }`}>
+                  Cursos
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background/95 backdrop-blur-md border border-border/50 z-50">
+                {courseItems.map((course) => (
+                  <DropdownMenuItem
+                    key={course.name}
+                    onClick={() => navigate(course.path)}
+                    className={`cursor-pointer hover:bg-muted ${
+                      location.pathname === course.path
+                        ? 'bg-muted text-primary font-medium'
+                        : ''
+                    }`}
+                  >
+                    {course.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Remaining nav items */}
+            {navItems.slice(3).map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item)}
@@ -115,7 +168,45 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-border/50">
             <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
+              {navItems.slice(0, 3).map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    handleNavClick(item);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ${
+                    location.pathname === item.path && !item.action
+                      ? 'bg-gradient-accent bg-clip-text text-transparent' 
+                      : ''
+                  }`}
+                >
+                  {item.name}
+                </button>
+              ))}
+              
+              {/* Cursos section in mobile */}
+              <div className="py-2">
+                <div className="text-foreground font-medium mb-2">Cursos</div>
+                {courseItems.map((course) => (
+                  <button
+                    key={course.name}
+                    onClick={() => {
+                      navigate(course.path);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ml-4 block w-full ${
+                      location.pathname === course.path
+                        ? 'bg-gradient-accent bg-clip-text text-transparent' 
+                        : ''
+                    }`}
+                  >
+                    {course.name}
+                  </button>
+                ))}
+              </div>
+
+              {navItems.slice(3).map((item) => (
                 <button
                   key={item.name}
                   onClick={() => {
