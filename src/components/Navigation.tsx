@@ -114,7 +114,7 @@ const Navigation = () => {
                   Cursos
                   <ChevronDown className={`w-4 h-4 transition-colors duration-200 group-hover:text-blue-500 ${
                     courseItems.some(course => location.pathname === course.path)
-                      ? 'bg-gradient-accent bg-clip-text text-transparent' 
+                      ? 'text-blue-500' 
                       : ''
                   }`} />
                 </button>
