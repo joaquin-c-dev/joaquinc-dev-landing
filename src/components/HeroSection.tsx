@@ -15,8 +15,8 @@ const HeroSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       {/* Hero content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 py-4 mt-24">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
+      <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-center min-h-full">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
           {/* Main title */}
           <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
             <div>Aprende{" "}
