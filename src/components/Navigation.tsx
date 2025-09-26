@@ -117,14 +117,14 @@ const Navigation = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-background/95 backdrop-blur-md border border-border/50 z-50">
                 {courseItems.map((course) => (
-                  <DropdownMenuItem
-                    key={course.name}
-                    onClick={() => navigate(course.path)}
-                    className={`cursor-pointer hover:text-primary transition-colors duration-200 font-medium ${
-                      location.pathname === course.path
-                        ? 'bg-gradient-accent bg-clip-text text-transparent'
-                        : ''
-                    }`}
+                <DropdownMenuItem
+                  key={course.name}
+                  onClick={() => navigate(course.path)}
+                  className={`cursor-pointer hover:text-primary hover:bg-transparent transition-colors duration-200 font-medium ${
+                    location.pathname === course.path
+                      ? 'bg-gradient-accent bg-clip-text text-transparent'
+                      : ''
+                  }`}
                   >
                     {course.name}
                   </DropdownMenuItem>
