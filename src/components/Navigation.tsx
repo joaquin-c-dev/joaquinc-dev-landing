@@ -187,7 +187,11 @@ const Navigation = () => {
               
               {/* Cursos section in mobile */}
               <div className="py-2">
-                <div className="text-foreground font-medium mb-2">Cursos</div>
+                <div className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium mb-2 ${
+                  courseItems.some(course => location.pathname === course.path)
+                    ? 'bg-gradient-accent bg-clip-text text-transparent' 
+                    : ''
+                }`}>Cursos</div>
                 {courseItems.map((course) => (
                   <button
                     key={course.name}
@@ -195,7 +199,7 @@ const Navigation = () => {
                       navigate(course.path);
                       setIsMobileMenuOpen(false);
                     }}
-                    className={`text-foreground hover:bg-gradient-accent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ml-4 block w-full ${
+                    className={`text-foreground hover:text-blue-500 transition-colors duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ml-4 block w-full ${
                       location.pathname === course.path
                         ? 'bg-gradient-accent bg-clip-text text-transparent' 
                         : ''
