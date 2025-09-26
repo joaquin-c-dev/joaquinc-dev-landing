@@ -112,7 +112,11 @@ const Navigation = () => {
                     : ''
                 }`}>
                   Cursos
-                  <ChevronDown className="w-4 h-4 transition-colors duration-200 group-hover:text-blue-500" />
+                  <ChevronDown className={`w-4 h-4 transition-colors duration-200 group-hover:text-blue-500 ${
+                    courseItems.some(course => location.pathname === course.path)
+                      ? 'bg-gradient-accent bg-clip-text text-transparent' 
+                      : ''
+                  }`} />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-background/95 backdrop-blur-md border border-border/50 z-50">
