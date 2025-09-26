@@ -195,7 +195,7 @@ const Navigation = () => {
                       navigate(course.path);
                       setIsMobileMenuOpen(false);
                     }}
-                    className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ml-4 block w-full ${
+                    className={`text-foreground hover:bg-gradient-accent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ml-4 block w-full ${
                       location.pathname === course.path
                         ? 'bg-gradient-accent bg-clip-text text-transparent' 
                         : ''
