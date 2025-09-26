@@ -120,7 +120,7 @@ const Navigation = () => {
                 <DropdownMenuItem
                   key={course.name}
                   onClick={() => navigate(course.path)}
-                  className={`cursor-pointer hover:text-[#4F9CF9] hover:!bg-transparent focus:!bg-transparent data-[highlighted]:!bg-transparent transition-colors duration-200 font-medium ${
+                  className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer ${
                     location.pathname === course.path
                       ? 'bg-gradient-accent bg-clip-text text-transparent'
                       : ''
