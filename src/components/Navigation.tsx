@@ -115,16 +115,16 @@ const Navigation = () => {
                   <ChevronDown className="w-4 h-4" />
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="border border-border/50 z-50">
+              <DropdownMenuContent className="text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer border border-border/50 z-50">
                 {courseItems.map((course) => (
                 <DropdownMenuItem
                   key={course.name}
                   onClick={() => navigate(course.path)}
-                  className={`text-foreground transition-all duration-200 font-medium bg-transparent border-none cursor-pointer ${
+                  {/* className={`text-foreground transition-all duration-200 font-medium bg-transparent border-none cursor-pointer ${
                     location.pathname === course.path
                       ? 'bg-gradient-accent bg-clip-text text-transparent'
                       : ''
-                  }`}
+                  }`} */}
                   >
                     {course.name}
                   </DropdownMenuItem>
