@@ -7,8 +7,12 @@ import DiscountBanner from "@/components/DiscountBanner";
 import { Calendar, Clock, MapPin, Users, Code, CheckCircle } from "lucide-react";
 
 const TallerJava = () => {
-  const handleCTAClick = () => {
+  const handleStripeClick = () => {
     window.open('https://buy.stripe.com/9B69AV1mmfpF8Rj32Ib3q03', '_blank');
+  };
+
+  const handlePayPalClick = () => {
+    window.open('https://www.paypal.com/ncp/payment/LFGU5H9MSVG2A', '_blank');
   };
 
   const features = [
@@ -115,19 +119,33 @@ const TallerJava = () => {
                     </div>
                   </div>
                   
-                  <div className="group relative">
-                    <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-                    <Button 
-                      onClick={handleCTAClick}
-                      size="lg" 
-                      className="relative bg-gradient-accent text-white text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
-                    >
-                      Inscribirme
-                    </Button>
+                  <div className="space-y-4">
+                    <div className="group relative">
+                      <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                      <Button 
+                        onClick={handleStripeClick}
+                        size="lg" 
+                        className="relative bg-gradient-accent text-white text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
+                      >
+                        💳 Pagar con Stripe
+                      </Button>
+                    </div>
+                    
+                    <div className="group relative">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                      <Button 
+                        onClick={handlePayPalClick}
+                        size="lg" 
+                        variant="outline"
+                        className="relative bg-gradient-to-r from-blue-500 to-blue-600 text-white text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-blue-500/30"
+                      >
+                        💙 Pagar con PayPal
+                      </Button>
+                    </div>
                   </div>
                   
                   <p className="text-xs text-muted-foreground">
-                    Pago seguro con Stripe • Todas las tarjetas aceptadas
+                    Pago seguro • Elige tu método de pago preferido
                   </p>
                 </CardContent>
               </Card>
