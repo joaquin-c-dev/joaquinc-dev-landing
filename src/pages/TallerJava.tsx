@@ -5,6 +5,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import DiscountBanner from "@/components/DiscountBanner";
 import { Calendar, Clock, MapPin, Users, Code, CheckCircle } from "lucide-react";
+import stripeLogo from "@/assets/stripe-logo.png";
+import paypalLogo from "@/assets/paypal-logo.png";
 
 const TallerJava = () => {
   const handleStripeClick = () => {
@@ -125,9 +127,10 @@ const TallerJava = () => {
                       <Button 
                         onClick={handleStripeClick}
                         size="lg" 
-                        className="relative bg-gradient-accent text-white text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
+                        className="relative bg-gradient-accent text-white text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30 flex items-center gap-3"
                       >
-                        💳 Pagar con Stripe
+                        <img src={stripeLogo} alt="Stripe" className="w-6 h-6" />
+                        Pagar con Stripe
                       </Button>
                     </div>
                     
@@ -137,9 +140,10 @@ const TallerJava = () => {
                         onClick={handlePayPalClick}
                         size="lg" 
                         variant="outline"
-                        className="relative bg-gradient-to-r from-blue-500 to-blue-600 text-white text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-blue-500/30"
+                        className="relative bg-gradient-to-r from-blue-500 to-blue-600 text-white text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-blue-500/30 flex items-center gap-3"
                       >
-                        💙 Pagar con PayPal
+                        <img src={paypalLogo} alt="PayPal" className="w-6 h-6" />
+                        Pagar con PayPal
                       </Button>
                     </div>
                   </div>
