@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 interface CountdownState {
   days: number;
@@ -16,7 +16,7 @@ interface CountdownContextType {
 export const CountdownContext = createContext<CountdownContextType | undefined>(undefined);
 
 // Fixed end date - September 22, 2025 at 23:59:59 Mexico time (UTC-6)
-const END_DATE = new Date('2025-10-06T23:59:59-06:00').getTime();
+const END_DATE = new Date("2025-10-17T23:59:59-06:00").getTime();
 
 export const CountdownProvider = ({ children }: { children: ReactNode }) => {
   const [timeLeft, setTimeLeft] = useState<CountdownState>({
@@ -38,12 +38,12 @@ export const CountdownProvider = ({ children }: { children: ReactNode }) => {
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        setTimeLeft({ 
+        setTimeLeft({
           days,
-          hours, 
-          minutes, 
-          seconds, 
-          isExpired: false 
+          hours,
+          minutes,
+          seconds,
+          isExpired: false,
         });
       } else {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, isExpired: true });
@@ -59,19 +59,15 @@ export const CountdownProvider = ({ children }: { children: ReactNode }) => {
     return () => clearInterval(timer);
   }, []);
 
-  const formatNumber = (num: number) => num.toString().padStart(2, '0');
+  const formatNumber = (num: number) => num.toString().padStart(2, "0");
 
-  return (
-    <CountdownContext.Provider value={{ timeLeft, formatNumber }}>
-      {children}
-    </CountdownContext.Provider>
-  );
+  return <CountdownContext.Provider value={{ timeLeft, formatNumber }}>{children}</CountdownContext.Provider>;
 };
 
 export const useCountdown = () => {
   const context = useContext(CountdownContext);
   if (context === undefined) {
-    throw new Error('useCountdown must be used within a CountdownProvider');
+    throw new Error("useCountdown must be used within a CountdownProvider");
   }
   return context;
 };
