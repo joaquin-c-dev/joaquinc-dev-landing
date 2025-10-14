@@ -9,22 +9,22 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section data-section="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+    <section data-section="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero py-20">
       {/* Background glow effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-course-blue/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       {/* Hero content */}
-      <div className="relative z-10 container mx-auto px-6 md:px-10 lg:px-16 flex items-center justify-center min-h-full pt-20 pb-12">
+      <div className="relative z-10 container mx-auto px-4 md:px-10 lg:px-16 flex items-center justify-center w-full">
         <div className="w-full max-w-7xl mx-auto">
           {/* Two Column Layout */}
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             {/* Left Column - Video */}
             <div className="flex justify-center lg:justify-start order-2 lg:order-1">
-              <div className="relative group w-full max-w-lg lg:max-w-xl">
+              <div className="relative group w-full max-w-md md:max-w-lg lg:max-w-xl">
                 <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
-                <div className="relative bg-card/50 backdrop-blur-md border border-primary/20 rounded-2xl p-3 shadow-xl">
+                <div className="relative bg-card/50 backdrop-blur-md border border-primary/20 rounded-2xl p-2 md:p-3 shadow-xl">
                   <video 
                     className="w-full rounded-xl shadow-lg"
                     controls
@@ -42,7 +42,7 @@ const HeroSection = () => {
             </div>
 
             {/* Right Column - Text and Buttons */}
-            <div className="space-y-8 text-center lg:text-left order-1 lg:order-2">
+            <div className="space-y-4 md:space-y-6 lg:space-y-8 text-center lg:text-left order-1 lg:order-2">
               {/* Main title */}
               <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
                 <div>Aprende{" "}
