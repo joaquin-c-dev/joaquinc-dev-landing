@@ -22,11 +22,11 @@ const HeroSection = () => {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Column - Video */}
             <div className="flex justify-center lg:justify-start order-2 lg:order-1">
-              <div className="relative group w-full max-w-xs">
+              <div className="relative group w-full max-w-md lg:max-w-lg">
                 <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
                 <div className="relative bg-card/50 backdrop-blur-md border border-primary/20 rounded-2xl p-3 shadow-xl">
                   <video 
-                    className="w-full rounded-xl shadow-lg aspect-[9/16]"
+                    className="w-full rounded-xl shadow-lg"
                     controls
                     autoPlay
                     muted
