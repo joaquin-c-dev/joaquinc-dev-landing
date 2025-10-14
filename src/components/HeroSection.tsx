@@ -72,12 +72,12 @@ const HeroSection = () => {
               </div>
               
               {/* IntelliJ Banner */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 animate-fade-in bg-card/20 backdrop-blur-sm p-4 rounded-lg border border-primary/10">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 animate-fade-in">
                 <div className="flex items-center gap-2">
                   <Gift className="w-5 h-5 text-primary animate-pulse" />
                   <span className="text-sm sm:text-base font-medium">Incluye licencia gratis de</span>
                 </div>
-                <div className="flex items-center gap-2 bg-card/50 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-primary/20">
+                <div className="flex items-center gap-2 bg-card/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-primary/20">
                   <img 
                     src={intellijLogo} 
                     alt="IntelliJ IDEA Ultimate" 
