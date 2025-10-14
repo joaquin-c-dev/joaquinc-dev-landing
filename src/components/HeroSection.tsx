@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Code, Zap, Flame, CheckCircle, CreditCard, Lock } from "lucide-react";
+import { Code, Zap, Flame, CheckCircle, CreditCard, Lock, Gift } from "lucide-react";
 import joaquinProfile from "@/assets/joaquin-profile.jpg";
+import intellijLogo from "@/assets/intellij-logo.png";
 import CountdownTimer from "./CountdownTimer";
 import { useNavigate } from "react-router-dom";
 
@@ -17,6 +18,24 @@ const HeroSection = () => {
       {/* Hero content */}
       <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-center min-h-full pt-16">
         <div className="max-w-4xl mx-auto text-center space-y-6">
+          {/* IntelliJ Banner */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4 animate-fade-in">
+            <div className="flex items-center gap-2">
+              <Gift className="w-5 h-5 text-primary animate-pulse" />
+              <span className="text-sm sm:text-base font-medium">Incluye licencia gratis de</span>
+            </div>
+            <div className="flex items-center gap-2 bg-card/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-primary/20">
+              <img 
+                src={intellijLogo} 
+                alt="IntelliJ IDEA Ultimate" 
+                className="w-6 h-6 object-contain"
+              />
+              <span className="font-bold text-sm sm:text-base bg-gradient-accent bg-clip-text text-transparent">
+                IntelliJ IDEA Ultimate
+              </span>
+            </div>
+          </div>
+
           {/* Main title */}
           <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
             <div>Aprende{" "}
