@@ -18,24 +18,6 @@ const HeroSection = () => {
       {/* Hero content */}
       <div className="relative z-10 container mx-auto px-6 md:px-10 lg:px-16 flex items-center justify-center min-h-full pt-20 pb-12">
         <div className="w-full max-w-7xl mx-auto">
-          {/* IntelliJ Banner */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12 animate-fade-in">
-            <div className="flex items-center gap-2">
-              <Gift className="w-5 h-5 text-primary animate-pulse" />
-              <span className="text-sm sm:text-base font-medium">Incluye licencia gratis de</span>
-            </div>
-            <div className="flex items-center gap-2 bg-card/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-primary/20">
-              <img 
-                src={intellijLogo} 
-                alt="IntelliJ IDEA Ultimate" 
-                className="w-6 h-6 object-contain"
-              />
-              <span className="font-bold text-sm sm:text-base bg-gradient-accent bg-clip-text text-transparent">
-                IntelliJ IDEA Ultimate
-              </span>
-            </div>
-          </div>
-
           {/* Two Column Layout */}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Column - Video */}
@@ -89,6 +71,24 @@ const HeroSection = () => {
                 </div>
               </div>
               
+              {/* IntelliJ Banner */}
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 animate-fade-in bg-card/20 backdrop-blur-sm p-4 rounded-lg border border-primary/10">
+                <div className="flex items-center gap-2">
+                  <Gift className="w-5 h-5 text-primary animate-pulse" />
+                  <span className="text-sm sm:text-base font-medium">Incluye licencia gratis de</span>
+                </div>
+                <div className="flex items-center gap-2 bg-card/50 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-primary/20">
+                  <img 
+                    src={intellijLogo} 
+                    alt="IntelliJ IDEA Ultimate" 
+                    className="w-6 h-6 object-contain"
+                  />
+                  <span className="font-bold text-sm sm:text-base bg-gradient-accent bg-clip-text text-transparent">
+                    IntelliJ IDEA Ultimate
+                  </span>
+                </div>
+              </div>
+
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <div className="group relative">
