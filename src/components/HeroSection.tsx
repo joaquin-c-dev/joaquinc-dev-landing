@@ -16,10 +16,10 @@ const HeroSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       {/* Hero content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-center min-h-full pt-16">
+      <div className="relative z-10 container mx-auto px-6 md:px-10 lg:px-16 flex items-center justify-center min-h-full pt-20 pb-12">
         <div className="w-full max-w-7xl mx-auto">
           {/* IntelliJ Banner */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8 animate-fade-in">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12 animate-fade-in">
             <div className="flex items-center gap-2">
               <Gift className="w-5 h-5 text-primary animate-pulse" />
               <span className="text-sm sm:text-base font-medium">Incluye licencia gratis de</span>
@@ -37,9 +37,9 @@ const HeroSection = () => {
           </div>
 
           {/* Two Column Layout */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Column - Text and Buttons */}
-            <div className="space-y-6 text-center lg:text-left">
+            <div className="space-y-8 text-center lg:text-left">
               {/* Main title */}
               <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
                 <div>Aprende{" "}
@@ -95,11 +95,11 @@ const HeroSection = () => {
 
             {/* Right Column - Video */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative group w-full max-w-md lg:max-w-lg">
+              <div className="relative group w-full max-w-xs">
                 <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
                 <div className="relative bg-card/50 backdrop-blur-md border border-primary/20 rounded-2xl p-3 shadow-xl">
                   <video 
-                    className="w-full rounded-xl shadow-lg"
+                    className="w-full rounded-xl shadow-lg aspect-[9/16]"
                     controls
                     autoPlay
                     muted
