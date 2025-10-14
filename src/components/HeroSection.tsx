@@ -38,8 +38,29 @@ const HeroSection = () => {
 
           {/* Two Column Layout */}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left Column - Text and Buttons */}
-            <div className="space-y-8 text-center lg:text-left">
+            {/* Left Column - Video */}
+            <div className="flex justify-center lg:justify-start order-2 lg:order-1">
+              <div className="relative group w-full max-w-xs">
+                <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="relative bg-card/50 backdrop-blur-md border border-primary/20 rounded-2xl p-3 shadow-xl">
+                  <video 
+                    className="w-full rounded-xl shadow-lg aspect-[9/16]"
+                    controls
+                    autoPlay
+                    muted
+                    playsInline
+                    poster="https://res.cloudinary.com/joaquin-test/image/upload/v1756607596/Screenshot_at_Aug_30_20-32-46_qgh3zx.png"
+                    preload="metadata"
+                  >
+                    <source src="https://res.cloudinary.com/joaquin-test/video/upload/v1756623620/joaquin%20c.%20dev/java%20desde%20cero/GMT20250831-012428_Recording.cutfile.20250831065554802_1920x1080_fhlezz.mp4" type="video/mp4" />
+                    Tu navegador no soporta el elemento de video.
+                  </video>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Text and Buttons */}
+            <div className="space-y-8 text-center lg:text-left order-1 lg:order-2">
               {/* Main title */}
               <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
                 <div>Aprende{" "}
@@ -90,27 +111,6 @@ const HeroSection = () => {
                   <Code className="w-5 h-5 mr-2" />
                   Ver Temario
                 </Button>
-              </div>
-            </div>
-
-            {/* Right Column - Video */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative group w-full max-w-xs">
-                <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
-                <div className="relative bg-card/50 backdrop-blur-md border border-primary/20 rounded-2xl p-3 shadow-xl">
-                  <video 
-                    className="w-full rounded-xl shadow-lg aspect-[9/16]"
-                    controls
-                    autoPlay
-                    muted
-                    playsInline
-                    poster="https://res.cloudinary.com/joaquin-test/image/upload/v1756607596/Screenshot_at_Aug_30_20-32-46_qgh3zx.png"
-                    preload="metadata"
-                  >
-                    <source src="https://res.cloudinary.com/joaquin-test/video/upload/v1756623620/joaquin%20c.%20dev/java%20desde%20cero/GMT20250831-012428_Recording.cutfile.20250831065554802_1920x1080_fhlezz.mp4" type="video/mp4" />
-                    Tu navegador no soporta el elemento de video.
-                  </video>
-                </div>
               </div>
             </div>
           </div>
