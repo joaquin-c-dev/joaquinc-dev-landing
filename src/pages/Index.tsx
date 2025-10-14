@@ -4,6 +4,7 @@ import ProximosIniciosSection from "@/components/ProximosIniciosSection";
 import Footer from "@/components/Footer";
 import DiscountBanner from "@/components/DiscountBanner";
 import Navigation from "@/components/Navigation";
+import IntelliJBanner from "@/components/IntelliJBanner";
 
 const Index = () => {
   return (
@@ -11,6 +12,7 @@ const Index = () => {
       <DiscountBanner />
       <Navigation />
       <HeroSection />
+      <IntelliJBanner />
       <ProximosIniciosSection />
       <PricingSection />
       <Footer />
