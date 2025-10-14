@@ -3,7 +3,7 @@ import { Gift } from "lucide-react";
 
 const IntelliJBanner = () => {
   return (
-    <section className="py-8 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 border-y border-primary/10">
+    <section className="pt-24 pb-8 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 border-b border-primary/10">
       <div className="container mx-auto px-6">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
           <div className="flex items-center gap-3">
