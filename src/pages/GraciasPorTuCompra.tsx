@@ -1,5 +1,4 @@
 import { CheckCircle, Mail, Calendar } from "lucide-react";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,8 +9,6 @@ const GraciasPorTuCompra = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
-      
       <main className="container mx-auto px-6 py-20 md:py-32">
         <div className="max-w-3xl mx-auto text-center">
           <div className="mb-8 flex justify-center">
