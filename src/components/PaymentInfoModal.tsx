@@ -24,7 +24,7 @@ const PaymentInfoModal = ({
   isOpen, 
   onClose, 
   onContinue, 
-  imageUrl = "/lovable-uploads/e2b392f1-4e3e-4231-a8b4-3e3bdcd41721.png",
+  imageUrl = "/lovable-uploads/payment-info-optimized.png",
   title = "Información Importante - Planes de Cuotas",
   conditions = [
     "NO debe estar aplicado ningún cupón de descuento",
