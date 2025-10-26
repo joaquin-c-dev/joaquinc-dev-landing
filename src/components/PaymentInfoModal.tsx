@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -6,6 +7,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { AlertCircle } from "lucide-react";
 
 interface PaymentInfoModalProps {
@@ -31,6 +33,8 @@ const PaymentInfoModal = ({
   ],
   note = "Una vez que completes estos pasos, podrás seleccionar entre las diferentes opciones de cuotas (3, 6, 9 o 12 meses)."
 }: PaymentInfoModalProps) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl w-[95vw] max-h-[98vh] p-3 overflow-hidden flex flex-col">
@@ -56,11 +60,17 @@ const PaymentInfoModal = ({
             </ul>
           </div>
           
-          <div className="border rounded-lg overflow-hidden flex-shrink-0">
+          <div className="border rounded-lg overflow-hidden flex-shrink-0 relative">
+            {!imageLoaded && (
+              <Skeleton className="w-full h-[50vh]" />
+            )}
             <img 
               src={imageUrl} 
               alt="Opciones de planes de cuotas disponibles" 
-              className="w-full h-auto max-h-[50vh] object-contain"
+              className={`w-full h-auto max-h-[50vh] object-contain ${!imageLoaded ? 'hidden' : ''}`}
+              loading="eager"
+              decoding="async"
+              onLoad={() => setImageLoaded(true)}
             />
           </div>
           
