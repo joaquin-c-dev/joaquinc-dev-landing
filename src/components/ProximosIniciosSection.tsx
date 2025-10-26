@@ -31,7 +31,7 @@ const ProximosIniciosSection = () => {
               <div className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">Lunes a Jueves 7:00 PM - 9:00 PM</div>
+                  <div className="font-semibold">Lunes a Jueves 8:00 PM - 10:00 PM</div>
                   <div className="text-sm text-muted-foreground">40 horas totales</div>
                 </div>
               </div>
@@ -39,8 +39,8 @@ const ProximosIniciosSection = () => {
               <div className="flex items-center gap-3">
                 <Calendar className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">3 Nov - 18 Dic 2025</div>
-                  <div className="text-sm text-muted-foreground">7 semanas de duración</div>
+                  <div className="font-semibold">3 Nov - 4 Dic 2025</div>
+                  <div className="text-sm text-muted-foreground">5 semanas de duración</div>
                 </div>
               </div>
               
