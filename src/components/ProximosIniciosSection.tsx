@@ -16,7 +16,7 @@ const ProximosIniciosSection = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-6">
           {/* Modalidad Lunes a Jueves */}
           <Card className="p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300">
             <div className="text-center mb-6">
@@ -54,8 +54,8 @@ const ProximosIniciosSection = () => {
             </div>
           </Card>
 
-          {/* Modalidad Sabatina */}
-          <Card className="p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300">
+          {/* Modalidad Sabatina - COMMENTED OUT */}
+          {/* <Card className="p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300">
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Calendar className="w-8 h-8 text-primary" />
@@ -89,7 +89,7 @@ const ProximosIniciosSection = () => {
                 </div>
               </div>
             </div>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </section>
