@@ -203,8 +203,7 @@ const JavaIntermedio = () => {
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                Curso intermedio diseñado para desarrolladores que ya conocen Java y Spring y quieren dar el siguiente paso hacia aplicaciones más robustas y profesionales.
-                Aprenderás a aplicar patrones de diseño, testing, seguridad, persistencia de datos y Docker para construir servicios backend bien estructurados y listos para crecer.
+                Curso intermedio de 40 horas donde llevarás tus conocimientos de Java y Spring al siguiente nivel, dominando patrones de diseño, testing profesional, seguridad y buenas prácticas para crear aplicaciones backend robustas, escalables y listas para producción. 🚀
               </p>
               
               {/* Course Stats */}
