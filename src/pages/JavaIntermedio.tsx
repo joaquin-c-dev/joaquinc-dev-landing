@@ -190,19 +190,30 @@ const JavaIntermedio = () => {
               </p>
               
               {/* Course Stats */}
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Badge variant="outline" className="px-4 py-2 text-base border-primary/30">
-                  <Clock className="w-4 h-4 mr-2" />
-                  {totalHours} hrs de contenido
-                </Badge>
-                <Badge variant="outline" className="px-4 py-2 text-base border-primary/30">
-                  <Boxes className="w-4 h-4 mr-2" />
-                  {curriculumModules.length} módulos especializados
-                </Badge>
-                <Badge variant="outline" className="px-4 py-2 text-base border-primary/30">
-                  <Code2 className="w-4 h-4 mr-2" />
-                  Proyectos del mundo real
-                </Badge>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                <Card className="border-primary/20 bg-background/50 backdrop-blur-sm">
+                  <CardContent className="pt-6 text-center">
+                    <Clock className="w-8 h-8 text-primary mx-auto mb-2" />
+                    <h3 className="font-semibold mb-1">Duración</h3>
+                    <p className="text-sm text-muted-foreground">40 horas</p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="border-primary/20 bg-background/50 backdrop-blur-sm">
+                  <CardContent className="pt-6 text-center">
+                    <Boxes className="w-8 h-8 text-primary mx-auto mb-2" />
+                    <h3 className="font-semibold mb-1">Módulos</h3>
+                    <p className="text-sm text-muted-foreground">{curriculumModules.length} módulos</p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="border-primary/20 bg-background/50 backdrop-blur-sm">
+                  <CardContent className="pt-6 text-center">
+                    <Code2 className="w-8 h-8 text-primary mx-auto mb-2" />
+                    <h3 className="font-semibold mb-1">Modalidad</h3>
+                    <p className="text-sm text-muted-foreground">100% Práctico</p>
+                  </CardContent>
+                </Card>
               </div>
             </div>
             
