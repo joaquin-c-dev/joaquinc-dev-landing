@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import DiscountBanner from "@/components/DiscountBanner";
 import HeroSectionIntermedio from "@/components/HeroSectionIntermedio";
+import ProximosIniciosIntermedio from "@/components/ProximosIniciosIntermedio";
 import Footer from "@/components/Footer";
 import { useCountdown } from "@/contexts/CountdownContext";
 import { useBanner } from "@/contexts/BannerContext";
@@ -257,6 +258,8 @@ const JavaIntermedio = () => {
             </div>
           </div>
         </section>
+        
+        <ProximosIniciosIntermedio />
       </main>
       <Footer />
     </div>
