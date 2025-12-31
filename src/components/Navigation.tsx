@@ -82,7 +82,7 @@ const Navigation = () => {
   const courseItems = [
     { name: "Java desde Cero", path: "/java-desde-cero" },
     { name: "Java Intermedio", path: "/java-intermedio" },
-    // { name: "Introducción a la programación", path: "/introduccion-programacion" },
+    { name: "Introducción a la programación", path: "/introduccion-programacion" },
     // { name: "Taller de POO", path: "/taller-poo" }
   ];
 
