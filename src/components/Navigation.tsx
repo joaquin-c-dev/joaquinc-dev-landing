@@ -1,28 +1,37 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Code2, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useBanner } from "@/contexts/BannerContext";
-import { useCountdown } from "@/contexts/CountdownContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isBannerVisible } = useBanner();
-  const { timeLeft } = useCountdown();
+  const [bannerVisible, setBannerVisible] = useState(false);
   const isMobile = useIsMobile();
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Calculate if banner should actually be shown (visible and not expired)
-  const shouldShowBanner = isBannerVisible && !timeLeft.isExpired;
+  // Check if any discount banner is visible in the DOM
+  useEffect(() => {
+    const checkBanner = () => {
+      const banner = document.querySelector('[data-banner="discount"]');
+      setBannerVisible(!!banner);
+    };
+    
+    checkBanner();
+    // Use MutationObserver to detect when banner appears/disappears
+    const observer = new MutationObserver(checkBanner);
+    observer.observe(document.body, { childList: true, subtree: true });
+    
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,7 +88,7 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed ${shouldShowBanner ? "top-[40px]" : "top-0"} left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed ${bannerVisible ? "top-[40px]" : "top-0"} left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled || isMobile
           ? "bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg"
           : "bg-transparent"
