@@ -20,10 +20,12 @@ import Navigation from "@/components/Navigation";
 import DiscountBanner from "@/components/DiscountBanner";
 import HeroSectionIntermedio from "@/components/HeroSectionIntermedio";
 import ProximosIniciosIntermedio from "@/components/ProximosIniciosIntermedio";
+import PricingSectionIntermedio from "@/components/PricingSectionIntermedio";
 import Footer from "@/components/Footer";
 import { useCountdown } from "@/contexts/CountdownContext";
 import { useBanner } from "@/contexts/BannerContext";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { CountdownIntermedioProvider } from "@/contexts/CountdownIntermedioContext";
 
 const curriculumModules = [
   {
@@ -145,124 +147,128 @@ const JavaIntermedio = () => {
   }, 0);
 
   return (
-    <div className="min-h-screen bg-background">
-      <DiscountBanner />
-      <Navigation />
-      
-      <HeroSectionIntermedio />
-      
-      <main>
-        <section data-section="temario-intermedio" className="py-16 bg-gradient-hero relative overflow-hidden">
-          {/* Background glow effects */}
-          <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-tech-purple/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          
-          <div className="relative z-10 container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Temario del{" "}
-                <span className="bg-gradient-accent bg-clip-text text-transparent">
-                  Curso
-                </span>
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                8 módulos con 40 horas de contenido práctico y proyectos reales
-              </p>
-            </div>
+    <CountdownIntermedioProvider>
+      <div className="min-h-screen bg-background">
+        <DiscountBanner />
+        <Navigation />
+        
+        <HeroSectionIntermedio />
+        
+        <main>
+          <section data-section="temario-intermedio" className="py-16 bg-gradient-hero relative overflow-hidden">
+            {/* Background glow effects */}
+            <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-tech-purple/20 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
             
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              {curriculumModules.map((module, index) => (
-                <Card 
-                  key={index} 
-                  className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50"
-                >
-                  <CardHeader className="pb-4">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-gradient-primary rounded-lg shadow-card flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <module.icon className="w-6 h-6 text-primary-foreground" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <CardTitle className="text-xl">{module.title}</CardTitle>
-                          <Badge variant="secondary" className="text-xs">
-                            {module.duration}
-                          </Badge>
+            <div className="relative z-10 container mx-auto px-6">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+                  Temario del{" "}
+                  <span className="bg-gradient-accent bg-clip-text text-transparent">
+                    Curso
+                  </span>
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  8 módulos con 40 horas de contenido práctico y proyectos reales
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                {curriculumModules.map((module, index) => (
+                  <Card 
+                    key={index} 
+                    className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50"
+                  >
+                    <CardHeader className="pb-4">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-gradient-primary rounded-lg shadow-card flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <module.icon className="w-6 h-6 text-primary-foreground" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2">
+                            <CardTitle className="text-xl">{module.title}</CardTitle>
+                            <Badge variant="secondary" className="text-xs">
+                              {module.duration}
+                            </Badge>
+                          </div>
                         </div>
                       </div>
+                    </CardHeader>
+                    
+                    <CardContent className="pt-0">
+                      <ul className="space-y-2">
+                        {module.topics.map((topic, topicIndex) => (
+                          <li key={topicIndex} className="flex items-start gap-3">
+                            <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">{topic}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+              
+              {/* Additional Info */}
+              <div className="mt-16 text-center">
+                <Card className="p-8 bg-gradient-card border-primary/20 max-w-3xl mx-auto">
+                  <div className="mb-6">
+                    <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
+                    <h3 className="text-2xl font-bold mb-4">
+                      Metodología{" "}
+                      <span className="bg-gradient-accent bg-clip-text text-transparent">
+                        Práctica
+                      </span>
+                    </h3>
+                  </div>
+                  <div className="grid md:grid-cols-3 gap-6 text-left">
+                    <div>
+                      <h4 className="font-semibold mb-2 text-primary">📋 Teoría Aplicada</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Cada concepto se explica con ejemplos reales de mi experiencia en producción.
+                      </p>
                     </div>
-                  </CardHeader>
-                  
-                  <CardContent className="pt-0">
-                    <ul className="space-y-2">
-                      {module.topics.map((topic, topicIndex) => (
-                        <li key={topicIndex} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">{topic}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
+                    <div>
+                      <h4 className="font-semibold mb-2 text-primary">🛠️ Práctica Inmediata</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Construimos aplicaciones completas aplicando lo aprendido al instante.
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2 text-primary">🚀 Proyectos Reales</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Desarrollamos sistemas que realmente se usan en empresas Fortune 500.
+                      </p>
+                    </div>
+                  </div>
                 </Card>
-              ))}
-            </div>
-            
-            {/* Additional Info */}
-            <div className="mt-16 text-center">
-              <Card className="p-8 bg-gradient-card border-primary/20 max-w-3xl mx-auto">
-                <div className="mb-6">
-                  <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold mb-4">
-                    Metodología{" "}
-                    <span className="bg-gradient-accent bg-clip-text text-transparent">
-                      Práctica
-                    </span>
-                  </h3>
-                </div>
-                <div className="grid md:grid-cols-3 gap-6 text-left">
-                  <div>
-                    <h4 className="font-semibold mb-2 text-primary">📋 Teoría Aplicada</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Cada concepto se explica con ejemplos reales de mi experiencia en producción.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2 text-primary">🛠️ Práctica Inmediata</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Construimos aplicaciones completas aplicando lo aprendido al instante.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2 text-primary">🚀 Proyectos Reales</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Desarrollamos sistemas que realmente se usan en empresas Fortune 500.
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </div>
+              </div>
 
-            {/* CTA Section */}
-            <div className="mt-16 text-center">
-              <div className="group relative inline-block">
-                <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-                <Button 
-                  size="lg"
-                  className="relative bg-gradient-accent text-white text-base px-8 py-4 transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
-                  onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
-                >
-                  <Zap className="w-5 h-5 mr-2" />
-                  Inscribirme al Curso
-                </Button>
+              {/* CTA Section */}
+              <div className="mt-16 text-center">
+                <div className="group relative inline-block">
+                  <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                  <Button 
+                    size="lg"
+                    className="relative bg-gradient-accent text-white text-base px-8 py-4 transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
+                    onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
+                  >
+                    <Zap className="w-5 h-5 mr-2" />
+                    Inscribirme al Curso
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-        
-        <ProximosIniciosIntermedio />
-      </main>
-      <Footer />
-    </div>
+          </section>
+          
+          <PricingSectionIntermedio />
+          
+          <ProximosIniciosIntermedio />
+        </main>
+        <Footer />
+      </div>
+    </CountdownIntermedioProvider>
   );
 };
 
