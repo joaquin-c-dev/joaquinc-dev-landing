@@ -1,14 +1,21 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, BookOpen, ArrowRight } from "lucide-react";
+import { CheckCircle2, BookOpen, ArrowRight, Monitor, Wifi, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const PrerequisitosIntermedio = () => {
   const prerequisites = [
     "Java Basics",
-    "Programación Orientada a Objetos (POO)",
+    "POO (Programación Orientada a Objetos)",
     "Nociones de Spring y Spring Boot",
     "Desarrollo de API REST"
+  ];
+
+  const equipmentRequirements = [
+    "8 GB de RAM (mínimo)",
+    "2.5 GB de espacio en disco",
+    "Procesador multicore",
+    "Resolución mínima 1024x768"
   ];
 
   return (
@@ -19,54 +26,92 @@ const PrerequisitosIntermedio = () => {
       <div className="absolute bottom-1/4 right-1/3 w-48 h-48 bg-tech-cyan/10 rounded-full blur-3xl"></div>
       
       <div className="relative z-10 container mx-auto px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Prerrequisitos del{" "}
+            Antes de{" "}
             <span className="bg-gradient-accent bg-clip-text text-transparent">
-              Curso
+              Comenzar
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Para aprovechar al máximo este curso, te recomendamos tener conocimientos previos en:
+            Para aprovechar al máximo este curso, te recomendamos cumplir con los siguientes requisitos
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <Card className="p-8 bg-gradient-card border-primary/20">
-            <div className="flex justify-center mb-8">
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center">
-                <BookOpen className="w-8 h-8 text-primary-foreground" />
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+          {/* Equipment Card */}
+          <Card className="p-6 bg-gradient-card border-primary/20">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
+                <Monitor className="w-6 h-6 text-primary-foreground" />
               </div>
+              <h3 className="text-xl font-bold text-foreground">Equipo Recomendado</h3>
             </div>
             
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
-              {prerequisites.map((prereq, index) => (
+            <p className="text-sm text-muted-foreground mb-4">
+              Requisitos mínimos para IntelliJ IDEA:
+            </p>
+            
+            <div className="space-y-2 mb-4">
+              {equipmentRequirements.map((req, index) => (
                 <div 
                   key={index}
-                  className="flex items-center gap-3 p-4 rounded-lg bg-background/50 border border-border/50"
+                  className="flex items-center gap-2 p-2.5 rounded-lg bg-background/50 border border-border/50"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground font-medium">{prereq}</span>
+                  <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">{req}</span>
                 </div>
               ))}
             </div>
 
-            <div className="text-center space-y-4">
-              <p className="text-muted-foreground italic">
-                No es necesario ser experto en estos temas, solo tener nociones básicas.
+            <div className="flex items-center gap-2 p-2.5 rounded-lg bg-tech-cyan/10 border border-tech-cyan/20 mb-4">
+              <Wifi className="w-4 h-4 text-tech-cyan flex-shrink-0" />
+              <span className="text-sm text-foreground">Conexión a internet por cable (recomendado)</span>
+            </div>
+
+            <div className="flex items-start gap-2 p-3 rounded-lg bg-muted/50 border border-border/30">
+              <Info className="w-4 h-4 text-muted-foreground flex-shrink-0 mt-0.5" />
+              <p className="text-xs text-muted-foreground">
+                Puedes tomar el curso sin cumplir estos requisitos, pero te recomendamos tenerlos para aprovecharlo al 100%.
               </p>
-              
-              <div className="pt-4">
-                <p className="text-sm text-muted-foreground mb-3">
-                  ¿Aún no tienes estos conocimientos?
-                </p>
-                <Link to="/java-desde-cero">
-                  <Button variant="outline" className="group">
-                    Comienza con Java desde Cero
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
+            </div>
+          </Card>
+
+          {/* Prerequisites Card */}
+          <Card className="p-6 bg-gradient-card border-primary/20">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
+                <BookOpen className="w-6 h-6 text-primary-foreground" />
               </div>
+              <h3 className="text-xl font-bold text-foreground">Conocimientos Previos</h3>
+            </div>
+            
+            <div className="space-y-2 mb-4">
+              {prerequisites.map((prereq, index) => (
+                <div 
+                  key={index}
+                  className="flex items-center gap-2 p-2.5 rounded-lg bg-background/50 border border-border/50"
+                >
+                  <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-sm text-foreground">{prereq}</span>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-sm text-muted-foreground italic mb-4">
+              No es necesario ser experto, solo tener nociones básicas.
+            </p>
+            
+            <div className="pt-2">
+              <p className="text-xs text-muted-foreground mb-2">
+                ¿Aún no tienes estos conocimientos?
+              </p>
+              <Link to="/java-desde-cero">
+                <Button variant="outline" size="sm" className="group w-full">
+                  Comienza con Java desde Cero
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
             </div>
           </Card>
         </div>
