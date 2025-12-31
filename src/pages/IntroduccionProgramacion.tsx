@@ -1,204 +1,31 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { 
   Code, 
   Terminal, 
-  Type, 
-  Calculator, 
-  GitBranch, 
-  RotateCcw, 
-  Grid3X3, 
-  Zap,
-  Layers,
   Calendar
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import DiscountBanner from "@/components/DiscountBanner";
 import Footer from "@/components/Footer";
 import HeroSectionIntroduccion from "@/components/HeroSectionIntroduccion";
-import { useBanner } from "@/contexts/BannerContext";
-import { useCountdown } from "@/contexts/CountdownContext";
-import { useIsMobile } from "@/hooks/use-mobile";
-
-const curriculumModules = [
-  {
-    icon: Code,
-    title: "Introducción a la programación",
-    duration: "3 horas",
-    topics: [
-      "¿Qué es un algoritmo?",
-      "¿Cómo descomponer un problema en pasos pequeños?",
-      "Paradigmas de programación",
-      "Lenguajes compilados e interpretados",
-      "Lenguajes de alto nivel",
-      "Pseudocódigo",
-      "Diagramas de flujo"
-    ],
-    color: "blue"
-  },
-  {
-    icon: Terminal,
-    title: "Entradas y salidas (I/O)",
-    duration: "3 horas",
-    topics: [
-      "La Consola/Terminal",
-      "Primer programa \"Hola mundo\"",
-      "System.out.println (Output)",
-      "Scanner (Input)"
-    ],
-    color: "green"
-  },
-  {
-    icon: Type,
-    title: "Variables y tipos de datos",
-    duration: "4 horas",
-    topics: [
-      "Declaración e inicialización",
-      "Tipos primitivos",
-      "int, boolean, char, float",
-      "Tipos estructurados",
-      "Arreglos, Cadenas de texto",
-      "Constantes"
-    ],
-    color: "purple"
-  },
-  {
-    icon: Calculator,
-    title: "Operadores",
-    duration: "2 horas",
-    topics: [
-      "Aritméticos (+, -, *, /)",
-      "Relacionales (>, <, !=, ==...)",
-      "Lógicos (&&, ||)"
-    ],
-    color: "orange"
-  },
-  {
-    icon: GitBranch,
-    title: "Estructuras de control",
-    duration: "4 horas",
-    topics: [
-      "if",
-      "else",
-      "else - if",
-      "Operador ternario",
-      "Anidamiento de condiciones",
-      "Estructura switch"
-    ],
-    color: "red"
-  },
-  {
-    icon: RotateCcw,
-    title: "Ciclos",
-    duration: "4 horas",
-    topics: [
-      "while",
-      "do-while",
-      "for",
-      "Contadores y acumuladores"
-    ],
-    color: "indigo"
-  },
-  {
-    icon: Grid3X3,
-    title: "Arreglos",
-    duration: "4 horas",
-    topics: [
-      "Propiedades de los arreglos",
-      "Arreglos: declaración, inicialización, recorrido",
-      "Matrices: declaración, inicialización, recorrido"
-    ],
-    color: "teal"
-  },
-  {
-    icon: Zap,
-    title: "Funciones",
-    duration: "3 horas",
-    topics: [
-      "Definición y sintaxis",
-      "Parámetros y retorno de valores",
-      "Alcance de variables (local vs global)",
-      "Paso de parámetros por valor y por referencia"
-    ],
-    color: "pink"
-  },
-  {
-    icon: Layers,
-    title: "Introducción a POO",
-    duration: "3 horas",
-    topics: [
-      "Abstracción: Clase y Objeto",
-      "Encapsulamiento",
-      "Herencia",
-      "Polimorfismo"
-    ],
-    color: "cyan"
-  }
-];
+import CurriculumSectionIntroduccion from "@/components/CurriculumSectionIntroduccion";
 
 const IntroduccionProgramacion = () => {
-  const { isBannerVisible } = useBanner();
-  const { timeLeft } = useCountdown();
-  const isMobile = useIsMobile();
-
-  const totalHours = curriculumModules.reduce((acc, module) => 
-    acc + parseInt(module.duration), 0
-  );
-
-  const shouldShowBanner = isBannerVisible && !timeLeft.isExpired;
+  const totalHours = 30;
+  const totalModules = 9;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5">
       <DiscountBanner />
       <Navigation />
       <HeroSectionIntroduccion />
+      <CurriculumSectionIntroduccion />
       
       <main className="pb-12">
-        <section data-section="temario-introduccion" className="py-12 px-6">
+        {/* Próximos Inicios */}
+        <section className="py-12 px-6">
           <div className="container mx-auto max-w-4xl">
-            
-            {/* Curriculum */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold mb-6 text-center">Temario Completo</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                {curriculumModules.map((module, index) => {
-                  const IconComponent = module.icon;
-                  return (
-                    <Card key={index} className="group hover:shadow-lg transition-all duration-300 border hover:border-primary/20">
-                      <CardContent className="p-4">
-                        <div className="flex items-start gap-4">
-                          <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                            <IconComponent className="w-5 h-5 text-primary" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 mb-2">
-                              <h3 className="font-semibold text-sm group-hover:text-primary transition-colors">
-                                {module.title}
-                              </h3>
-                              <Badge variant="secondary" className="text-xs">
-                                {module.duration}
-                              </Badge>
-                            </div>
-                            <ul className="space-y-1">
-                              {module.topics.map((topic, topicIndex) => (
-                                <li key={topicIndex} className="text-xs text-muted-foreground flex items-start gap-2">
-                                  <div className="w-1 h-1 rounded-full bg-primary/60 flex-shrink-0 mt-2" />
-                                  {topic}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Próximos Inicios */}
             <div className="mb-16">
               <h2 className="text-3xl font-bold mb-6 text-center">
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
@@ -273,7 +100,7 @@ const IntroduccionProgramacion = () => {
                   <div className="space-y-3">
                     <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                       <Code className="w-4 h-4" />
-                      <span>{curriculumModules.length} módulos completos</span>
+                      <span>{totalModules} módulos completos</span>
                     </div>
                     <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                       <Terminal className="w-4 h-4" />
