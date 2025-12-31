@@ -151,12 +151,11 @@ const JavaIntermedio = () => {
       <HeroSectionIntermedio />
       
       <main>
-        <section data-section="temario-intermedio" className="py-16 bg-course-dark relative overflow-hidden">
+        <section data-section="temario-intermedio" className="py-16 bg-gradient-hero relative overflow-hidden">
           {/* Background glow effects */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-tech-purple/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-course-blue/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-glow opacity-20 rounded-full blur-3xl"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-course-blue/5 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-tech-purple/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           
           <div className="relative z-10 container mx-auto px-6">
             <div className="text-center mb-16">
