@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import DiscountBannerIntermedio from "@/components/DiscountBannerIntermedio";
 import HeroSectionIntermedio from "@/components/HeroSectionIntermedio";
+import PrerequisitosIntermedio from "@/components/PrerequisitosIntermedio";
 import ProximosIniciosIntermedio from "@/components/ProximosIniciosIntermedio";
 import PricingSectionIntermedio from "@/components/PricingSectionIntermedio";
 import Footer from "@/components/Footer";
@@ -155,6 +156,8 @@ const JavaIntermedio = () => {
         
         <HeroSectionIntermedio />
         
+        <PrerequisitosIntermedio />
+        
         <main>
           <section data-section="temario-intermedio" className="py-16 bg-gradient-hero relative overflow-hidden">
             {/* Background glow effects */}
@@ -211,54 +214,19 @@ const JavaIntermedio = () => {
                 ))}
               </div>
               
-              {/* Additional Info Cards */}
-              <div className="mt-16 grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                {/* Prerequisitos Card */}
-                <Card className="p-8 bg-gradient-card border-primary/20">
-                  <div className="mb-6">
-                    <BookOpen className="w-12 h-12 text-primary mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold mb-4 text-center">
-                      Prerrequisitos del{" "}
-                      <span className="bg-gradient-accent bg-clip-text text-transparent">
-                        Curso
-                      </span>
-                    </h3>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Java Basics</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Programación Orientada a Objetos (POO)</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Nociones de Spring y Spring Boot</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Desarrollo de API REST</span>
-                    </div>
-                  </div>
-                  <p className="mt-6 text-sm text-muted-foreground text-center italic">
-                    No es necesario ser experto en estos temas, solo tener nociones básicas.
-                  </p>
-                </Card>
-
-                {/* Metodología Card */}
-                <Card className="p-8 bg-gradient-card border-primary/20">
+              {/* Additional Info */}
+              <div className="mt-16 text-center">
+                <Card className="p-8 bg-gradient-card border-primary/20 max-w-3xl mx-auto">
                   <div className="mb-6">
                     <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold mb-4 text-center">
+                    <h3 className="text-2xl font-bold mb-4">
                       Metodología{" "}
                       <span className="bg-gradient-accent bg-clip-text text-transparent">
                         Práctica
                       </span>
                     </h3>
                   </div>
-                  <div className="space-y-4">
+                  <div className="grid md:grid-cols-3 gap-6 text-left">
                     <div>
                       <h4 className="font-semibold mb-2 text-primary">📋 Teoría Aplicada</h4>
                       <p className="text-sm text-muted-foreground">
