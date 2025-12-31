@@ -30,7 +30,7 @@ const curriculumModules = [
     duration: "5 hrs",
     topics: [
       "Principios SOLID aplicados a proyectos reales",
-      "Patrones más usados en backend (Strategy, Factory, Builder, Singleton)",
+      "Patrones más usados en backend (Strategy, Factory, Template Method, Decorator)",
       "Separación de capas y responsabilidades",
       "Arquitectura por capas vs arquitectura orientada a dominios",
       "Buenas prácticas para código mantenible y escalable"
