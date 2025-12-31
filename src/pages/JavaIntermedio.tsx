@@ -203,8 +203,8 @@ const JavaIntermedio = () => {
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                Un programa estructurado de {totalHours} hrs que te llevará desde los fundamentos 
-                hasta implementaciones enterprise de Java y Spring Boot.
+                Curso intermedio diseñado para desarrolladores que ya conocen Java y Spring y quieren dar el siguiente paso hacia aplicaciones más robustas y profesionales.
+                Aprenderás a aplicar patrones de diseño, testing, seguridad, persistencia de datos y Docker para construir servicios backend bien estructurados y listos para crecer.
               </p>
               
               {/* Course Stats */}
