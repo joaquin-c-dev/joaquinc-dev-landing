@@ -3,7 +3,7 @@ import { Calendar, Clock, BookOpen } from "lucide-react";
 
 const ProximosIniciosIntermedio = () => {
   return (
-    <section className="py-16 bg-gradient-hero relative overflow-hidden">
+    <section className="min-h-screen flex items-center py-16 bg-gradient-hero relative overflow-hidden">
       {/* Background glow effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
       <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-tech-purple/20 rounded-full blur-3xl animate-pulse"></div>
