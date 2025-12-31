@@ -178,24 +178,7 @@ const JavaIntermedio = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-course-blue/5 to-transparent"></div>
           
           <div className="relative z-10 container mx-auto px-6">
-            {/* Back button */}
-            <div className="mb-8">
-              <Link to="/">
-                <Button variant="ghost" className="hover:bg-primary/5 hover:text-current">
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Volver al inicio
-                </Button>
-              </Link>
-            </div>
-
             <div className="text-center mb-16">
-              <div className="flex items-center gap-2 mb-6 justify-center">
-                <BookOpen className="w-6 h-6 text-primary" />
-                <span className="text-muted-foreground uppercase tracking-wider text-sm font-medium">
-                  Temario del Curso
-                </span>
-              </div>
-              
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
                 Java{" "}
                 <span className="bg-gradient-accent bg-clip-text text-transparent">
