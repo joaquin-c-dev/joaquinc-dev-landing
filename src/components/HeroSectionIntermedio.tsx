@@ -21,9 +21,9 @@ const HeroSectionIntermedio = () => {
       {/* Hero content */}
       <div className="relative z-10 container mx-auto px-4 md:px-10 lg:px-16 flex items-center justify-center w-full">
         <div className="w-full max-w-7xl mx-auto">
-          {/* Two Column Layout */}
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
-            {/* Left Column - Video */}
+          {/* Single Column Layout (change back to grid lg:grid-cols-2 when video is ready) */}
+          <div className="flex flex-col items-center justify-center">
+            {/* Left Column - Video (TEMPORARILY DISABLED - uncomment when video is ready)
             <div className="flex justify-center lg:justify-start order-2 lg:order-1">
               <div className="relative group w-full max-w-md md:max-w-lg lg:max-w-xl">
                 <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
@@ -37,15 +37,16 @@ const HeroSectionIntermedio = () => {
                     poster="https://res.cloudinary.com/joaquin-test/image/upload/v1756607596/Screenshot_at_Aug_30_20-32-46_qgh3zx.png"
                     preload="metadata"
                   >
-                    <source src="https://res.cloudinary.com/joaquin-test/video/upload/v1756623620/joaquin%20c.%20dev/java%20desde%20cero/GMT20250831-012428_Recording.cutfile.20250831065554802_1920x1080_fhlezz.mp4" type="video/mp4" />
+                    <source src="YOUR_VIDEO_URL_HERE" type="video/mp4" />
                     Tu navegador no soporta el elemento de video.
                   </video>
                 </div>
               </div>
             </div>
+            */}
 
             {/* Right Column - Text and Buttons */}
-            <div className="space-y-4 md:space-y-6 lg:space-y-8 text-center lg:text-left order-1 lg:order-2">
+            <div className="space-y-4 md:space-y-6 lg:space-y-8 text-center max-w-2xl">
               {/* Main title */}
               <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
                 <div>Java{" "}
@@ -63,7 +64,7 @@ const HeroSectionIntermedio = () => {
               </p>
 
               {/* Instructor info - subtle */}
-              <div className="flex items-center justify-center lg:justify-start gap-3 opacity-70">
+              <div className="flex items-center justify-center gap-3 opacity-70">
                 <img 
                   src={joaquinProfile}
                   alt="Joaquín Coronado Ramírez"
@@ -75,7 +76,7 @@ const HeroSectionIntermedio = () => {
               </div>
               
               {/* IntelliJ Banner */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 animate-fade-in">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in">
                 <div className="flex items-center gap-2">
                   <Gift className="w-5 h-5 text-primary animate-pulse" />
                   <span className="text-sm sm:text-base font-medium">Incluye licencia gratis de</span>
@@ -93,7 +94,7 @@ const HeroSectionIntermedio = () => {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <div className="group relative">
                   <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                   <Button 
