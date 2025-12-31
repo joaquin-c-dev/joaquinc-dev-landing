@@ -2,19 +2,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  BookOpen, 
-  Code2, 
-  Database, 
-  Shield, 
-  Cloud, 
   Boxes,
-  Settings,
   TestTube,
-  Zap,
-  Globe,
+  Layers,
+  Shield,
+  Database,
+  MessageSquare,
+  FileText,
+  Container,
   CheckCircle2,
   Clock,
-  ArrowLeft
+  Code2,
+  Zap
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
@@ -26,129 +25,108 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const curriculumModules = [
   {
-    icon: BookOpen,
-    title: "Introducción a Java",
-    duration: "4 hrs",
-    topics: [
-      "¿Qué es Java y cómo trabaja?",
-      "Java Virtual Machine (JVM)",
-      "JDK y JRE",
-      "Comandos java, javac",
-      "Java ES, Java EE, Jakarta",
-      "Empaquetado de aplicaciones (JAR y WAR)",
-      "Versiones en Java",
-      "Instalación del JDK y variable de entorno"
-    ],
-    color: "tech-blue"
-  },
-  {
-    icon: Code2,
-    title: "Fundamentos de Java",
-    duration: "8 hrs",
-    topics: [
-      "Estructura de un programa en Java",
-      "Variables y tipos de datos",
-      "Palabra reservada 'var' y 'final'",
-      "Operadores (asignación, aritméticos, relacionales, lógicos)",
-      "Sentencias de control (if, else, switch)",
-      "Ciclos (while, do-while, for, forEach)",
-      "Métodos y sobrecarga",
-      "Arreglos y uso de paquetes"
-    ],
-    color: "tech-green"
-  },
-  {
     icon: Boxes,
-    title: "Programación Orientada a Objetos",
-    duration: "8 hrs",
+    title: "Patrones de Diseño y Arquitectura",
+    duration: "5 hrs",
     topics: [
-      "Abstracción, clases y objetos",
-      "Métodos y atributos",
-      "Constructor y sobrecarga de constructor",
-      "Palabras reservadas 'this' y 'super'",
-      "Contexto estático",
-      "Encapsulamiento y operadores de visibilidad",
-      "Setter y getters",
-      "Herencia y palabra reservada 'extends'",
-      "Sobreescritura de métodos (@Override)",
-      "Polimorfismo, clases abstractas e interfaces"
+      "Principios SOLID aplicados a proyectos reales",
+      "Patrones más usados en backend (Strategy, Factory, Builder, Singleton)",
+      "Separación de capas y responsabilidades",
+      "Arquitectura por capas vs arquitectura orientada a dominios",
+      "Buenas prácticas para código mantenible y escalable"
     ],
     color: "tech-purple"
   },
   {
-    icon: Settings,
-    title: "Enumerables, Genericos y Collections",
-    duration: "4 hrs",
+    icon: TestTube,
+    title: "Testing Profesional: JUnit, Mockito y TDD",
+    duration: "5 hrs",
     topics: [
-      "Enumerables y sus atributos/métodos",
-      "Genericos y convenciones",
-      "Collections API",
-      "Listas (ArrayList, LinkedList)",
-      "Set - HashSet",
-      "Map - HashMap"
-    ],
-    color: "tech-orange"
-  },
-  {
-    icon: Shield,
-    title: "Excepciones y Programación Funcional",
-    duration: "6 hrs",
-    topics: [
-      "Checked y Unchecked Exceptions",
-      "Throwable, Exception, RunTimeException",
-      "try, catch, finally",
-      "Throw y Throws",
-      "¿Qué es la programación funcional?",
-      "Expresiones Lambda y sintaxis",
-      "Interfaces funcionales",
-      "Métodos referenciados",
-      "Stream API y pipeline",
-      "Operaciones intermedias y terminales"
-    ],
-    color: "tech-red"
-  },
-  {
-    icon: Globe,
-    title: "Introducción al Desarrollo Web",
-    duration: "4 hrs",
-    topics: [
-      "¿Qué es el desarrollo web?",
-      "Arquitectura Cliente-Servidor",
-      "HTTP: protocolo de comunicación",
-      "Métodos HTTP (GET, POST, PUT, DELETE)",
-      "Estructura de una URL",
-      "Códigos de estado HTTP (200, 404, 500)",
-      "APIs y servicios REST"
-    ],
-    color: "tech-cyan"
-  },
-  {
-    icon: Zap,
-    title: "Spring Framework/Spring Boot",
-    duration: "4 hrs",
-    topics: [
-      "Introducción al ecosistema Spring",
-      "¿Qué es Spring Framework y por qué usarlo?",
-      "Inversión de Control (IoC) y Dependency Injection (DI)",
-      "Creación y gestión de Beans (@Component, @Service, @Repository)",
-      "Spring Boot y estructura de un proyecto",
-      "Controladores REST (@RestController, @GetMapping, @PostMapping)",
-      "Manejo de parámetros y excepciones (@ExceptionHandler)"
+      "Fundamentos de testing unitario y buenas prácticas",
+      "JUnit 5: estructura, anotaciones y assertions",
+      "Uso de Mockito para mocks, stubs y spies",
+      "Introducción a TDD (Test Driven Development)",
+      "Testing de servicios y lógica de negocio"
     ],
     color: "tech-green"
   },
   {
-    icon: Database,
-    title: "Persistencia de Datos con MongoDB",
-    duration: "2 hrs",
+    icon: Layers,
+    title: "Programación Orientada a Aspectos (AOP)",
+    duration: "5 hrs",
     topics: [
-      "Introducción a MongoDB",
-      "Creación de documentos con @Document",
-      "Definición de identificadores con @Id",
-      "Uso de MongoTemplate",
-      "Inserción de documentos (insert, save)"
+      "¿Qué es AOP y cuándo usarlo?",
+      "Creación de aspectos con Spring AOP",
+      "Pointcuts, advice y join points",
+      "Manejo de logs, validaciones y métricas con AOP",
+      "Casos de uso reales en aplicaciones backend"
+    ],
+    color: "tech-blue"
+  },
+  {
+    icon: Shield,
+    title: "Seguridad: JWT con Spring Security",
+    duration: "5 hrs",
+    topics: [
+      "Fundamentos de autenticación y autorización",
+      "Configuración de Spring Security",
+      "Implementación de JWT (login, filtros y validación)",
+      "Protección de endpoints y roles de usuario",
+      "Manejo de errores y seguridad básica en APIs REST"
+    ],
+    color: "tech-red"
+  },
+  {
+    icon: Database,
+    title: "Persistencia de datos con Spring Data JPA (MySQL)",
+    duration: "5 hrs",
+    topics: [
+      "Configuración de JPA con MySQL",
+      "Entidades, repositorios y relaciones",
+      "Queries con métodos derivados y JPQL",
+      "Paginación y ordenamiento",
+      "Buenas prácticas de acceso a datos"
+    ],
+    color: "tech-orange"
+  },
+  {
+    icon: MessageSquare,
+    title: "Asincronía: RabbitMQ y Cron Jobs",
+    duration: "5 hrs",
+    topics: [
+      "Conceptos de mensajería y procesamiento asíncrono",
+      "Introducción a RabbitMQ y colas",
+      "Productores y consumidores con Spring AMQP",
+      "Manejo de tareas programadas con Cron Jobs",
+      "Casos de uso reales (emails, procesos en background)"
+    ],
+    color: "tech-cyan"
+  },
+  {
+    icon: FileText,
+    title: "Documentación con Swagger / OpenAPI",
+    duration: "5 hrs",
+    topics: [
+      "Importancia de documentar APIs",
+      "Configuración de Swagger en Spring Boot",
+      "Uso de anotaciones OpenAPI",
+      "Documentación de endpoints, parámetros y respuestas",
+      "Buenas prácticas para APIs consumibles"
     ],
     color: "course-blue"
+  },
+  {
+    icon: Container,
+    title: "Docker para desarrollo",
+    duration: "5 hrs",
+    topics: [
+      "¿Qué es Docker y por qué usarlo?",
+      "Creación de Dockerfiles para aplicaciones Java",
+      "Uso de imágenes y contenedores",
+      "Docker Compose para entornos locales",
+      "Flujo de desarrollo con Docker"
+    ],
+    color: "tech-purple"
   }
 ];
 
