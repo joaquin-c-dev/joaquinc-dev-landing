@@ -4,6 +4,7 @@ import ProximosIniciosSection from "@/components/ProximosIniciosSection";
 import Footer from "@/components/Footer";
 import DiscountBanner from "@/components/DiscountBanner";
 import Navigation from "@/components/Navigation";
+import CurriculumSection from "@/components/CurriculumSection";
 
 const JavaDesdeCero = () => {
   return (
@@ -11,6 +12,7 @@ const JavaDesdeCero = () => {
       <DiscountBanner />
       <Navigation />
       <HeroSection />
+      <CurriculumSection />
       <ProximosIniciosSection />
       <PricingSection />
       <Footer />
