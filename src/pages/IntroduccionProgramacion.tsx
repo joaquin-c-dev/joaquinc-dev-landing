@@ -17,6 +17,7 @@ import {
 import Navigation from "@/components/Navigation";
 import DiscountBanner from "@/components/DiscountBanner";
 import Footer from "@/components/Footer";
+import HeroSectionIntroduccion from "@/components/HeroSectionIntroduccion";
 import { useBanner } from "@/contexts/BannerContext";
 import { useCountdown } from "@/contexts/CountdownContext";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -150,55 +151,11 @@ const IntroduccionProgramacion = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5">
+      <DiscountBanner />
       <Navigation />
-      {shouldShowBanner && <DiscountBanner />}
+      <HeroSectionIntroduccion />
       
-      <main className={`${shouldShowBanner ? 'pt-28' : 'pt-16'} pb-12`}>
-        {/* Hero Section */}
-        <section className="pt-32 pb-12 px-6">
-          <div className="container mx-auto max-w-4xl text-center">
-            <Badge variant="secondary" className="mb-4">
-              <Code className="w-4 h-4 mr-2" />
-              Curso Completo
-            </Badge>
-            
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-              Introducción a la Programación
-            </h1>
-            
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Aprende los fundamentos de la programación desde cero. Un curso completo que te llevará desde los conceptos básicos hasta la programación orientada a objetos.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <Card className="border-primary/20">
-                <CardContent className="pt-6 text-center">
-                  <Terminal className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <h3 className="font-semibold mb-1">Duración</h3>
-                  <p className="text-sm text-muted-foreground">{totalHours} horas</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="border-primary/20">
-                <CardContent className="pt-6 text-center">
-                  <Layers className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <h3 className="font-semibold mb-1">Módulos</h3>
-                  <p className="text-sm text-muted-foreground">{curriculumModules.length} módulos</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="border-primary/20">
-                <CardContent className="pt-6 text-center">
-                  <Code className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <h3 className="font-semibold mb-1">Modalidad</h3>
-                  <p className="text-sm text-muted-foreground">100% Práctico</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Content Section */}
+      <main className="pb-12">
         <section className="py-12 px-6">
           <div className="container mx-auto max-w-4xl">
             
