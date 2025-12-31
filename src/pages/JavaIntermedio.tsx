@@ -156,8 +156,6 @@ const JavaIntermedio = () => {
         
         <HeroSectionIntermedio />
         
-        <PrerequisitosIntermedio />
-        
         <main>
           <section data-section="temario-intermedio" className="py-16 bg-gradient-hero relative overflow-hidden">
             {/* Background glow effects */}
@@ -265,6 +263,8 @@ const JavaIntermedio = () => {
               </div>
             </div>
           </section>
+          
+          <PrerequisitosIntermedio />
           
           <ProximosIniciosIntermedio />
           
