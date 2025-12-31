@@ -70,23 +70,24 @@ const HeroSectionIntroduccion = () => {
                 </div>
               </div>
               
-              {/* IntelliJ Banner */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in">
-                <div className="flex items-center gap-2">
-                  <Gift className="w-5 h-5 text-primary animate-pulse" />
-                  <span className="text-sm sm:text-base font-medium">Incluye licencia gratis de</span>
-                </div>
-                <div className="flex items-center gap-2 bg-card/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-primary/20">
-                  <img 
-                    src={intellijLogo} 
-                    alt="IntelliJ IDEA Ultimate" 
-                    className="w-6 h-6 object-contain"
-                  />
-                  <span className="font-bold text-sm sm:text-base bg-gradient-accent bg-clip-text text-transparent">
-                    IntelliJ IDEA Ultimate
-                  </span>
-                </div>
-              </div>
+              {/* IntelliJ Banner - COMMENTED OUT (no license for this course)
+75:               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in">
+76:                 <div className="flex items-center gap-2">
+77:                   <Gift className="w-5 h-5 text-primary animate-pulse" />
+78:                   <span className="text-sm sm:text-base font-medium">Incluye licencia gratis de</span>
+79:                 </div>
+80:                 <div className="flex items-center gap-2 bg-card/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-primary/20">
+81:                   <img 
+82:                     src={intellijLogo} 
+83:                     alt="IntelliJ IDEA Ultimate" 
+84:                     className="w-6 h-6 object-contain"
+85:                   />
+86:                   <span className="font-bold text-sm sm:text-base bg-gradient-accent bg-clip-text text-transparent">
+87:                     IntelliJ IDEA Ultimate
+88:                   </span>
+89:                 </div>
+90:               </div>
+91:               */}
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
