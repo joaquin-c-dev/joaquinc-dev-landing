@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
-import DiscountBanner from "@/components/DiscountBanner";
+import DiscountBannerIntermedio from "@/components/DiscountBannerIntermedio";
 import HeroSectionIntermedio from "@/components/HeroSectionIntermedio";
 import ProximosIniciosIntermedio from "@/components/ProximosIniciosIntermedio";
 import PricingSectionIntermedio from "@/components/PricingSectionIntermedio";
@@ -149,7 +149,7 @@ const JavaIntermedio = () => {
   return (
     <CountdownIntermedioProvider>
       <div className="min-h-screen bg-background">
-        <DiscountBanner />
+        <DiscountBannerIntermedio />
         <Navigation />
         
         <HeroSectionIntermedio />
