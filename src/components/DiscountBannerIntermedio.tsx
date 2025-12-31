@@ -54,7 +54,7 @@ const DiscountBannerIntermedio = () => {
           {/* Left side - Special price offer in single line */}
           <div className="flex items-center gap-4">
             <span className="text-white font-bold text-xs drop-shadow-sm">
-              Java Intermedio: $2,000 de descuento + 3 meses sin intereses
+              Java Intermedio: $2,000 de descuento + hasta 12 meses sin intereses
             </span>
             
             {/* Subtle CTA */}
@@ -89,7 +89,7 @@ const DiscountBannerIntermedio = () => {
         <div className="md:hidden">
           <div className="flex items-center justify-between">
             <span className="text-white font-bold text-xs drop-shadow-sm">
-              $2,000 OFF + MSI
+              $2,000 OFF + 12MSI
             </span>
             
             <div className="flex items-center gap-2">
