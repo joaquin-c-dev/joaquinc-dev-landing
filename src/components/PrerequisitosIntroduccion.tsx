@@ -11,10 +11,10 @@ const PrerequisitosIntroduccion = () => {
   ];
 
   const equipmentRequirements = [
-    "Computadora con Windows, Mac o Linux",
-    "4 GB de RAM (mínimo)",
-    "Espacio en disco para instalar programas",
-    "Micrófono y cámara (recomendado)"
+    "8 GB de RAM (mínimo)",
+    "2.5 GB de espacio en disco",
+    "Procesador multicore",
+    "Resolución mínima 1024x768"
   ];
 
   return (
@@ -48,7 +48,7 @@ const PrerequisitosIntroduccion = () => {
             </div>
             
             <p className="text-sm text-muted-foreground mb-4">
-              Requisitos mínimos para el curso:
+              Requisitos mínimos para IntelliJ IDEA:
             </p>
             
             <div className="space-y-2 mb-4">
