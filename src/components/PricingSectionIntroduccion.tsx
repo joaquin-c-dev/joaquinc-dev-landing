@@ -126,8 +126,8 @@ const PricingSectionIntroduccion = () => {
 
             {/* Discount Ribbon Container */}
             <div className="absolute top-0 left-0 w-32 h-16 overflow-hidden z-10">
-              <div className="bg-red-600 text-white px-6 py-1.5 text-xs font-bold transform -rotate-45 absolute -left-6 top-4 shadow-xl border border-red-700">
-                $2K + 3MSI
+              <div className="bg-red-600 text-white px-8 py-1.5 text-xs font-bold transform -rotate-45 absolute -left-8 top-4 shadow-xl border border-red-700">
+                $2,000 OFF
               </div>
             </div>
 
@@ -135,7 +135,7 @@ const PricingSectionIntroduccion = () => {
               <div className="mb-4">
                 <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
                 <h3 className="text-xl font-bold text-foreground">Preferente</h3>
-                <p className="text-sm text-muted-foreground">3 meses sin intereses</p>
+                <p className="text-sm text-muted-foreground">Pago único con descuento</p>
               </div>
 
               {/* Price */}
@@ -145,15 +145,14 @@ const PricingSectionIntroduccion = () => {
                   $4,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
                 </div>
                 <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
-                <div className="text-xl font-semibold text-white mb-1">$1,500 / mes x 3 meses</div>
-                <div className="text-sm text-muted-foreground mb-1">Sin intereses con tarjeta</div>
+                <div className="text-sm text-muted-foreground mb-1">Un solo pago con tarjeta</div>
               </div>
 
               {/* Features */}
               <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">3 meses sin intereses</span>
+                  <span className="text-sm text-foreground">Pago único con descuento</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
