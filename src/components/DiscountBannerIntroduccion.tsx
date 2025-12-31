@@ -76,13 +76,13 @@ const DiscountBannerIntroduccion = () => {
 
   return (
     <div data-banner="discount" className="fixed top-0 left-0 right-0 z-50 bg-gradient-accent overflow-hidden">
-      <div className="absolute inset-0 bg-background/10" />
+      <div className="absolute inset-0 bg-black/20" />
 
       <div className="relative z-10 container mx-auto px-4 py-0.5 md:py-0.5">
         {/* Desktop */}
         <div className="hidden md:flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <span className="text-primary-foreground font-bold text-xs drop-shadow-sm">
+            <span className="text-white font-bold text-xs drop-shadow-sm">
               Introducción a la Programación: $2,000 de descuento (plan preferente)
             </span>
 
@@ -90,7 +90,7 @@ const DiscountBannerIntroduccion = () => {
               onClick={scrollToPricing}
               size="sm"
               variant="outline"
-              className="bg-background/15 border-primary-foreground/35 text-primary-foreground hover:bg-background/25 hover:border-primary-foreground/55 text-xs px-2 py-0.5 h-auto font-medium"
+              className="bg-white/20 border-white/50 text-white hover:bg-white/30 hover:border-white/70 text-xs px-2 py-0.5 h-auto font-medium"
             >
               Ver precios
             </Button>
@@ -98,14 +98,14 @@ const DiscountBannerIntroduccion = () => {
 
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
-              <span className="text-primary-foreground font-bold text-xs drop-shadow-sm">Por tiempo limitado:</span>
-              <span className="text-primary-foreground font-mono font-bold text-xs drop-shadow-sm">{countdownLabel}</span>
+              <span className="text-white font-bold text-xs drop-shadow-sm">Por tiempo limitado:</span>
+              <span className="text-white font-mono font-bold text-xs drop-shadow-sm">⏰ {countdownLabel}</span>
             </div>
             <Button
               onClick={() => setIsDismissed(true)}
               size="sm"
               variant="ghost"
-              className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-background/15 p-1"
+              className="text-white/80 hover:text-white hover:bg-white/20 p-1"
               aria-label="Cerrar banner"
             >
               <X className="w-4 h-4" />
@@ -116,28 +116,28 @@ const DiscountBannerIntroduccion = () => {
         {/* Mobile */}
         <div className="md:hidden">
           <div className="flex items-center justify-between">
-            <span className="text-primary-foreground font-bold text-xs drop-shadow-sm">$2,000 OFF</span>
+            <span className="text-white font-bold text-xs drop-shadow-sm">$2,000 OFF</span>
 
             <div className="flex items-center gap-2">
               <Button
                 onClick={scrollToPricing}
                 size="sm"
                 variant="outline"
-                className="bg-background/15 border-primary-foreground/35 text-primary-foreground hover:bg-background/25 hover:border-primary-foreground/55 text-xs px-2 py-0.5 h-auto font-medium"
+                className="bg-white/20 border-white/50 text-white hover:bg-white/30 hover:border-white/70 text-xs px-2 py-0.5 h-auto font-medium"
               >
                 Ver precios
               </Button>
 
               <div className="flex items-center gap-1">
-                <Clock className="w-3 h-3 text-primary-foreground" />
-                <span className="text-primary-foreground font-mono font-bold text-xs drop-shadow-sm">{countdownLabel}</span>
+                <Clock className="w-3 h-3 text-white" />
+                <span className="text-white font-mono font-bold text-xs drop-shadow-sm">{countdownLabel}</span>
               </div>
 
               <Button
                 onClick={() => setIsDismissed(true)}
                 size="sm"
                 variant="ghost"
-                className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-background/15 p-0.5"
+                className="text-white/80 hover:text-white hover:bg-white/20 p-0.5"
                 aria-label="Cerrar banner"
               >
                 <X className="w-3 h-3" />
@@ -147,7 +147,7 @@ const DiscountBannerIntroduccion = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-foreground/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
     </div>
   );
 };
