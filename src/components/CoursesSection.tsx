@@ -12,7 +12,7 @@ const CoursesSection = () => {
       title: "Introducción a la Programación",
       subtitle: "Para principiantes absolutos",
       description: "Aprende los fundamentos de la programación desde cero. Ideal si nunca has escrito una línea de código.",
-      duration: "20 horas",
+      duration: "30 horas",
       level: "Principiante",
       icon: BookOpen,
       color: "from-emerald-500 to-teal-600",
@@ -34,7 +34,7 @@ const CoursesSection = () => {
       borderColor: "border-primary/20",
       path: "/java-desde-cero",
       featured: true,
-      features: ["POO completo", "Colecciones y Streams", "JDBC y bases de datos"]
+      features: ["POO completo", "Colecciones y Streams", "MongoDB"]
     },
     {
       id: "java-intermedio",
