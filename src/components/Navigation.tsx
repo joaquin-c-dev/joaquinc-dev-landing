@@ -81,10 +81,11 @@ const Navigation = () => {
     { name: "Precios", path: "/", action: "pricing" },
   ];
 
-  // const courseItems = [
-  //   { name: "Introducción a la programación", path: "/introduccion-programacion" },
-  //   // { name: "Taller de POO", path: "/taller-poo" }
-  // ];
+  const courseItems = [
+    { name: "Java Intermedio", path: "/java-intermedio" },
+    // { name: "Introducción a la programación", path: "/introduccion-programacion" },
+    // { name: "Taller de POO", path: "/taller-poo" }
+  ];
 
   return (
     <nav
@@ -113,7 +114,7 @@ const Navigation = () => {
             ))}
 
             {/* Cursos Dropdown */}
-            {/* <DropdownMenu modal={false}>
+            <DropdownMenu modal={false}>
               <DropdownMenuTrigger asChild>
                 <button
                   className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer flex items-center gap-1 group ${
@@ -143,7 +144,7 @@ const Navigation = () => {
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
-            </DropdownMenu> */}
+            </DropdownMenu>
 
             {/* Remaining nav items */}
             {navItems.slice(3).map((item) => (
@@ -191,7 +192,7 @@ const Navigation = () => {
               ))}
 
               {/* Cursos section in mobile */}
-              {/* <div className="py-2">
+              <div className="py-2">
                 <div
                   className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium mb-2 ${
                     courseItems.some((course) => location.pathname === course.path)
@@ -215,7 +216,7 @@ const Navigation = () => {
                     {course.name}
                   </button>
                 ))}
-              </div> */}
+              </div>
 
               {navItems.slice(3).map((item) => (
                 <button
