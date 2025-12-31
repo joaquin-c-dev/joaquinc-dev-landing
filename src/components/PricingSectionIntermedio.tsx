@@ -21,12 +21,12 @@ const PricingSectionIntermedio = () => {
 
   const handleContinueToPayment = () => {
     setShowPaymentModal(false);
-    window.open("https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01", "_blank");
+    window.open("https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05", "_blank");
   };
 
   const handleContinueToRecommendedPayment = () => {
     setShowRecommendedModal(false);
-    window.open("https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO", "_blank");
+    window.open("https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?prefilled_promo_code=INTERMEDIO", "_blank");
   };
 
   return (
@@ -411,7 +411,7 @@ const PricingSectionIntermedio = () => {
                 <Button
                   variant="outline"
                   className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
-                  onClick={() => window.open("https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01", "_blank")}
+                  onClick={() => window.open("https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05", "_blank")}
                 >
                   Hacer pago preferente
                 </Button>
@@ -439,7 +439,7 @@ const PricingSectionIntermedio = () => {
         imageUrl="/lovable-uploads/7b90d68c-d7a3-401a-85e0-61c099402133.png"
         title="Información Importante - Plan Recomendado"
         conditions={[
-          "El cupón LANZAMIENTO debe estar activo",
+          "El cupón INTERMEDIO debe estar activo",
           "Debes ingresar una tarjeta de crédito válida",
           'Da clic en la opción "Pagar en cuotas (meses sin intereses)"',
         ]}

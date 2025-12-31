@@ -99,7 +99,7 @@ const HeroSectionIntermedio = () => {
                   <Button 
                     size="lg"
                     className="relative bg-gradient-accent text-white text-base px-6 py-3 transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30 min-w-[180px] h-[48px]"
-                    onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
+                    onClick={() => window.open('https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?prefilled_promo_code=INTERMEDIO', '_blank')}
                   >
                     <Zap className="w-5 h-5 mr-2" />
                     Inscribirme Ahora
