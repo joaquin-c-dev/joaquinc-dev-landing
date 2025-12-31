@@ -22,13 +22,13 @@ const ProximosIniciosIntermedio = () => {
         </div>
 
         <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-6">
-          {/* Modalidad Lunes a Jueves */}
+          {/* Modalidad Sabatina */}
           <Card className="p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300">
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Calendar className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Modalidad Entre Semana</h3>
+              <h3 className="text-xl font-bold mb-2">Modalidad Sabatina</h3>
               <p className="text-muted-foreground">Java Intermedio</p>
             </div>
 
@@ -36,7 +36,7 @@ const ProximosIniciosIntermedio = () => {
               <div className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">Lunes a Jueves 8:00 PM - 10:00 PM</div>
+                  <div className="font-semibold">Sábados 9:00 AM - 2:00 PM</div>
                   <div className="text-sm text-muted-foreground">40 horas totales</div>
                 </div>
               </div>
@@ -44,8 +44,8 @@ const ProximosIniciosIntermedio = () => {
               <div className="flex items-center gap-3">
                 <Calendar className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">Próximamente</div>
-                  <div className="text-sm text-muted-foreground">Fechas por confirmar</div>
+                  <div className="font-semibold">10 Ene 2026 - 28 Feb 2026</div>
+                  <div className="text-sm text-muted-foreground">8 semanas de duración</div>
                 </div>
               </div>
               
