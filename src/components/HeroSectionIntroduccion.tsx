@@ -101,6 +101,20 @@ const HeroSectionIntroduccion = () => {
                     Inscribirme Ahora
                   </Button>
                 </div>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-primary/30 hover:border-primary/50 text-base px-6 py-3 hover:bg-primary/5 hover:text-primary min-w-[180px] h-[48px]"
+                  onClick={() => {
+                    const temarioSection = document.querySelector('[data-section="temario-introduccion"]');
+                    if (temarioSection) {
+                      temarioSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  <Code className="w-5 h-5 mr-2" />
+                  Ver Temario
+                </Button>
               </div>
             </div>
           </div>

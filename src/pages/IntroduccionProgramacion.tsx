@@ -156,7 +156,7 @@ const IntroduccionProgramacion = () => {
       <HeroSectionIntroduccion />
       
       <main className="pb-12">
-        <section className="py-12 px-6">
+        <section data-section="temario-introduccion" className="py-12 px-6">
           <div className="container mx-auto max-w-4xl">
             
             {/* Curriculum */}
