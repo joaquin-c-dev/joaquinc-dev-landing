@@ -5,6 +5,7 @@ import HeroSectionIntroduccion from "@/components/HeroSectionIntroduccion";
 import CurriculumSectionIntroduccion from "@/components/CurriculumSectionIntroduccion";
 import ProximosIniciosSectionIntroduccion from "@/components/ProximosIniciosSectionIntroduccion";
 import PricingSectionIntroduccion from "@/components/PricingSectionIntroduccion";
+import PrerequisitosIntroduccion from "@/components/PrerequisitosIntroduccion";
 
 const IntroduccionProgramacion = () => {
   return (
@@ -13,6 +14,7 @@ const IntroduccionProgramacion = () => {
       <Navigation />
       <HeroSectionIntroduccion />
       <CurriculumSectionIntroduccion />
+      <PrerequisitosIntroduccion />
       <ProximosIniciosSectionIntroduccion />
       <PricingSectionIntroduccion />
       <Footer />
