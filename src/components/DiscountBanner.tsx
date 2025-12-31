@@ -33,10 +33,14 @@ const DiscountBanner = () => {
   }, [setBannerVisible]);
 
   const scrollToPricing = () => {
-    if (location.pathname === '/') {
-      // Already on home page, just scroll
-      const pricingSection = document.querySelector('section[data-section="pricing"]');
-      pricingSection?.scrollIntoView({ behavior: 'smooth' });
+    // Check if there's a pricing section on the current page
+    const pricingSection = document.querySelector('section[data-section="pricing"]');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
+    } else if (location.pathname === '/') {
+      // Already on home page but section not found yet
+      const homePricingSection = document.querySelector('section[data-section="pricing"]');
+      homePricingSection?.scrollIntoView({ behavior: 'smooth' });
     } else {
       // Navigate to home page with scroll parameter
       navigate('/?scroll=pricing');
