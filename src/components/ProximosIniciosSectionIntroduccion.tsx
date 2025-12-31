@@ -3,8 +3,13 @@ import { Calendar, Clock, BookOpen } from "lucide-react";
 
 const ProximosIniciosSectionIntroduccion = () => {
   return (
-    <section className="py-16 bg-background relative">
-      <div className="container mx-auto px-6">
+    <section className="min-h-screen flex items-center py-16 bg-gradient-hero relative overflow-hidden">
+      {/* Background glow effects */}
+      <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
+      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-course-blue/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      
+      <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
             <span className="bg-gradient-primary bg-clip-text text-transparent">
