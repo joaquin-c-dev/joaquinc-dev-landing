@@ -262,9 +262,9 @@ const JavaIntermedio = () => {
             </div>
           </section>
           
-          <PricingSectionIntermedio />
-          
           <ProximosIniciosIntermedio />
+          
+          <PricingSectionIntermedio />
         </main>
         <Footer />
       </div>
