@@ -22,13 +22,13 @@ const ProximosIniciosSectionIntroduccion = () => {
         </div>
 
         <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-6">
-          {/* Modalidad Entre Semana */}
+          {/* Modalidad Sabatina */}
           <Card className="p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300">
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Calendar className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Modalidad Entre Semana</h3>
+              <h3 className="text-xl font-bold mb-2">Modalidad Sabatina</h3>
               <p className="text-muted-foreground">Introducción a la Programación</p>
             </div>
 
@@ -36,7 +36,7 @@ const ProximosIniciosSectionIntroduccion = () => {
               <div className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">Lunes a Jueves 8:00 PM - 10:00 PM</div>
+                  <div className="font-semibold">Sábados 9:00 AM - 2:00 PM</div>
                   <div className="text-sm text-muted-foreground">30 horas totales</div>
                 </div>
               </div>
@@ -44,8 +44,8 @@ const ProximosIniciosSectionIntroduccion = () => {
               <div className="flex items-center gap-3">
                 <Calendar className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">3 Nov - 26 Nov 2025</div>
-                  <div className="text-sm text-muted-foreground">4 semanas de duración</div>
+                  <div className="font-semibold">21 Mar - 25 Abr 2026</div>
+                  <div className="text-sm text-muted-foreground">6 semanas de duración</div>
                 </div>
               </div>
               
