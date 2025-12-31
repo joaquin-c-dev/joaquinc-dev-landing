@@ -58,7 +58,10 @@ const HomeHeroSection = () => {
               <Button 
                 size="lg"
                 className="relative bg-gradient-accent text-white text-lg px-8 py-6 transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
-                onClick={() => navigate('/java-desde-cero')}
+                onClick={() => {
+                  const section = document.querySelector('[data-section="courses"]');
+                  section?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 <Play className="w-5 h-5 mr-2" />
                 Explorar Cursos

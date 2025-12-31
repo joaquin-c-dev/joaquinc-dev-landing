@@ -53,7 +53,7 @@ const CoursesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
+    <section data-section="courses" className="py-20 bg-background relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-10"></div>
       
