@@ -18,6 +18,7 @@ import {
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import DiscountBanner from "@/components/DiscountBanner";
+import HeroSectionIntermedio from "@/components/HeroSectionIntermedio";
 import Footer from "@/components/Footer";
 import { useCountdown } from "@/contexts/CountdownContext";
 import { useBanner } from "@/contexts/BannerContext";
@@ -147,7 +148,9 @@ const JavaIntermedio = () => {
       <DiscountBanner />
       <Navigation />
       
-      <main className={`${shouldShowBanner ? 'pt-[104px]' : 'pt-16'}`}>
+      <HeroSectionIntermedio />
+      
+      <main>
         <section className="py-16 bg-course-dark relative overflow-hidden">
           {/* Background glow effects */}
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-tech-purple/5 rounded-full blur-3xl animate-pulse"></div>
@@ -157,42 +160,15 @@ const JavaIntermedio = () => {
           
           <div className="relative z-10 container mx-auto px-6">
             <div className="text-center mb-16">
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-                Java{" "}
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+                Temario del{" "}
                 <span className="bg-gradient-accent bg-clip-text text-transparent">
-                  Intermedio
+                  Curso
                 </span>
-              </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                Curso intermedio de 40 horas para llevar tus conocimientos de Java y Spring al siguiente nivel, creando aplicaciones backend robustas, seguras y listas para producción. 🚀
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                8 módulos con 40 horas de contenido práctico y proyectos reales
               </p>
-              
-              {/* Course Stats */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <Card className="border-primary/20 bg-background/50 backdrop-blur-sm">
-                  <CardContent className="pt-6 text-center">
-                    <Clock className="w-8 h-8 text-primary mx-auto mb-2" />
-                    <h3 className="font-semibold mb-1">Duración</h3>
-                    <p className="text-sm text-muted-foreground">40 horas</p>
-                  </CardContent>
-                </Card>
-                
-                <Card className="border-primary/20 bg-background/50 backdrop-blur-sm">
-                  <CardContent className="pt-6 text-center">
-                    <Boxes className="w-8 h-8 text-primary mx-auto mb-2" />
-                    <h3 className="font-semibold mb-1">Módulos</h3>
-                    <p className="text-sm text-muted-foreground">{curriculumModules.length} módulos</p>
-                  </CardContent>
-                </Card>
-                
-                <Card className="border-primary/20 bg-background/50 backdrop-blur-sm">
-                  <CardContent className="pt-6 text-center">
-                    <Code2 className="w-8 h-8 text-primary mx-auto mb-2" />
-                    <h3 className="font-semibold mb-1">Modalidad</h3>
-                    <p className="text-sm text-muted-foreground">100% Práctico</p>
-                  </CardContent>
-                </Card>
-              </div>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
