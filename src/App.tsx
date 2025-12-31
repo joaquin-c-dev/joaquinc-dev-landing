@@ -17,6 +17,7 @@ import IntroduccionProgramacion from "./pages/IntroduccionProgramacion";
 import GraciasPorTuCompra from "./pages/GraciasPorTuCompra";
 import JavaIntermedio from "./pages/JavaIntermedio";
 import JavaDesdeCero from "./pages/JavaDesdeCero";
+import TemarioJavaDesdeCero from "./pages/TemarioJavaDesdeCero";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
               <Route path="/temario" element={<Temario />} />
               <Route path="/java-intermedio" element={<JavaIntermedio />} />
               <Route path="/java-desde-cero" element={<JavaDesdeCero />} />
+              <Route path="/java-desde-cero/temario" element={<TemarioJavaDesdeCero />} />
               <Route path="/introduccion-programacion" element={<IntroduccionProgramacion />} />
               <Route path="/taller-poo" element={<TallerJava />} />
               <Route path="/acerca-de-mi" element={<AcercaDeMi />} />
