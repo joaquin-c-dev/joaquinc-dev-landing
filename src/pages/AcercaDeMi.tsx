@@ -1,8 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Building2, GraduationCap, Code, Users, Award, MapPin, Linkedin, ExternalLink, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Building2, GraduationCap, Code, Users, Award, MapPin, Linkedin, ExternalLink } from "lucide-react";
 import joaquinProfile from "@/assets/joaquin-profile.jpg";
 import Navigation from "@/components/Navigation";
 import DiscountBanner from "@/components/DiscountBanner";
@@ -91,16 +90,6 @@ const AcercaDeMi = () => {
           
           <div className="relative z-10 container mx-auto px-8 md:px-12 lg:px-16">
             <div className="max-w-6xl mx-auto">
-              {/* Back button */}
-              <div className="mb-8">
-                <Link to="/">
-                  <Button variant="ghost" className="hover:bg-primary/5 hover:text-current">
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    Volver al inicio
-                  </Button>
-                </Link>
-              </div>
-
               {/* Header */}
               <div className="text-center mb-16">
                 <div className="flex items-center gap-2 mb-6 justify-center">
