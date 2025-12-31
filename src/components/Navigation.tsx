@@ -74,11 +74,9 @@ const Navigation = () => {
     }
   };
 
-  const navItems = [
+  const navItems: { name: string; path: string; action?: string }[] = [
     { name: "Inicio", path: "/" },
-    { name: "Temario", path: "/temario" },
     { name: "Acerca de mí", path: "/acerca-de-mi" },
-    { name: "Precios", path: "/", action: "pricing" },
   ];
 
   const courseItems = [
