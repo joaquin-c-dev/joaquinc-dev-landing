@@ -197,9 +197,9 @@ const JavaIntermedio = () => {
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-                Temario del{" "}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  Curso
+                Java{" "}
+                <span className="bg-gradient-accent bg-clip-text text-transparent">
+                  Intermedio
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
