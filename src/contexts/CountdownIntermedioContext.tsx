@@ -16,7 +16,7 @@ interface CountdownContextType {
 export const CountdownIntermedioContext = createContext<CountdownContextType | undefined>(undefined);
 
 // Fixed end date for Java Intermedio - January 10, 2026 at 23:59:59 Mexico time (UTC-6)
-const END_DATE = new Date("2026-01-10T23:59:59-06:00").getTime();
+const END_DATE = new Date("2025-1-31T23:59:59-06:00").getTime();
 
 export const CountdownIntermedioProvider = ({ children }: { children: ReactNode }) => {
   const [timeLeft, setTimeLeft] = useState<CountdownState>({
@@ -61,7 +61,11 @@ export const CountdownIntermedioProvider = ({ children }: { children: ReactNode 
 
   const formatNumber = (num: number) => num.toString().padStart(2, "0");
 
-  return <CountdownIntermedioContext.Provider value={{ timeLeft, formatNumber }}>{children}</CountdownIntermedioContext.Provider>;
+  return (
+    <CountdownIntermedioContext.Provider value={{ timeLeft, formatNumber }}>
+      {children}
+    </CountdownIntermedioContext.Provider>
+  );
 };
 
 export const useCountdownIntermedio = () => {
