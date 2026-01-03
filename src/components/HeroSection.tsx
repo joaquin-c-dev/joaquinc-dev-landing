@@ -9,12 +9,15 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section data-section="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-32 md:pt-36 lg:pt-20 pb-20">
+    <section
+      data-section="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-32 md:pt-36 lg:pt-20 pb-20"
+    >
       {/* Background glow effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-course-blue/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      
+
       {/* Hero content */}
       <div className="relative z-10 container mx-auto px-4 md:px-10 lg:px-16 flex items-center justify-center w-full">
         <div className="w-full max-w-7xl mx-auto">
@@ -25,7 +28,7 @@ const HeroSection = () => {
               <div className="relative group w-full max-w-md md:max-w-lg lg:max-w-xl">
                 <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
                 <div className="relative bg-card/50 backdrop-blur-md border border-primary/20 rounded-2xl p-2 md:p-3 shadow-xl">
-                  <video 
+                  <video
                     className="w-full rounded-xl shadow-lg"
                     controls
                     autoPlay
@@ -34,7 +37,10 @@ const HeroSection = () => {
                     poster="https://res.cloudinary.com/joaquin-test/image/upload/v1756607596/Screenshot_at_Aug_30_20-32-46_qgh3zx.png"
                     preload="metadata"
                   >
-                    <source src="https://res.cloudinary.com/joaquin-test/video/upload/v1756623620/joaquin%20c.%20dev/java%20desde%20cero/GMT20250831-012428_Recording.cutfile.20250831065554802_1920x1080_fhlezz.mp4" type="video/mp4" />
+                    <source
+                      src="https://res.cloudinary.com/joaquin-test/video/upload/v1756623620/joaquin%20c.%20dev/java%20desde%20cero/GMT20250831-012428_Recording.cutfile.20250831065554802_1920x1080_fhlezz.mp4"
+                      type="video/mp4"
+                    />
                     Tu navegador no soporta el elemento de video.
                   </video>
                 </div>
@@ -45,23 +51,22 @@ const HeroSection = () => {
             <div className="space-y-4 md:space-y-6 lg:space-y-8 text-center lg:text-left order-1 lg:order-2">
               {/* Main title */}
               <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
-                <div>Aprende{" "}
-                <span className="bg-gradient-accent bg-clip-text text-transparent">
-                  Java
-                </span></div>
+                <div>
+                  Aprende <span className="bg-gradient-accent bg-clip-text text-transparent">Java</span>
+                </div>
                 <div>desde Cero</div>
               </h1>
-              
+
               {/* Description */}
               <p className="text-base lg:text-lg text-muted-foreground/90 leading-relaxed">
-                Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. 
-                Más de 9 años de experiencia en desarrollo backend me respaldan 
-                para guiarte en tiempo real en cada paso de tu carrera como developer.
+                Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. Más de 9 años de
+                experiencia en desarrollo backend me respaldan para guiarte en tiempo real en cada paso de tu carrera
+                como developer.
               </p>
 
               {/* Instructor info - subtle */}
               <div className="flex items-center justify-center lg:justify-start gap-3 opacity-70">
-                <img 
+                <img
                   src={joaquinProfile}
                   alt="Joaquín Coronado Ramírez"
                   className="w-8 h-8 rounded-full object-cover border border-primary/20"
@@ -70,9 +75,9 @@ const HeroSection = () => {
                   Con <span className="text-primary font-medium">Joaquín Coronado</span> • Head of Backend
                 </div>
               </div>
-              
+
               {/* IntelliJ Banner */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 animate-fade-in">
+              {/* <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 animate-fade-in">
                 <div className="flex items-center gap-2">
                   <Gift className="w-5 h-5 text-primary animate-pulse" />
                   <span className="text-sm sm:text-base font-medium">Incluye licencia gratis de</span>
@@ -87,26 +92,31 @@ const HeroSection = () => {
                     IntelliJ IDEA Ultimate
                   </span>
                 </div>
-              </div>
+              </div> */}
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <div className="group relative">
                   <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-                  <Button 
+                  <Button
                     size="lg"
                     className="relative bg-gradient-accent text-white text-base px-6 py-3 transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30 min-w-[180px] h-[48px]"
-                    onClick={() => window.open('https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO', '_blank')}
+                    onClick={() =>
+                      window.open(
+                        "https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO",
+                        "_blank",
+                      )
+                    }
                   >
                     <Zap className="w-5 h-5 mr-2" />
                     Inscribirme Ahora
                   </Button>
                 </div>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
+                <Button
+                  variant="outline"
+                  size="lg"
                   className="border-primary/30 hover:border-primary/50 text-base px-6 py-3 hover:bg-primary/5 hover:text-primary min-w-[180px] h-[48px]"
-                  onClick={() => navigate('/temario')}
+                  onClick={() => navigate("/temario")}
                 >
                   <Code className="w-5 h-5 mr-2" />
                   Ver Temario
