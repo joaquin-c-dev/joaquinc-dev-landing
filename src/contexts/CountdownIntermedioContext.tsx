@@ -16,7 +16,7 @@ interface CountdownContextType {
 export const CountdownIntermedioContext = createContext<CountdownContextType | undefined>(undefined);
 
 // Fixed end date for Java Intermedio - January 10, 2026 at 23:59:59 Mexico time (UTC-6)
-const END_DATE = new Date("2026-01-08T23:59:59-06:00").getTime();
+const END_DATE = new Date("2026-01-09T23:59:59-06:00").getTime();
 
 export const CountdownIntermedioProvider = ({ children }: { children: ReactNode }) => {
   const [timeLeft, setTimeLeft] = useState<CountdownState>({
