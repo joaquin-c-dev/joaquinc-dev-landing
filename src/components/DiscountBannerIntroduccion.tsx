@@ -1,78 +1,53 @@
-import { useEffect, useMemo, useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Clock, X } from "lucide-react";
-
-type CountdownState = {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-  isExpired: boolean;
-};
-
-const END_DATE = new Date("2026-01-10T23:59:59-06:00").getTime();
-
-function formatNumber(num: number) {
-  return num.toString().padStart(2, "0");
-}
-
-function getTimeLeft(): CountdownState {
-  const now = Date.now();
-  const diff = END_DATE - now;
-
-  if (diff <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0, isExpired: true };
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-  return { days, hours, minutes, seconds, isExpired: false };
-}
+import { X, Clock } from "lucide-react";
+import { useBanner } from "@/contexts/BannerContext";
+import { useCountdownIntroduccion } from "@/contexts/CountdownIntroduccionContext";
 
 const DiscountBannerIntroduccion = () => {
-  const [isDismissed, setIsDismissed] = useState(false);
+  const { isBannerVisible, dismissBanner, setBannerVisible } = useBanner();
+  const { timeLeft, formatNumber } = useCountdownIntroduccion();
   const [isHiddenByScroll, setIsHiddenByScroll] = useState(false);
-  const [timeLeft, setTimeLeft] = useState<CountdownState>(() => getTimeLeft());
-
-  useEffect(() => {
-    const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const pricingSection = document.querySelector('section[data-section="pricing"]');
-      if (!pricingSection) {
+      if (pricingSection) {
+        const rect = pricingSection.getBoundingClientRect();
+        const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
+        setIsHiddenByScroll(isInView);
+        setBannerVisible(!isInView);
+      } else {
         setIsHiddenByScroll(false);
-        return;
+        setBannerVisible(true);
       }
-
-      const rect = pricingSection.getBoundingClientRect();
-      const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
-      setIsHiddenByScroll(isInView);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const countdownLabel = useMemo(() => {
-    if (timeLeft.isExpired) return "";
-    const daysPart = timeLeft.days > 0 ? `${formatNumber(timeLeft.days)}d ` : "";
-    return `${daysPart}${formatNumber(timeLeft.hours)}h ${formatNumber(timeLeft.minutes)}min ${formatNumber(timeLeft.seconds)}s`;
-  }, [timeLeft]);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [setBannerVisible]);
 
   const scrollToPricing = () => {
     const pricingSection = document.querySelector('section[data-section="pricing"]');
-    pricingSection?.scrollIntoView({ behavior: "smooth" });
+    pricingSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const dismissBannerHandler = () => {
+    dismissBanner();
+  };
+
+  // Generate countdown label
+  const countdownLabel = (() => {
+    if (timeLeft.isExpired) return "";
+    const daysPart = timeLeft.days > 0 ? `${formatNumber(timeLeft.days)}d ` : "";
+    return `${daysPart}${formatNumber(timeLeft.hours)}h ${formatNumber(timeLeft.minutes)}min ${formatNumber(timeLeft.seconds)}s`;
+  })();
+
+  // Hide banner if discount is expired
   if (timeLeft.isExpired) return null;
-  if (isDismissed || isHiddenByScroll) return null;
+
+  if (!isBannerVisible || isHiddenByScroll) return null;
 
   return (
     <div data-banner="discount" className="fixed top-0 left-0 right-0 z-50 bg-gradient-accent overflow-hidden">
@@ -102,7 +77,7 @@ const DiscountBannerIntroduccion = () => {
               <span className="text-white font-mono font-bold text-xs drop-shadow-sm">⏰ {countdownLabel}</span>
             </div>
             <Button
-              onClick={() => setIsDismissed(true)}
+              onClick={dismissBannerHandler}
               size="sm"
               variant="ghost"
               className="text-white/80 hover:text-white hover:bg-white/20 p-1"
@@ -134,7 +109,7 @@ const DiscountBannerIntroduccion = () => {
               </div>
 
               <Button
-                onClick={() => setIsDismissed(true)}
+                onClick={dismissBannerHandler}
                 size="sm"
                 variant="ghost"
                 className="text-white/80 hover:text-white hover:bg-white/20 p-0.5"
