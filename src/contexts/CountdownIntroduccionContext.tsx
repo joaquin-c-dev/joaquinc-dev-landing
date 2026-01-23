@@ -16,7 +16,7 @@ interface CountdownContextType {
 export const CountdownIntroduccionContext = createContext<CountdownContextType | undefined>(undefined);
 
 // Fixed end date for Introducción a la Programación - February 28, 2026 at 23:59:59 Mexico time (UTC-6)
-const END_DATE = new Date("2025-02-28T23:59:59-06:00").getTime();
+const END_DATE = new Date("2026-02-01T23:59:59-06:00").getTime();
 
 export const CountdownIntroduccionProvider = ({ children }: { children: ReactNode }) => {
   const [timeLeft, setTimeLeft] = useState<CountdownState>({
