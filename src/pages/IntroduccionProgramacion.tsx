@@ -6,22 +6,19 @@ import CurriculumSectionIntroduccion from "@/components/CurriculumSectionIntrodu
 import ProximosIniciosSectionIntroduccion from "@/components/ProximosIniciosSectionIntroduccion";
 import PricingSectionIntroduccion from "@/components/PricingSectionIntroduccion";
 import PrerequisitosIntroduccion from "@/components/PrerequisitosIntroduccion";
-import { CountdownIntroduccionProvider } from "@/contexts/CountdownIntroduccionContext";
 
 const IntroduccionProgramacion = () => {
   return (
-    <CountdownIntroduccionProvider>
-      <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5">
-        <DiscountBannerIntroduccion />
-        <Navigation />
-        <HeroSectionIntroduccion />
-        <CurriculumSectionIntroduccion />
-        <PrerequisitosIntroduccion />
-        <ProximosIniciosSectionIntroduccion />
-        <PricingSectionIntroduccion />
-        <Footer />
-      </div>
-    </CountdownIntroduccionProvider>
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5">
+      <DiscountBannerIntroduccion />
+      <Navigation />
+      <HeroSectionIntroduccion />
+      <CurriculumSectionIntroduccion />
+      <PrerequisitosIntroduccion />
+      <ProximosIniciosSectionIntroduccion />
+      <PricingSectionIntroduccion />
+      <Footer />
+    </div>
   );
 };
 
