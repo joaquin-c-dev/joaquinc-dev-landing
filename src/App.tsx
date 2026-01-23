@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CountdownProvider } from "@/contexts/CountdownContext";
+import { CountdownIntroduccionProvider } from "@/contexts/CountdownIntroduccionContext";
 import { BannerProvider } from "@/contexts/BannerContext";
 import ScrollToTop from "@/components/ScrollToTop";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -24,6 +25,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <BannerProvider>
       <CountdownProvider>
+        <CountdownIntroduccionProvider>
         <TooltipProvider>
           <Toaster />
           <Sonner />
@@ -45,6 +47,7 @@ const App = () => (
             <WhatsAppButton />
           </BrowserRouter>
         </TooltipProvider>
+        </CountdownIntroduccionProvider>
       </CountdownProvider>
     </BannerProvider>
   </QueryClientProvider>
