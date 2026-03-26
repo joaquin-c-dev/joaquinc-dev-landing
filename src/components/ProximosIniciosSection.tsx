@@ -39,8 +39,8 @@ const ProximosIniciosSection = () => {
               <div className="flex items-center gap-3">
                 <Calendar className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">16 May - 11 Jul 2026</div>
-                  <div className="text-sm text-muted-foreground">8 semanas de duración (sin clase el 30 de mayo)</div>
+                  <div className="font-semibold">13 Jun - 1 Ago 2026</div>
+                  <div className="text-sm text-muted-foreground">8 semanas de duración</div>
                 </div>
               </div>
               
