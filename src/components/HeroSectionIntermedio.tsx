@@ -75,7 +75,7 @@ const HeroSectionIntermedio = () => {
                 </div>
               </div>
               
-              {/* IntelliJ Banner */}
+              {/* IntelliJ Banner - TEMPORARILY DISABLED
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in">
                 <div className="flex items-center gap-2">
                   <Gift className="w-5 h-5 text-primary animate-pulse" />
@@ -92,6 +92,7 @@ const HeroSectionIntermedio = () => {
                   </span>
                 </div>
               </div>
+              */}
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
