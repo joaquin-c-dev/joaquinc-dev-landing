@@ -58,14 +58,14 @@ const curriculumModules = [
   },
   {
     icon: Layers,
-    title: "Programación Orientada a Aspectos (AOP)",
+    title: "Introducción a Spring Boot",
     duration: "5 hrs",
     topics: [
-      "¿Qué es AOP y cuándo usarlo?",
-      "Creación de aspectos con Spring AOP",
-      "Pointcuts, advice y join points",
-      "Manejo de logs, validaciones y métricas con AOP",
-      "Casos de uso reales en aplicaciones backend"
+      "¿Qué es Spring y Spring Boot?",
+      "Configuración de un proyecto con Spring Initializr",
+      "Estructura de un proyecto Spring Boot",
+      "Creación de controllers REST básicos",
+      "Inyección de dependencias (Dependency Injection)"
     ],
     color: "tech-blue"
   },
