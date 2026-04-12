@@ -62,10 +62,10 @@ const curriculumModules = [
     duration: "5 hrs",
     topics: [
       "¿Qué es Spring y Spring Boot?",
+      "Conceptos previos a Spring",
       "Inyección de dependencias y el contenedor IoC",
-      "Programación orientada a aspectos (AOP) en Spring",
       "Configuración de un proyecto con Spring Initializr",
-      "Creación de controllers REST con Spring Boot"
+      "Dependencias starter de Spring Boot"
     ],
     color: "tech-blue"
   },
