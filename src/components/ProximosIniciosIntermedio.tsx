@@ -46,7 +46,7 @@ const ProximosIniciosIntermedio = () => {
                 <div>
                   <div className="font-semibold">18 Abr 2026 - 20 Jun 2026</div>
                   <div className="text-sm text-muted-foreground">8 semanas de duración</div>
-                  <div className="text-sm text-yellow-500 mt-1">⚠️ No hay clases: 2 Mayo y 30 Mayo</div>
+                  <div className="text-sm text-[hsl(var(--urgency-red))] mt-1">⚠️ No hay clases: 2 Mayo y 30 Mayo</div>
                 </div>
               </div>
               
