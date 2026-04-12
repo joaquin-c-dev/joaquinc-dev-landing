@@ -58,7 +58,7 @@ const curriculumModules = [
   },
   {
     icon: Layers,
-    title: "Introducción a Spring Boot",
+    title: "Introducción a Spring y Spring Boot",
     duration: "5 hrs",
     topics: [
       "¿Qué es Spring y Spring Boot?",
