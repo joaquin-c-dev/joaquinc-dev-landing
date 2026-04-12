@@ -44,8 +44,9 @@ const ProximosIniciosIntermedio = () => {
               <div className="flex items-center gap-3">
                 <Calendar className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">10 Ene 2026 - 28 Feb 2026</div>
+                  <div className="font-semibold">18 Abr 2026 - 20 Jun 2026</div>
                   <div className="text-sm text-muted-foreground">8 semanas de duración</div>
+                  <div className="text-sm text-[hsl(var(--urgency-red))] mt-1">⚠️ No hay clases: 2 Mayo y 30 Mayo</div>
                 </div>
               </div>
               
