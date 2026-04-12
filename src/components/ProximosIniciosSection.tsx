@@ -41,7 +41,7 @@ const ProximosIniciosSection = () => {
                 <div>
                   <div className="font-semibold">5 Sep - 30 Nov 2026</div>
                   <div className="text-sm text-muted-foreground">8 semanas de duración</div>
-                  <div className="text-sm text-orange-500 font-medium">14 Nov - No hay clase</div>
+                  <div className="text-sm text-accent font-medium">14 Nov - No hay clase</div>
                 </div>
               </div>
               
