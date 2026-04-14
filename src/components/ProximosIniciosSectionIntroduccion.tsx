@@ -21,8 +21,45 @@ const ProximosIniciosSectionIntroduccion = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-6">
-          {/* Modalidad Sabatina */}
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+          {/* Modalidad Sabatina - Mayo */}
+          <Card className="p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300">
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Calendar className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Modalidad Sabatina</h3>
+              <p className="text-muted-foreground">Introducción a la Programación</p>
+            </div>
+
+            <div className="space-y-4 mb-6">
+              <div className="flex items-center gap-3">
+                <Clock className="w-5 h-5 text-primary flex-shrink-0" />
+                <div>
+                  <div className="font-semibold">Sábados 9:00 AM - 2:00 PM</div>
+                  <div className="text-sm text-muted-foreground">30 horas totales</div>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <Calendar className="w-5 h-5 text-primary flex-shrink-0" />
+                <div>
+                  <div className="font-semibold">25 May - 30 May 2026</div>
+                  <div className="text-sm text-muted-foreground">6 semanas de duración</div>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <BookOpen className="w-5 h-5 text-primary flex-shrink-0" />
+                <div>
+                  <div className="font-semibold">Clases en vivo</div>
+                  <div className="text-sm text-muted-foreground">Con grabaciones incluidas</div>
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          {/* Modalidad Sabatina - Julio */}
           <Card className="p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300">
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
