@@ -15,8 +15,8 @@ interface CountdownContextType {
 
 export const CountdownIntermedioContext = createContext<CountdownContextType | undefined>(undefined);
 
-// 24-hour promotion end date - April 13, 2026 at 23:59:59 Mexico time (UTC-6)
-const END_DATE = new Date("2026-04-13T23:59:59-06:00").getTime();
+// Promotion extended through Saturday April 18, 2026 at 23:59:59 Mexico time (UTC-6)
+const END_DATE = new Date("2026-04-18T23:59:59-06:00").getTime();
 
 export const CountdownIntermedioProvider = ({ children }: { children: ReactNode }) => {
   const [timeLeft, setTimeLeft] = useState<CountdownState>({
