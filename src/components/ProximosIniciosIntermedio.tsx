@@ -8,7 +8,7 @@ const ProximosIniciosIntermedio = () => {
       <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
       <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-tech-purple/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      
+
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -17,7 +17,8 @@ const ProximosIniciosIntermedio = () => {
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Elige la modalidad que mejor se adapte a tu horario y lleva tu carrera al siguiente nivel
+            Elige la modalidad que mejor se adapte a tu horario y lleva tu
+            carrera al siguiente nivel
           </p>
         </div>
 
@@ -37,24 +38,32 @@ const ProximosIniciosIntermedio = () => {
                 <Clock className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
                   <div className="font-semibold">Sábados 9:00 AM - 2:00 PM</div>
-                  <div className="text-sm text-muted-foreground">40 horas totales</div>
+                  <div className="text-sm text-muted-foreground">
+                    40 horas totales
+                  </div>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <Calendar className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">18 Abr 2026 - 20 Jun 2026</div>
-                  <div className="text-sm text-muted-foreground">8 semanas de duración</div>
-                  <div className="text-sm text-[hsl(var(--urgency-red))] mt-1">⚠️ No hay clases: 2 Mayo y 30 Mayo</div>
+                  <div className="font-semibold">25 Abr 2026 - 27 Jun 2026</div>
+                  <div className="text-sm text-muted-foreground">
+                    8 semanas de duración
+                  </div>
+                  <div className="text-sm text-[hsl(var(--urgency-red))] mt-1">
+                    ⚠️ No hay clases: 2 Mayo y 30 Mayo
+                  </div>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <BookOpen className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
                   <div className="font-semibold">Clases en vivo</div>
-                  <div className="text-sm text-muted-foreground">Con grabaciones incluidas</div>
+                  <div className="text-sm text-muted-foreground">
+                    Con grabaciones incluidas
+                  </div>
                 </div>
               </div>
             </div>
