@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
 interface CountdownState {
   days: number;
@@ -13,12 +19,18 @@ interface CountdownContextType {
   formatNumber: (num: number) => string;
 }
 
-export const CountdownIntermedioContext = createContext<CountdownContextType | undefined>(undefined);
+export const CountdownIntermedioContext = createContext<
+  CountdownContextType | undefined
+>(undefined);
 
 // Promotion extended through Saturday April 18, 2026 at 23:59:59 Mexico time (UTC-6)
-const END_DATE = new Date("2026-04-18T23:59:59-06:00").getTime();
+const END_DATE = new Date("2026-04-20T23:59:59-06:00").getTime();
 
-export const CountdownIntermedioProvider = ({ children }: { children: ReactNode }) => {
+export const CountdownIntermedioProvider = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
   const [timeLeft, setTimeLeft] = useState<CountdownState>({
     days: 0,
     hours: 0,
@@ -34,8 +46,12 @@ export const CountdownIntermedioProvider = ({ children }: { children: ReactNode 
 
       if (difference > 0) {
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const hours = Math.floor(
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const minutes = Math.floor(
+          (difference % (1000 * 60 * 60)) / (1000 * 60),
+        );
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
         setTimeLeft({
@@ -46,7 +62,13 @@ export const CountdownIntermedioProvider = ({ children }: { children: ReactNode 
           isExpired: false,
         });
       } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, isExpired: true });
+        setTimeLeft({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+          isExpired: true,
+        });
       }
     };
 
@@ -71,7 +93,9 @@ export const CountdownIntermedioProvider = ({ children }: { children: ReactNode 
 export const useCountdownIntermedio = () => {
   const context = useContext(CountdownIntermedioContext);
   if (context === undefined) {
-    throw new Error("useCountdownIntermedio must be used within a CountdownIntermedioProvider");
+    throw new Error(
+      "useCountdownIntermedio must be used within a CountdownIntermedioProvider",
+    );
   }
   return context;
 };
