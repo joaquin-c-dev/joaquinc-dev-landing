@@ -21,12 +21,18 @@ const PricingSectionIntermedio = () => {
 
   const handleContinueToPayment = () => {
     setShowPaymentModal(false);
-    window.open("https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05", "_blank");
+    window.open(
+      "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?client_reference_id=69e4199d168fb564dd8e7a78",
+      "_blank",
+    );
   };
 
   const handleContinueToRecommendedPayment = () => {
     setShowRecommendedModal(false);
-    window.open("https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?prefilled_promo_code=INTERMEDIO", "_blank");
+    window.open(
+      "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?prefilled_promo_code=INTERMEDIO&client_reference_id=69e4199d168fb564dd8e7a78",
+      "_blank",
+    );
   };
 
   return (
@@ -42,10 +48,15 @@ const PricingSectionIntermedio = () => {
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Elige el <span className="bg-gradient-accent bg-clip-text text-transparent">Plan Perfecto</span> para Ti
+            Elige el{" "}
+            <span className="bg-gradient-accent bg-clip-text text-transparent">
+              Plan Perfecto
+            </span>{" "}
+            para Ti
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Diferentes opciones de pago para que puedas llevar tu carrera de Java al siguiente nivel
+            Diferentes opciones de pago para que puedas llevar tu carrera de
+            Java al siguiente nivel
           </p>
         </div>
 
@@ -64,8 +75,12 @@ const PricingSectionIntermedio = () => {
             <div className="text-center flex-grow flex flex-col pt-2">
               <div className="mb-4">
                 <Clock className="w-8 h-8 mx-auto mb-2 text-tech-cyan" />
-                <h3 className="text-xl font-bold text-foreground">Sin tarjeta</h3>
-                <p className="text-sm text-muted-foreground">Dos pagos cómodos</p>
+                <h3 className="text-xl font-bold text-foreground">
+                  Sin tarjeta
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Dos pagos cómodos
+                </p>
               </div>
 
               {/* Price */}
@@ -73,15 +88,26 @@ const PricingSectionIntermedio = () => {
                 {isDiscountActive ? (
                   <>
                     <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
-                      <span className="text-sm text-muted-foreground/60 line-through">$8,500</span>
-                      $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                      <span className="text-sm text-muted-foreground/60 line-through">
+                        $8,500
+                      </span>
+                      $6,500{" "}
+                      <span className="text-sm font-normal text-muted-foreground">
+                        MXN
+                      </span>
                     </div>
-                    <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
-                    <div className="text-xl font-semibold text-white mb-1">$3,250 x 2 pagos</div>
+                    <div className="text-sm text-green-400 mb-1">
+                      Ahorras $2,000
+                    </div>
+                    <div className="text-xl font-semibold text-white mb-1">
+                      $3,250 x 2 pagos
+                    </div>
 
                     {/* Countdown Timer */}
                     <div className="mt-3 mb-1 p-2 bg-orange-500/10 border border-orange-500/20 rounded-lg">
-                      <div className="text-xs text-orange-400 font-medium mb-1">⏰ Descuento termina en:</div>
+                      <div className="text-xs text-orange-400 font-medium mb-1">
+                        ⏰ Descuento termina en:
+                      </div>
                       <div className="flex justify-center gap-1 text-xs">
                         <div className="bg-orange-500/20 px-1.5 py-0.5 rounded text-orange-300 font-mono">
                           {timeLeft.days.toString().padStart(2, "0")}d
@@ -101,9 +127,14 @@ const PricingSectionIntermedio = () => {
                 ) : (
                   <>
                     <div className="text-2xl font-bold text-white mb-1">
-                      $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                      $8,500{" "}
+                      <span className="text-sm font-normal text-muted-foreground">
+                        MXN
+                      </span>
                     </div>
-                    <div className="text-xl font-semibold text-white mb-1">$4,250 x 2 pagos</div>
+                    <div className="text-xl font-semibold text-white mb-1">
+                      $4,250 x 2 pagos
+                    </div>
                   </>
                 )}
               </div>
@@ -116,7 +147,9 @@ const PricingSectionIntermedio = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">No necesitas tarjeta de crédito</span>
+                  <span className="text-sm">
+                    No necesitas tarjeta de crédito
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
@@ -143,7 +176,10 @@ const PricingSectionIntermedio = () => {
                   const message = isDiscountActive
                     ? "Hola%2C%20me%20interesa%20el%20plan%20sin%20tarjeta%20del%20curso%20de%20Java%20Intermedio.%20Por%20favor%20envíame%20los%20datos%20bancarios%20para%20realizar%20la%20transferencia%20del%20primer%20pago%20de%20%243%2C250%20MXN."
                     : "Hola%2C%20me%20interesa%20el%20plan%20sin%20tarjeta%20del%20curso%20de%20Java%20Intermedio.%20Por%20favor%20envíame%20los%20datos%20bancarios%20para%20realizar%20la%20transferencia%20del%20primer%20pago%20de%20%244%2C250%20MXN.";
-                  window.open(`https://wa.me/5213331071527?text=${message}`, "_blank");
+                  window.open(
+                    `https://wa.me/5213331071527?text=${message}`,
+                    "_blank",
+                  );
                 }}
               >
                 Hacer pago sin tarjeta
@@ -173,23 +209,40 @@ const PricingSectionIntermedio = () => {
               <div className="text-center flex-grow flex flex-col pt-6">
                 <div className="mb-4">
                   <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
-                  <h3 className="text-xl font-bold text-foreground">Preferente</h3>
-                  <p className="text-sm text-muted-foreground">Hasta 12 meses sin intereses</p>
+                  <h3 className="text-xl font-bold text-foreground">
+                    Preferente
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Hasta 12 meses sin intereses
+                  </p>
                 </div>
 
                 {/* Price */}
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
-                    <span className="text-sm text-muted-foreground/60 line-through">$8,500</span>
-                    $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                    <span className="text-sm text-muted-foreground/60 line-through">
+                      $8,500
+                    </span>
+                    $6,500{" "}
+                    <span className="text-sm font-normal text-muted-foreground">
+                      MXN
+                    </span>
                   </div>
-                  <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
-                  <div className="text-xl font-semibold text-white mb-1">Desde $542 / mes x 12 meses</div>
-                  <div className="text-sm text-muted-foreground mb-1">Sin intereses con tarjeta</div>
+                  <div className="text-sm text-green-400 mb-1">
+                    Ahorras $2,000
+                  </div>
+                  <div className="text-xl font-semibold text-white mb-1">
+                    Desde $542 / mes x 12 meses
+                  </div>
+                  <div className="text-sm text-muted-foreground mb-1">
+                    Sin intereses con tarjeta
+                  </div>
 
                   {/* Countdown Timer */}
                   <div className="mt-3 mb-1 p-2 bg-orange-500/10 border border-orange-500/20 rounded-lg">
-                    <div className="text-xs text-orange-400 font-medium mb-1">⏰ Descuento termina en:</div>
+                    <div className="text-xs text-orange-400 font-medium mb-1">
+                      ⏰ Descuento termina en:
+                    </div>
                     <div className="flex justify-center gap-1 text-xs">
                       <div className="bg-orange-500/20 px-1.5 py-0.5 rounded text-orange-300 font-mono">
                         {timeLeft.days.toString().padStart(2, "0")}d
@@ -210,23 +263,33 @@ const PricingSectionIntermedio = () => {
                 <ul className="space-y-3 mb-6 text-left flex-grow">
                   <li className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm text-foreground">Hasta 12 meses sin intereses</span>
+                    <span className="text-sm text-foreground">
+                      Hasta 12 meses sin intereses
+                    </span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm text-foreground">Acceso completo al curso</span>
+                    <span className="text-sm text-foreground">
+                      Acceso completo al curso
+                    </span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm text-foreground">Grabaciones incluidas</span>
+                    <span className="text-sm text-foreground">
+                      Grabaciones incluidas
+                    </span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm text-foreground">Material bibliográfico</span>
+                    <span className="text-sm text-foreground">
+                      Material bibliográfico
+                    </span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm text-foreground">Código del proyecto final</span>
+                    <span className="text-sm text-foreground">
+                      Código del proyecto final
+                    </span>
                   </li>
                 </ul>
 
@@ -252,18 +315,26 @@ const PricingSectionIntermedio = () => {
               <div className="text-center flex-grow flex flex-col">
                 <div className="mb-4">
                   <Clock className="w-8 h-8 mx-auto mb-2 text-tech-purple" />
-                  <h3 className="text-xl font-bold text-foreground">Flexible</h3>
+                  <h3 className="text-xl font-bold text-foreground">
+                    Flexible
+                  </h3>
                   <p className="text-sm text-muted-foreground">
-                    Hasta 24 meses <span className="text-muted-foreground">sin intereses</span>
+                    Hasta 24 meses{" "}
+                    <span className="text-muted-foreground">sin intereses</span>
                   </p>
                 </div>
 
                 {/* Price */}
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-white mb-1">
-                    $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                    $8,500{" "}
+                    <span className="text-sm font-normal text-muted-foreground">
+                      MXN
+                    </span>
                   </div>
-                  <div className="text-xl font-semibold text-white mb-1">Desde $354 / mes</div>
+                  <div className="text-xl font-semibold text-white mb-1">
+                    Desde $354 / mes
+                  </div>
                 </div>
 
                 {/* Features */}
@@ -315,18 +386,26 @@ const PricingSectionIntermedio = () => {
               <div className="text-center flex-grow flex flex-col">
                 <div className="mb-4">
                   <Clock className="w-8 h-8 mx-auto mb-2 text-tech-purple" />
-                  <h3 className="text-xl font-bold text-foreground">Flexible</h3>
+                  <h3 className="text-xl font-bold text-foreground">
+                    Flexible
+                  </h3>
                   <p className="text-sm text-muted-foreground">
-                    Hasta 24 meses <span className="text-muted-foreground">sin intereses</span>
+                    Hasta 24 meses{" "}
+                    <span className="text-muted-foreground">sin intereses</span>
                   </p>
                 </div>
 
                 {/* Price */}
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-white mb-1">
-                    $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                    $8,500{" "}
+                    <span className="text-sm font-normal text-muted-foreground">
+                      MXN
+                    </span>
                   </div>
-                  <div className="text-xl font-semibold text-white mb-1">Desde $354 / mes</div>
+                  <div className="text-xl font-semibold text-white mb-1">
+                    Desde $354 / mes
+                  </div>
                 </div>
 
                 {/* Features */}
@@ -376,41 +455,61 @@ const PricingSectionIntermedio = () => {
               <div className="text-center flex-grow flex flex-col">
                 <div className="mb-4">
                   <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
-                  <h3 className="text-xl font-bold text-foreground">Preferente</h3>
+                  <h3 className="text-xl font-bold text-foreground">
+                    Preferente
+                  </h3>
                 </div>
 
                 {/* Price */}
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-white mb-1">
-                    $8,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                    $8,500{" "}
+                    <span className="text-sm font-normal text-muted-foreground">
+                      MXN
+                    </span>
                   </div>
-                  <div className="text-xl font-semibold text-white mb-1">Precio completo</div>
+                  <div className="text-xl font-semibold text-white mb-1">
+                    Precio completo
+                  </div>
                 </div>
 
                 {/* Features */}
                 <ul className="space-y-3 mb-6 text-left flex-grow">
                   <li className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm text-foreground">Acceso completo al curso</span>
+                    <span className="text-sm text-foreground">
+                      Acceso completo al curso
+                    </span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm text-foreground">Grabaciones incluidas</span>
+                    <span className="text-sm text-foreground">
+                      Grabaciones incluidas
+                    </span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm text-foreground">Material bibliográfico</span>
+                    <span className="text-sm text-foreground">
+                      Material bibliográfico
+                    </span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm text-foreground">Código del proyecto final</span>
+                    <span className="text-sm text-foreground">
+                      Código del proyecto final
+                    </span>
                   </li>
                 </ul>
 
                 <Button
                   variant="outline"
                   className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
-                  onClick={() => window.open("https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05", "_blank")}
+                  onClick={() =>
+                    window.open(
+                      "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?client_reference_id=69e4199d168fb564dd8e7a78",
+                      "_blank",
+                    )
+                  }
                 >
                   Hacer pago preferente
                 </Button>
@@ -421,7 +520,10 @@ const PricingSectionIntermedio = () => {
 
         {/* Bottom info */}
         <div className="text-center mt-8 text-sm text-muted-foreground">
-          <p>💳 Aceptamos todas las tarjetas • 🔒 Pago 100% seguro • 🎯 Garantía de satisfacción</p>
+          <p>
+            💳 Aceptamos todas las tarjetas • 🔒 Pago 100% seguro • 🎯 Garantía
+            de satisfacción
+          </p>
         </div>
       </div>
 
