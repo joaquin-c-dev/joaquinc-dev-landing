@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
 interface CountdownState {
   days: number;
@@ -13,12 +19,18 @@ interface CountdownContextType {
   formatNumber: (num: number) => string;
 }
 
-export const CountdownIntroduccionContext = createContext<CountdownContextType | undefined>(undefined);
+export const CountdownIntroduccionContext = createContext<
+  CountdownContextType | undefined
+>(undefined);
 
 // Fixed end date for Introducción a la Programación - February 28, 2026 at 23:59:59 Mexico time (UTC-6)
-const END_DATE = new Date("2026-02-01T23:59:59-06:00").getTime();
+const END_DATE = new Date("2026-04-20T23:59:59-06:00").getTime();
 
-export const CountdownIntroduccionProvider = ({ children }: { children: ReactNode }) => {
+export const CountdownIntroduccionProvider = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
   const [timeLeft, setTimeLeft] = useState<CountdownState>({
     days: 0,
     hours: 0,
@@ -34,8 +46,12 @@ export const CountdownIntroduccionProvider = ({ children }: { children: ReactNod
 
       if (difference > 0) {
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const hours = Math.floor(
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const minutes = Math.floor(
+          (difference % (1000 * 60 * 60)) / (1000 * 60),
+        );
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
         setTimeLeft({
@@ -46,7 +62,13 @@ export const CountdownIntroduccionProvider = ({ children }: { children: ReactNod
           isExpired: false,
         });
       } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, isExpired: true });
+        setTimeLeft({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+          isExpired: true,
+        });
       }
     };
 
@@ -71,7 +93,9 @@ export const CountdownIntroduccionProvider = ({ children }: { children: ReactNod
 export const useCountdownIntroduccion = () => {
   const context = useContext(CountdownIntroduccionContext);
   if (context === undefined) {
-    throw new Error("useCountdownIntroduccion must be used within a CountdownIntroduccionProvider");
+    throw new Error(
+      "useCountdownIntroduccion must be used within a CountdownIntroduccionProvider",
+    );
   }
   return context;
 };
