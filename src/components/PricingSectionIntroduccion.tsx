@@ -21,12 +21,18 @@ const PricingSectionIntroduccion = () => {
 
   const handleContinueToPayment = () => {
     setShowPaymentModal(false);
-    window.open("https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04", "_blank");
+    window.open(
+      "https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04?client_reference_id=69e702bf846b18f8c93221bb",
+      "_blank",
+    );
   };
 
   const handleContinueToRecommendedPayment = () => {
     setShowRecommendedModal(false);
-    window.open("https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04?prefilled_promo_code=INTRO", "_blank");
+    window.open(
+      "https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04?prefilled_promo_code=INTRO&client_reference_id=69e702bf846b18f8c93221bb",
+      "_blank",
+    );
   };
 
   return (
@@ -42,10 +48,15 @@ const PricingSectionIntroduccion = () => {
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Elige el <span className="bg-gradient-accent bg-clip-text text-transparent">Plan Perfecto</span> para Ti
+            Elige el{" "}
+            <span className="bg-gradient-accent bg-clip-text text-transparent">
+              Plan Perfecto
+            </span>{" "}
+            para Ti
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Diferentes opciones de pago para que puedas comenzar tu camino en la programación
+            Diferentes opciones de pago para que puedas comenzar tu camino en la
+            programación
           </p>
         </div>
 
@@ -64,8 +75,12 @@ const PricingSectionIntroduccion = () => {
             <div className="text-center flex-grow flex flex-col pt-2">
               <div className="mb-4">
                 <Clock className="w-8 h-8 mx-auto mb-2 text-tech-cyan" />
-                <h3 className="text-xl font-bold text-foreground">Sin tarjeta</h3>
-                <p className="text-sm text-muted-foreground">Dos pagos cómodos</p>
+                <h3 className="text-xl font-bold text-foreground">
+                  Sin tarjeta
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Dos pagos cómodos
+                </p>
               </div>
 
               {/* Price */}
@@ -73,18 +88,32 @@ const PricingSectionIntroduccion = () => {
                 {isDiscountActive ? (
                   <>
                     <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
-                      <span className="text-sm text-muted-foreground/60 line-through">$6,500</span>
-                      $4,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                      <span className="text-sm text-muted-foreground/60 line-through">
+                        $6,500
+                      </span>
+                      $4,500{" "}
+                      <span className="text-sm font-normal text-muted-foreground">
+                        MXN
+                      </span>
                     </div>
-                    <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
-                    <div className="text-xl font-semibold text-white mb-1">$2,250 x 2 pagos</div>
+                    <div className="text-sm text-green-400 mb-1">
+                      Ahorras $2,000
+                    </div>
+                    <div className="text-xl font-semibold text-white mb-1">
+                      $2,250 x 2 pagos
+                    </div>
                   </>
                 ) : (
                   <>
                     <div className="text-2xl font-bold text-white mb-1">
-                      $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                      $6,500{" "}
+                      <span className="text-sm font-normal text-muted-foreground">
+                        MXN
+                      </span>
                     </div>
-                    <div className="text-xl font-semibold text-white mb-1">$3,250 x 2 pagos</div>
+                    <div className="text-xl font-semibold text-white mb-1">
+                      $3,250 x 2 pagos
+                    </div>
                   </>
                 )}
               </div>
@@ -97,7 +126,9 @@ const PricingSectionIntroduccion = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">No necesitas tarjeta de crédito</span>
+                  <span className="text-sm">
+                    No necesitas tarjeta de crédito
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
@@ -123,7 +154,10 @@ const PricingSectionIntroduccion = () => {
                 onClick={() => {
                   const price = isDiscountActive ? "$2,250" : "$3,250";
                   const message = `Hola%2C%20me%20interesa%20el%20plan%20sin%20tarjeta%20del%20curso%20de%20Introducción%20a%20la%20Programación.%20Por%20favor%20envíame%20los%20datos%20bancarios%20para%20realizar%20la%20transferencia%20del%20primer%20pago%20de%20${price}%20MXN.`;
-                  window.open(`https://wa.me/5213331071527?text=${message}`, "_blank");
+                  window.open(
+                    `https://wa.me/5213331071527?text=${message}`,
+                    "_blank",
+                  );
                 }}
               >
                 Hacer pago sin tarjeta
@@ -153,9 +187,13 @@ const PricingSectionIntroduccion = () => {
             <div className="text-center flex-grow flex flex-col pt-6">
               <div className="mb-4">
                 <Zap className="w-8 h-8 mx-auto mb-2 text-primary" />
-                <h3 className="text-xl font-bold text-foreground">Preferente</h3>
+                <h3 className="text-xl font-bold text-foreground">
+                  Preferente
+                </h3>
                 <p className="text-sm text-muted-foreground">
-                  {isDiscountActive ? "Pago único con descuento" : "Hasta 12 meses sin intereses"}
+                  {isDiscountActive
+                    ? "Pago único con descuento"
+                    : "Hasta 12 meses sin intereses"}
                 </p>
               </div>
 
@@ -164,18 +202,32 @@ const PricingSectionIntroduccion = () => {
                 {isDiscountActive ? (
                   <>
                     <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
-                      <span className="text-sm text-muted-foreground/60 line-through">$6,500</span>
-                      $4,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                      <span className="text-sm text-muted-foreground/60 line-through">
+                        $6,500
+                      </span>
+                      $4,500{" "}
+                      <span className="text-sm font-normal text-muted-foreground">
+                        MXN
+                      </span>
                     </div>
-                    <div className="text-sm text-green-400 mb-1">Ahorras $2,000</div>
-                    <div className="text-sm text-muted-foreground mb-1">Un solo pago con tarjeta</div>
+                    <div className="text-sm text-green-400 mb-1">
+                      Ahorras $2,000
+                    </div>
+                    <div className="text-sm text-muted-foreground mb-1">
+                      Un solo pago con tarjeta
+                    </div>
                   </>
                 ) : (
                   <>
                     <div className="text-2xl font-bold text-white mb-1">
-                      $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                      $6,500{" "}
+                      <span className="text-sm font-normal text-muted-foreground">
+                        MXN
+                      </span>
                     </div>
-                    <div className="text-xl font-semibold text-white mb-1">Desde $541 / mes</div>
+                    <div className="text-xl font-semibold text-white mb-1">
+                      Desde $541 / mes
+                    </div>
                   </>
                 )}
               </div>
@@ -186,23 +238,33 @@ const PricingSectionIntroduccion = () => {
                   <>
                     <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm text-foreground">Pago único con descuento</span>
+                      <span className="text-sm text-foreground">
+                        Pago único con descuento
+                      </span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm text-foreground">Acceso completo al curso</span>
+                      <span className="text-sm text-foreground">
+                        Acceso completo al curso
+                      </span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm text-foreground">Grabaciones incluidas</span>
+                      <span className="text-sm text-foreground">
+                        Grabaciones incluidas
+                      </span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm text-foreground">Material bibliográfico</span>
+                      <span className="text-sm text-foreground">
+                        Material bibliográfico
+                      </span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm text-foreground">Ejercicios prácticos</span>
+                      <span className="text-sm text-foreground">
+                        Ejercicios prácticos
+                      </span>
                     </li>
                   </>
                 ) : (
@@ -233,9 +295,15 @@ const PricingSectionIntroduccion = () => {
 
               <Button
                 className="w-full bg-gradient-accent hover:opacity-90 text-white font-bold mt-auto transition-all duration-300"
-                onClick={isDiscountActive ? handleRecommendedClick : handleFlexibilityPlusClick}
+                onClick={
+                  isDiscountActive
+                    ? handleRecommendedClick
+                    : handleFlexibilityPlusClick
+                }
               >
-                {isDiscountActive ? "🔥 Hacer pago preferente" : "Hacer pago Preferente"}
+                {isDiscountActive
+                  ? "🔥 Hacer pago preferente"
+                  : "Hacer pago Preferente"}
               </Button>
             </div>
           </Card>
@@ -247,16 +315,22 @@ const PricingSectionIntroduccion = () => {
                 <Clock className="w-8 h-8 mx-auto mb-2 text-tech-purple" />
                 <h3 className="text-xl font-bold text-foreground">Flexible</h3>
                 <p className="text-sm text-muted-foreground">
-                  Hasta 24 meses <span className="text-muted-foreground">sin intereses</span>
+                  Hasta 24 meses{" "}
+                  <span className="text-muted-foreground">sin intereses</span>
                 </p>
               </div>
 
               {/* Price */}
               <div className="mb-6">
                 <div className="text-2xl font-bold text-white mb-1">
-                  $6,500 <span className="text-sm font-normal text-muted-foreground">MXN</span>
+                  $6,500{" "}
+                  <span className="text-sm font-normal text-muted-foreground">
+                    MXN
+                  </span>
                 </div>
-                <div className="text-xl font-semibold text-white mb-1">Desde $270 / mes</div>
+                <div className="text-xl font-semibold text-white mb-1">
+                  Desde $270 / mes
+                </div>
               </div>
 
               {/* Features */}
