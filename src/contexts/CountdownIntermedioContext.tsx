@@ -24,7 +24,7 @@ export const CountdownIntermedioContext = createContext<
 >(undefined);
 
 // Promotion extended through Saturday April 18, 2026 at 23:59:59 Mexico time (UTC-6)
-const END_DATE = new Date("2026-04-20T23:59:59-06:00").getTime();
+const END_DATE = new Date("2026-04-23T23:59:59-06:00").getTime();
 
 export const CountdownIntermedioProvider = ({
   children,
