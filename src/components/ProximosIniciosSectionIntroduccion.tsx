@@ -8,7 +8,7 @@ const ProximosIniciosSectionIntroduccion = () => {
       <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
       <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-course-blue/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      
+
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -17,11 +17,12 @@ const ProximosIniciosSectionIntroduccion = () => {
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Elige la modalidad que mejor se adapte a tu horario y comienza tu aprendizaje
+            Elige la modalidad que mejor se adapte a tu horario y comienza tu
+            aprendizaje
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+        <div className="max-w-2xl mx-auto grid md:grid-cols-1 gap-6">
           {/* Modalidad Sabatina - Mayo */}
           <Card className="p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300">
             <div className="text-center mb-6">
@@ -29,7 +30,9 @@ const ProximosIniciosSectionIntroduccion = () => {
                 <Calendar className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-xl font-bold mb-2">Modalidad Sabatina</h3>
-              <p className="text-muted-foreground">Introducción a la Programación</p>
+              <p className="text-muted-foreground">
+                Introducción a la Programación
+              </p>
             </div>
 
             <div className="space-y-4 mb-6">
@@ -37,30 +40,36 @@ const ProximosIniciosSectionIntroduccion = () => {
                 <Clock className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
                   <div className="font-semibold">Sábados 9:00 AM - 2:00 PM</div>
-                  <div className="text-sm text-muted-foreground">30 horas totales</div>
+                  <div className="text-sm text-muted-foreground">
+                    30 horas totales
+                  </div>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <Calendar className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">25 Abr - 30 May 2026</div>
-                  <div className="text-sm text-muted-foreground">6 semanas de duración</div>
+                  <div className="font-semibold">2 Mayo - 6 Junio 2026</div>
+                  <div className="text-sm text-muted-foreground">
+                    6 semanas de duración
+                  </div>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <BookOpen className="w-5 h-5 text-primary flex-shrink-0" />
                 <div>
                   <div className="font-semibold">Clases en vivo</div>
-                  <div className="text-sm text-muted-foreground">Con grabaciones incluidas</div>
+                  <div className="text-sm text-muted-foreground">
+                    Con grabaciones incluidas
+                  </div>
                 </div>
               </div>
             </div>
           </Card>
 
           {/* Modalidad Sabatina - Julio */}
-          <Card className="p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300">
+          {/* <Card className="p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300">
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Calendar className="w-8 h-8 text-primary" />
@@ -94,7 +103,7 @@ const ProximosIniciosSectionIntroduccion = () => {
                 </div>
               </div>
             </div>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </section>
