@@ -91,16 +91,16 @@ const PricingSectionIntroduccion = () => {
                       <span className="text-sm text-muted-foreground/60 line-through">
                         $6,500
                       </span>
-                      $4,500{" "}
+                      $2,000{" "}
                       <span className="text-sm font-normal text-muted-foreground">
                         MXN
                       </span>
                     </div>
                     <div className="text-sm text-green-400 mb-1">
-                      Ahorras $2,000
+                      Ahorras $4,500
                     </div>
                     <div className="text-xl font-semibold text-white mb-1">
-                      $2,250 x 2 pagos
+                      $1,000 x 2 pagos
                     </div>
                   </>
                 ) : (
@@ -122,7 +122,7 @@ const PricingSectionIntroduccion = () => {
               <ul className="space-y-3 mb-6 text-left flex-grow">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm">50% ahora, 50% al iniciar</span>
+                  <span className="text-sm">Dos pagos mensuales</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
@@ -152,7 +152,7 @@ const PricingSectionIntroduccion = () => {
                 variant="outline"
                 className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
                 onClick={() => {
-                  const price = isDiscountActive ? "$2,250" : "$3,250";
+                  const price = isDiscountActive ? "$1,000" : "$3,250";
                   const message = `Hola%2C%20me%20interesa%20el%20plan%20sin%20tarjeta%20del%20curso%20de%20Introducción%20a%20la%20Programación.%20Por%20favor%20envíame%20los%20datos%20bancarios%20para%20realizar%20la%20transferencia%20del%20primer%20pago%20de%20${price}%20MXN.`;
                   window.open(
                     `https://wa.me/5213331071527?text=${message}`,

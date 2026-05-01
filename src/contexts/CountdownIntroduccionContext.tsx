@@ -24,7 +24,7 @@ export const CountdownIntroduccionContext = createContext<
 >(undefined);
 
 // Fixed end date for Introducción a la Programación - February 28, 2026 at 23:59:59 Mexico time (UTC-6)
-const END_DATE = new Date("2026-04-27T23:59:59-06:00").getTime();
+const END_DATE = new Date("2026-05-02T23:59:59-06:00").getTime();
 
 export const CountdownIntroduccionProvider = ({
   children,
