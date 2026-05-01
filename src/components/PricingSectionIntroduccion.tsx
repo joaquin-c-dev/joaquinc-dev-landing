@@ -67,7 +67,7 @@ const PricingSectionIntroduccion = () => {
             {isDiscountActive && (
               <div className="absolute top-0 left-0 w-32 h-16 overflow-hidden z-10">
                 <div className="bg-red-600 text-white px-8 py-1.5 text-xs font-bold transform -rotate-45 absolute -left-8 top-4 shadow-xl border border-red-700">
-                  $2,000 OFF
+                  $4,500 OFF
                 </div>
               </div>
             )}
