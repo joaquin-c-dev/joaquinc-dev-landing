@@ -30,7 +30,7 @@ const CourseHero = ({ hero }: CourseHeroProps) => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-32 md:pt-36 lg:pt-20 pb-20"
     >
       <div className="absolute inset-0 bg-gradient-glow opacity-30" />
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-course-blue/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-tech-purple/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000" />
 
       <div className="relative z-10 container mx-auto px-4 md:px-10 lg:px-16 flex items-center justify-center w-full">
