@@ -9,8 +9,9 @@ import Footer from "@/components/Footer";
 import { useCountdown } from "@/contexts/CountdownContext";
 import { useBanner } from "@/contexts/BannerContext";
 import { useIsMobile } from "@/hooks/use-mobile";
+import AppShell from "@/components/app/AppShell";
 
-const AcercaDeMi = () => {
+const AcercaDeMiContent = () => {
   const { isBannerVisible } = useBanner();
   const { timeLeft } = useCountdown();
   const isMobile = useIsMobile();
@@ -262,5 +263,11 @@ const AcercaDeMi = () => {
     </div>
   );
 };
+
+const AcercaDeMi = () => (
+  <AppShell>
+    <AcercaDeMiContent />
+  </AppShell>
+);
 
 export default AcercaDeMi;

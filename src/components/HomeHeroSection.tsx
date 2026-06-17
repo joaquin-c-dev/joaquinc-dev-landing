@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Code, GraduationCap, Rocket, ArrowRight, Play } from "lucide-react";
 import joaquinProfile from "@/assets/joaquin-profile.jpg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@/lib/router";
 
 const HomeHeroSection = () => {
   const navigate = useNavigate();

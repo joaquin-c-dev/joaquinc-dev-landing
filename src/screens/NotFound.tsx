@@ -1,6 +1,7 @@
-import { useLocation } from "react-router-dom";
+import { useLocation } from "@/lib/router";
 import { useEffect } from "react";
 import Footer from "@/components/Footer";
+import AppShell from "@/components/app/AppShell";
 
 const NotFound = () => {
   const location = useLocation();
@@ -13,6 +14,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
+    <AppShell>
     <div className="min-h-screen flex flex-col">
       <div className="flex-1 flex items-center justify-center bg-gray-100">
         <div className="text-center">
@@ -25,6 +27,7 @@ const NotFound = () => {
       </div>
       <Footer />
     </div>
+    </AppShell>
   );
 };
 

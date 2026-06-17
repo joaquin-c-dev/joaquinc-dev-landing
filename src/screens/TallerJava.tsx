@@ -7,10 +7,19 @@ import DiscountBanner from "@/components/DiscountBanner";
 import { Calendar, Clock, MapPin, Users, Code, CheckCircle } from "lucide-react";
 import stripeLogo from "@/assets/stripe-logo.png";
 import paypalLogo from "@/assets/paypal-logo.png";
+import AppShell from "@/components/app/AppShell";
+import type { Course } from "@/lib/courses";
 
-const TallerJava = () => {
+interface TallerJavaProps {
+  course?: Course;
+}
+
+const TallerJava = ({ course }: TallerJavaProps = {}) => {
   const handleStripeClick = () => {
-    window.open('https://buy.stripe.com/9B69AV1mmfpF8Rj32Ib3q03', '_blank');
+    window.open(
+      course?.stripeUrl ?? "https://buy.stripe.com/9B69AV1mmfpF8Rj32Ib3q03",
+      "_blank",
+    );
   };
 
   const handlePayPalClick = () => {
@@ -27,6 +36,7 @@ const TallerJava = () => {
   ];
 
   return (
+    <AppShell>
     <div className="min-h-screen bg-background">
       <DiscountBanner />
       <Navigation />
@@ -207,6 +217,7 @@ const TallerJava = () => {
 
       <Footer />
     </div>
+    </AppShell>
   );
 };
 

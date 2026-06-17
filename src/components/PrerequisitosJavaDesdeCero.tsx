@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, BookOpen, ArrowRight, Monitor, Wifi, Info } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router";
 
 const PrerequisitosJavaDesdeCero = () => {
   const prerequisites = [

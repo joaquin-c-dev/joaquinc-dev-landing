@@ -1,0 +1,12 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PrivacyPolicy from "@/screens/PrivacyPolicy";
+---
+
+<BaseLayout
+  title="Políticas de Privacidad | Joaquín C. Dev"
+  description="Políticas de privacidad para los cursos de programación de Joaquín C. Dev: cómo recopilamos, usamos y protegemos tu información personal."
+  noindex={true}
+>
+  <PrivacyPolicy client:load />
+</BaseLayout>

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Code, Zap, Gift } from "lucide-react";
 import joaquinProfile from "@/assets/joaquin-profile.jpg";
 import intellijLogo from "@/assets/intellij-logo.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@/lib/router";
 
 const HeroSectionIntroduccion = () => {
   const navigate = useNavigate();

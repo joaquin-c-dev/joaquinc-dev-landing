@@ -3,10 +3,24 @@ import { Code, Zap, Flame, CheckCircle, CreditCard, Lock, Gift } from "lucide-re
 import joaquinProfile from "@/assets/joaquin-profile.jpg";
 import intellijLogo from "@/assets/intellij-logo.png";
 import CountdownTimer from "./CountdownTimer";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@/lib/router";
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  /** Descripcion del curso (desde la API). Cae al texto por defecto si no llega. */
+  description?: string;
+  /** Link de checkout de Stripe (desde la API). */
+  stripeUrl?: string;
+}
+
+const DEFAULT_DESCRIPTION =
+  "Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. Más de 9 años de experiencia en desarrollo backend me respaldan para guiarte en tiempo real en cada paso de tu carrera como developer.";
+const DEFAULT_STRIPE_URL =
+  "https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO";
+
+const HeroSection = ({ description, stripeUrl }: HeroSectionProps = {}) => {
   const navigate = useNavigate();
+  const resolvedDescription = description ?? DEFAULT_DESCRIPTION;
+  const resolvedStripeUrl = stripeUrl ?? DEFAULT_STRIPE_URL;
 
   return (
     <section
@@ -59,9 +73,7 @@ const HeroSection = () => {
 
               {/* Description */}
               <p className="text-base lg:text-lg text-muted-foreground/90 leading-relaxed">
-                Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. Más de 9 años de
-                experiencia en desarrollo backend me respaldan para guiarte en tiempo real en cada paso de tu carrera
-                como developer.
+                {resolvedDescription}
               </p>
 
               {/* Instructor info - subtle */}
@@ -101,12 +113,7 @@ const HeroSection = () => {
                   <Button
                     size="lg"
                     className="relative bg-gradient-accent text-white text-base px-6 py-3 transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30 min-w-[180px] h-[48px]"
-                    onClick={() =>
-                      window.open(
-                        "https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO",
-                        "_blank",
-                      )
-                    }
+                    onClick={() => window.open(resolvedStripeUrl, "_blank")}
                   >
                     <Zap className="w-5 h-5 mr-2" />
                     Inscribirme Ahora

@@ -16,13 +16,14 @@ import {
   Clock,
   ArrowLeft
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router";
 import Navigation from "@/components/Navigation";
 import DiscountBanner from "@/components/DiscountBanner";
 import Footer from "@/components/Footer";
 import { useCountdown } from "@/contexts/CountdownContext";
 import { useBanner } from "@/contexts/BannerContext";
 import { useIsMobile } from "@/hooks/use-mobile";
+import AppShell from "@/components/app/AppShell";
 
 const curriculumModules = [
   {
@@ -152,7 +153,7 @@ const curriculumModules = [
   }
 ];
 
-const Temario = () => {
+const TemarioContent = () => {
   const { isBannerVisible } = useBanner();
   const { timeLeft } = useCountdown();
   const isMobile = useIsMobile();
@@ -316,5 +317,11 @@ const Temario = () => {
     </div>
   );
 };
+
+const Temario = () => (
+  <AppShell>
+    <TemarioContent />
+  </AppShell>
+);
 
 export default Temario;

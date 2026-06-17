@@ -16,7 +16,7 @@ import {
   Zap,
   BookOpen,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router";
 import Navigation from "@/components/Navigation";
 import DiscountBannerIntermedio from "@/components/DiscountBannerIntermedio";
 import HeroSectionIntermedio from "@/components/HeroSectionIntermedio";
@@ -28,6 +28,12 @@ import { useCountdown } from "@/contexts/CountdownContext";
 import { useBanner } from "@/contexts/BannerContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { CountdownIntermedioProvider } from "@/contexts/CountdownIntermedioContext";
+import AppShell from "@/components/app/AppShell";
+import type { Course } from "@/lib/courses";
+
+interface JavaIntermedioProps {
+  course?: Course;
+}
 
 const curriculumModules = [
   {
@@ -136,10 +142,13 @@ const curriculumModules = [
   },
 ];
 
-const JavaIntermedio = () => {
+const JavaIntermedioContent = ({ course }: JavaIntermedioProps) => {
   const { isBannerVisible } = useBanner();
   const { timeLeft } = useCountdown();
   const isMobile = useIsMobile();
+  const stripeUrl =
+    course?.stripeUrl ??
+    "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?prefilled_promo_code=INTERMEDIO&client_reference_id=69e4199d168fb564dd8e7a78";
 
   // Calculate if banner should actually be shown (visible and not expired)
   const shouldShowBanner = isBannerVisible && !timeLeft.isExpired;
@@ -274,12 +283,7 @@ const JavaIntermedio = () => {
                   <Button
                     size="lg"
                     className="relative bg-gradient-accent text-white text-base px-8 py-4 transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
-                    onClick={() =>
-                      window.open(
-                        "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?prefilled_promo_code=INTERMEDIO&client_reference_id=69e4199d168fb564dd8e7a78",
-                        "_blank",
-                      )
-                    }
+                    onClick={() => window.open(stripeUrl, "_blank")}
                   >
                     <Zap className="w-5 h-5 mr-2" />
                     Inscribirme al Curso
@@ -300,5 +304,11 @@ const JavaIntermedio = () => {
     </CountdownIntermedioProvider>
   );
 };
+
+const JavaIntermedio = ({ course }: JavaIntermedioProps = {}) => (
+  <AppShell>
+    <JavaIntermedioContent course={course} />
+  </AppShell>
+);
 
 export default JavaIntermedio;

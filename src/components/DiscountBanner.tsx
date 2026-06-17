@@ -4,7 +4,7 @@ import { X, Clock, Zap, ArrowDown } from "lucide-react";
 import CountdownTimer from "./CountdownTimer";
 import { useBanner } from "@/contexts/BannerContext";
 import { useCountdown } from "@/contexts/CountdownContext";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "@/lib/router";
 
 const DiscountBanner = () => {
   const { isBannerVisible, dismissBanner, setBannerVisible } = useBanner();

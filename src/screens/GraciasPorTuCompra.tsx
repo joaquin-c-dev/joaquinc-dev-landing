@@ -2,12 +2,14 @@ import { CheckCircle, Mail, Calendar } from "lucide-react";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@/lib/router";
+import AppShell from "@/components/app/AppShell";
 
 const GraciasPorTuCompra = () => {
   const navigate = useNavigate();
 
   return (
+    <AppShell>
     <div className="min-h-screen bg-background">
       <main className="container mx-auto px-6 py-20 md:py-32">
         <div className="max-w-3xl mx-auto text-center">
@@ -85,6 +87,7 @@ const GraciasPorTuCompra = () => {
 
       <Footer />
     </div>
+    </AppShell>
   );
 };
 

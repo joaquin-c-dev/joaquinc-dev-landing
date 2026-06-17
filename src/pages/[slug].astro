@@ -1,0 +1,51 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCourseBySlug } from "@/lib/courses";
+import JavaDesdeCero from "@/screens/JavaDesdeCero";
+import JavaIntermedio from "@/screens/JavaIntermedio";
+import IntroduccionProgramacion from "@/screens/IntroduccionProgramacion";
+import TallerJava from "@/screens/TallerJava";
+
+// SSR: se ejecuta en cada request, por lo que los datos del curso (y su SEO/OG)
+// se leen frescos desde la "API" sin necesidad de redeploy.
+const { slug } = Astro.params;
+const course = await getCourseBySlug(slug);
+
+if (!course) {
+  return Astro.rewrite("/404");
+}
+---
+
+<BaseLayout
+  title={course.seo.title}
+  description={course.seo.description}
+  keywords={course.seo.keywords}
+  ogImage={course.seo.ogImage}
+  ogType="website"
+>
+  {
+    /* Astro requiere que las islas con client:* sean imports estaticamente
+       analizables, por eso se renderiza cada curso de forma explicita en lugar
+       de usar un componente dinamico. */
+  }
+  {
+    course.component === "java-desde-cero" && (
+      <JavaDesdeCero client:load course={course} />
+    )
+  }
+  {
+    course.component === "java-intermedio" && (
+      <JavaIntermedio client:load course={course} />
+    )
+  }
+  {
+    course.component === "introduccion-programacion" && (
+      <IntroduccionProgramacion client:load course={course} />
+    )
+  }
+  {
+    course.component === "taller-poo" && (
+      <TallerJava client:load course={course} />
+    )
+  }
+</BaseLayout>
