@@ -3,10 +3,15 @@ import { Separator } from "@/components/ui/separator";
 import { Shield, Mail, Phone } from "lucide-react";
 import Footer from "@/components/Footer";
 import AppShell from "@/components/app/AppShell";
+import type { NavCourse } from "@/contexts/CoursesNavContext";
 
-const PrivacyPolicy = () => {
+interface PrivacyPolicyProps {
+  navCourses?: NavCourse[];
+}
+
+const PrivacyPolicy = ({ navCourses = [] }: PrivacyPolicyProps) => {
   return (
-    <AppShell>
+    <AppShell navCourses={navCourses}>
     <div className="min-h-screen bg-background">
       {/* SEO Meta tags would be handled by a head component if available */}
       <div className="container mx-auto px-4 py-12 max-w-4xl">

@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useCoursesNav } from "@/contexts/CoursesNavContext";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -79,12 +80,11 @@ const Navigation = () => {
     { name: "Acerca de mí", path: "/acerca-de-mi" },
   ];
 
-  const courseItems = [
-    { name: "Introducción a la programación", path: "/introduccion-programacion" },
-    { name: "Java desde Cero", path: "/java-desde-cero" },
-    { name: "Java Intermedio", path: "/java-intermedio" },
-    // { name: "Taller de POO", path: "/taller-poo" }
-  ];
+  const { courses: navCourses } = useCoursesNav();
+  const courseItems = navCourses.map((course) => ({
+    name: course.name,
+    path: `/${course.slug}`,
+  }));
 
   return (
     <nav

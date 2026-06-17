@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getNavCourses } from "@/lib/courses";
 import PrivacyPolicy from "@/screens/PrivacyPolicy";
+
+const navCourses = await getNavCourses();
 ---
 
 <BaseLayout
@@ -8,5 +11,5 @@ import PrivacyPolicy from "@/screens/PrivacyPolicy";
   description="Políticas de privacidad para los cursos de programación de Joaquín C. Dev: cómo recopilamos, usamos y protegemos tu información personal."
   noindex={true}
 >
-  <PrivacyPolicy client:load />
+  <PrivacyPolicy client:load navCourses={navCourses} />
 </BaseLayout>

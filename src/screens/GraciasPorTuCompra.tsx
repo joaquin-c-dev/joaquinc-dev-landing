@@ -4,12 +4,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate } from "@/lib/router";
 import AppShell from "@/components/app/AppShell";
+import type { NavCourse } from "@/contexts/CoursesNavContext";
 
-const GraciasPorTuCompra = () => {
+interface GraciasPorTuCompraProps {
+  navCourses?: NavCourse[];
+}
+
+const GraciasPorTuCompra = ({ navCourses = [] }: GraciasPorTuCompraProps) => {
   const navigate = useNavigate();
 
   return (
-    <AppShell>
+    <AppShell navCourses={navCourses}>
     <div className="min-h-screen bg-background">
       <main className="container mx-auto px-6 py-20 md:py-32">
         <div className="max-w-3xl mx-auto text-center">

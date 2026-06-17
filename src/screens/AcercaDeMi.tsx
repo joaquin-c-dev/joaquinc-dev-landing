@@ -4,21 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Building2, GraduationCap, Code, Users, Award, MapPin, Linkedin, ExternalLink } from "lucide-react";
 import { ASSETS } from "@/lib/assets";
 import Navigation from "@/components/Navigation";
-import DiscountBanner from "@/components/DiscountBanner";
 import Footer from "@/components/Footer";
-import { useCountdown } from "@/contexts/CountdownContext";
-import { useBanner } from "@/contexts/BannerContext";
-import { useIsMobile } from "@/hooks/use-mobile";
 import AppShell from "@/components/app/AppShell";
+import type { NavCourse } from "@/contexts/CoursesNavContext";
 
 const AcercaDeMiContent = () => {
-  const { isBannerVisible } = useBanner();
-  const { timeLeft } = useCountdown();
-  const isMobile = useIsMobile();
-  
-  // Calculate if banner should actually be shown (visible and not expired)
-  const shouldShowBanner = isBannerVisible && !timeLeft.isExpired;
-  
   const experiences = [
     {
       company: "Avena Health",
@@ -79,10 +69,9 @@ const AcercaDeMiContent = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <DiscountBanner />
       <Navigation />
-      
-      <main className={`${shouldShowBanner ? 'pt-[104px]' : 'pt-16'} pb-16`}>
+
+      <main className="pt-16 pb-16">
         <section className="relative py-20 bg-gradient-subtle overflow-hidden">
           {/* Background glow effects */}
           <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>
@@ -264,8 +253,12 @@ const AcercaDeMiContent = () => {
   );
 };
 
-const AcercaDeMi = () => (
-  <AppShell>
+interface AcercaDeMiProps {
+  navCourses?: NavCourse[];
+}
+
+const AcercaDeMi = ({ navCourses = [] }: AcercaDeMiProps) => (
+  <AppShell navCourses={navCourses}>
     <AcercaDeMiContent />
   </AppShell>
 );

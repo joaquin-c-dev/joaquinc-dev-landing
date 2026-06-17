@@ -2,8 +2,13 @@ import { useLocation } from "@/lib/router";
 import { useEffect } from "react";
 import Footer from "@/components/Footer";
 import AppShell from "@/components/app/AppShell";
+import type { NavCourse } from "@/contexts/CoursesNavContext";
 
-const NotFound = () => {
+interface NotFoundProps {
+  navCourses?: NavCourse[];
+}
+
+const NotFound = ({ navCourses = [] }: NotFoundProps) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -14,7 +19,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <AppShell>
+    <AppShell navCourses={navCourses}>
     <div className="min-h-screen flex flex-col">
       <div className="flex-1 flex items-center justify-center bg-gray-100">
         <div className="text-center">

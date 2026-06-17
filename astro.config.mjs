@@ -4,19 +4,13 @@ import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import MOCK_COURSES from "./src/lib/mock-courses.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const SITE = "https://joaquinc.dev";
 
-// Slugs de cursos servidos por la ruta dinamica [slug].astro. Como el sitio es
-// SSR, estas URLs no se descubren solas en build, por eso se listan aqui.
-const COURSE_SLUGS = [
-  "introduccion-programacion",
-  "java-desde-cero",
-  "java-intermedio",
-  "taller-poo",
-];
+const COURSE_SLUGS = MOCK_COURSES.map((course) => course.slug);
 
 // Paginas que no deben indexarse (coinciden con noindex en cada pagina).
 const NOINDEX_PATHS = ["/gracias-por-tu-compra", "/politicas-de-privacidad"];

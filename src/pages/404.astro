@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getNavCourses } from "@/lib/courses";
 import NotFound from "@/screens/NotFound";
+
+const navCourses = await getNavCourses();
 ---
 
 <BaseLayout
@@ -8,5 +11,5 @@ import NotFound from "@/screens/NotFound";
   description="La página que buscas no existe. Vuelve al inicio para explorar los cursos de Java y programación."
   noindex={true}
 >
-  <NotFound client:load />
+  <NotFound client:load navCourses={navCourses} />
 </BaseLayout>

@@ -18,12 +18,9 @@ import {
 } from "lucide-react";
 import { Link } from "@/lib/router";
 import Navigation from "@/components/Navigation";
-import DiscountBanner from "@/components/DiscountBanner";
 import Footer from "@/components/Footer";
-import { useCountdown } from "@/contexts/CountdownContext";
-import { useBanner } from "@/contexts/BannerContext";
-import { useIsMobile } from "@/hooks/use-mobile";
 import AppShell from "@/components/app/AppShell";
+import type { NavCourse } from "@/contexts/CoursesNavContext";
 
 const curriculumModules = [
   {
@@ -154,23 +151,15 @@ const curriculumModules = [
 ];
 
 const TemarioContent = () => {
-  const { isBannerVisible } = useBanner();
-  const { timeLeft } = useCountdown();
-  const isMobile = useIsMobile();
-  
-  // Calculate if banner should actually be shown (visible and not expired)
-  const shouldShowBanner = isBannerVisible && !timeLeft.isExpired;
-  
   const totalHours = curriculumModules.reduce((total, module) => {
     return total + parseInt(module.duration.split(' ')[0]);
   }, 0);
 
   return (
     <div className="min-h-screen bg-background">
-      <DiscountBanner />
       <Navigation />
-      
-      <main className={`${shouldShowBanner ? 'pt-[104px]' : 'pt-16'}`}>
+
+      <main className="pt-16">
         <section className="py-16 bg-course-dark relative overflow-hidden">
           {/* Background glow effects */}
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-tech-purple/5 rounded-full blur-3xl animate-pulse"></div>
@@ -318,8 +307,12 @@ const TemarioContent = () => {
   );
 };
 
-const Temario = () => (
-  <AppShell>
+interface TemarioProps {
+  navCourses?: NavCourse[];
+}
+
+const Temario = ({ navCourses = [] }: TemarioProps) => (
+  <AppShell navCourses={navCourses}>
     <TemarioContent />
   </AppShell>
 );

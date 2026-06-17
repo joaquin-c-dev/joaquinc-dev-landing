@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getNavCourses } from "@/lib/courses";
 import Temario from "@/screens/Temario";
+
+const navCourses = await getNavCourses();
 ---
 
 <BaseLayout
@@ -8,5 +11,5 @@ import Temario from "@/screens/Temario";
   description="Revisa el temario completo del curso de Java: desde fundamentos y POO hasta colecciones, manejo de errores y bases de datos, con horas de contenido práctico."
   keywords="temario java, contenido curso java, módulos java, programa de estudio java"
 >
-  <Temario client:load />
+  <Temario client:load navCourses={navCourses} />
 </BaseLayout>

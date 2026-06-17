@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getNavCourses } from "@/lib/courses";
 import AcercaDeMi from "@/screens/AcercaDeMi";
+
+const navCourses = await getNavCourses();
 ---
 
 <BaseLayout
@@ -8,5 +11,5 @@ import AcercaDeMi from "@/screens/AcercaDeMi";
   description="Conoce a Joaquín Coronado, Head of Backend con más de 9 años de experiencia. Instructor de Java y Spring con trayectoria en empresas tecnológicas."
   keywords="joaquín coronado, instructor java, head of backend, mentor programación, desarrollador backend"
 >
-  <AcercaDeMi client:load />
+  <AcercaDeMi client:load navCourses={navCourses} />
 </BaseLayout>
