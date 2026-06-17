@@ -309,10 +309,11 @@ const TemarioContent = () => {
 
 interface TemarioProps {
   navCourses?: NavCourse[];
+  pathname: string;
 }
 
-const Temario = ({ navCourses = [] }: TemarioProps) => (
-  <AppShell navCourses={navCourses}>
+const Temario = ({ navCourses = [], pathname }: TemarioProps) => (
+  <AppShell navCourses={navCourses} pathname={pathname}>
     <TemarioContent />
   </AppShell>
 );

@@ -10,12 +10,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useCoursesNav } from "@/contexts/CoursesNavContext";
+import { useActivePathname } from "@/contexts/PathnameContext";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [bannerVisible, setBannerVisible] = useState(false);
   const isMobile = useIsMobile();
+  const pathname = useActivePathname();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -47,7 +49,7 @@ const Navigation = () => {
   useEffect(() => {
     // Handle scroll to pricing section when navigating from another page
     const params = new URLSearchParams(location.search);
-    if (params.get("scroll") === "pricing" && location.pathname === "/") {
+    if (params.get("scroll") === "pricing" && pathname === "/") {
       setTimeout(() => {
         const pricingSection = document.querySelector('section[data-section="pricing"]');
         pricingSection?.scrollIntoView({ behavior: "smooth" });
@@ -55,11 +57,11 @@ const Navigation = () => {
       // Clean up URL
       navigate("/", { replace: true });
     }
-  }, [location, navigate]);
+  }, [location.search, pathname, navigate]);
 
   const handleNavClick = (item: any) => {
     if (item.action === "pricing") {
-      if (location.pathname === "/") {
+      if (pathname === "/") {
         // Already on home page, just scroll
         const pricingSection = document.querySelector('section[data-section="pricing"]');
         pricingSection?.scrollIntoView({ behavior: "smooth" });
@@ -67,7 +69,7 @@ const Navigation = () => {
         // Navigate to home page with scroll parameter
         navigate("/?scroll=pricing");
       }
-    } else if (item.path === "/" && location.pathname === "/") {
+    } else if (item.path === "/" && pathname === "/") {
       // If clicking "Inicio" while on home page, scroll to top
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
@@ -103,7 +105,7 @@ const Navigation = () => {
                 key={item.name}
                 onClick={() => handleNavClick(item)}
                 className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer ${
-                  location.pathname === item.path && !item.action
+                  pathname === item.path && !item.action
                     ? "bg-gradient-accent bg-clip-text text-transparent"
                     : ""
                 }`}
@@ -117,7 +119,7 @@ const Navigation = () => {
               <DropdownMenuTrigger asChild>
                 <button
                   className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer flex items-center gap-1 group ${
-                    courseItems.some((course) => location.pathname === course.path)
+                    courseItems.some((course) => pathname === course.path)
                       ? "bg-gradient-accent bg-clip-text text-transparent"
                       : ""
                   }`}
@@ -125,7 +127,7 @@ const Navigation = () => {
                   Cursos
                   <ChevronDown
                     className={`w-4 h-4 transition-colors duration-200 group-hover:text-blue-500 ${
-                      courseItems.some((course) => location.pathname === course.path) ? "text-blue-500" : ""
+                      courseItems.some((course) => pathname === course.path) ? "text-blue-500" : ""
                     }`}
                   />
                 </button>
@@ -136,7 +138,7 @@ const Navigation = () => {
                     key={course.name}
                     onClick={() => navigate(course.path)}
                     className={`cursor-pointer hover:text-blue-500 hover:bg-transparent focus:bg-transparent data-[highlighted]:bg-transparent data-[highlighted]:text-blue-500 transition-colors duration-200 font-medium ${
-                      location.pathname === course.path ? "bg-gradient-accent bg-clip-text text-transparent" : ""
+                      pathname === course.path ? "bg-gradient-accent bg-clip-text text-transparent" : ""
                     }`}
                   >
                     {course.name}
@@ -151,7 +153,7 @@ const Navigation = () => {
                 key={item.name}
                 onClick={() => handleNavClick(item)}
                 className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer ${
-                  location.pathname === item.path && !item.action
+                  pathname === item.path && !item.action
                     ? "bg-gradient-accent bg-clip-text text-transparent"
                     : ""
                 }`}
@@ -181,7 +183,7 @@ const Navigation = () => {
                     setIsMobileMenuOpen(false);
                   }}
                   className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ${
-                    location.pathname === item.path && !item.action
+                    pathname === item.path && !item.action
                       ? "bg-gradient-accent bg-clip-text text-transparent"
                       : ""
                   }`}
@@ -194,7 +196,7 @@ const Navigation = () => {
               <div className="py-2">
                 <div
                   className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium mb-2 ${
-                    courseItems.some((course) => location.pathname === course.path)
+                    courseItems.some((course) => pathname === course.path)
                       ? "bg-gradient-accent bg-clip-text text-transparent"
                       : ""
                   }`}
@@ -209,7 +211,7 @@ const Navigation = () => {
                       setIsMobileMenuOpen(false);
                     }}
                     className={`text-foreground hover:text-blue-500 transition-colors duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ml-4 block w-full ${
-                      location.pathname === course.path ? "bg-gradient-accent bg-clip-text text-transparent" : ""
+                      pathname === course.path ? "bg-gradient-accent bg-clip-text text-transparent" : ""
                     }`}
                   >
                     {course.name}
@@ -225,7 +227,7 @@ const Navigation = () => {
                     setIsMobileMenuOpen(false);
                   }}
                   className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ${
-                    location.pathname === item.path && !item.action
+                    pathname === item.path && !item.action
                       ? "bg-gradient-accent bg-clip-text text-transparent"
                       : ""
                   }`}

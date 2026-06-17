@@ -6,9 +6,10 @@ import type { NavCourse } from "@/contexts/CoursesNavContext";
 
 interface NotFoundProps {
   navCourses?: NavCourse[];
+  pathname: string;
 }
 
-const NotFound = ({ navCourses = [] }: NotFoundProps) => {
+const NotFound = ({ navCourses = [], pathname }: NotFoundProps) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const NotFound = ({ navCourses = [] }: NotFoundProps) => {
   }, [location.pathname]);
 
   return (
-    <AppShell navCourses={navCourses}>
+    <AppShell navCourses={navCourses} pathname={pathname}>
     <div className="min-h-screen flex flex-col">
       <div className="flex-1 flex items-center justify-center bg-gray-100">
         <div className="text-center">

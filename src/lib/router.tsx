@@ -14,15 +14,38 @@ export interface Location {
   hash: string;
 }
 
-export function useLocation(): Location {
-  if (typeof window === "undefined") {
-    return { pathname: "/", search: "", hash: "" };
+const SSR_LOCATION: Location = { pathname: "/", search: "", hash: "" };
+
+let cachedLocation: Location = SSR_LOCATION;
+
+function readLocation(): Location {
+  const pathname = window.location.pathname;
+  const search = window.location.search;
+  const hash = window.location.hash;
+
+  if (
+    cachedLocation.pathname === pathname &&
+    cachedLocation.search === search &&
+    cachedLocation.hash === hash
+  ) {
+    return cachedLocation;
   }
-  return {
-    pathname: window.location.pathname,
-    search: window.location.search,
-    hash: window.location.hash,
-  };
+
+  cachedLocation = { pathname, search, hash };
+  return cachedLocation;
+}
+
+function subscribeToLocation(callback: () => void) {
+  window.addEventListener("popstate", callback);
+  return () => window.removeEventListener("popstate", callback);
+}
+
+export function useLocation(): Location {
+  return React.useSyncExternalStore(
+    subscribeToLocation,
+    readLocation,
+    () => SSR_LOCATION,
+  );
 }
 
 interface NavigateOptions {

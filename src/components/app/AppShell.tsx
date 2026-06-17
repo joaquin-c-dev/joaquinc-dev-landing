@@ -8,6 +8,7 @@ import {
   CoursesNavProvider,
   type NavCourse,
 } from "@/contexts/CoursesNavContext";
+import { PathnameProvider } from "@/contexts/PathnameContext";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const queryClient = new QueryClient();
@@ -15,24 +16,28 @@ const queryClient = new QueryClient();
 interface AppShellProps {
   children: ReactNode;
   navCourses?: NavCourse[];
+  pathname?: string;
 }
 
 export default function AppShell({
   children,
   navCourses = [],
+  pathname,
 }: AppShellProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <BannerProvider>
-        <CoursesNavProvider courses={navCourses}>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            {children}
-            <WhatsAppButton />
-          </TooltipProvider>
-        </CoursesNavProvider>
-      </BannerProvider>
+      <PathnameProvider pathname={pathname}>
+        <BannerProvider>
+          <CoursesNavProvider courses={navCourses}>
+            <TooltipProvider>
+              <Toaster />
+              <Sonner />
+              {children}
+              <WhatsAppButton />
+            </TooltipProvider>
+          </CoursesNavProvider>
+        </BannerProvider>
+      </PathnameProvider>
     </QueryClientProvider>
   );
 }

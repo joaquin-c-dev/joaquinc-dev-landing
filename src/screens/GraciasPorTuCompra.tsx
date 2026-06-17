@@ -8,13 +8,14 @@ import type { NavCourse } from "@/contexts/CoursesNavContext";
 
 interface GraciasPorTuCompraProps {
   navCourses?: NavCourse[];
+  pathname: string;
 }
 
-const GraciasPorTuCompra = ({ navCourses = [] }: GraciasPorTuCompraProps) => {
+const GraciasPorTuCompra = ({ navCourses = [], pathname }: GraciasPorTuCompraProps) => {
   const navigate = useNavigate();
 
   return (
-    <AppShell navCourses={navCourses}>
+    <AppShell navCourses={navCourses} pathname={pathname}>
     <div className="min-h-screen bg-background">
       <main className="container mx-auto px-6 py-20 md:py-32">
         <div className="max-w-3xl mx-auto text-center">

@@ -15,11 +15,12 @@ import type { NavCourse } from "@/contexts/CoursesNavContext";
 interface CoursePageProps {
   course: Course;
   navCourses: NavCourse[];
+  pathname: string;
 }
 
-const CoursePage = ({ course, navCourses }: CoursePageProps) => {
+const CoursePage = ({ course, navCourses, pathname }: CoursePageProps) => {
   return (
-    <AppShell navCourses={navCourses}>
+    <AppShell navCourses={navCourses} pathname={pathname}>
       <PromoCountdownProvider endsAt={course.promo?.endsAt}>
         {course.layout === "workshop" && course.workshop ? (
           <CourseWorkshop

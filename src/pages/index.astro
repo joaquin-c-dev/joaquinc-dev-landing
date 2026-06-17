@@ -14,5 +14,5 @@ const [homeCourses, navCourses] = await Promise.all([
   description="Transforma tu futuro en tecnología: empieza hoy con Java y Spring para desarrollar habilidades que abrirán nuevas oportunidades."
   keywords="java, curso java, programación java, aprender java, java desde cero, desarrollo java, spring boot"
 >
-  <Index client:load courses={homeCourses} navCourses={navCourses} />
+  <Index client:load courses={homeCourses} navCourses={navCourses} pathname={Astro.url.pathname} />
 </BaseLayout>

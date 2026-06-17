@@ -11,5 +11,5 @@ const navCourses = await getNavCourses();
   description="Revisa el temario completo del curso de Java: desde fundamentos y POO hasta colecciones, manejo de errores y bases de datos, con horas de contenido práctico."
   keywords="temario java, contenido curso java, módulos java, programa de estudio java"
 >
-  <Temario client:load navCourses={navCourses} />
+  <Temario client:load navCourses={navCourses} pathname={Astro.url.pathname} />
 </BaseLayout>

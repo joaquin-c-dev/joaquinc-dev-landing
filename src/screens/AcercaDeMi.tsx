@@ -255,10 +255,11 @@ const AcercaDeMiContent = () => {
 
 interface AcercaDeMiProps {
   navCourses?: NavCourse[];
+  pathname: string;
 }
 
-const AcercaDeMi = ({ navCourses = [] }: AcercaDeMiProps) => (
-  <AppShell navCourses={navCourses}>
+const AcercaDeMi = ({ navCourses = [], pathname }: AcercaDeMiProps) => (
+  <AppShell navCourses={navCourses} pathname={pathname}>
     <AcercaDeMiContent />
   </AppShell>
 );

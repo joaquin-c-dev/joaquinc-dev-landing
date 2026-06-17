@@ -11,5 +11,5 @@ const navCourses = await getNavCourses();
   description="Tu inscripción ha sido procesada exitosamente. Revisa tu correo para los detalles del curso y los próximos pasos."
   noindex={true}
 >
-  <GraciasPorTuCompra client:load navCourses={navCourses} />
+  <GraciasPorTuCompra client:load navCourses={navCourses} pathname={Astro.url.pathname} />
 </BaseLayout>

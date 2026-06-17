@@ -7,11 +7,12 @@ import type { NavCourse } from "@/contexts/CoursesNavContext";
 
 interface PrivacyPolicyProps {
   navCourses?: NavCourse[];
+  pathname: string;
 }
 
-const PrivacyPolicy = ({ navCourses = [] }: PrivacyPolicyProps) => {
+const PrivacyPolicy = ({ navCourses = [], pathname }: PrivacyPolicyProps) => {
   return (
-    <AppShell navCourses={navCourses}>
+    <AppShell navCourses={navCourses} pathname={pathname}>
     <div className="min-h-screen bg-background">
       {/* SEO Meta tags would be handled by a head component if available */}
       <div className="container mx-auto px-4 py-12 max-w-4xl">

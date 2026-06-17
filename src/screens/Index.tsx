@@ -10,11 +10,12 @@ import type { NavCourse } from "@/contexts/CoursesNavContext";
 interface IndexProps {
   courses: Course[];
   navCourses: NavCourse[];
+  pathname: string;
 }
 
-const Index = ({ courses, navCourses }: IndexProps) => {
+const Index = ({ courses, navCourses, pathname }: IndexProps) => {
   return (
-    <AppShell navCourses={navCourses}>
+    <AppShell navCourses={navCourses} pathname={pathname}>
       <div className="min-h-screen bg-background">
         <Navigation />
         <HomeHeroSection />

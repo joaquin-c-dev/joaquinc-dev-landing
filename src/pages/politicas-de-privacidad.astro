@@ -11,5 +11,5 @@ const navCourses = await getNavCourses();
   description="Políticas de privacidad para los cursos de programación de Joaquín C. Dev: cómo recopilamos, usamos y protegemos tu información personal."
   noindex={true}
 >
-  <PrivacyPolicy client:load navCourses={navCourses} />
+  <PrivacyPolicy client:load navCourses={navCourses} pathname={Astro.url.pathname} />
 </BaseLayout>
