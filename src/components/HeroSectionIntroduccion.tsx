@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Code, Zap, Gift } from "lucide-react";
-import joaquinProfile from "@/assets/joaquin-profile.jpg";
-import intellijLogo from "@/assets/intellij-logo.png";
+import { ASSETS } from "@/lib/assets";
 import { useNavigate } from "@/lib/router";
 
 const HeroSectionIntroduccion = () => {
@@ -66,7 +65,7 @@ const HeroSectionIntroduccion = () => {
               {/* Instructor info - subtle */}
               <div className="flex items-center justify-center gap-3 opacity-70">
                 <img
-                  src={joaquinProfile}
+                  src={ASSETS.joaquinProfile}
                   alt="Joaquín Coronado Ramírez"
                   className="w-8 h-8 rounded-full object-cover border border-primary/20"
                 />
@@ -87,7 +86,7 @@ const HeroSectionIntroduccion = () => {
 79:                 </div>
 80:                 <div className="flex items-center gap-2 bg-card/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-primary/20">
 81:                   <img 
-82:                     src={intellijLogo} 
+82:                     src={ASSETS.intellijLogo} 
 83:                     alt="IntelliJ IDEA Ultimate" 
 84:                     className="w-6 h-6 object-contain"
 85:                   />

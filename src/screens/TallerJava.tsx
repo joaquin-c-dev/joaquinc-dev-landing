@@ -5,8 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import DiscountBanner from "@/components/DiscountBanner";
 import { Calendar, Clock, MapPin, Users, Code, CheckCircle } from "lucide-react";
-import stripeLogo from "@/assets/stripe-logo.png";
-import paypalLogo from "@/assets/paypal-logo.png";
+import { ASSETS } from "@/lib/assets";
 import AppShell from "@/components/app/AppShell";
 import type { Course } from "@/lib/courses";
 
@@ -139,7 +138,7 @@ const TallerJava = ({ course }: TallerJavaProps = {}) => {
                         size="lg" 
                         className="relative bg-gradient-accent text-white text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30 flex items-center gap-3"
                       >
-                        <img src={stripeLogo} alt="Stripe" className="w-6 h-6" />
+                        <img src={ASSETS.stripeLogo} alt="Stripe" className="w-6 h-6" />
                         Pagar con Stripe
                       </Button>
                     </div>
@@ -152,7 +151,7 @@ const TallerJava = ({ course }: TallerJavaProps = {}) => {
                         variant="outline"
                         className="relative bg-gradient-to-r from-blue-500 to-blue-600 text-white text-lg font-semibold py-3 w-full transition-all duration-300 hover:opacity-90 shadow-elegant border border-blue-500/30 flex items-center gap-3"
                       >
-                        <img src={paypalLogo} alt="PayPal" className="w-6 h-6" />
+                        <img src={ASSETS.paypalLogo} alt="PayPal" className="w-6 h-6" />
                         Pagar con PayPal
                       </Button>
                     </div>

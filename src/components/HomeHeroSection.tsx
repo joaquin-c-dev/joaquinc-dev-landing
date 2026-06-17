@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Code, GraduationCap, Rocket, ArrowRight, Play } from "lucide-react";
-import joaquinProfile from "@/assets/joaquin-profile.jpg";
+import { ASSETS } from "@/lib/assets";
 import { useNavigate } from "@/lib/router";
 
 const HomeHeroSection = () => {
@@ -41,7 +41,7 @@ const HomeHeroSection = () => {
           {/* Instructor info */}
           <div className="flex items-center justify-center gap-4 animate-fade-in">
             <img 
-              src={joaquinProfile}
+              src={ASSETS.joaquinProfile}
               alt="Joaquín Coronado Ramírez"
               className="w-12 h-12 rounded-full object-cover border-2 border-primary/30"
             />

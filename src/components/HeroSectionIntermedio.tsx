@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Code, Zap, Gift } from "lucide-react";
-import joaquinProfile from "@/assets/joaquin-profile.jpg";
-import intellijLogo from "@/assets/intellij-logo.png";
+import { ASSETS } from "@/lib/assets";
 
 const HeroSectionIntermedio = () => {
   const scrollToTemario = () => {
@@ -74,7 +73,7 @@ const HeroSectionIntermedio = () => {
               {/* Instructor info - subtle */}
               <div className="flex items-center justify-center gap-3 opacity-70">
                 <img
-                  src={joaquinProfile}
+                  src={ASSETS.joaquinProfile}
                   alt="Joaquín Coronado Ramírez"
                   className="w-8 h-8 rounded-full object-cover border border-primary/20"
                 />
@@ -95,7 +94,7 @@ const HeroSectionIntermedio = () => {
                 </div>
                 <div className="flex items-center gap-2 bg-card/30 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-primary/20">
                   <img 
-                    src={intellijLogo} 
+                    src={ASSETS.intellijLogo} 
                     alt="IntelliJ IDEA Ultimate" 
                     className="w-6 h-6 object-contain"
                   />

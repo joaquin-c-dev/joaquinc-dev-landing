@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import whatsappLogo from "@/assets/whatsapp-logo.svg";
-import joaquinProfile from "@/assets/joaquin-profile.jpg";
+import { ASSETS } from "@/lib/assets";
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -100,7 +99,7 @@ const WhatsAppButton = () => {
         }}
         aria-label="Contactar por WhatsApp"
       >
-        <img src={whatsappLogo} alt="WhatsApp" className="w-7 h-7" />
+        <img src={ASSETS.whatsappLogo} alt="WhatsApp" className="w-7 h-7" />
 
         {/* Tooltip */}
         <div className="absolute right-16 top-1/2 transform -translate-y-1/2 bg-card border border-border text-card-foreground px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-card">
@@ -125,7 +124,7 @@ const WhatsAppButton = () => {
             >
               <div className="relative">
                 <img
-                  src={joaquinProfile}
+                  src={ASSETS.joaquinProfile}
                   alt="Joaquín"
                   className="w-12 h-12 rounded-full object-cover border-2 border-white/20"
                 />
@@ -176,7 +175,7 @@ const WhatsAppButton = () => {
                 className="w-full flex items-center justify-center gap-3 py-3 px-4 text-white font-medium rounded-full transition-all duration-300 hover:scale-[1.02] shadow-lg"
                 style={{ background: "linear-gradient(135deg, #25D366, #20B358)" }}
               >
-                <img src={whatsappLogo} alt="WhatsApp" className="w-5 h-5" />
+                <img src={ASSETS.whatsappLogo} alt="WhatsApp" className="w-5 h-5" />
                 Contactar ahora
               </button>
             </div>

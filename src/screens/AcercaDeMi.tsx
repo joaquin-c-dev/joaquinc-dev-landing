@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Building2, GraduationCap, Code, Users, Award, MapPin, Linkedin, ExternalLink } from "lucide-react";
-import joaquinProfile from "@/assets/joaquin-profile.jpg";
+import { ASSETS } from "@/lib/assets";
 import Navigation from "@/components/Navigation";
 import DiscountBanner from "@/components/DiscountBanner";
 import Footer from "@/components/Footer";
@@ -106,7 +106,7 @@ const AcercaDeMiContent = () => {
                   <div className="flex justify-center mb-6">
                     <div className="relative">
                       <img 
-                        src={joaquinProfile}
+                        src={ASSETS.joaquinProfile}
                         alt="Joaquín Coronado Ramírez - Java Instructor"
                         className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/20 shadow-elegant"
                       />
