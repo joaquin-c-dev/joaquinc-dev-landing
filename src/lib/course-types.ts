@@ -1,12 +1,10 @@
-/** Tipos compartidos del modelo de curso (contrato con la API). */
+/**
+ * Modelo de vista usado por los componentes React.
+ * Se construye desde ApiCourseLandingResponse via course-mapper.ts.
+ */
 
-export interface CourseSeo {
-  title: string;
-  description: string;
-  keywords?: string;
-  ogImage?: string;
-}
-
+export type CourseType = "COURSE" | "WORKSHOP";
+export type CourseStatus = "ACTIVE" | "INACTIVE";
 export type CourseLayout = "standard" | "workshop";
 
 /** Nombre de icono Lucide serializable desde la API. */
@@ -34,9 +32,19 @@ export type CourseIconName =
   | "container"
   | "rocket";
 
+export interface CourseSeo {
+  title: string;
+  description: string;
+  keywords?: string;
+  ogImage?: string;
+}
+
 export interface CurriculumModule {
   icon?: CourseIconName;
   title: string;
+  /** Horas de la seccion (CourseSection.hoursPerSection en Java). */
+  hoursPerSection: number;
+  /** Etiqueta formateada para UI (ej. "4 hrs"). */
   duration: string;
   topics: string[];
 }
@@ -49,7 +57,6 @@ export interface CourseHeroData {
   layout?: "two-column" | "centered";
   video?: { src: string; poster: string };
   stripeUrl?: string;
-  /** Ruta interna (ej. /temario) o scroll a sección con `#id`. */
   secondaryCta?: { label: string; href?: string; scrollTo?: string };
 }
 
@@ -78,14 +85,14 @@ export interface CoursePrerequisites {
   items: string[];
   equipment: string[];
   equipmentNote?: string;
-  prerequisiteCourseLink?: { label: string; path: string };
+  prerequisiteCourseLink?: { label: string; courseSlug: string };
   footerNote?: string;
   noExperienceNote?: string;
 }
 
 export interface ScheduleItem {
+  id: string;
   modality: string;
-  courseLabel: string;
   schedule: string;
   hours: string;
   dateRange: string;
@@ -100,7 +107,6 @@ export interface CourseListing {
   borderColor: string;
   features: string[];
   featured?: boolean;
-  /** Si es false, no aparece en el home (ej. talleres ocultos). */
   showOnHome?: boolean;
 }
 
@@ -117,13 +123,20 @@ export interface WorkshopData {
 }
 
 export interface Course {
+  id: string;
   slug: string;
+  type: CourseType;
+  status: CourseStatus;
+  /** Derivado de type para el layout de componentes. */
   layout: CourseLayout;
-  name: string;
+  title: string;
+  description: string;
+  durationInHours: number;
+  /** Etiqueta formateada para UI (ej. "40 horas"). */
+  duration: string;
   subtitle?: string;
-  shortDescription?: string;
   level?: string;
-  duration?: string;
+  topicsUrl?: string;
   seo: CourseSeo;
   listing?: CourseListing;
   hero: CourseHeroData;

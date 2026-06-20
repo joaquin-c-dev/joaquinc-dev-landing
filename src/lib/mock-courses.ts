@@ -1,9 +1,9 @@
-import type { Course } from "./course-types";
+import type { LegacyMockCourse } from "./course-mapper";
 
 const OG_BASE =
   "https://res.cloudinary.com/joaquin-test/image/upload/w_1200,h_630,c_fill,f_auto,q_auto/v1757136018/joaquin%20c.%20dev/java%20desde%20cero/Screenshot_at_Aug_26_23-53-12_vavqyx.png";
 
-export const MOCK_COURSES: Course[] = [
+export const MOCK_COURSES: LegacyMockCourse[] = [
   {
     slug: "introduccion-programacion",
     layout: "standard",

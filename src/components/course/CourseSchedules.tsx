@@ -30,9 +30,9 @@ const CourseSchedules = ({ schedules }: CourseSchedulesProps) => (
       </div>
 
       <div className="max-w-4xl mx-auto grid gap-6">
-        {schedules.items.map((item, i) => (
+        {schedules.items.map((item) => (
           <Card
-            key={i}
+            key={item.id}
             className="p-6 bg-gradient-card border-primary/20 shadow-glow hover:shadow-glow-lg transition-all duration-300"
           >
             <div className="text-center mb-6">
@@ -40,7 +40,6 @@ const CourseSchedules = ({ schedules }: CourseSchedulesProps) => (
                 <Calendar className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-xl font-bold mb-2">{item.modality}</h3>
-              <p className="text-muted-foreground">{item.courseLabel}</p>
             </div>
             <div className="space-y-4">
               <div className="flex items-center gap-3">

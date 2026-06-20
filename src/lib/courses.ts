@@ -1,9 +1,20 @@
 /**
  * Capa de datos de cursos.
- * Cambiar `fetchCoursesFromApi` para conectar la API real sin tocar paginas ni componentes.
+ * En produccion: fetch a la API Java y mapear con mapApiCoursesToView.
  */
 import type { Course } from "@/lib/course-types";
-import MOCK_COURSES from "@/lib/mock-courses";
+import type { ApiCourseLandingResponse } from "@/lib/api-course-types";
+import {
+  mapApiCoursesToView,
+  mapApiCourseToView,
+  mapLegacyMockToApi,
+  mapLegacyMockToView,
+  type LegacyMockCourse,
+} from "@/lib/course-mapper";
+import LEGACY_MOCK_COURSES from "@/lib/mock-courses";
+
+/** Cambiar a false cuando la API Java este disponible. */
+const USE_LEGACY_MOCK = true;
 
 export type {
   Course,
@@ -18,40 +29,48 @@ export type {
   CurriculumModule,
   ScheduleItem,
   WorkshopData,
+  CourseType,
+  CourseStatus,
 } from "@/lib/course-types";
 
-async function fetchCoursesFromApi(): Promise<Course[]> {
+export type { ApiCourseLandingResponse } from "@/lib/api-course-types";
+
+async function fetchCoursesFromApi(): Promise<ApiCourseLandingResponse[]> {
   await new Promise((resolve) => setTimeout(resolve, 30));
-  return MOCK_COURSES;
+  // TODO: return fetch(`${API_URL}/courses`).then(r => r.json());
+  return (LEGACY_MOCK_COURSES as LegacyMockCourse[]).map(mapLegacyMockToApi);
 }
 
 export async function getAllCourses(): Promise<Course[]> {
-  return fetchCoursesFromApi();
+  if (USE_LEGACY_MOCK) {
+    await new Promise((resolve) => setTimeout(resolve, 30));
+    return (LEGACY_MOCK_COURSES as LegacyMockCourse[]).map(mapLegacyMockToView);
+  }
+  const apiCourses = await fetchCoursesFromApi();
+  return mapApiCoursesToView(apiCourses);
 }
 
 export async function getCourseBySlug(
   slug: string | undefined,
 ): Promise<Course | null> {
   if (!slug) return null;
-  const courses = await fetchCoursesFromApi();
+  const courses = await getAllCourses();
   return courses.find((course) => course.slug === slug) ?? null;
 }
 
 export async function getCourseSlugs(): Promise<string[]> {
-  const courses = await fetchCoursesFromApi();
+  const courses = await getAllCourses();
   return courses.map((course) => course.slug);
 }
 
-/** Cursos visibles en el home y navegacion. */
 export async function getHomeCourses(): Promise<Course[]> {
-  const courses = await fetchCoursesFromApi();
+  const courses = await getAllCourses();
   return courses.filter((c) => c.listing?.showOnHome !== false);
 }
 
-/** Datos minimos para el menu de navegacion. */
 export async function getNavCourses(): Promise<
   { slug: string; name: string }[]
 > {
-  const courses = await fetchCoursesFromApi();
-  return courses.map((c) => ({ slug: c.slug, name: c.name }));
+  const courses = await getAllCourses();
+  return courses.map((c) => ({ slug: c.slug, name: c.title }));
 }

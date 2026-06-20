@@ -90,7 +90,7 @@ const CoursePrerequisites = ({ prerequisites }: CoursePrerequisitesProps) => (
             </div>
           )}
           {prerequisites.prerequisiteCourseLink && (
-            <Link to={prerequisites.prerequisiteCourseLink.path}>
+            <Link to={`/${prerequisites.prerequisiteCourseLink.courseSlug}`}>
               <Button variant="outline" className="w-full mt-2">
                 {prerequisites.prerequisiteCourseLink.label}
                 <ArrowRight className="w-4 h-4 ml-2" />

@@ -10,7 +10,7 @@ interface CourseCurriculumProps {
 
 const CourseCurriculum = ({ curriculum }: CourseCurriculumProps) => {
   const totalHours = curriculum.modules.reduce(
-    (total, m) => total + parseInt(m.duration.split(" ")[0], 10),
+    (total, m) => total + m.hoursPerSection,
     0,
   );
   const sectionId = curriculum.sectionId ?? "curriculum";

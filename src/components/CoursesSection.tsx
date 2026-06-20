@@ -67,14 +67,14 @@ const CoursesSection = ({ courses }: CoursesSectionProps) => {
                   </div>
 
                   <h3 className="text-xl font-bold text-foreground mb-1">
-                    {course.name}
+                    {course.title}
                   </h3>
                   {course.subtitle && (
                     <p className="text-sm text-primary mb-3">{course.subtitle}</p>
                   )}
 
                   <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                    {course.shortDescription}
+                    {course.description}
                   </p>
 
                   <ul className="space-y-2 mb-6">
