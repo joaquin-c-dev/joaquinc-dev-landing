@@ -1,25 +1,13 @@
-import type { ApiCourseLandingResponse, HeroLayout } from "@/lib/api-course-types";
+import type { ApiCourseLandingResponse } from "@/lib/api-course-types";
 import type {
   Course,
   CourseHeroData,
   CourseIconName,
-  CourseLayout,
   CurriculumModule,
 } from "@/lib/course-types";
 import {
-  formatDurationHours,
   formatSectionDuration,
 } from "@/lib/course-formatters";
-
-function mapTypeToLayout(type: ApiCourseLandingResponse["type"]): CourseLayout {
-  return type === "WORKSHOP" ? "workshop" : "standard";
-}
-
-function mapHeroLayout(layout?: HeroLayout): CourseHeroData["layout"] {
-  if (layout === "TWO_COLUMN") return "two-column";
-  if (layout === "CENTERED") return "centered";
-  return undefined;
-}
 
 function mapIcon(icon?: string): CourseIconName | undefined {
   return icon as CourseIconName | undefined;
@@ -42,21 +30,19 @@ function mapSectionsToModules(
 
 /** Convierte la respuesta de la API Java al modelo usado por los componentes React. */
 export function mapApiCourseToView(api: ApiCourseLandingResponse): Course {
-  const layout = mapTypeToLayout(api.type);
-
   const course: Course = {
     id: api.id,
     slug: api.slug,
     type: api.type,
     status: api.status,
-    layout,
     title: api.title,
     description: api.description,
     durationInHours: api.durationInHours,
-    duration: formatDurationHours(api.durationInHours),
     subtitle: api.subtitle,
     level: api.level,
     topicsUrl: api.topicsUrl,
+    stripeUrl: api.stripeUrl,
+    stripeCoupon: api.stripeCoupon,
     seo: api.seo,
     listing: api.listing
       ? {
@@ -67,22 +53,10 @@ export function mapApiCourseToView(api: ApiCourseLandingResponse): Course {
     hero: {
       titleLine1: api.hero.titleLine1,
       titleHighlight: api.hero.titleHighlight,
-      titleLine2: api.hero.titleLine2,
-      description: api.hero.description,
-      layout: mapHeroLayout(api.hero.layout),
       video: api.hero.video,
-      stripeUrl: api.hero.stripeUrl,
-      secondaryCta: api.hero.secondaryCta
-        ? {
-            label: api.hero.secondaryCta.label,
-            href: api.hero.secondaryCta.href,
-            scrollTo: api.hero.secondaryCta.scrollTo,
-          }
-        : undefined,
     },
     promo: api.promotion,
     pricing: api.pricing,
-    workshop: api.workshop,
     prerequisites: api.prerequisites
       ? {
           ...api.prerequisites,
@@ -120,12 +94,13 @@ export function mapApiCoursesToView(
 /** @deprecated Solo para migrar el mock legacy; usar ApiCourseLandingResponse en produccion. */
 export interface LegacyMockCourse {
   slug: string;
-  layout: CourseLayout;
-  name: string;
+  title: string;
   subtitle?: string;
-  shortDescription?: string;
+  description: string;
   level?: string;
-  duration?: string;
+  durationInHours: number;
+  stripeUrl?: string;
+  stripeCoupon?: string;
   seo: Course["seo"];
   listing?: Course["listing"];
   hero: Course["hero"];
@@ -150,13 +125,6 @@ export interface LegacyMockCourse {
     noExperienceNote?: string;
   };
   pricing?: Course["pricing"];
-  workshop?: Course["workshop"];
-}
-
-function parseDurationHours(duration?: string): number {
-  if (!duration) return 0;
-  const match = duration.match(/(\d+)/);
-  return match ? Number.parseInt(match[1], 10) : 0;
 }
 
 function parseSectionHours(duration: string): number {
@@ -164,43 +132,29 @@ function parseSectionHours(duration: string): number {
   return match ? Number.parseInt(match[1], 10) : 0;
 }
 
-function mapHeroLayoutToApi(
-  layout?: CourseHeroData["layout"],
-): HeroLayout | undefined {
-  if (layout === "two-column") return "TWO_COLUMN";
-  if (layout === "centered") return "CENTERED";
-  return undefined;
-}
-
 /** Convierte el mock legacy al formato ApiCourseLandingResponse. */
 export function mapLegacyMockToApi(legacy: LegacyMockCourse): ApiCourseLandingResponse {
-  const durationInHours = parseDurationHours(legacy.duration);
-
   return {
     id: legacy.slug,
     slug: legacy.slug,
-    type: legacy.layout === "workshop" ? "WORKSHOP" : "COURSE",
+    type: "COURSE",
     status: "ACTIVE",
-    title: legacy.name,
-    description: legacy.shortDescription ?? legacy.hero.description,
-    durationInHours,
+    title: legacy.title,
+    description: legacy.description,
+    durationInHours: legacy.durationInHours,
     subtitle: legacy.subtitle,
     level: legacy.level,
+    stripeUrl: legacy.stripeUrl,
+    stripeCoupon: legacy.stripeCoupon,
     seo: legacy.seo,
     listing: legacy.listing,
     hero: {
       titleLine1: legacy.hero.titleLine1,
       titleHighlight: legacy.hero.titleHighlight,
-      titleLine2: legacy.hero.titleLine2,
-      description: legacy.hero.description,
-      layout: mapHeroLayoutToApi(legacy.hero.layout),
       video: legacy.hero.video,
-      stripeUrl: legacy.hero.stripeUrl,
-      secondaryCta: legacy.hero.secondaryCta,
     },
     promotion: legacy.promo,
     pricing: legacy.pricing,
-    workshop: legacy.workshop,
     prerequisites: legacy.prerequisites
       ? {
           ...legacy.prerequisites,

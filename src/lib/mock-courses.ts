@@ -6,19 +6,32 @@ const OG_BASE =
 export const MOCK_COURSES: LegacyMockCourse[] = [
   {
     slug: "java-intermedio",
-    layout: "standard",
-    name: "Java Intermedio",
+    title: "Java Intermedio",
     subtitle: "Spring Boot Profesional",
-    shortDescription:
-      "Lleva tus habilidades al siguiente nivel con Spring Boot, APIs REST, seguridad y arquitectura empresarial.",
+    description:
+      "Lleva tus conocimientos de Java al siguiente nivel. Aprende patrones de diseño, testing profesional, seguridad con JWT, persistencia con JPA y mucho más para crear aplicaciones backend robustas y listas para producción.",
     level: "Intermedio a Avanzado",
-    duration: "40 horas",
+    durationInHours: 40,
+    stripeUrl:
+      "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?client_reference_id=69e4199d168fb564dd8e7a78",
+    stripeCoupon: "INTERMEDIO",
+    hero: {
+      titleLine1: "Java",
+      titleHighlight: "Intermedio",
+    },
     seo: {
       title: "Curso de Java Intermedio con Spring Boot | Joaquín C. Dev",
       description:
         "Curso de Java Intermedio en vivo: Spring Boot, APIs REST, Spring Security con JWT, Spring Data JPA, RabbitMQ, Docker y testing profesional con proyectos reales.",
-      keywords:
-        "java intermedio, spring boot, spring security, apis rest java, jwt spring, spring data jpa, docker java",
+      keywords: [
+        "java intermedio",
+        "spring boot",
+        "spring security",
+        "apis rest java",
+        "jwt spring",
+        "spring data jpa",
+        "docker java",
+      ],
       ogImage: OG_BASE,
     },
     listing: {
@@ -28,20 +41,6 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
       borderColor: "border-tech-purple/20",
       features: ["Spring Boot", "APIs REST", "Spring Security"],
       showOnHome: true,
-    },
-    hero: {
-      titleLine1: "Java",
-      titleHighlight: "Intermedio",
-      titleLine2: "Spring Boot Profesional",
-      description:
-        "Lleva tus conocimientos de Java al siguiente nivel. Aprende patrones de diseño, testing profesional, seguridad con JWT, persistencia con JPA y mucho más para crear aplicaciones backend robustas y listas para producción.",
-      layout: "centered",
-      stripeUrl:
-        "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?prefilled_promo_code=INTERMEDIO&client_reference_id=69e4199d168fb564dd8e7a78",
-      secondaryCta: {
-        label: "Ver Temario",
-        scrollTo: "temario-intermedio",
-      },
     },
     promo: {
       endsAt: "2026-06-28T23:59:59-06:00",
@@ -198,19 +197,26 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
   },
   {
     slug: "introduccion-programacion",
-    layout: "standard",
-    name: "Introducción a la Programación",
+    title: "Introducción a la Programación",
     subtitle: "Para principiantes absolutos",
-    shortDescription:
-      "Aprende los fundamentos de la programación desde cero. Ideal si nunca has escrito una línea de código.",
+    description:
+      "Aprende los fundamentos de la programación desde cero. Un curso completo en vivo que te llevará desde los conceptos básicos de algoritmos hasta la programación orientada a objetos con Java.",
     level: "Principiante",
-    duration: "30 horas",
+    durationInHours: 30,
+    stripeUrl:
+      "https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04?client_reference_id=69e702bf846b18f8c93221bb",
+    stripeCoupon: "INTRO",
     seo: {
       title: "Introducción a la Programación desde Cero | Joaquín C. Dev",
       description:
         "Curso en vivo de introducción a la programación para principiantes absolutos. Aprende lógica de programación y tus primeros pasos en código con acompañamiento en tiempo real.",
-      keywords:
-        "introducción a la programación, aprender a programar, programación desde cero, lógica de programación, curso para principiantes",
+      keywords: [
+        "introducción a la programación",
+        "aprender a programar",
+        "programación desde cero",
+        "lógica de programación",
+        "curso para principiantes",
+      ],
       ogImage: OG_BASE,
     },
     listing: {
@@ -228,15 +234,6 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
     hero: {
       titleLine1: "Introducción a la",
       titleHighlight: "Programación",
-      description:
-        "Aprende los fundamentos de la programación desde cero. Un curso completo en vivo que te llevará desde los conceptos básicos de algoritmos hasta la programación orientada a objetos con Java.",
-      layout: "centered",
-      stripeUrl:
-        "https://buy.stripe.com/6oU3cxghggtJ1oR9r6b3q04?prefilled_promo_code=INTRO&client_reference_id=69e702bf846b18f8c93221bb",
-      secondaryCta: {
-        label: "Ver Temario",
-        scrollTo: "temario-introduccion",
-      },
     },
     promo: {
       endsAt: "2026-05-02T23:59:59-06:00",
@@ -395,19 +392,27 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
   },
   {
     slug: "java-desde-cero",
-    layout: "standard",
-    name: "Java desde Cero",
+    title: "Java desde Cero",
     subtitle: "Fundamentos hasta profesional",
-    shortDescription:
-      "Domina Java desde los fundamentos hasta nivel profesional. POO, colecciones, manejo de errores y más.",
+    description:
+      "Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. Más de 9 años de experiencia en desarrollo backend me respaldan para guiarte en tiempo real en cada paso de tu carrera como developer.",
     level: "Principiante a Intermedio",
-    duration: "40 horas",
+    durationInHours: 40,
+    stripeUrl: "https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01",
+    stripeCoupon: "LANZAMIENTO",
     seo: {
       title: "Curso de Java desde Cero en Vivo | Joaquín C. Dev",
       description:
         "Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional: POO, colecciones, Streams y MongoDB. Más de 9 años de experiencia backend guiándote en tiempo real.",
-      keywords:
-        "java, curso java, programación java, aprender java, java desde cero, desarrollo java, POO java",
+      keywords: [
+        "java",
+        "curso java",
+        "programación java",
+        "aprender java",
+        "java desde cero",
+        "desarrollo java",
+        "POO java",
+      ],
       ogImage: OG_BASE,
     },
     listing: {
@@ -422,18 +427,11 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
     hero: {
       titleLine1: "Aprende",
       titleHighlight: "Java",
-      titleLine2: "desde Cero",
-      description:
-        "Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. Más de 9 años de experiencia en desarrollo backend me respaldan para guiarte en tiempo real en cada paso de tu carrera como developer.",
-      layout: "two-column",
       video: {
         src: "https://res.cloudinary.com/joaquin-test/video/upload/v1756623620/joaquin%20c.%20dev/java%20desde%20cero/GMT20250831-012428_Recording.cutfile.20250831065554802_1920x1080_fhlezz.mp4",
         poster:
           "https://res.cloudinary.com/joaquin-test/image/upload/v1756607596/Screenshot_at_Aug_30_20-32-46_qgh3zx.png",
       },
-      stripeUrl:
-        "https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01?prefilled_promo_code=LANZAMIENTO",
-      secondaryCta: { label: "Ver Temario", href: "/temario" },
     },
     promo: {
       endsAt: "2026-01-17T23:59:59-06:00",
@@ -607,82 +605,6 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         ],
         note: "Tienes opciones de 3, 6, 9 y 12 meses sin intereses con este plan.",
       },
-    },
-  },
-  {
-    slug: "taller-poo",
-    layout: "workshop",
-    name: "Taller de POO",
-    subtitle: "Programación Orientada a Objetos",
-    shortDescription:
-      "Domina los conceptos fundamentales de la POO y aprende a aplicarlos eficientemente en Java.",
-    level: "Intermedio",
-    duration: "Taller intensivo",
-    seo: {
-      title:
-        "Taller de Programación Orientada a Objetos en Java | Joaquín C. Dev",
-      description:
-        "Taller intensivo de POO en Java: clases y objetos, herencia, polimorfismo, encapsulamiento y abstracción con ejercicios prácticos y proyecto final.",
-      keywords:
-        "taller poo, programación orientada a objetos, java poo, herencia polimorfismo, clases y objetos java",
-      ogImage: OG_BASE,
-    },
-    listing: {
-      icon: "code",
-      color: "from-primary to-tech-cyan",
-      bgColor: "bg-primary/10",
-      borderColor: "border-primary/20",
-      features: [
-        "Conceptos fundamentales de POO",
-        "Herencia y polimorfismo",
-        "Proyecto final integrador",
-      ],
-      showOnHome: false,
-    },
-    hero: {
-      titleLine1: "Taller de",
-      titleHighlight: "POO",
-      description:
-        "Domina los conceptos fundamentales de la POO y aprende a aplicarlos eficientemente en Java. Un taller intensivo diseñado para llevarte al siguiente nivel.",
-      layout: "centered",
-      stripeUrl: "https://buy.stripe.com/9B69AV1mmfpF8Rj32Ib3q03",
-    },
-    workshop: {
-      badge: "Taller Especializado",
-      features: [
-        "Conceptos fundamentales de POO",
-        "Clases y objetos en Java",
-        "Herencia y polimorfismo",
-        "Encapsulamiento y abstracción",
-        "Ejercicios prácticos",
-        "Proyecto final integrador",
-      ],
-      price: "$340.00 MXN",
-      priceNote: "Pago único • Incluye material del taller",
-      stripeUrl: "https://buy.stripe.com/9B69AV1mmfpF8Rj32Ib3q03",
-      paypalUrl: "https://www.paypal.com/ncp/payment/LFGU5H9MSVG2A",
-      meta: [
-        { label: "Fechas", value: "11 y 18 de Octubre" },
-        { label: "Horario", value: "9:00 AM - 2:00 PM" },
-        { label: "Modalidad", value: "En línea" },
-      ],
-      scheduleBlocks: [
-        {
-          title: "Sábado 11 de Octubre",
-          description: "Fundamentos de POO, clases y objetos, encapsulamiento",
-        },
-        {
-          title: "Sábado 18 de Octubre",
-          description:
-            "Herencia, polimorfismo, abstracción y ejercicios finales",
-        },
-      ],
-      requirements: [
-        "Conocimientos básicos de Java",
-        "IDE instalado (Eclipse o IntelliJ)",
-        "Conexión estable a internet",
-        "Ganas de aprender 🚀",
-      ],
     },
   },
 ];

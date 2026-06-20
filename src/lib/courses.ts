@@ -21,7 +21,6 @@ export type {
   Course,
   CourseHeroData,
   CourseIconName,
-  CourseLayout,
   CourseListing,
   CoursePricing,
   CoursePromo,
@@ -29,7 +28,6 @@ export type {
   CourseSeo,
   CurriculumModule,
   ScheduleItem,
-  WorkshopData,
   CourseType,
   CourseStatus,
 } from "@/lib/course-types";

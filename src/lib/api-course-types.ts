@@ -3,11 +3,10 @@
  * Es la forma en que la API del backend debe responder.
  */
 
-export type CourseType = "COURSE" | "WORKSHOP";
+export type CourseType = "COURSE";
 export type CourseStatus = "ACTIVE" | "INACTIVE";
 export type CourseModality = "SATURDAY" | "MONDAY_TO_THURSDAY";
 export type TimeSchedule = "FROM_9AM_TO_2PM" | "FROM_8PM_TO_10PM";
-export type HeroLayout = "TWO_COLUMN" | "CENTERED";
 
 export interface ApiCourseSection {
   id: string;
@@ -32,7 +31,7 @@ export interface ApiScheduledCourse {
 export interface ApiCourseSeo {
   title: string;
   description: string;
-  keywords?: string;
+  keywords?: string[];
   ogImage?: string;
 }
 
@@ -51,21 +50,10 @@ export interface ApiCourseVideo {
   poster: string;
 }
 
-export interface ApiHeroSecondaryCta {
-  label: string;
-  href?: string;
-  scrollTo?: string;
-}
-
 export interface ApiCourseHero {
   titleLine1: string;
   titleHighlight?: string;
-  titleLine2?: string;
-  description: string;
-  layout?: HeroLayout;
   video?: ApiCourseVideo;
-  stripeUrl?: string;
-  secondaryCta?: ApiHeroSecondaryCta;
 }
 
 export interface ApiCoursePromotion {
@@ -105,28 +93,6 @@ export interface ApiCoursePrerequisites {
   noExperienceNote?: string;
 }
 
-export interface ApiWorkshopMetaItem {
-  label: string;
-  value: string;
-}
-
-export interface ApiWorkshopScheduleBlock {
-  title: string;
-  description: string;
-}
-
-export interface ApiWorkshopDetails {
-  badge: string;
-  features: string[];
-  price: string;
-  priceNote?: string;
-  stripeUrl: string;
-  paypalUrl?: string;
-  meta: ApiWorkshopMetaItem[];
-  scheduleBlocks: ApiWorkshopScheduleBlock[];
-  requirements: string[];
-}
-
 /** Respuesta de GET /api/courses y GET /api/courses/{slug} */
 export interface ApiCourseLandingResponse {
   id: string;
@@ -140,13 +106,14 @@ export interface ApiCourseLandingResponse {
   subtitle?: string;
   level?: string;
   topicsUrl?: string;
+  stripeUrl?: string;
+  stripeCoupon?: string;
   seo: ApiCourseSeo;
   listing?: ApiCourseListing;
   hero: ApiCourseHero;
   promotion?: ApiCoursePromotion;
   prerequisites?: ApiCoursePrerequisites;
   pricing?: ApiCoursePricing;
-  workshop?: ApiWorkshopDetails;
   curriculumSectionId?: string;
   curriculumSummary?: string;
   sections?: ApiCourseSection[];

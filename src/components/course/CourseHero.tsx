@@ -1,27 +1,38 @@
 import { Button } from "@/components/ui/button";
 import { Code, Zap } from "lucide-react";
 import { ASSETS } from "@/lib/assets";
+import { buildStripeCheckoutUrl } from "@/lib/course-formatters";
 import type { CourseHeroData } from "@/lib/course-types";
+
+const CURRICULUM_CTA_LABEL = "Ver Temario";
 
 interface CourseHeroProps {
   hero: CourseHeroData;
+  subtitle?: string;
+  description: string;
+  stripeUrl?: string;
+  stripeCoupon?: string;
+  curriculumSectionId?: string;
 }
 
-const CourseHero = ({ hero }: CourseHeroProps) => {
-  const layout = hero.layout ?? "two-column";
-  const isCentered = layout === "centered";
+const CourseHero = ({
+  hero,
+  subtitle,
+  description,
+  stripeUrl,
+  stripeCoupon,
+  curriculumSectionId,
+}: CourseHeroProps) => {
+  const isCentered = !hero.video;
+  const checkoutUrl = stripeUrl
+    ? buildStripeCheckoutUrl(stripeUrl, stripeCoupon)
+    : undefined;
 
-  const handleSecondary = () => {
-    if (hero.secondaryCta?.scrollTo) {
-      const el = document.querySelector(
-        `[data-section="${hero.secondaryCta.scrollTo}"]`,
-      );
-      el?.scrollIntoView({ behavior: "smooth" });
-      return;
-    }
-    if (hero.secondaryCta?.href) {
-      window.location.assign(hero.secondaryCta.href);
-    }
+  const handleViewCurriculum = () => {
+    const sectionId = curriculumSectionId ?? "curriculum";
+    document
+      .querySelector(`[data-section="${sectionId}"]`)
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -42,7 +53,7 @@ const CourseHero = ({ hero }: CourseHeroProps) => {
                 : "grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center"
             }
           >
-            {hero.video && !isCentered && (
+            {hero.video && (
               <div className="flex justify-center lg:justify-start order-2 lg:order-1">
                 <div className="relative group w-full max-w-md md:max-w-lg lg:max-w-xl">
                   <div className="absolute -inset-2 bg-gradient-accent rounded-2xl blur-xl opacity-10 group-hover:opacity-20 transition-opacity duration-500" />
@@ -80,11 +91,11 @@ const CourseHero = ({ hero }: CourseHeroProps) => {
                     </span>
                   )}
                 </div>
-                {hero.titleLine2 && <div>{hero.titleLine2}</div>}
+                {subtitle && <div>{subtitle}</div>}
               </h1>
 
               <p className="text-base lg:text-lg text-muted-foreground/90 leading-relaxed">
-                {hero.description}
+                {description}
               </p>
 
               <div
@@ -111,30 +122,28 @@ const CourseHero = ({ hero }: CourseHeroProps) => {
                   isCentered ? "justify-center" : "justify-center lg:justify-start"
                 }`}
               >
-                {hero.stripeUrl && (
+                {checkoutUrl && (
                   <div className="group relative">
                     <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
                     <Button
                       size="lg"
                       className="relative bg-gradient-accent text-white text-base px-6 py-3 transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30 min-w-[180px] h-[48px]"
-                      onClick={() => window.open(hero.stripeUrl!, "_blank")}
+                      onClick={() => window.open(checkoutUrl, "_blank")}
                     >
                       <Zap className="w-5 h-5 mr-2" />
                       Inscribirme Ahora
                     </Button>
                   </div>
                 )}
-                {hero.secondaryCta && (
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-primary/30 hover:border-primary/50 text-base px-6 py-3 hover:bg-primary/5 hover:text-primary min-w-[180px] h-[48px]"
-                    onClick={handleSecondary}
-                  >
-                    <Code className="w-5 h-5 mr-2" />
-                    {hero.secondaryCta.label}
-                  </Button>
-                )}
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-primary/30 hover:border-primary/50 text-base px-6 py-3 hover:bg-primary/5 hover:text-primary min-w-[180px] h-[48px]"
+                  onClick={handleViewCurriculum}
+                >
+                  <Code className="w-5 h-5 mr-2" />
+                  {CURRICULUM_CTA_LABEL}
+                </Button>
               </div>
             </div>
           </div>

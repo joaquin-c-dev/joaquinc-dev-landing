@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Clock, Users, Sparkles } from "lucide-react";
 import { getCourseIcon } from "@/lib/course-icons";
+import { formatDurationHours } from "@/lib/course-formatters";
 import type { Course } from "@/lib/course-types";
 
 interface CoursesSectionProps {
@@ -90,10 +91,10 @@ const CoursesSection = ({ courses }: CoursesSectionProps) => {
                   </ul>
 
                   <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                    {course.duration && (
+                    {course.durationInHours > 0 && (
                       <div className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
-                        {course.duration}
+                        {formatDurationHours(course.durationInHours)}
                       </div>
                     )}
                     {course.level && (

@@ -56,3 +56,18 @@ export function formatWeekDuration(startDate: string, endDate: string): string {
   const weeks = Math.max(1, Math.round(ms / (7 * 24 * 60 * 60 * 1000)));
   return weeks === 1 ? "1 semana de duración" : `${weeks} semanas de duración`;
 }
+
+export function buildStripeCheckoutUrl(
+  stripeUrl: string,
+  stripeCoupon?: string,
+): string {
+  if (!stripeCoupon) return stripeUrl;
+  const separator = stripeUrl.includes("?") ? "&" : "?";
+  return `${stripeUrl}${separator}prefilled_promo_code=${encodeURIComponent(stripeCoupon)}`;
+}
+
+/** Meta keywords: la API envia arreglo; el meta tag HTML usa cadena separada por comas. */
+export function formatSeoKeywords(keywords?: string[]): string | undefined {
+  if (!keywords?.length) return undefined;
+  return keywords.join(", ");
+}

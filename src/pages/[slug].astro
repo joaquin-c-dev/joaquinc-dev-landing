@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCourseBySlug, getNavCourses } from "@/lib/courses";
+import { formatSeoKeywords } from "@/lib/course-formatters";
 import CoursePage from "@/screens/CoursePage";
 
 const { slug } = Astro.params;
@@ -17,7 +18,7 @@ if (!course) {
 <BaseLayout
   title={course.seo.title}
   description={course.seo.description}
-  keywords={course.seo.keywords}
+  keywords={formatSeoKeywords(course.seo.keywords)}
   ogImage={course.seo.ogImage}
   ogType="website"
 >
