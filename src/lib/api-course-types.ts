@@ -105,11 +105,6 @@ export interface ApiCoursePrerequisites {
   noExperienceNote?: string;
 }
 
-export interface ApiMethodologyItem {
-  title: string;
-  description: string;
-}
-
 export interface ApiWorkshopMetaItem {
   label: string;
   value: string;
@@ -155,8 +150,4 @@ export interface ApiCourseLandingResponse {
   curriculumSectionId?: string;
   curriculumSummary?: string;
   sections?: ApiCourseSection[];
-  methodology?: ApiMethodologyItem[];
-  schedulesSubtitle?: string;
-  schedulesFullHeight?: boolean;
-  scheduledCourses?: ApiScheduledCourse[];
 }

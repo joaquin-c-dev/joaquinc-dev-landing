@@ -12,6 +12,7 @@ import {
   type LegacyMockCourse,
 } from "@/lib/course-mapper";
 import LEGACY_MOCK_COURSES from "@/lib/mock-courses";
+import { getCourseSchedules } from "@/lib/scheduled-courses";
 
 /** Cambiar a false cuando la API Java este disponible. */
 const USE_LEGACY_MOCK = true;
@@ -55,7 +56,11 @@ export async function getCourseBySlug(
 ): Promise<Course | null> {
   if (!slug) return null;
   const courses = await getAllCourses();
-  return courses.find((course) => course.slug === slug) ?? null;
+  const course = courses.find((c) => c.slug === slug);
+  if (!course) return null;
+
+  const schedules = await getCourseSchedules(course.slug, course.durationInHours);
+  return schedules ? { ...course, schedules } : course;
 }
 
 export async function getCourseSlugs(): Promise<string[]> {

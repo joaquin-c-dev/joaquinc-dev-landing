@@ -5,6 +5,198 @@ const OG_BASE =
 
 export const MOCK_COURSES: LegacyMockCourse[] = [
   {
+    slug: "java-intermedio",
+    layout: "standard",
+    name: "Java Intermedio",
+    subtitle: "Spring Boot Profesional",
+    shortDescription:
+      "Lleva tus habilidades al siguiente nivel con Spring Boot, APIs REST, seguridad y arquitectura empresarial.",
+    level: "Intermedio a Avanzado",
+    duration: "40 horas",
+    seo: {
+      title: "Curso de Java Intermedio con Spring Boot | Joaquín C. Dev",
+      description:
+        "Curso de Java Intermedio en vivo: Spring Boot, APIs REST, Spring Security con JWT, Spring Data JPA, RabbitMQ, Docker y testing profesional con proyectos reales.",
+      keywords:
+        "java intermedio, spring boot, spring security, apis rest java, jwt spring, spring data jpa, docker java",
+      ogImage: OG_BASE,
+    },
+    listing: {
+      icon: "rocket",
+      color: "from-tech-purple to-pink-500",
+      bgColor: "bg-tech-purple/10",
+      borderColor: "border-tech-purple/20",
+      features: ["Spring Boot", "APIs REST", "Spring Security"],
+      showOnHome: true,
+    },
+    hero: {
+      titleLine1: "Java",
+      titleHighlight: "Intermedio",
+      titleLine2: "Spring Boot Profesional",
+      description:
+        "Lleva tus conocimientos de Java al siguiente nivel. Aprende patrones de diseño, testing profesional, seguridad con JWT, persistencia con JPA y mucho más para crear aplicaciones backend robustas y listas para producción.",
+      layout: "centered",
+      stripeUrl:
+        "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?prefilled_promo_code=INTERMEDIO&client_reference_id=69e4199d168fb564dd8e7a78",
+      secondaryCta: {
+        label: "Ver Temario",
+        scrollTo: "temario-intermedio",
+      },
+    },
+    promo: {
+      endsAt: "2026-06-28T23:59:59-06:00",
+      bannerDesktop:
+        "Java Intermedio: $2,000 de descuento + hasta 12 meses sin intereses",
+      bannerMobile: "$2,000 OFF + 12MSI",
+    },
+    curriculum: {
+      sectionId: "temario-intermedio",
+      summary:
+        "8 módulos con 40 horas de contenido práctico y proyectos reales",
+      modules: [
+        {
+          icon: "boxes",
+          title: "Patrones de Diseño y Arquitectura",
+          duration: "5 hrs",
+          topics: [
+            "Principios SOLID aplicados a proyectos reales",
+            "Patrones más usados en backend: Strategy",
+            "Factory",
+            "Template Method",
+            "Decorator",
+          ],
+        },
+        {
+          icon: "test-tube",
+          title: "Testing Profesional: JUnit, Mockito y TDD",
+          duration: "5 hrs",
+          topics: [
+            "Fundamentos de testing unitario y buenas prácticas",
+            "JUnit 5: estructura, anotaciones y assertions",
+            "Uso de Mockito para mocks, stubs y spies",
+            "Introducción a TDD (Test Driven Development)",
+            "Testing de servicios y lógica de negocio",
+          ],
+        },
+        {
+          icon: "layers",
+          title: "Introducción a Spring y Spring Boot",
+          duration: "5 hrs",
+          topics: [
+            "¿Qué es Spring y Spring Boot?",
+            "Conceptos previos a Spring",
+            "Inyección de dependencias y el contenedor IoC",
+            "Configuración de un proyecto con Spring Initializr",
+            "Dependencias starter de Spring Boot",
+          ],
+        },
+        {
+          icon: "shield",
+          title: "Seguridad: JWT con Spring Security",
+          duration: "5 hrs",
+          topics: [
+            "Fundamentos de autenticación y autorización",
+            "Configuración de Spring Security",
+            "Implementación de JWT (login, filtros y validación)",
+            "Protección de endpoints y roles de usuario",
+            "Manejo de errores y seguridad básica en APIs REST",
+          ],
+        },
+        {
+          icon: "database",
+          title: "Persistencia de datos con Spring Data JPA (MySQL)",
+          duration: "5 hrs",
+          topics: [
+            "Configuración de JPA con MySQL",
+            "Entidades, repositorios y relaciones",
+            "Queries con métodos derivados y JPQL",
+            "Paginación y ordenamiento",
+            "Buenas prácticas de acceso a datos",
+          ],
+        },
+        {
+          icon: "message-square",
+          title: "Asincronía: RabbitMQ y Cron Jobs",
+          duration: "5 hrs",
+          topics: [
+            "Conceptos de mensajería y procesamiento asíncrono",
+            "Introducción a RabbitMQ y colas",
+            "Productores y consumidores con Spring AMQP",
+            "Manejo de tareas programadas con Cron Jobs",
+            "Casos de uso reales (emails, procesos en background)",
+          ],
+        },
+        {
+          icon: "file-text",
+          title: "Documentación con Swagger / OpenAPI",
+          duration: "5 hrs",
+          topics: [
+            "Importancia de documentar APIs",
+            "Configuración de Swagger en Spring Boot",
+            "Uso de anotaciones OpenAPI",
+            "Documentación de endpoints, parámetros y respuestas",
+            "Buenas prácticas para APIs consumibles",
+          ],
+        },
+        {
+          icon: "container",
+          title: "Docker para desarrollo",
+          duration: "5 hrs",
+          topics: [
+            "¿Qué es Docker y por qué usarlo?",
+            "Creación de Dockerfiles para aplicaciones Java",
+            "Uso de imágenes y contenedores",
+            "Docker Compose para entornos locales",
+            "Flujo de desarrollo con Docker",
+          ],
+        },
+      ],
+    },
+    prerequisites: {
+      intro:
+        "Para aprovechar al máximo este curso, te recomendamos cumplir con los siguientes requisitos",
+      items: [
+        "Java Basics",
+        "POO (Programación Orientada a Objetos)",
+        "Nociones de Spring y Spring Boot",
+        "Desarrollo de API REST",
+      ],
+      equipment: [
+        "8 GB de RAM (mínimo)",
+        "2.5 GB de espacio en disco",
+        "Procesador multicore",
+        "Resolución mínima 1024x768",
+      ],
+      equipmentNote: "Conexión a internet por cable (recomendado)",
+      prerequisiteCourseLink: {
+        label: "Comienza con Java desde Cero",
+        path: "/java-desde-cero",
+      },
+      footerNote:
+        "Puedes tomar el curso sin cumplir estos requisitos, pero te recomendamos tenerlos para aprovecharlo al 100%.",
+    },
+    pricing: {
+      subtitle:
+        "Diferentes opciones de pago para que puedas llevar tu carrera de Java al siguiente nivel",
+      fullPrice: 8500,
+      discountPrice: 6500,
+      stripeUrl:
+        "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?client_reference_id=69e4199d168fb564dd8e7a78",
+      stripePromoUrl:
+        "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?prefilled_promo_code=INTERMEDIO&client_reference_id=69e4199d168fb564dd8e7a78",
+      whatsappCourseName: "Java Intermedio",
+      recommendedModal: {
+        promoCodeLabel: "INTERMEDIO",
+        conditions: [
+          "El cupón INTERMEDIO debe estar activo",
+          "Debes ingresar una tarjeta de crédito válida",
+          'Da clic en la opción "Pagar en cuotas (meses sin intereses)"',
+        ],
+        note: "Tienes opciones de 3, 6, 9 y 12 meses sin intereses con este plan.",
+      },
+    },
+  },
+  {
     slug: "introduccion-programacion",
     layout: "standard",
     name: "Introducción a la Programación",
@@ -157,23 +349,6 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
           ],
         },
       ],
-      methodology: [
-        {
-          title: "📋 Teoría Aplicada",
-          description:
-            "Cada concepto se explica con ejemplos claros y fáciles de entender.",
-        },
-        {
-          title: "🛠️ Práctica Inmediata",
-          description:
-            "Ejercicios prácticos después de cada tema para reforzar lo aprendido.",
-        },
-        {
-          title: "🚀 Proyectos Reales",
-          description:
-            "Desarrollamos programas completos aplicando todos los conceptos.",
-        },
-      ],
     },
     prerequisites: {
       intro:
@@ -196,21 +371,6 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         "Puedes tomar el curso sin cumplir todos estos requisitos, pero te recomendamos tenerlos para aprovecharlo al 100%.",
       noExperienceNote:
         "¡No necesitas saber programar! Este curso es tu punto de partida ideal.",
-    },
-    schedules: {
-      subtitle:
-        "Elige la modalidad que mejor se adapte a tu horario y comienza tu aprendizaje",
-      fullHeight: true,
-      items: [
-        {
-          modality: "Modalidad Sabatina",
-          courseLabel: "Introducción a la Programación",
-          schedule: "Sábados 9:00 AM - 2:00 PM",
-          hours: "30 horas totales",
-          dateRange: "2 Mayo - 6 Junio 2026",
-          duration: "6 semanas de duración",
-        },
-      ],
     },
     pricing: {
       subtitle:
@@ -404,23 +564,6 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
           ],
         },
       ],
-      methodology: [
-        {
-          title: "📋 Teoría Aplicada",
-          description:
-            "Cada concepto se explica con ejemplos reales de mi experiencia en producción.",
-        },
-        {
-          title: "🛠️ Práctica Inmediata",
-          description:
-            "Construimos aplicaciones completas aplicando lo aprendido al instante.",
-        },
-        {
-          title: "🚀 Proyectos Reales",
-          description:
-            "Desarrollamos sistemas que realmente se usan en empresas Fortune 500.",
-        },
-      ],
     },
     prerequisites: {
       intro:
@@ -446,20 +589,6 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
       footerNote:
         "Puedes tomar el curso sin cumplir estos requisitos, pero te recomendamos tenerlos para aprovecharlo al 100%.",
     },
-    schedules: {
-      subtitle:
-        "Elige la modalidad que mejor se adapte a tu horario y comienza tu transformación profesional",
-      items: [
-        {
-          modality: "Modalidad Sabatina",
-          courseLabel: "Java desde Cero",
-          schedule: "Sábados 9:00 AM - 2:00 PM",
-          hours: "40 horas totales",
-          dateRange: "5 Sep - 24 Oct 2026",
-          duration: "8 semanas de duración",
-        },
-      ],
-    },
     pricing: {
       subtitle:
         "Diferentes opciones de pago para que puedas comenzar tu carrera como Java Developer",
@@ -473,231 +602,6 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         promoCodeLabel: "LANZAMIENTO",
         conditions: [
           "El cupón LANZAMIENTO debe estar activo",
-          "Debes ingresar una tarjeta de crédito válida",
-          'Da clic en la opción "Pagar en cuotas (meses sin intereses)"',
-        ],
-        note: "Tienes opciones de 3, 6, 9 y 12 meses sin intereses con este plan.",
-      },
-    },
-  },
-  {
-    slug: "java-intermedio",
-    layout: "standard",
-    name: "Java Intermedio",
-    subtitle: "Spring Boot Profesional",
-    shortDescription:
-      "Lleva tus habilidades al siguiente nivel con Spring Boot, APIs REST, seguridad y arquitectura empresarial.",
-    level: "Intermedio a Avanzado",
-    duration: "40 horas",
-    seo: {
-      title: "Curso de Java Intermedio con Spring Boot | Joaquín C. Dev",
-      description:
-        "Curso de Java Intermedio en vivo: Spring Boot, APIs REST, Spring Security con JWT, Spring Data JPA, RabbitMQ, Docker y testing profesional con proyectos reales.",
-      keywords:
-        "java intermedio, spring boot, spring security, apis rest java, jwt spring, spring data jpa, docker java",
-      ogImage: OG_BASE,
-    },
-    listing: {
-      icon: "rocket",
-      color: "from-tech-purple to-pink-500",
-      bgColor: "bg-tech-purple/10",
-      borderColor: "border-tech-purple/20",
-      features: ["Spring Boot", "APIs REST", "Spring Security"],
-      showOnHome: true,
-    },
-    hero: {
-      titleLine1: "Java",
-      titleHighlight: "Intermedio",
-      titleLine2: "Spring Boot Profesional",
-      description:
-        "Lleva tus conocimientos de Java al siguiente nivel. Aprende patrones de diseño, testing profesional, seguridad con JWT, persistencia con JPA y mucho más para crear aplicaciones backend robustas y listas para producción.",
-      layout: "centered",
-      stripeUrl:
-        "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?prefilled_promo_code=INTERMEDIO&client_reference_id=69e4199d168fb564dd8e7a78",
-      secondaryCta: {
-        label: "Ver Temario",
-        scrollTo: "temario-intermedio",
-      },
-    },
-    promo: {
-      endsAt: "2026-06-28T23:59:59-06:00",
-      bannerDesktop:
-        "Java Intermedio: $2,000 de descuento + hasta 12 meses sin intereses",
-      bannerMobile: "$2,000 OFF + 12MSI",
-    },
-    curriculum: {
-      sectionId: "temario-intermedio",
-      summary:
-        "8 módulos con 40 horas de contenido práctico y proyectos reales",
-      modules: [
-        {
-          icon: "boxes",
-          title: "Patrones de Diseño y Arquitectura",
-          duration: "5 hrs",
-          topics: [
-            "Principios SOLID aplicados a proyectos reales",
-            "Patrones más usados en backend: Strategy",
-            "Factory",
-            "Template Method",
-            "Decorator",
-          ],
-        },
-        {
-          icon: "test-tube",
-          title: "Testing Profesional: JUnit, Mockito y TDD",
-          duration: "5 hrs",
-          topics: [
-            "Fundamentos de testing unitario y buenas prácticas",
-            "JUnit 5: estructura, anotaciones y assertions",
-            "Uso de Mockito para mocks, stubs y spies",
-            "Introducción a TDD (Test Driven Development)",
-            "Testing de servicios y lógica de negocio",
-          ],
-        },
-        {
-          icon: "layers",
-          title: "Introducción a Spring y Spring Boot",
-          duration: "5 hrs",
-          topics: [
-            "¿Qué es Spring y Spring Boot?",
-            "Conceptos previos a Spring",
-            "Inyección de dependencias y el contenedor IoC",
-            "Configuración de un proyecto con Spring Initializr",
-            "Dependencias starter de Spring Boot",
-          ],
-        },
-        {
-          icon: "shield",
-          title: "Seguridad: JWT con Spring Security",
-          duration: "5 hrs",
-          topics: [
-            "Fundamentos de autenticación y autorización",
-            "Configuración de Spring Security",
-            "Implementación de JWT (login, filtros y validación)",
-            "Protección de endpoints y roles de usuario",
-            "Manejo de errores y seguridad básica en APIs REST",
-          ],
-        },
-        {
-          icon: "database",
-          title: "Persistencia de datos con Spring Data JPA (MySQL)",
-          duration: "5 hrs",
-          topics: [
-            "Configuración de JPA con MySQL",
-            "Entidades, repositorios y relaciones",
-            "Queries con métodos derivados y JPQL",
-            "Paginación y ordenamiento",
-            "Buenas prácticas de acceso a datos",
-          ],
-        },
-        {
-          icon: "message-square",
-          title: "Asincronía: RabbitMQ y Cron Jobs",
-          duration: "5 hrs",
-          topics: [
-            "Conceptos de mensajería y procesamiento asíncrono",
-            "Introducción a RabbitMQ y colas",
-            "Productores y consumidores con Spring AMQP",
-            "Manejo de tareas programadas con Cron Jobs",
-            "Casos de uso reales (emails, procesos en background)",
-          ],
-        },
-        {
-          icon: "file-text",
-          title: "Documentación con Swagger / OpenAPI",
-          duration: "5 hrs",
-          topics: [
-            "Importancia de documentar APIs",
-            "Configuración de Swagger en Spring Boot",
-            "Uso de anotaciones OpenAPI",
-            "Documentación de endpoints, parámetros y respuestas",
-            "Buenas prácticas para APIs consumibles",
-          ],
-        },
-        {
-          icon: "container",
-          title: "Docker para desarrollo",
-          duration: "5 hrs",
-          topics: [
-            "¿Qué es Docker y por qué usarlo?",
-            "Creación de Dockerfiles para aplicaciones Java",
-            "Uso de imágenes y contenedores",
-            "Docker Compose para entornos locales",
-            "Flujo de desarrollo con Docker",
-          ],
-        },
-      ],
-      methodology: [
-        {
-          title: "📋 Teoría Aplicada",
-          description:
-            "Cada concepto se explica con ejemplos reales de mi experiencia en producción.",
-        },
-        {
-          title: "🛠️ Práctica Inmediata",
-          description:
-            "Construimos aplicaciones completas aplicando lo aprendido al instante.",
-        },
-        {
-          title: "🚀 Proyectos Reales",
-          description:
-            "Desarrollamos sistemas que realmente se usan en empresas Fortune 500.",
-        },
-      ],
-    },
-    prerequisites: {
-      intro:
-        "Para aprovechar al máximo este curso, te recomendamos cumplir con los siguientes requisitos",
-      items: [
-        "Java Basics",
-        "POO (Programación Orientada a Objetos)",
-        "Nociones de Spring y Spring Boot",
-        "Desarrollo de API REST",
-      ],
-      equipment: [
-        "8 GB de RAM (mínimo)",
-        "2.5 GB de espacio en disco",
-        "Procesador multicore",
-        "Resolución mínima 1024x768",
-      ],
-      equipmentNote: "Conexión a internet por cable (recomendado)",
-      prerequisiteCourseLink: {
-        label: "Comienza con Java desde Cero",
-        path: "/java-desde-cero",
-      },
-      footerNote:
-        "Puedes tomar el curso sin cumplir estos requisitos, pero te recomendamos tenerlos para aprovecharlo al 100%.",
-    },
-    schedules: {
-      subtitle:
-        "Elige la modalidad que mejor se adapte a tu horario y lleva tu carrera al siguiente nivel",
-      fullHeight: true,
-      items: [
-        {
-          modality: "Modalidad Sabatina",
-          courseLabel: "Java Intermedio",
-          schedule: "Sábados 9:00 AM - 2:00 PM",
-          hours: "40 horas totales",
-          dateRange: "25 Abr 2026 - 27 Jun 2026",
-          duration: "8 semanas de duración",
-          note: "⚠️ No hay clases: 2 Mayo y 30 Mayo",
-        },
-      ],
-    },
-    pricing: {
-      subtitle:
-        "Diferentes opciones de pago para que puedas llevar tu carrera de Java al siguiente nivel",
-      fullPrice: 8500,
-      discountPrice: 6500,
-      stripeUrl:
-        "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?client_reference_id=69e4199d168fb564dd8e7a78",
-      stripePromoUrl:
-        "https://buy.stripe.com/6oU4gB1mm91hgjLavab3q05?prefilled_promo_code=INTERMEDIO&client_reference_id=69e4199d168fb564dd8e7a78",
-      whatsappCourseName: "Java Intermedio",
-      recommendedModal: {
-        promoCodeLabel: "INTERMEDIO",
-        conditions: [
-          "El cupón INTERMEDIO debe estar activo",
           "Debes ingresar una tarjeta de crédito válida",
           'Da clic en la opción "Pagar en cuotas (meses sin intereses)"',
         ],

@@ -145,7 +145,6 @@ export interface Course {
     sectionId?: string;
     summary?: string;
     modules: CurriculumModule[];
-    methodology?: { title: string; description: string }[];
   };
   prerequisites?: CoursePrerequisites;
   schedules?: {

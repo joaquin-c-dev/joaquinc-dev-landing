@@ -8,6 +8,25 @@ interface CourseCurriculumProps {
   curriculum: NonNullable<Course["curriculum"]>;
 }
 
+/** Contenido fijo compartido por todos los cursos (no viene de la API). */
+const COURSE_METHODOLOGY = [
+  {
+    title: "📋 Teoría Aplicada",
+    description:
+      "Cada concepto se explica con ejemplos reales de mi experiencia en producción.",
+  },
+  {
+    title: "🛠️ Práctica Inmediata",
+    description:
+      "Construimos aplicaciones completas aplicando lo aprendido al instante.",
+  },
+  {
+    title: "🚀 Proyectos Reales",
+    description:
+      "Desarrollamos sistemas que realmente se usan en empresas Fortune 500.",
+  },
+] as const;
+
 const CourseCurriculum = ({ curriculum }: CourseCurriculumProps) => {
   const totalHours = curriculum.modules.reduce(
     (total, m) => total + m.hoursPerSection,
@@ -86,27 +105,25 @@ const CourseCurriculum = ({ curriculum }: CourseCurriculumProps) => {
           })}
         </div>
 
-        {curriculum.methodology && curriculum.methodology.length > 0 && (
-          <div className="mt-16 text-center">
-            <Card className="p-8 bg-gradient-card border-primary/20 max-w-3xl mx-auto">
-              <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-4">
-                Metodología{" "}
-                <span className="bg-gradient-accent bg-clip-text text-transparent">
-                  Práctica
-                </span>
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6 text-left">
-                {curriculum.methodology.map((item, i) => (
-                  <div key={i}>
-                    <h4 className="font-semibold mb-2 text-primary">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-            </Card>
-          </div>
-        )}
+        <div className="mt-16 text-center">
+          <Card className="p-8 bg-gradient-card border-primary/20 max-w-3xl mx-auto">
+            <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
+            <h3 className="text-2xl font-bold mb-4">
+              Metodología{" "}
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Práctica
+              </span>
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6 text-left">
+              {COURSE_METHODOLOGY.map((item) => (
+                <div key={item.title}>
+                  <h4 className="font-semibold mb-2 text-primary">{item.title}</h4>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
       </div>
     </section>
   );
