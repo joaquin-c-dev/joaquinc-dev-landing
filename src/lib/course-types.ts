@@ -6,6 +6,9 @@
 export type CourseType = "COURSE";
 export type CourseStatus = "ACTIVE" | "INACTIVE";
 
+/** Id fijo del ancla de temario en todas las paginas de curso. */
+export const COURSE_CURRICULUM_SECTION_ID = "curriculum";
+
 /** Nombre de icono Lucide serializable desde la API. */
 export type CourseIconName =
   | "book-open"
@@ -45,7 +48,7 @@ export interface CurriculumModule {
   hoursPerSection: number;
   /** Etiqueta formateada para UI (ej. "4 hrs"). */
   duration: string;
-  topics: string[];
+  specificTopics: string[];
 }
 
 export interface CourseHeroData {
@@ -75,12 +78,9 @@ export interface CoursePricing {
 }
 
 export interface CoursePrerequisites {
-  intro?: string;
   items: string[];
   equipment: string[];
-  equipmentNote?: string;
   prerequisiteCourseLink?: { label: string; courseSlug: string };
-  footerNote?: string;
   noExperienceNote?: string;
 }
 
@@ -92,16 +92,6 @@ export interface ScheduleItem {
   dateRange: string;
   duration: string;
   note?: string;
-}
-
-export interface CourseListing {
-  icon: CourseIconName;
-  color: string;
-  bgColor: string;
-  borderColor: string;
-  features: string[];
-  featured?: boolean;
-  showOnHome?: boolean;
 }
 
 export interface Course {
@@ -117,15 +107,11 @@ export interface Course {
   topicsUrl?: string;
   stripeUrl?: string;
   stripeCoupon?: string;
+  summarySections?: string;
   seo: CourseSeo;
-  listing?: CourseListing;
   hero: CourseHeroData;
   promo?: CoursePromo;
-  curriculum?: {
-    sectionId?: string;
-    summary?: string;
-    modules: CurriculumModule[];
-  };
+  sections?: CurriculumModule[];
   prerequisites?: CoursePrerequisites;
   schedules?: {
     subtitle?: string;

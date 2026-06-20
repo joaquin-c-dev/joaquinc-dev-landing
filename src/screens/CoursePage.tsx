@@ -30,10 +30,12 @@ const CoursePage = ({ course, navCourses, pathname }: CoursePageProps) => {
             description={course.description}
             stripeUrl={course.stripeUrl}
             stripeCoupon={course.stripeCoupon}
-            curriculumSectionId={course.curriculum?.sectionId}
           />
-          {course.curriculum && (
-            <CourseCurriculum curriculum={course.curriculum} />
+          {course.sections && (
+            <CourseCurriculum
+              sections={course.sections}
+              summarySections={course.summarySections}
+            />
           )}
           {course.prerequisites && (
             <CoursePrerequisites prerequisites={course.prerequisites} />

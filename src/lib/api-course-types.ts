@@ -35,16 +35,6 @@ export interface ApiCourseSeo {
   ogImage?: string;
 }
 
-export interface ApiCourseListing {
-  icon: string;
-  color: string;
-  bgColor: string;
-  borderColor: string;
-  features: string[];
-  featured?: boolean;
-  showOnHome?: boolean;
-}
-
 export interface ApiCourseVideo {
   src: string;
   poster: string;
@@ -84,12 +74,9 @@ export interface ApiPrerequisiteCourseLink {
 }
 
 export interface ApiCoursePrerequisites {
-  intro?: string;
   items: string[];
   equipment: string[];
-  equipmentNote?: string;
   prerequisiteCourseLink?: ApiPrerequisiteCourseLink;
-  footerNote?: string;
   noExperienceNote?: string;
 }
 
@@ -109,12 +96,10 @@ export interface ApiCourseLandingResponse {
   stripeUrl?: string;
   stripeCoupon?: string;
   seo: ApiCourseSeo;
-  listing?: ApiCourseListing;
   hero: ApiCourseHero;
   promotion?: ApiCoursePromotion;
   prerequisites?: ApiCoursePrerequisites;
   pricing?: ApiCoursePricing;
-  curriculumSectionId?: string;
-  curriculumSummary?: string;
+  summarySections?: string;
   sections?: ApiCourseSection[];
 }

@@ -3,6 +3,7 @@ import type {
   Course,
   CourseHeroData,
   CourseIconName,
+  CoursePrerequisites,
   CurriculumModule,
 } from "@/lib/course-types";
 import {
@@ -13,7 +14,17 @@ function mapIcon(icon?: string): CourseIconName | undefined {
   return icon as CourseIconName | undefined;
 }
 
-function mapSectionsToModules(
+function mapPrerequisiteCourseLink(
+  link?: { label?: string; courseSlug?: string } | null,
+): CoursePrerequisites["prerequisiteCourseLink"] {
+  if (!link?.label?.trim() || !link?.courseSlug?.trim()) return undefined;
+  return {
+    label: link.label.trim(),
+    courseSlug: link.courseSlug.trim(),
+  };
+}
+
+function mapApiSectionsToView(
   sections: ApiCourseLandingResponse["sections"],
 ): CurriculumModule[] {
   if (!sections?.length) return [];
@@ -24,7 +35,7 @@ function mapSectionsToModules(
       title: section.title,
       hoursPerSection: section.hoursPerSection,
       duration: formatSectionDuration(section.hoursPerSection),
-      topics: section.specificTopics,
+      specificTopics: section.specificTopics,
     }));
 }
 
@@ -43,13 +54,8 @@ export function mapApiCourseToView(api: ApiCourseLandingResponse): Course {
     topicsUrl: api.topicsUrl,
     stripeUrl: api.stripeUrl,
     stripeCoupon: api.stripeCoupon,
+    summarySections: api.summarySections,
     seo: api.seo,
-    listing: api.listing
-      ? {
-          ...api.listing,
-          icon: mapIcon(api.listing.icon) ?? "code",
-        }
-      : undefined,
     hero: {
       titleLine1: api.hero.titleLine1,
       titleHighlight: api.hero.titleHighlight,
@@ -60,24 +66,16 @@ export function mapApiCourseToView(api: ApiCourseLandingResponse): Course {
     prerequisites: api.prerequisites
       ? {
           ...api.prerequisites,
-          prerequisiteCourseLink: api.prerequisites.prerequisiteCourseLink
-            ? {
-                label: api.prerequisites.prerequisiteCourseLink.label,
-                courseSlug:
-                  api.prerequisites.prerequisiteCourseLink.courseSlug,
-              }
-            : undefined,
+          prerequisiteCourseLink: mapPrerequisiteCourseLink(
+            api.prerequisites.prerequisiteCourseLink,
+          ),
         }
       : undefined,
   };
 
-  const modules = mapSectionsToModules(api.sections);
-  if (modules.length > 0 || api.curriculumSummary) {
-    course.curriculum = {
-      sectionId: api.curriculumSectionId,
-      summary: api.curriculumSummary,
-      modules,
-    };
+  const sections = mapApiSectionsToView(api.sections);
+  if (sections.length > 0) {
+    course.sections = sections;
   }
 
   return course;
@@ -101,35 +99,23 @@ export interface LegacyMockCourse {
   durationInHours: number;
   stripeUrl?: string;
   stripeCoupon?: string;
+  summarySections?: string;
   seo: Course["seo"];
-  listing?: Course["listing"];
   hero: Course["hero"];
   promo?: Course["promo"];
-  curriculum?: {
-    sectionId?: string;
-    summary?: string;
-    modules: {
-      icon?: string;
-      title: string;
-      duration: string;
-      topics: string[];
-    }[];
-  };
+  sections?: {
+    icon?: string;
+    title: string;
+    hoursPerSection: number;
+    specificTopics: string[];
+  }[];
   prerequisites?: {
-    intro?: string;
     items: string[];
     equipment: string[];
-    equipmentNote?: string;
     prerequisiteCourseLink?: { label: string; path: string };
-    footerNote?: string;
     noExperienceNote?: string;
   };
   pricing?: Course["pricing"];
-}
-
-function parseSectionHours(duration: string): number {
-  const match = duration.match(/(\d+)/);
-  return match ? Number.parseInt(match[1], 10) : 0;
 }
 
 /** Convierte el mock legacy al formato ApiCourseLandingResponse. */
@@ -146,8 +132,8 @@ export function mapLegacyMockToApi(legacy: LegacyMockCourse): ApiCourseLandingRe
     level: legacy.level,
     stripeUrl: legacy.stripeUrl,
     stripeCoupon: legacy.stripeCoupon,
+    summarySections: legacy.summarySections,
     seo: legacy.seo,
-    listing: legacy.listing,
     hero: {
       titleLine1: legacy.hero.titleLine1,
       titleHighlight: legacy.hero.titleHighlight,
@@ -159,27 +145,25 @@ export function mapLegacyMockToApi(legacy: LegacyMockCourse): ApiCourseLandingRe
       ? {
           ...legacy.prerequisites,
           prerequisiteCourseLink: legacy.prerequisites.prerequisiteCourseLink
-            ? {
+            ? mapPrerequisiteCourseLink({
                 label: legacy.prerequisites.prerequisiteCourseLink.label,
                 courseSlug:
                   legacy.prerequisites.prerequisiteCourseLink.path.replace(
                     /^\//,
                     "",
                   ),
-              }
+              })
             : undefined,
         }
       : undefined,
-    curriculumSectionId: legacy.curriculum?.sectionId,
-    curriculumSummary: legacy.curriculum?.summary,
-    sections: legacy.curriculum?.modules.map((module, index) => ({
+    summarySections: legacy.summarySections,
+    sections: legacy.sections?.map((section, index) => ({
       id: `${legacy.slug}-section-${index + 1}`,
-      title: module.title,
+      title: section.title,
       order: index + 1,
-      hoursPerSection:
-        module.hoursPerSection ?? parseSectionHours(module.duration),
-      specificTopics: module.topics,
-      icon: module.icon,
+      hoursPerSection: section.hoursPerSection,
+      specificTopics: section.specificTopics,
+      icon: section.icon,
     })),
   };
 }

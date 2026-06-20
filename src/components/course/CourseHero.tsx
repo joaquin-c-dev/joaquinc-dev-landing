@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Code, Zap } from "lucide-react";
 import { ASSETS } from "@/lib/assets";
 import { buildStripeCheckoutUrl } from "@/lib/course-formatters";
-import type { CourseHeroData } from "@/lib/course-types";
+import { COURSE_CURRICULUM_SECTION_ID, type CourseHeroData } from "@/lib/course-types";
 
 const CURRICULUM_CTA_LABEL = "Ver Temario";
 
@@ -12,7 +12,6 @@ interface CourseHeroProps {
   description: string;
   stripeUrl?: string;
   stripeCoupon?: string;
-  curriculumSectionId?: string;
 }
 
 const CourseHero = ({
@@ -21,7 +20,6 @@ const CourseHero = ({
   description,
   stripeUrl,
   stripeCoupon,
-  curriculumSectionId,
 }: CourseHeroProps) => {
   const isCentered = !hero.video;
   const checkoutUrl = stripeUrl
@@ -29,9 +27,8 @@ const CourseHero = ({
     : undefined;
 
   const handleViewCurriculum = () => {
-    const sectionId = curriculumSectionId ?? "curriculum";
     document
-      .querySelector(`[data-section="${sectionId}"]`)
+      .querySelector(`[data-section="${COURSE_CURRICULUM_SECTION_ID}"]`)
       ?.scrollIntoView({ behavior: "smooth" });
   };
 

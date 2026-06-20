@@ -12,6 +12,7 @@ import {
   type LegacyMockCourse,
 } from "@/lib/course-mapper";
 import LEGACY_MOCK_COURSES from "@/lib/mock-courses";
+import { isCourseVisibleOnHome } from "@/lib/course-listings";
 import { getCourseSchedules } from "@/lib/scheduled-courses";
 
 /** Cambiar a false cuando la API Java este disponible. */
@@ -21,7 +22,6 @@ export type {
   Course,
   CourseHeroData,
   CourseIconName,
-  CourseListing,
   CoursePricing,
   CoursePromo,
   CoursePrerequisites,
@@ -68,7 +68,7 @@ export async function getCourseSlugs(): Promise<string[]> {
 
 export async function getHomeCourses(): Promise<Course[]> {
   const courses = await getAllCourses();
-  return courses.filter((c) => c.listing?.showOnHome !== false);
+  return courses.filter((c) => isCourseVisibleOnHome(c.slug));
 }
 
 export async function getNavCourses(): Promise<

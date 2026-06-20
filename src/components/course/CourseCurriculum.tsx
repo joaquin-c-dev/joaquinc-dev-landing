@@ -2,10 +2,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, CheckCircle2, Clock, Code2, Boxes, Zap } from "lucide-react";
 import { getCourseIcon } from "@/lib/course-icons";
-import type { Course } from "@/lib/course-types";
+import { COURSE_CURRICULUM_SECTION_ID, type Course } from "@/lib/course-types";
 
 interface CourseCurriculumProps {
-  curriculum: NonNullable<Course["curriculum"]>;
+  sections: NonNullable<Course["sections"]>;
+  summarySections?: string;
 }
 
 /** Contenido fijo compartido por todos los cursos (no viene de la API). */
@@ -27,17 +28,15 @@ const COURSE_METHODOLOGY = [
   },
 ] as const;
 
-const CourseCurriculum = ({ curriculum }: CourseCurriculumProps) => {
-  const totalHours = curriculum.modules.reduce(
-    (total, m) => total + m.hoursPerSection,
+const CourseCurriculum = ({ sections, summarySections }: CourseCurriculumProps) => {
+  const totalHours = sections.reduce(
+    (total, section) => total + section.hoursPerSection,
     0,
   );
-  const sectionId = curriculum.sectionId ?? "curriculum";
-
   return (
     <section
-      id={sectionId}
-      data-section={sectionId}
+      id={COURSE_CURRICULUM_SECTION_ID}
+      data-section={COURSE_CURRICULUM_SECTION_ID}
       className="py-24 bg-course-dark relative overflow-hidden"
     >
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-tech-purple/5 rounded-full blur-3xl animate-pulse" />
@@ -49,10 +48,10 @@ const CourseCurriculum = ({ curriculum }: CourseCurriculumProps) => {
               Curso
             </span>
           </h2>
-          {curriculum.summary && (
+          {summarySections && (
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              {curriculum.summary.replace("{hours}", String(totalHours)) ||
-                curriculum.summary}
+              {summarySections.replace("{hours}", String(totalHours)) ||
+                summarySections}
             </p>
           )}
           <div className="flex flex-wrap gap-4 justify-center">
@@ -62,14 +61,14 @@ const CourseCurriculum = ({ curriculum }: CourseCurriculumProps) => {
             </Badge>
             <Badge variant="outline" className="px-4 py-2 text-base border-primary/30">
               <Boxes className="w-4 h-4 mr-2" />
-              {curriculum.modules.length} módulos
+              {sections.length} módulos
             </Badge>
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {curriculum.modules.map((module, index) => {
-            const Icon = getCourseIcon(module.icon);
+          {sections.map((section, index) => {
+            const Icon = getCourseIcon(section.icon);
             return (
               <Card
                 key={index}
@@ -82,9 +81,9 @@ const CourseCurriculum = ({ curriculum }: CourseCurriculumProps) => {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <CardTitle className="text-xl">{module.title}</CardTitle>
+                        <CardTitle className="text-xl">{section.title}</CardTitle>
                         <Badge variant="secondary" className="text-xs">
-                          {module.duration}
+                          {section.duration}
                         </Badge>
                       </div>
                     </div>
@@ -92,7 +91,7 @@ const CourseCurriculum = ({ curriculum }: CourseCurriculumProps) => {
                 </CardHeader>
                 <CardContent className="pt-0">
                   <ul className="space-y-2">
-                    {module.topics.map((topic, i) => (
+                    {section.specificTopics.map((topic, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                         <span className="text-sm text-muted-foreground">{topic}</span>

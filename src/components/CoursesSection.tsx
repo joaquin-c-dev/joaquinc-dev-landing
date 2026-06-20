@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Clock, Users, Sparkles } from "lucide-react";
 import { getCourseIcon } from "@/lib/course-icons";
+import { getHomeCourseListing } from "@/lib/course-listings";
 import { formatDurationHours } from "@/lib/course-formatters";
 import type { Course } from "@/lib/course-types";
 
@@ -38,7 +39,7 @@ const CoursesSection = ({ courses }: CoursesSectionProps) => {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {courses.map((course) => {
-            const listing = course.listing;
+            const listing = getHomeCourseListing(course.slug);
             if (!listing) return null;
             const IconComponent = getCourseIcon(listing.icon);
             const path = `/${course.slug}`;

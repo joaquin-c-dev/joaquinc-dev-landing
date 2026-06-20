@@ -15,7 +15,16 @@ interface CoursePrerequisitesProps {
   prerequisites: CoursePrerequisites;
 }
 
-const CoursePrerequisites = ({ prerequisites }: CoursePrerequisitesProps) => (
+const PREREQUISITES_INTRO =
+  "Para aprovechar al máximo este curso, te recomendamos cumplir con los siguientes requisitos";
+
+const PREREQUISITES_FOOTER_NOTE =
+  "Puedes tomar el curso sin cumplir estos requisitos, pero te recomendamos tenerlos para aprovecharlo al 100%.";
+
+const CoursePrerequisites = ({ prerequisites }: CoursePrerequisitesProps) => {
+  const courseLink = prerequisites.prerequisiteCourseLink;
+
+  return (
   <section className="py-16 bg-background relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-glow opacity-20" />
     <div className="relative z-10 container mx-auto px-6">
@@ -26,11 +35,9 @@ const CoursePrerequisites = ({ prerequisites }: CoursePrerequisitesProps) => (
             Comenzar
           </span>
         </h2>
-        {prerequisites.intro && (
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {prerequisites.intro}
-          </p>
-        )}
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          {PREREQUISITES_INTRO}
+        </p>
       </div>
 
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
@@ -41,11 +48,6 @@ const CoursePrerequisites = ({ prerequisites }: CoursePrerequisitesProps) => (
             </div>
             <h3 className="text-xl font-bold text-foreground">Equipo Recomendado</h3>
           </div>
-          {prerequisites.equipmentNote && (
-            <p className="text-sm text-muted-foreground mb-4">
-              {prerequisites.equipmentNote}
-            </p>
-          )}
           <div className="space-y-2 mb-4">
             {prerequisites.equipment.map((req, i) => (
               <div
@@ -89,18 +91,22 @@ const CoursePrerequisites = ({ prerequisites }: CoursePrerequisitesProps) => (
               <p className="text-sm text-foreground">{prerequisites.noExperienceNote}</p>
             </div>
           )}
-          {prerequisites.prerequisiteCourseLink && (
-            <Link to={`/${prerequisites.prerequisiteCourseLink.courseSlug}`}>
+          {courseLink && (
+            <Link to={`/${courseLink.courseSlug}`}>
               <Button variant="outline" className="w-full mt-2">
-                {prerequisites.prerequisiteCourseLink.label}
+                {courseLink.label}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
           )}
         </Card>
       </div>
+      <p className="text-center text-sm text-muted-foreground max-w-2xl mx-auto mt-8">
+        {PREREQUISITES_FOOTER_NOTE}
+      </p>
     </div>
   </section>
-);
+  );
+};
 
 export default CoursePrerequisites;

@@ -34,30 +34,20 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
       ],
       ogImage: OG_BASE,
     },
-    listing: {
-      icon: "rocket",
-      color: "from-tech-purple to-pink-500",
-      bgColor: "bg-tech-purple/10",
-      borderColor: "border-tech-purple/20",
-      features: ["Spring Boot", "APIs REST", "Spring Security"],
-      showOnHome: true,
-    },
     promo: {
       endsAt: "2026-06-28T23:59:59-06:00",
       bannerDesktop:
         "Java Intermedio: $2,000 de descuento + hasta 12 meses sin intereses",
       bannerMobile: "$2,000 OFF + 12MSI",
     },
-    curriculum: {
-      sectionId: "temario-intermedio",
-      summary:
-        "8 módulos con 40 horas de contenido práctico y proyectos reales",
-      modules: [
+    summarySections:
+      "8 módulos con 40 horas de contenido práctico y proyectos reales",
+    sections: [
         {
           icon: "boxes",
           title: "Patrones de Diseño y Arquitectura",
-          duration: "5 hrs",
-          topics: [
+          hoursPerSection: 5,
+          specificTopics: [
             "Principios SOLID aplicados a proyectos reales",
             "Patrones más usados en backend: Strategy",
             "Factory",
@@ -68,8 +58,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "test-tube",
           title: "Testing Profesional: JUnit, Mockito y TDD",
-          duration: "5 hrs",
-          topics: [
+          hoursPerSection: 5,
+          specificTopics: [
             "Fundamentos de testing unitario y buenas prácticas",
             "JUnit 5: estructura, anotaciones y assertions",
             "Uso de Mockito para mocks, stubs y spies",
@@ -80,8 +70,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "layers",
           title: "Introducción a Spring y Spring Boot",
-          duration: "5 hrs",
-          topics: [
+          hoursPerSection: 5,
+          specificTopics: [
             "¿Qué es Spring y Spring Boot?",
             "Conceptos previos a Spring",
             "Inyección de dependencias y el contenedor IoC",
@@ -92,8 +82,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "shield",
           title: "Seguridad: JWT con Spring Security",
-          duration: "5 hrs",
-          topics: [
+          hoursPerSection: 5,
+          specificTopics: [
             "Fundamentos de autenticación y autorización",
             "Configuración de Spring Security",
             "Implementación de JWT (login, filtros y validación)",
@@ -104,8 +94,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "database",
           title: "Persistencia de datos con Spring Data JPA (MySQL)",
-          duration: "5 hrs",
-          topics: [
+          hoursPerSection: 5,
+          specificTopics: [
             "Configuración de JPA con MySQL",
             "Entidades, repositorios y relaciones",
             "Queries con métodos derivados y JPQL",
@@ -116,8 +106,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "message-square",
           title: "Asincronía: RabbitMQ y Cron Jobs",
-          duration: "5 hrs",
-          topics: [
+          hoursPerSection: 5,
+          specificTopics: [
             "Conceptos de mensajería y procesamiento asíncrono",
             "Introducción a RabbitMQ y colas",
             "Productores y consumidores con Spring AMQP",
@@ -128,8 +118,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "file-text",
           title: "Documentación con Swagger / OpenAPI",
-          duration: "5 hrs",
-          topics: [
+          hoursPerSection: 5,
+          specificTopics: [
             "Importancia de documentar APIs",
             "Configuración de Swagger en Spring Boot",
             "Uso de anotaciones OpenAPI",
@@ -140,8 +130,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "container",
           title: "Docker para desarrollo",
-          duration: "5 hrs",
-          topics: [
+          hoursPerSection: 5,
+          specificTopics: [
             "¿Qué es Docker y por qué usarlo?",
             "Creación de Dockerfiles para aplicaciones Java",
             "Uso de imágenes y contenedores",
@@ -149,11 +139,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
             "Flujo de desarrollo con Docker",
           ],
         },
-      ],
-    },
+    ],
     prerequisites: {
-      intro:
-        "Para aprovechar al máximo este curso, te recomendamos cumplir con los siguientes requisitos",
       items: [
         "Java Basics",
         "POO (Programación Orientada a Objetos)",
@@ -166,13 +153,10 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         "Procesador multicore",
         "Resolución mínima 1024x768",
       ],
-      equipmentNote: "Conexión a internet por cable (recomendado)",
       prerequisiteCourseLink: {
         label: "Comienza con Java desde Cero",
         path: "/java-desde-cero",
       },
-      footerNote:
-        "Puedes tomar el curso sin cumplir estos requisitos, pero te recomendamos tenerlos para aprovecharlo al 100%.",
     },
     pricing: {
       subtitle:
@@ -219,18 +203,6 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
       ],
       ogImage: OG_BASE,
     },
-    listing: {
-      icon: "book-open",
-      color: "from-emerald-500 to-teal-600",
-      bgColor: "bg-emerald-500/10",
-      borderColor: "border-emerald-500/20",
-      features: [
-        "Lógica de programación",
-        "Primeros pasos en código",
-        "Ejercicios prácticos",
-      ],
-      showOnHome: true,
-    },
     hero: {
       titleLine1: "Introducción a la",
       titleHighlight: "Programación",
@@ -241,16 +213,14 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         "Introducción a la Programación: $2,000 de descuento (plan preferente)",
       bannerMobile: "$2,000 OFF",
     },
-    curriculum: {
-      sectionId: "temario-introduccion",
-      summary:
-        "Un programa estructurado de 30 hrs que te llevará desde los fundamentos de la programación hasta la introducción a la programación orientada a objetos.",
-      modules: [
+    summarySections:
+      "Un programa estructurado de 30 hrs que te llevará desde los fundamentos de la programación hasta la introducción a la programación orientada a objetos.",
+    sections: [
         {
           icon: "code",
           title: "Introducción a la programación",
-          duration: "3 hrs",
-          topics: [
+          hoursPerSection: 3,
+          specificTopics: [
             "¿Qué es un algoritmo?",
             "¿Cómo descomponer un problema en pasos pequeños?",
             "Paradigmas de programación",
@@ -263,8 +233,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "terminal",
           title: "Entradas y salidas (I/O)",
-          duration: "3 hrs",
-          topics: [
+          hoursPerSection: 3,
+          specificTopics: [
             "La Consola/Terminal",
             'Primer programa "Hola mundo"',
             "System.out.println (Output)",
@@ -274,8 +244,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "type",
           title: "Variables y tipos de datos",
-          duration: "4 hrs",
-          topics: [
+          hoursPerSection: 4,
+          specificTopics: [
             "Declaración e inicialización",
             "Tipos primitivos",
             "int, boolean, char, float",
@@ -287,8 +257,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "calculator",
           title: "Operadores",
-          duration: "2 hrs",
-          topics: [
+          hoursPerSection: 2,
+          specificTopics: [
             "Aritméticos (+, -, *, /)",
             "Relacionales (>, <, !=, ==...)",
             "Lógicos (&&, ||)",
@@ -297,8 +267,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "git-branch",
           title: "Estructuras de control",
-          duration: "4 hrs",
-          topics: [
+          hoursPerSection: 4,
+          specificTopics: [
             "if",
             "else",
             "else - if",
@@ -310,14 +280,14 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "rotate-ccw",
           title: "Ciclos",
-          duration: "4 hrs",
-          topics: ["while", "do-while", "for", "Contadores y acumuladores"],
+          hoursPerSection: 4,
+          specificTopics: ["while", "do-while", "for", "Contadores y acumuladores"],
         },
         {
           icon: "grid-3x3",
           title: "Arreglos",
-          duration: "4 hrs",
-          topics: [
+          hoursPerSection: 4,
+          specificTopics: [
             "Propiedades de los arreglos",
             "Arreglos: declaración, inicialización, recorrido",
             "Matrices: declaración, inicialización, recorrido",
@@ -326,8 +296,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "zap",
           title: "Funciones",
-          duration: "3 hrs",
-          topics: [
+          hoursPerSection: 3,
+          specificTopics: [
             "Definición y sintaxis",
             "Parámetros y retorno de valores",
             "Alcance de variables (local vs global)",
@@ -337,19 +307,16 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "layers",
           title: "Introducción a POO",
-          duration: "3 hrs",
-          topics: [
+          hoursPerSection: 3,
+          specificTopics: [
             "Abstracción: Clase y Objeto",
             "Encapsulamiento",
             "Herencia",
             "Polimorfismo",
           ],
         },
-      ],
-    },
+    ],
     prerequisites: {
-      intro:
-        "Este curso está diseñado para principiantes, solo necesitas lo básico",
       items: [
         "Conocimientos básicos de computación",
         "Saber instalar programas",
@@ -363,9 +330,6 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         "Procesador multicore",
         "Resolución mínima 1024x768",
       ],
-      equipmentNote: "Conexión a internet estable (recomendado por cable)",
-      footerNote:
-        "Puedes tomar el curso sin cumplir todos estos requisitos, pero te recomendamos tenerlos para aprovecharlo al 100%.",
       noExperienceNote:
         "¡No necesitas saber programar! Este curso es tu punto de partida ideal.",
     },
@@ -415,15 +379,6 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
       ],
       ogImage: OG_BASE,
     },
-    listing: {
-      icon: "code",
-      color: "from-primary to-tech-cyan",
-      bgColor: "bg-primary/10",
-      borderColor: "border-primary/20",
-      features: ["POO completo", "Colecciones y Streams", "MongoDB"],
-      featured: true,
-      showOnHome: true,
-    },
     hero: {
       titleLine1: "Aprende",
       titleHighlight: "Java",
@@ -439,16 +394,14 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         "Precio especial $2,000 de descuento + hasta 12 meses sin intereses",
       bannerMobile: "$2,000 OFF + 12MSI",
     },
-    curriculum: {
-      sectionId: "curriculum",
-      summary:
-        "Un programa estructurado de 40 hrs que te llevará desde los fundamentos hasta implementaciones enterprise de Java y Spring Boot.",
-      modules: [
+    summarySections:
+      "Un programa estructurado de 40 hrs que te llevará desde los fundamentos hasta implementaciones enterprise de Java y Spring Boot.",
+    sections: [
         {
           icon: "book-open",
           title: "Introducción a Java",
-          duration: "4 hrs",
-          topics: [
+          hoursPerSection: 4,
+          specificTopics: [
             "¿Qué es Java y cómo trabaja?",
             "Java Virtual Machine (JVM)",
             "JDK y JRE",
@@ -462,8 +415,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "code2",
           title: "Fundamentos de Java",
-          duration: "8 hrs",
-          topics: [
+          hoursPerSection: 8,
+          specificTopics: [
             "Estructura de un programa en Java",
             "Variables y tipos de datos",
             "Palabra reservada 'var' y 'final'",
@@ -477,8 +430,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "boxes",
           title: "Programación Orientada a Objetos",
-          duration: "8 hrs",
-          topics: [
+          hoursPerSection: 8,
+          specificTopics: [
             "Abstracción, clases y objetos",
             "Métodos y atributos",
             "Constructor y sobrecarga de constructor",
@@ -494,8 +447,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "settings",
           title: "Enumerables, Genericos y Collections",
-          duration: "4 hrs",
-          topics: [
+          hoursPerSection: 4,
+          specificTopics: [
             "Enumerables y sus atributos/métodos",
             "Genericos y convenciones",
             "Collections API",
@@ -507,8 +460,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "shield",
           title: "Excepciones y Programación Funcional",
-          duration: "6 hrs",
-          topics: [
+          hoursPerSection: 6,
+          specificTopics: [
             "Checked y Unchecked Exceptions",
             "Throwable, Exception, RunTimeException",
             "try, catch, finally",
@@ -524,8 +477,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "globe",
           title: "Introducción al Desarrollo Web",
-          duration: "4 hrs",
-          topics: [
+          hoursPerSection: 4,
+          specificTopics: [
             "¿Qué es el desarrollo web?",
             "Arquitectura Cliente-Servidor",
             "HTTP: protocolo de comunicación",
@@ -538,8 +491,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "zap",
           title: "Spring Framework/Spring Boot",
-          duration: "4 hrs",
-          topics: [
+          hoursPerSection: 4,
+          specificTopics: [
             "Introducción al ecosistema Spring",
             "¿Qué es Spring Framework y por qué usarlo?",
             "Inversión de Control (IoC) y Dependency Injection (DI)",
@@ -552,8 +505,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         {
           icon: "database",
           title: "Persistencia de Datos con MongoDB",
-          duration: "2 hrs",
-          topics: [
+          hoursPerSection: 2,
+          specificTopics: [
             "Introducción a MongoDB",
             "Creación de documentos con @Document",
             "Definición de identificadores con @Id",
@@ -561,11 +514,8 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
             "Inserción de documentos (insert, save)",
           ],
         },
-      ],
-    },
+    ],
     prerequisites: {
-      intro:
-        "Para aprovechar al máximo este curso, te recomendamos cumplir con los siguientes requisitos",
       items: [
         "Nociones básicas de programación",
         "Variables, tipos de datos y operadores",
@@ -579,13 +529,10 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
         "Procesador multicore",
         "Resolución mínima 1024x768",
       ],
-      equipmentNote: "Conexión a internet por cable (recomendado)",
       prerequisiteCourseLink: {
         label: "Comienza con Introducción a la Programación",
         path: "/introduccion-programacion",
       },
-      footerNote:
-        "Puedes tomar el curso sin cumplir estos requisitos, pero te recomendamos tenerlos para aprovecharlo al 100%.",
     },
     pricing: {
       subtitle:
