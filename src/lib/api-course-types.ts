@@ -52,22 +52,6 @@ export interface ApiCoursePromotion {
   bannerMobile: string;
 }
 
-export interface ApiRecommendedModal {
-  promoCodeLabel: string;
-  conditions: string[];
-  note: string;
-}
-
-export interface ApiCoursePricing {
-  subtitle: string;
-  fullPrice: number;
-  discountPrice: number;
-  stripeUrl: string;
-  stripePromoUrl: string;
-  whatsappCourseName: string;
-  recommendedModal: ApiRecommendedModal;
-}
-
 export interface ApiPrerequisiteCourseLink {
   label: string;
   courseSlug: string;
@@ -95,11 +79,12 @@ export interface ApiCourseLandingResponse {
   topicsUrl?: string;
   stripeUrl?: string;
   stripeCoupon?: string;
+  regularPrice?: number;
+  discountPrice?: number;
   seo: ApiCourseSeo;
   hero: ApiCourseHero;
   promotion?: ApiCoursePromotion;
   prerequisites?: ApiCoursePrerequisites;
-  pricing?: ApiCoursePricing;
   summarySections?: string;
   sections?: ApiCourseSection[];
 }

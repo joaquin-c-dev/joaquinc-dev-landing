@@ -63,20 +63,6 @@ export interface CoursePromo {
   bannerMobile: string;
 }
 
-export interface CoursePricing {
-  subtitle: string;
-  fullPrice: number;
-  discountPrice: number;
-  stripeUrl: string;
-  stripePromoUrl: string;
-  whatsappCourseName: string;
-  recommendedModal: {
-    promoCodeLabel: string;
-    conditions: string[];
-    note: string;
-  };
-}
-
 export interface CoursePrerequisites {
   items: string[];
   equipment: string[];
@@ -107,6 +93,8 @@ export interface Course {
   topicsUrl?: string;
   stripeUrl?: string;
   stripeCoupon?: string;
+  regularPrice?: number;
+  discountPrice?: number;
   summarySections?: string;
   seo: CourseSeo;
   hero: CourseHeroData;
@@ -118,5 +106,4 @@ export interface Course {
     fullHeight?: boolean;
     items: ScheduleItem[];
   };
-  pricing?: CoursePricing;
 }

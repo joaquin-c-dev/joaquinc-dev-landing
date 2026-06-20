@@ -54,6 +54,8 @@ export function mapApiCourseToView(api: ApiCourseLandingResponse): Course {
     topicsUrl: api.topicsUrl,
     stripeUrl: api.stripeUrl,
     stripeCoupon: api.stripeCoupon,
+    regularPrice: api.regularPrice,
+    discountPrice: api.discountPrice,
     summarySections: api.summarySections,
     seo: api.seo,
     hero: {
@@ -62,7 +64,6 @@ export function mapApiCourseToView(api: ApiCourseLandingResponse): Course {
       video: api.hero.video,
     },
     promo: api.promotion,
-    pricing: api.pricing,
     prerequisites: api.prerequisites
       ? {
           ...api.prerequisites,
@@ -99,6 +100,8 @@ export interface LegacyMockCourse {
   durationInHours: number;
   stripeUrl?: string;
   stripeCoupon?: string;
+  regularPrice?: number;
+  discountPrice?: number;
   summarySections?: string;
   seo: Course["seo"];
   hero: Course["hero"];
@@ -115,7 +118,6 @@ export interface LegacyMockCourse {
     prerequisiteCourseLink?: { label: string; path: string };
     noExperienceNote?: string;
   };
-  pricing?: Course["pricing"];
 }
 
 /** Convierte el mock legacy al formato ApiCourseLandingResponse. */
@@ -132,6 +134,8 @@ export function mapLegacyMockToApi(legacy: LegacyMockCourse): ApiCourseLandingRe
     level: legacy.level,
     stripeUrl: legacy.stripeUrl,
     stripeCoupon: legacy.stripeCoupon,
+    regularPrice: legacy.regularPrice,
+    discountPrice: legacy.discountPrice,
     summarySections: legacy.summarySections,
     seo: legacy.seo,
     hero: {
@@ -140,7 +144,6 @@ export function mapLegacyMockToApi(legacy: LegacyMockCourse): ApiCourseLandingRe
       video: legacy.hero.video,
     },
     promotion: legacy.promo,
-    pricing: legacy.pricing,
     prerequisites: legacy.prerequisites
       ? {
           ...legacy.prerequisites,

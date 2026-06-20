@@ -4,30 +4,55 @@ import { Check, Zap, Star, Clock } from "lucide-react";
 import { useState } from "react";
 import PaymentInfoModal from "@/components/PaymentInfoModal";
 import { usePromoCountdown } from "@/contexts/PromoCountdownContext";
-import type { CoursePricing as CoursePricingData } from "@/lib/course-types";
+import { buildStripeCheckoutUrl } from "@/lib/course-formatters";
 
 interface CoursePricingProps {
-  pricing: CoursePricingData;
+  title: string;
+  regularPrice: number;
+  discountPrice: number;
+  stripeUrl?: string;
+  stripeCoupon?: string;
   sectionId?: string;
 }
 
 const formatCurrency = (amount: number) =>
   `$${amount.toLocaleString("en-US")}`;
 
-const CoursePricing = ({ pricing, sectionId }: CoursePricingProps) => {
+const PRICING_SUBTITLE =
+  "Diferentes opciones de pago para que elijas el plan que mejor se adapte a ti";
+
+const RECOMMENDED_MODAL_CONDITIONS = [
+  "Aplica el cupón de descuento del curso antes de continuar",
+  "Debes ingresar una tarjeta de crédito válida",
+  'Selecciona la opción "Pagar en cuotas (meses sin intereses)"',
+] as const;
+
+const RECOMMENDED_MODAL_NOTE =
+  "Una vez que completes estos pasos, podrás elegir entre 3, 6, 9 o 12 meses sin intereses.";
+
+const CoursePricing = ({
+  title,
+  regularPrice,
+  discountPrice,
+  stripeUrl,
+  stripeCoupon,
+  sectionId,
+}: CoursePricingProps) => {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showRecommendedModal, setShowRecommendedModal] = useState(false);
   const { timeLeft, formatNumber } = usePromoCountdown();
   const isDiscountActive = !timeLeft.isExpired;
+  const promoCheckoutUrl = stripeUrl
+    ? buildStripeCheckoutUrl(stripeUrl, stripeCoupon)
+    : undefined;
 
-  const { fullPrice, discountPrice } = pricing;
-  const discountAmount = fullPrice - discountPrice;
+  const discountAmount = regularPrice - discountPrice;
   const twoPaymentsDiscount = discountPrice / 2;
-  const twoPaymentsFull = fullPrice / 2;
+  const twoPaymentsFull = regularPrice / 2;
   const monthly12 = Math.round(discountPrice / 12);
-  const flexible12 = Math.round(fullPrice / 12);
-  const flexible18 = Math.round(fullPrice / 18);
-  const flexible24 = Math.round(fullPrice / 24);
+  const flexible12 = Math.round(regularPrice / 12);
+  const flexible18 = Math.round(regularPrice / 18);
+  const flexible24 = Math.round(regularPrice / 24);
 
   const discountRibbonLabel =
     discountAmount >= 1000
@@ -36,7 +61,7 @@ const CoursePricing = ({ pricing, sectionId }: CoursePricingProps) => {
 
   const whatsappNoCardMessage = (firstPayment: number) =>
     encodeURIComponent(
-      `Hola, me interesa el plan sin tarjeta del curso de ${pricing.whatsappCourseName}. Por favor envíame los datos bancarios para realizar la transferencia del primer pago de ${formatCurrency(firstPayment)} MXN.`,
+      `Hola, me interesa el plan sin tarjeta del curso de ${title}. Por favor envíame los datos bancarios para realizar la transferencia del primer pago de ${formatCurrency(firstPayment)} MXN.`,
     );
 
   const handleFlexibilityPlusClick = () => {
@@ -49,12 +74,12 @@ const CoursePricing = ({ pricing, sectionId }: CoursePricingProps) => {
 
   const handleContinueToPayment = () => {
     setShowPaymentModal(false);
-    window.open(pricing.stripeUrl, "_blank");
+    if (stripeUrl) window.open(stripeUrl, "_blank");
   };
 
   const handleContinueToRecommendedPayment = () => {
     setShowRecommendedModal(false);
-    window.open(pricing.stripePromoUrl, "_blank");
+    if (promoCheckoutUrl) window.open(promoCheckoutUrl, "_blank");
   };
 
   const countdownBlock = (
@@ -98,7 +123,7 @@ const CoursePricing = ({ pricing, sectionId }: CoursePricingProps) => {
             para Ti
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {pricing.subtitle}
+            {PRICING_SUBTITLE}
           </p>
         </div>
 
@@ -124,7 +149,7 @@ const CoursePricing = ({ pricing, sectionId }: CoursePricingProps) => {
                   <>
                     <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
                       <span className="text-sm text-muted-foreground/60 line-through">
-                        {formatCurrency(fullPrice)}
+                        {formatCurrency(regularPrice)}
                       </span>
                       {formatCurrency(discountPrice)}{" "}
                       <span className="text-sm font-normal text-muted-foreground">
@@ -142,7 +167,7 @@ const CoursePricing = ({ pricing, sectionId }: CoursePricingProps) => {
                 ) : (
                   <>
                     <div className="text-2xl font-bold text-white mb-1">
-                      {formatCurrency(fullPrice)}{" "}
+                      {formatCurrency(regularPrice)}{" "}
                       <span className="text-sm font-normal text-muted-foreground">
                         MXN
                       </span>
@@ -226,7 +251,7 @@ const CoursePricing = ({ pricing, sectionId }: CoursePricingProps) => {
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-white mb-1 flex items-center justify-center gap-2">
                     <span className="text-sm text-muted-foreground/60 line-through">
-                      {formatCurrency(fullPrice)}
+                      {formatCurrency(regularPrice)}
                     </span>
                     {formatCurrency(discountPrice)}{" "}
                     <span className="text-sm font-normal text-muted-foreground">
@@ -307,7 +332,7 @@ const CoursePricing = ({ pricing, sectionId }: CoursePricingProps) => {
 
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-white mb-1">
-                    {formatCurrency(fullPrice)}{" "}
+                    {formatCurrency(regularPrice)}{" "}
                     <span className="text-sm font-normal text-muted-foreground">
                       MXN
                     </span>
@@ -378,7 +403,7 @@ const CoursePricing = ({ pricing, sectionId }: CoursePricingProps) => {
 
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-white mb-1">
-                    {formatCurrency(fullPrice)}{" "}
+                    {formatCurrency(regularPrice)}{" "}
                     <span className="text-sm font-normal text-muted-foreground">
                       MXN
                     </span>
@@ -444,7 +469,7 @@ const CoursePricing = ({ pricing, sectionId }: CoursePricingProps) => {
 
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-white mb-1">
-                    {formatCurrency(fullPrice)}{" "}
+                    {formatCurrency(regularPrice)}{" "}
                     <span className="text-sm font-normal text-muted-foreground">
                       MXN
                     </span>
@@ -484,7 +509,7 @@ const CoursePricing = ({ pricing, sectionId }: CoursePricingProps) => {
                 <Button
                   variant="outline"
                   className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
-                  onClick={() => window.open(pricing.stripeUrl, "_blank")}
+                  onClick={() => stripeUrl && window.open(stripeUrl, "_blank")}
                 >
                   Hacer pago preferente
                 </Button>
@@ -513,8 +538,8 @@ const CoursePricing = ({ pricing, sectionId }: CoursePricingProps) => {
         onContinue={handleContinueToRecommendedPayment}
         imageUrl="/lovable-uploads/7b90d68c-d7a3-401a-85e0-61c099402133.png"
         title="Información Importante - Plan Recomendado"
-        conditions={pricing.recommendedModal.conditions}
-        note={pricing.recommendedModal.note}
+        conditions={[...RECOMMENDED_MODAL_CONDITIONS]}
+        note={RECOMMENDED_MODAL_NOTE}
       />
     </section>
   );

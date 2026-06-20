@@ -22,7 +22,6 @@ export type {
   Course,
   CourseHeroData,
   CourseIconName,
-  CoursePricing,
   CoursePromo,
   CoursePrerequisites,
   CourseSeo,

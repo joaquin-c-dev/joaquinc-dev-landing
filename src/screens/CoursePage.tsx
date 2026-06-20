@@ -43,7 +43,15 @@ const CoursePage = ({ course, navCourses, pathname }: CoursePageProps) => {
           {course.schedules && (
             <CourseSchedules schedules={course.schedules} />
           )}
-          {course.pricing && <CoursePricing pricing={course.pricing} />}
+          {course.regularPrice != null && course.discountPrice != null && (
+            <CoursePricing
+              title={course.title}
+              regularPrice={course.regularPrice}
+              discountPrice={course.discountPrice}
+              stripeUrl={course.stripeUrl}
+              stripeCoupon={course.stripeCoupon}
+            />
+          )}
           <Footer />
         </div>
       </PromoCountdownProvider>
