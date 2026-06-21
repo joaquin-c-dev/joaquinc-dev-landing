@@ -54,7 +54,10 @@ export interface ApiCoursePromotion {
 
 export interface ApiPrerequisiteCourseLink {
   label: string;
-  courseSlug: string;
+  /** Slug del curso recomendado (campo real de la API Java). */
+  path: string;
+  /** Alias legacy del mock local. */
+  courseSlug?: string;
 }
 
 export interface ApiCoursePrerequisites {

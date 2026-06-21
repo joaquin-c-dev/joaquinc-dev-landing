@@ -14,12 +14,13 @@ function mapIcon(icon?: string): CourseIconName | undefined {
 }
 
 function mapPrerequisiteCourseLink(
-  link?: { label?: string; courseSlug?: string } | null,
+  link?: { label?: string; path?: string; courseSlug?: string } | null,
 ): CoursePrerequisites["prerequisiteCourseLink"] {
-  if (!link?.label?.trim() || !link?.courseSlug?.trim()) return undefined;
+  const slug = link?.path?.trim() || link?.courseSlug?.trim();
+  if (!link?.label?.trim() || !slug) return undefined;
   return {
     label: link.label.trim(),
-    courseSlug: link.courseSlug.trim(),
+    courseSlug: slug,
   };
 }
 
