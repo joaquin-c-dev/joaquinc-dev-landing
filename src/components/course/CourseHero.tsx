@@ -120,17 +120,14 @@ const CourseHero = ({
                 }`}
               >
                 {checkoutUrl && (
-                  <div className="group relative">
-                    <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
-                    <Button
-                      size="lg"
-                      className="relative bg-gradient-accent text-white text-base px-6 py-3 transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30 min-w-[180px] h-[48px]"
-                      onClick={() => window.open(checkoutUrl, "_blank")}
-                    >
-                      <Zap className="w-5 h-5 mr-2" />
-                      Inscribirme Ahora
-                    </Button>
-                  </div>
+                  <Button
+                    size="lg"
+                    className="relative bg-gradient-accent text-white text-base px-6 py-3 transition-all duration-300 hover:opacity-90 shadow-accent hover:shadow-glow border-0 min-w-[180px] h-[48px]"
+                    onClick={() => window.open(checkoutUrl, "_blank")}
+                  >
+                    <Zap className="w-5 h-5 mr-2" />
+                    Inscribirme Ahora
+                  </Button>
                 )}
                 <Button
                   variant="outline"

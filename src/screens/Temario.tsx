@@ -225,10 +225,15 @@ const TemarioContent = () => {
                       <div className="w-12 h-12 bg-gradient-primary rounded-lg shadow-card flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <module.icon className="w-6 h-6 text-primary-foreground" />
                       </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <CardTitle className="text-xl">{module.title}</CardTitle>
-                          <Badge variant="secondary" className="text-xs">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between gap-3 mb-2">
+                          <CardTitle className="text-xl flex-1 min-w-0 leading-snug">
+                            {module.title}
+                          </CardTitle>
+                          <Badge
+                            variant="secondary"
+                            className="shrink-0 whitespace-nowrap text-xs"
+                          >
                             {module.duration}
                           </Badge>
                         </div>

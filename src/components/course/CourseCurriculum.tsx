@@ -39,9 +39,11 @@ const CourseCurriculum = ({ sections, summarySections }: CourseCurriculumProps) 
     <section
       id={COURSE_CURRICULUM_SECTION_ID}
       data-section={COURSE_CURRICULUM_SECTION_ID}
-      className="py-24 bg-course-dark relative overflow-hidden"
+      className="py-24 bg-gradient-hero relative overflow-hidden"
     >
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-tech-purple/5 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute inset-0 bg-gradient-glow opacity-30" />
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-tech-purple/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl animate-pulse delay-1000" />
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
@@ -81,10 +83,15 @@ const CourseCurriculum = ({ sections, summarySections }: CourseCurriculumProps) 
                     <div className="w-12 h-12 bg-gradient-primary rounded-lg shadow-card flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <Icon className="w-6 h-6 text-primary-foreground" />
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <CardTitle className="text-xl">{section.title}</CardTitle>
-                        <Badge variant="secondary" className="text-xs">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-3 mb-2">
+                        <CardTitle className="text-xl flex-1 min-w-0 leading-snug">
+                          {section.title}
+                        </CardTitle>
+                        <Badge
+                          variant="secondary"
+                          className="shrink-0 whitespace-nowrap text-xs"
+                        >
                           {section.duration}
                         </Badge>
                       </div>
