@@ -30,7 +30,7 @@ const CoursePrerequisites = ({ prerequisites }: CoursePrerequisitesProps) => {
   const courseLink = prerequisites.prerequisiteCourseLink;
 
   return (
-    <section className="py-16 bg-background relative overflow-hidden">
+    <section className="py-16 bg-background relative overflow-x-clip">
       <div className="absolute inset-0 bg-gradient-glow opacity-20" />
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-10">
@@ -40,18 +40,18 @@ const CoursePrerequisites = ({ prerequisites }: CoursePrerequisitesProps) => {
               Comenzar
             </span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
             {PREREQUISITES_INTRO}
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
-          <Card className="p-6 bg-gradient-card border-primary/20">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 w-full min-w-0">
+          <Card className="p-4 sm:p-6 bg-gradient-card border-primary/20 min-w-0 w-full">
+            <div className="flex items-center gap-3 mb-5 min-w-0">
+              <div className="w-12 h-12 shrink-0 bg-gradient-primary rounded-full flex items-center justify-center">
                 <Monitor className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="text-xl font-bold text-foreground">
+              <h3 className="text-lg sm:text-xl font-bold text-foreground min-w-0">
                 Equipo Recomendado
               </h3>
             </div>
@@ -59,27 +59,29 @@ const CoursePrerequisites = ({ prerequisites }: CoursePrerequisitesProps) => {
               {prerequisites.equipment.map((req, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-2 p-2.5 rounded-lg bg-background/50 border border-border/50"
+                  className="flex items-start gap-2 p-2.5 rounded-lg bg-background/50 border border-border/50 min-w-0"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">{req}</span>
+                  <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm text-foreground min-w-0 break-words">
+                    {req}
+                  </span>
                 </div>
               ))}
             </div>
-            <div className="flex items-center gap-2 p-2.5 rounded-lg bg-tech-cyan/10 border border-tech-cyan/20">
-              <Wifi className="w-4 h-4 text-tech-cyan flex-shrink-0" />
-              <span className="text-sm text-foreground">
+            <div className="flex items-start gap-2 p-2.5 rounded-lg bg-tech-cyan/10 border border-tech-cyan/20 min-w-0">
+              <Wifi className="w-4 h-4 text-tech-cyan shrink-0 mt-0.5" />
+              <span className="text-sm text-foreground min-w-0 break-words">
                 Conexión a internet estable (recomendado por cable)
               </span>
             </div>
           </Card>
 
-          <Card className="p-6 bg-gradient-card border-primary/20">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
+          <Card className="p-4 sm:p-6 bg-gradient-card border-primary/20 min-w-0 w-full">
+            <div className="flex items-center gap-3 mb-5 min-w-0">
+              <div className="w-12 h-12 shrink-0 bg-gradient-primary rounded-full flex items-center justify-center">
                 <BookOpen className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="text-xl font-bold text-foreground">
+              <h3 className="text-lg sm:text-xl font-bold text-foreground min-w-0">
                 Conocimientos Previos
               </h3>
             </div>
@@ -87,17 +89,19 @@ const CoursePrerequisites = ({ prerequisites }: CoursePrerequisitesProps) => {
               {prerequisites.items.map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-2 p-2.5 rounded-lg bg-background/50 border border-border/50"
+                  className="flex items-start gap-2 p-2.5 rounded-lg bg-background/50 border border-border/50 min-w-0"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-sm text-foreground">{item}</span>
+                  <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm text-foreground min-w-0 break-words">
+                    {item}
+                  </span>
                 </div>
               ))}
             </div>
             {prerequisites.noExperienceNote && (
-              <div className="flex items-start gap-2 p-3 rounded-lg bg-primary/10 border border-primary/20 mb-4">
-                <Info className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-foreground">
+              <div className="flex items-start gap-2 p-3 rounded-lg bg-primary/10 border border-primary/20 mb-4 min-w-0">
+                <Info className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                <p className="text-sm text-foreground min-w-0 break-words">
                   {prerequisites.noExperienceNote}
                 </p>
               </div>
@@ -120,7 +124,7 @@ const CoursePrerequisites = ({ prerequisites }: CoursePrerequisitesProps) => {
             )}
           </Card>
         </div>
-        <p className="text-center text-sm text-muted-foreground max-w-2xl mx-auto mt-8">
+        <p className="text-center text-sm text-muted-foreground max-w-2xl mx-auto mt-8 text-pretty leading-relaxed">
           {PREREQUISITES_FOOTER_NOTE}
         </p>
       </div>
