@@ -3,7 +3,7 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22"
 
 [context.production.environment]
   COURSE_API_BASE_URL = "https://a--academy-api--h9bnptlzrnyz.code.run"
