@@ -4,12 +4,15 @@ const DEFAULT_BASE_URL = "http://localhost:8080";
 const COURSES_QUERY_PATH = "/course/v1/course/query";
 
 export function getCourseApiBaseUrl(): string {
-  const fromEnv = process.env.COURSE_API_BASE_URL?.trim();
+  const fromEnv =
+    process.env.COURSE_API_BASE_URL?.trim() ||
+    import.meta.env.COURSE_API_BASE_URL?.trim();
   return (fromEnv || DEFAULT_BASE_URL).replace(/\/$/, "");
 }
 
 export async function fetchCoursesFromApi(): Promise<ApiCourseLandingResponse[]> {
-  const url = `${getCourseApiBaseUrl()}${COURSES_QUERY_PATH}`;
+  const url = new URL(`${getCourseApiBaseUrl()}${COURSES_QUERY_PATH}`);
+  url.searchParams.set("status", "ACTIVE");
   const response = await fetch(url);
 
   if (!response.ok) {
