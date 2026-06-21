@@ -3,9 +3,9 @@ import {
   useContext,
   type ReactNode,
 } from "react";
-import type { Course } from "@/lib/course-types";
+import type { NavCourse } from "@/lib/course-types";
 
-export type NavCourse = Pick<Course, "slug" | "name">;
+export type { NavCourse };
 
 interface CoursesNavContextType {
   courses: NavCourse[];

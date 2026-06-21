@@ -1,6 +1,6 @@
 /**
  * Contrato JSON alineado con las clases Java (CourseLandingResponse).
- * Es la forma en que la API del backend debe responder.
+ * Es la forma en que GET /api/courses y GET /api/courses/{slug} deben responder.
  */
 
 export type CourseType = "COURSE";

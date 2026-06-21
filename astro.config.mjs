@@ -4,13 +4,13 @@ import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import MOCK_COURSES from "./src/lib/mock-courses.ts";
+import MOCK_API_COURSES from "./src/lib/mock-courses.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const SITE = "https://joaquinc.dev";
 
-const COURSE_SLUGS = MOCK_COURSES.map((course) => course.slug);
+const COURSE_SLUGS = MOCK_API_COURSES.map((course) => course.slug);
 
 // Paginas que no deben indexarse (coinciden con noindex en cada pagina).
 const NOINDEX_PATHS = ["/gracias-por-tu-compra", "/politicas-de-privacidad"];

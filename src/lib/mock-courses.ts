@@ -1,11 +1,30 @@
-import type { LegacyMockCourse } from "./course-mapper";
+import type {
+  ApiCourseLandingResponse,
+  ApiCourseSection,
+} from "./api-course-types";
 
 const OG_BASE =
   "https://res.cloudinary.com/joaquin-test/image/upload/w_1200,h_630,c_fill,f_auto,q_auto/v1757136018/joaquin%20c.%20dev/java%20desde%20cero/Screenshot_at_Aug_26_23-53-12_vavqyx.png";
 
-export const MOCK_COURSES: LegacyMockCourse[] = [
+type ApiCourseSectionInput = Omit<ApiCourseSection, "id" | "order">;
+
+function courseSections(
+  courseId: string,
+  sections: ApiCourseSectionInput[],
+): ApiCourseSection[] {
+  return sections.map((section, index) => ({
+    ...section,
+    id: `${courseId}-section-${index + 1}`,
+    order: index + 1,
+  }));
+}
+
+export const MOCK_API_COURSES = [
   {
+    id: "java-intermedio",
     slug: "java-intermedio",
+    type: "COURSE",
+    status: "ACTIVE",
     title: "Java Intermedio",
     subtitle: "Spring Boot Profesional",
     description:
@@ -36,7 +55,7 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
       ],
       ogImage: OG_BASE,
     },
-    promo: {
+    promotion: {
       endsAt: "2026-06-28T23:59:59-06:00",
       bannerDesktop:
         "Java Intermedio: $2,000 de descuento + hasta 12 meses sin intereses",
@@ -44,7 +63,7 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
     },
     summarySections:
       "8 módulos con 40 horas de contenido práctico y proyectos reales",
-    sections: [
+    sections: courseSections("java-intermedio", [
       {
         icon: "boxes",
         title: "Patrones de Diseño y Arquitectura",
@@ -141,7 +160,7 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
           "Flujo de desarrollo con Docker",
         ],
       },
-    ],
+    ]),
     prerequisites: {
       items: [
         "Java Basics",
@@ -157,12 +176,15 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
       ],
       prerequisiteCourseLink: {
         label: "Comienza con Java desde Cero",
-        path: "/java-desde-cero",
+        courseSlug: "java-desde-cero",
       },
     },
   },
   {
+    id: "introduccion-programacion",
     slug: "introduccion-programacion",
+    type: "COURSE",
+    status: "ACTIVE",
     title: "Introducción a la Programación",
     subtitle: "Para principiantes absolutos",
     description:
@@ -191,7 +213,7 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
       titleLine1: "Introducción a la",
       titleHighlight: "Programación",
     },
-    promo: {
+    promotion: {
       endsAt: "2026-05-02T23:59:59-06:00",
       bannerDesktop:
         "Introducción a la Programación: $2,000 de descuento (plan preferente)",
@@ -199,7 +221,7 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
     },
     summarySections:
       "Un programa estructurado de 30 hrs que te llevará desde los fundamentos de la programación hasta la introducción a la programación orientada a objetos.",
-    sections: [
+    sections: courseSections("introduccion-programacion", [
       {
         icon: "code",
         title: "Introducción a la programación",
@@ -304,7 +326,7 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
           "Polimorfismo",
         ],
       },
-    ],
+    ]),
     prerequisites: {
       items: [
         "Conocimientos básicos de computación",
@@ -324,7 +346,10 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
     },
   },
   {
+    id: "java-desde-cero",
     slug: "java-desde-cero",
+    type: "COURSE",
+    status: "ACTIVE",
     title: "Java desde Cero",
     subtitle: "Fundamentos hasta profesional",
     description:
@@ -359,7 +384,7 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
           "https://res.cloudinary.com/joaquin-test/image/upload/v1756607596/Screenshot_at_Aug_30_20-32-46_qgh3zx.png",
       },
     },
-    promo: {
+    promotion: {
       endsAt: "2026-01-17T23:59:59-06:00",
       bannerDesktop:
         "Precio especial $2,000 de descuento + hasta 12 meses sin intereses",
@@ -367,7 +392,7 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
     },
     summarySections:
       "Un programa estructurado de 40 hrs que te llevará desde los fundamentos hasta implementaciones enterprise de Java y Spring Boot.",
-    sections: [
+    sections: courseSections("java-desde-cero", [
       {
         icon: "book-open",
         title: "Introducción a Java",
@@ -485,7 +510,7 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
           "Inserción de documentos (insert, save)",
         ],
       },
-    ],
+    ]),
     prerequisites: {
       items: [
         "Nociones básicas de programación",
@@ -502,10 +527,10 @@ export const MOCK_COURSES: LegacyMockCourse[] = [
       ],
       prerequisiteCourseLink: {
         label: "Comienza con Introducción a la Programación",
-        path: "/introduccion-programacion",
+        courseSlug: "introduccion-programacion",
       },
     },
   },
-];
+] satisfies ApiCourseLandingResponse[];
 
-export default MOCK_COURSES;
+export default MOCK_API_COURSES;

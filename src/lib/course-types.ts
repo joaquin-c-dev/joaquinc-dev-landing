@@ -1,6 +1,6 @@
 /**
- * Modelo de vista usado por los componentes React.
- * Se construye desde ApiCourseLandingResponse via course-mapper.ts.
+ * Modelo de vista usado por componentes React y paginas Astro.
+ * Siempre se obtiene via mapApiCourseToView() / getAllCourses(); no construir a mano.
  */
 
 export type CourseType = "COURSE";
@@ -78,6 +78,11 @@ export interface ScheduleItem {
   dateRange: string;
   duration: string;
   note?: string;
+}
+
+export interface NavCourse {
+  slug: string;
+  name: string;
 }
 
 export interface Course {

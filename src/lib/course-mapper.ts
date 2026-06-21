@@ -1,7 +1,6 @@
 import type { ApiCourseLandingResponse } from "@/lib/api-course-types";
 import type {
   Course,
-  CourseHeroData,
   CourseIconName,
   CoursePrerequisites,
   CurriculumModule,
@@ -66,7 +65,9 @@ export function mapApiCourseToView(api: ApiCourseLandingResponse): Course {
     promo: api.promotion,
     prerequisites: api.prerequisites
       ? {
-          ...api.prerequisites,
+          items: api.prerequisites.items,
+          equipment: api.prerequisites.equipment,
+          noExperienceNote: api.prerequisites.noExperienceNote,
           prerequisiteCourseLink: mapPrerequisiteCourseLink(
             api.prerequisites.prerequisiteCourseLink,
           ),
@@ -88,89 +89,4 @@ export function mapApiCoursesToView(
   return courses
     .filter((course) => course.status === "ACTIVE")
     .map(mapApiCourseToView);
-}
-
-/** @deprecated Solo para migrar el mock legacy; usar ApiCourseLandingResponse en produccion. */
-export interface LegacyMockCourse {
-  slug: string;
-  title: string;
-  subtitle?: string;
-  description: string;
-  level?: string;
-  durationInHours: number;
-  stripeUrl?: string;
-  stripeCoupon?: string;
-  regularPrice?: number;
-  discountPrice?: number;
-  summarySections?: string;
-  seo: Course["seo"];
-  hero: Course["hero"];
-  promo?: Course["promo"];
-  sections?: {
-    icon?: string;
-    title: string;
-    hoursPerSection: number;
-    specificTopics: string[];
-  }[];
-  prerequisites?: {
-    items: string[];
-    equipment: string[];
-    prerequisiteCourseLink?: { label: string; path: string };
-    noExperienceNote?: string;
-  };
-}
-
-/** Convierte el mock legacy al formato ApiCourseLandingResponse. */
-export function mapLegacyMockToApi(legacy: LegacyMockCourse): ApiCourseLandingResponse {
-  return {
-    id: legacy.slug,
-    slug: legacy.slug,
-    type: "COURSE",
-    status: "ACTIVE",
-    title: legacy.title,
-    description: legacy.description,
-    durationInHours: legacy.durationInHours,
-    subtitle: legacy.subtitle,
-    level: legacy.level,
-    stripeUrl: legacy.stripeUrl,
-    stripeCoupon: legacy.stripeCoupon,
-    regularPrice: legacy.regularPrice,
-    discountPrice: legacy.discountPrice,
-    summarySections: legacy.summarySections,
-    seo: legacy.seo,
-    hero: {
-      titleLine1: legacy.hero.titleLine1,
-      titleHighlight: legacy.hero.titleHighlight,
-      video: legacy.hero.video,
-    },
-    promotion: legacy.promo,
-    prerequisites: legacy.prerequisites
-      ? {
-          ...legacy.prerequisites,
-          prerequisiteCourseLink: legacy.prerequisites.prerequisiteCourseLink
-            ? mapPrerequisiteCourseLink({
-                label: legacy.prerequisites.prerequisiteCourseLink.label,
-                courseSlug:
-                  legacy.prerequisites.prerequisiteCourseLink.path.replace(
-                    /^\//,
-                    "",
-                  ),
-              })
-            : undefined,
-        }
-      : undefined,
-    summarySections: legacy.summarySections,
-    sections: legacy.sections?.map((section, index) => ({
-      id: `${legacy.slug}-section-${index + 1}`,
-      title: section.title,
-      order: index + 1,
-      hoursPerSection: section.hoursPerSection,
-      specificTopics: section.specificTopics,
-      icon: section.icon,
-    })),
-  };
-}
-
-export function mapLegacyMockToView(legacy: LegacyMockCourse): Course {
-  return mapApiCourseToView(mapLegacyMockToApi(legacy));
 }
