@@ -5,12 +5,9 @@
 import type { Course, NavCourse } from "@/lib/course-types";
 import type { ApiCourseLandingResponse } from "@/lib/api-course-types";
 import { mapApiCoursesToView, mapApiCourseToView } from "@/lib/course-mapper";
-import MOCK_API_COURSES from "@/lib/mock-courses";
+import { fetchCoursesFromApi } from "@/lib/course-api";
 import { isCourseVisibleOnHome } from "@/lib/course-listings";
 import { getCourseSchedules } from "@/lib/scheduled-courses";
-
-/** Cambiar a false cuando la API Java este disponible. */
-const USE_MOCK_API = true;
 
 export type {
   Course,
@@ -38,17 +35,8 @@ export type {
 
 export { mapApiCourseToView, mapApiCoursesToView } from "@/lib/course-mapper";
 
-async function fetchCoursesFromApi(): Promise<ApiCourseLandingResponse[]> {
-  await new Promise((resolve) => setTimeout(resolve, 30));
-  // TODO: return fetch(`${API_URL}/courses`).then((r) => r.json());
-  return MOCK_API_COURSES;
-}
-
-/** Respuesta cruda de la API (o mock con la misma forma). */
+/** Respuesta cruda de GET /course/v1/course/query. */
 export async function fetchApiCourses(): Promise<ApiCourseLandingResponse[]> {
-  if (USE_MOCK_API) {
-    return MOCK_API_COURSES;
-  }
   return fetchCoursesFromApi();
 }
 

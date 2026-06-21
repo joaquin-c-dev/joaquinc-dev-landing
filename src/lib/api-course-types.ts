@@ -83,6 +83,9 @@ export interface ApiCourseLandingResponse {
   discountPrice?: number;
   seo: ApiCourseSeo;
   hero: ApiCourseHero;
+  /** Alias usado por la API Java (`promo` en JSON). */
+  promo?: ApiCoursePromotion;
+  /** Forma legacy del mock local. */
   promotion?: ApiCoursePromotion;
   prerequisites?: ApiCoursePrerequisites;
   summarySections?: string;

@@ -23,19 +23,31 @@ function mapPrerequisiteCourseLink(
   };
 }
 
+function compareSectionOrder(
+  a: { order?: number },
+  b: { order?: number },
+): number {
+  return (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER);
+}
+
+export function sortCurriculumSections<T extends { order?: number }>(
+  sections: T[],
+): T[] {
+  return [...sections].sort(compareSectionOrder);
+}
+
 function mapApiSectionsToView(
   sections: ApiCourseLandingResponse["sections"],
 ): CurriculumModule[] {
   if (!sections?.length) return [];
-  return [...sections]
-    .sort((a, b) => a.order - b.order)
-    .map((section) => ({
-      icon: mapIcon(section.icon),
-      title: section.title,
-      hoursPerSection: section.hoursPerSection,
-      duration: formatSectionDuration(section.hoursPerSection),
-      specificTopics: section.specificTopics,
-    }));
+  return sortCurriculumSections(sections).map((section) => ({
+    order: section.order,
+    icon: mapIcon(section.icon),
+    title: section.title,
+    hoursPerSection: section.hoursPerSection,
+    duration: formatSectionDuration(section.hoursPerSection),
+    specificTopics: section.specificTopics,
+  }));
 }
 
 /** Convierte la respuesta de la API Java al modelo usado por los componentes React. */
@@ -62,7 +74,7 @@ export function mapApiCourseToView(api: ApiCourseLandingResponse): Course {
       titleHighlight: api.hero.titleHighlight,
       video: api.hero.video,
     },
-    promo: api.promotion,
+    promo: api.promo ?? api.promotion,
     prerequisites: api.prerequisites
       ? {
           items: api.prerequisites.items,
@@ -87,6 +99,6 @@ export function mapApiCoursesToView(
   courses: ApiCourseLandingResponse[],
 ): Course[] {
   return courses
-    .filter((course) => course.status === "ACTIVE")
+    .filter((course) => course.status === "ACTIVE" && course.slug?.trim())
     .map(mapApiCourseToView);
 }

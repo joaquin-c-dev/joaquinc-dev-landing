@@ -42,6 +42,7 @@ export interface CourseSeo {
 }
 
 export interface CurriculumModule {
+  order: number;
   icon?: CourseIconName;
   title: string;
   /** Horas de la seccion (CourseSection.hoursPerSection en Java). */

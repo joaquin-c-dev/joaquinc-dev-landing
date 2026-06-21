@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, CheckCircle2, Clock, Code2, Boxes, Zap } from "lucide-react";
 import { getCourseIcon } from "@/lib/course-icons";
+import { sortCurriculumSections } from "@/lib/course-mapper";
 import { COURSE_CURRICULUM_SECTION_ID, type Course } from "@/lib/course-types";
 
 interface CourseCurriculumProps {
@@ -29,7 +30,8 @@ const COURSE_METHODOLOGY = [
 ] as const;
 
 const CourseCurriculum = ({ sections, summarySections }: CourseCurriculumProps) => {
-  const totalHours = sections.reduce(
+  const sortedSections = sortCurriculumSections(sections);
+  const totalHours = sortedSections.reduce(
     (total, section) => total + section.hoursPerSection,
     0,
   );
@@ -61,17 +63,17 @@ const CourseCurriculum = ({ sections, summarySections }: CourseCurriculumProps) 
             </Badge>
             <Badge variant="outline" className="px-4 py-2 text-base border-primary/30">
               <Boxes className="w-4 h-4 mr-2" />
-              {sections.length} módulos
+              {sortedSections.length} módulos
             </Badge>
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {sections.map((section, index) => {
+          {sortedSections.map((section) => {
             const Icon = getCourseIcon(section.icon);
             return (
               <Card
-                key={index}
+                key={`${section.order}-${section.title}`}
                 className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50"
               >
                 <CardHeader className="pb-4">
