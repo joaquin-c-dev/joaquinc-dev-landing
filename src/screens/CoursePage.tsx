@@ -30,6 +30,7 @@ const CoursePage = ({ course, navCourses, pathname }: CoursePageProps) => {
             description={course.description}
             stripeUrl={course.stripeUrl}
             stripeCoupon={course.stripeCoupon}
+            clientReferenceId={course.nearestScheduledCourseId}
           />
           {course.sections && (
             <CourseCurriculum
@@ -50,6 +51,7 @@ const CoursePage = ({ course, navCourses, pathname }: CoursePageProps) => {
               discountPrice={course.discountPrice}
               stripeUrl={course.stripeUrl}
               stripeCoupon={course.stripeCoupon}
+              clientReferenceId={course.nearestScheduledCourseId}
             />
           )}
           <Footer />

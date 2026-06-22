@@ -57,13 +57,36 @@ export function formatWeekDuration(startDate: string, endDate: string): string {
   return weeks === 1 ? "1 semana de duración" : `${weeks} semanas de duración`;
 }
 
+const HOURS_PER_CLASS_BY_SCHEDULE: Record<TimeSchedule, number> = {
+  FROM_9AM_TO_2PM: 5,
+  FROM_8PM_TO_10PM: 2,
+};
+
+export function formatClassCount(
+  totalHours: number,
+  timeSchedule: TimeSchedule,
+): string {
+  const hoursPerClass = HOURS_PER_CLASS_BY_SCHEDULE[timeSchedule];
+  const classes = Math.max(1, Math.round(totalHours / hoursPerClass));
+  return classes === 1 ? "1 clase" : `${classes} clases`;
+}
+
 export function buildStripeCheckoutUrl(
   stripeUrl: string,
   stripeCoupon?: string,
+  clientReferenceId?: string,
 ): string {
-  if (!stripeCoupon) return stripeUrl;
-  const separator = stripeUrl.includes("?") ? "&" : "?";
-  return `${stripeUrl}${separator}prefilled_promo_code=${encodeURIComponent(stripeCoupon)}`;
+  const url = new URL(stripeUrl);
+
+  if (stripeCoupon) {
+    url.searchParams.set("prefilled_promo_code", stripeCoupon);
+  }
+
+  if (clientReferenceId) {
+    url.searchParams.set("client_reference_id", clientReferenceId);
+  }
+
+  return url.toString();
 }
 
 /** Meta keywords: la API envia arreglo; el meta tag HTML usa cadena separada por comas. */

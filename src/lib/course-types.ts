@@ -112,4 +112,6 @@ export interface Course {
     fullHeight?: boolean;
     items: ScheduleItem[];
   };
+  /** ID del curso agendado con inicio más próximo (para Stripe client_reference_id). */
+  nearestScheduledCourseId?: string;
 }

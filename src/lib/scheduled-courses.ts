@@ -1,31 +1,86 @@
 /**
  * Capa de datos de proximos inicios (ScheduledCourse).
- * En produccion: fetch a GET /api/courses/{courseId}/scheduled-courses
+ * GET /scheduled/v1/scheduled/course/by-course/{courseId}
  */
-import type { ApiCourseSchedulesResponse } from "@/lib/api-scheduled-courses-types";
+import type {
+  ApiCourseSchedulesResponse,
+  ApiScheduledCourseItem,
+} from "@/lib/api-scheduled-courses-types";
 import type { Course } from "@/lib/course-types";
 import {
   formatDateRange,
   formatDurationHours,
+  formatClassCount,
   formatModalityLabel,
   formatTimeScheduleLabel,
-  formatWeekDuration,
 } from "@/lib/course-formatters";
+import { fetchScheduledCoursesByCourseId } from "@/lib/scheduled-course-api";
 import MOCK_COURSE_SCHEDULES from "@/lib/mock-scheduled-courses";
 
-/** Cambiar a false cuando la API de scheduled courses este disponible. */
-const USE_LEGACY_MOCK = true;
+/** Cambiar a true solo para desarrollo offline sin backend. */
+const USE_LEGACY_MOCK = false;
+
+const VISIBLE_SCHEDULE_STATUSES = new Set<ApiScheduledCourseItem["status"]>([
+  "SCHEDULED",
+  "ACTIVE",
+]);
+
+const FULL_HEIGHT_SCHEDULE_SLUGS = new Set([
+  "introduccion-programacion",
+  "java-intermedio",
+]);
 
 export type { ApiCourseSchedulesResponse } from "@/lib/api-scheduled-courses-types";
 
-async function fetchCourseSchedulesFromApi(
-  courseId: string,
-): Promise<ApiCourseSchedulesResponse | null> {
-  await new Promise((resolve) => setTimeout(resolve, 30));
-  // TODO: return fetch(`${API_URL}/courses/${courseId}/scheduled-courses`).then(r => r.json());
-  return MOCK_COURSE_SCHEDULES[courseId] ?? null;
+export interface CourseSchedulesOptions {
+  durationInHours: number;
+  subtitle?: string;
+  slug?: string;
 }
 
+async function fetchCourseSchedulesFromApi(
+  courseId: string,
+): Promise<ApiScheduledCourseItem[]> {
+  const items = await fetchScheduledCoursesByCourseId(courseId);
+  return items
+    .filter((item) => VISIBLE_SCHEDULE_STATUSES.has(item.status))
+    .sort(
+      (a, b) =>
+        new Date(a.startDate).getTime() - new Date(b.startDate).getTime(),
+    );
+}
+
+function mapApiItemsToView(
+  scheduledCourses: ApiScheduledCourseItem[],
+  options: CourseSchedulesOptions,
+): NonNullable<Course["schedules"]> | undefined {
+  if (!scheduledCourses.length) return undefined;
+
+  const fullHeight =
+    options.slug != null && FULL_HEIGHT_SCHEDULE_SLUGS.has(options.slug);
+
+  return {
+    subtitle: options.subtitle,
+    fullHeight: fullHeight || undefined,
+    items: scheduledCourses.map((scheduled) => ({
+      id: scheduled.id,
+      modality: formatModalityLabel(scheduled.courseModality),
+      schedule: formatTimeScheduleLabel(
+        scheduled.courseModality,
+        scheduled.timeSchedule,
+      ),
+      hours: `${formatDurationHours(options.durationInHours)} totales`,
+      dateRange: formatDateRange(scheduled.startDate, scheduled.endDate),
+      duration: formatClassCount(
+        options.durationInHours,
+        scheduled.timeSchedule,
+      ),
+      note: scheduled.note,
+    })),
+  };
+}
+
+/** @deprecated Usar mapApiItemsToView; conservado para el mock legacy. */
 export function mapApiSchedulesToView(
   response: ApiCourseSchedulesResponse,
   durationInHours: number,
@@ -44,7 +99,7 @@ export function mapApiSchedulesToView(
       ),
       hours: `${formatDurationHours(durationInHours)} totales`,
       dateRange: formatDateRange(scheduled.startDate, scheduled.endDate),
-      duration: formatWeekDuration(scheduled.startDate, scheduled.endDate),
+      duration: formatClassCount(durationInHours, scheduled.timeSchedule),
       note: scheduled.note,
     })),
   };
@@ -52,12 +107,22 @@ export function mapApiSchedulesToView(
 
 export async function getCourseSchedules(
   courseId: string,
-  durationInHours: number,
+  options: CourseSchedulesOptions,
 ): Promise<NonNullable<Course["schedules"]> | undefined> {
-  const response = USE_LEGACY_MOCK
-    ? MOCK_COURSE_SCHEDULES[courseId] ?? null
-    : await fetchCourseSchedulesFromApi(courseId);
+  if (USE_LEGACY_MOCK) {
+    const mock = MOCK_COURSE_SCHEDULES[options.slug ?? courseId] ?? null;
+    if (!mock) return undefined;
+    return mapApiSchedulesToView(mock, options.durationInHours);
+  }
 
-  if (!response) return undefined;
-  return mapApiSchedulesToView(response, durationInHours);
+  try {
+    const scheduledCourses = await fetchCourseSchedulesFromApi(courseId);
+    return mapApiItemsToView(scheduledCourses, options);
+  } catch (error) {
+    console.error(
+      `Failed to fetch scheduled courses for courseId=${courseId}`,
+      error,
+    );
+    return undefined;
+  }
 }

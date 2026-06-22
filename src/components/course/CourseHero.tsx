@@ -12,6 +12,7 @@ interface CourseHeroProps {
   description: string;
   stripeUrl?: string;
   stripeCoupon?: string;
+  clientReferenceId?: string;
 }
 
 const CourseHero = ({
@@ -20,10 +21,11 @@ const CourseHero = ({
   description,
   stripeUrl,
   stripeCoupon,
+  clientReferenceId,
 }: CourseHeroProps) => {
   const isCentered = !hero.video;
   const checkoutUrl = stripeUrl
-    ? buildStripeCheckoutUrl(stripeUrl, stripeCoupon)
+    ? buildStripeCheckoutUrl(stripeUrl, stripeCoupon, clientReferenceId)
     : undefined;
 
   const handleViewCurriculum = () => {

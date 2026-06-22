@@ -52,8 +52,19 @@ export async function getCourseBySlug(
   const course = courses.find((c) => c.slug === slug);
   if (!course) return null;
 
-  const schedules = await getCourseSchedules(course.slug, course.durationInHours);
-  return schedules ? { ...course, schedules } : course;
+  const schedules = await getCourseSchedules(course.id, {
+    durationInHours: course.durationInHours,
+    subtitle: course.subtitle,
+    slug: course.slug,
+  });
+  if (!schedules) return course;
+
+  const nearestScheduledCourseId = schedules.items[0]?.id;
+  return {
+    ...course,
+    schedules,
+    nearestScheduledCourseId,
+  };
 }
 
 export async function getCourseSlugs(): Promise<string[]> {

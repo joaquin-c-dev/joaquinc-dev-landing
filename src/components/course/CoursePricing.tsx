@@ -12,6 +12,7 @@ interface CoursePricingProps {
   discountPrice: number;
   stripeUrl?: string;
   stripeCoupon?: string;
+  clientReferenceId?: string;
   sectionId?: string;
 }
 
@@ -36,14 +37,18 @@ const CoursePricing = ({
   discountPrice,
   stripeUrl,
   stripeCoupon,
+  clientReferenceId,
   sectionId,
 }: CoursePricingProps) => {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showRecommendedModal, setShowRecommendedModal] = useState(false);
   const { timeLeft, formatNumber } = usePromoCountdown();
   const isDiscountActive = !timeLeft.isExpired;
-  const promoCheckoutUrl = stripeUrl
-    ? buildStripeCheckoutUrl(stripeUrl, stripeCoupon)
+  const checkoutUrl = stripeUrl
+    ? buildStripeCheckoutUrl(stripeUrl, stripeCoupon, clientReferenceId)
+    : undefined;
+  const flexibleCheckoutUrl = stripeUrl
+    ? buildStripeCheckoutUrl(stripeUrl, undefined, clientReferenceId)
     : undefined;
 
   const discountAmount = regularPrice - discountPrice;
@@ -74,12 +79,12 @@ const CoursePricing = ({
 
   const handleContinueToPayment = () => {
     setShowPaymentModal(false);
-    if (stripeUrl) window.open(stripeUrl, "_blank");
+    if (flexibleCheckoutUrl) window.open(flexibleCheckoutUrl, "_blank");
   };
 
   const handleContinueToRecommendedPayment = () => {
     setShowRecommendedModal(false);
-    if (promoCheckoutUrl) window.open(promoCheckoutUrl, "_blank");
+    if (checkoutUrl) window.open(checkoutUrl, "_blank");
   };
 
   const countdownBlock = (
@@ -509,7 +514,7 @@ const CoursePricing = ({
                 <Button
                   variant="outline"
                   className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
-                  onClick={() => stripeUrl && window.open(stripeUrl, "_blank")}
+                  onClick={() => checkoutUrl && window.open(checkoutUrl, "_blank")}
                 >
                   Hacer pago preferente
                 </Button>
