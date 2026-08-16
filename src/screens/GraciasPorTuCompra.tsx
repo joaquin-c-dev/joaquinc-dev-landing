@@ -1,18 +1,26 @@
+import { useEffect } from "react";
 import { CheckCircle, Mail, Calendar } from "lucide-react";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate } from "@/lib/router";
 import AppShell from "@/components/app/AppShell";
+import { trackPurchaseFromStripeSession } from "@/lib/meta-pixel";
 import type { NavCourse } from "@/contexts/CoursesNavContext";
 
 interface GraciasPorTuCompraProps {
   navCourses?: NavCourse[];
   pathname: string;
+  apiBaseUrl: string;
 }
 
-const GraciasPorTuCompra = ({ navCourses = [], pathname }: GraciasPorTuCompraProps) => {
+const GraciasPorTuCompra = ({ navCourses = [], pathname, apiBaseUrl }: GraciasPorTuCompraProps) => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // El pixel es señal de marketing, no parte de la experiencia: si falla, la página sigue igual
+    void trackPurchaseFromStripeSession(apiBaseUrl).catch(() => {});
+  }, [apiBaseUrl]);
 
   return (
     <AppShell navCourses={navCourses} pathname={pathname}>
