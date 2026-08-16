@@ -1,9 +1,11 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getNavCourses } from "@/lib/courses";
+import { getCourseApiBaseUrl } from "@/lib/course-api";
 import GraciasPorTuCompra from "@/screens/GraciasPorTuCompra";
 
 const navCourses = await getNavCourses();
+const apiBaseUrl = getCourseApiBaseUrl();
 ---
 
 <BaseLayout
@@ -11,5 +13,5 @@ const navCourses = await getNavCourses();
   description="Tu inscripción ha sido procesada exitosamente. Revisa tu correo para los detalles del curso y los próximos pasos."
   noindex={true}
 >
-  <GraciasPorTuCompra client:load navCourses={navCourses} pathname={Astro.url.pathname} />
+  <GraciasPorTuCompra client:load navCourses={navCourses} pathname={Astro.url.pathname} apiBaseUrl={apiBaseUrl} />
 </BaseLayout>
