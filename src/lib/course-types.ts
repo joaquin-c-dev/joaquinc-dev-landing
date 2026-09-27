@@ -3,7 +3,7 @@
  * Siempre se obtiene via mapApiCourseToView() / getAllCourses(); no construir a mano.
  */
 
-export type CourseType = "COURSE";
+export type CourseType = "COURSE" | "WORKSHOP";
 export type CourseStatus = "ACTIVE" | "INACTIVE";
 
 /** Id fijo del ancla de temario en todas las paginas de curso. */
@@ -79,6 +79,10 @@ export interface ScheduleItem {
   dateRange: string;
   duration: string;
   note?: string;
+  /** Inicio de la primera sesión, ISO con zona de CDMX (p. ej. "2026-10-03T09:00:00-06:00"). */
+  startsAt?: string;
+  /** Fin de la última sesión, ISO con zona de CDMX. */
+  endsAt?: string;
 }
 
 export interface NavCourse {

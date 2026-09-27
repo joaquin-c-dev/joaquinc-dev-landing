@@ -1,14 +1,24 @@
 import { useState, useEffect } from "react";
 import { ASSETS } from "@/lib/assets";
 
-const WhatsAppButton = () => {
+const WHATSAPP_NUMBER = "5213331071527";
+const DEFAULT_MESSAGE = "Hola! Me interesa el curso de Java. ¿Puedes asesorarme?";
+
+interface WhatsAppButtonProps {
+  /** Si el chat se abre solo (a los 3 s o al pasar el video). El botón siempre está. */
+  autoOpen?: boolean;
+  /** Mensaje prellenado de "Contactar ahora". Por defecto, el de los cursos de Java. */
+  message?: string;
+}
+
+const WhatsAppButton = ({ autoOpen = true, message = DEFAULT_MESSAGE }: WhatsAppButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
 
   // Abrir chat automáticamente después de 3 segundos
   useEffect(() => {
-    if (hasAutoOpened) return;
+    if (hasAutoOpened || !autoOpen) return;
 
     const timer = setTimeout(() => {
       setIsOpen(true);
@@ -16,11 +26,11 @@ const WhatsAppButton = () => {
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, [hasAutoOpened]);
+  }, [hasAutoOpened, autoOpen]);
 
   // Abrir chat cuando el usuario haga scroll más allá del video
   useEffect(() => {
-    if (hasAutoOpened) return;
+    if (hasAutoOpened || !autoOpen) return;
 
     const handleScroll = () => {
       const videoElement = document.querySelector("video");
@@ -43,7 +53,7 @@ const WhatsAppButton = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [hasAutoOpened]);
+  }, [hasAutoOpened, autoOpen]);
 
   // Cerrar chat al hacer clic en la página
   useEffect(() => {
@@ -81,7 +91,7 @@ const WhatsAppButton = () => {
 
   const handleWhatsAppClick = () => {
     window.open(
-      "https://wa.me/5213331071527?text=Hola!%20Me%20interesa%20el%20curso%20de%20Java.%20%C2%BFPuedes%20asesorarme%3F",
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
       "_blank",
     );
     handleClose();

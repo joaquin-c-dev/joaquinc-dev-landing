@@ -17,12 +17,18 @@ interface AppShellProps {
   children: ReactNode;
   navCourses?: NavCourse[];
   pathname?: string;
+  /** Apaga la apertura automática del chat de WhatsApp (p. ej. en talleres). */
+  autoOpenWhatsApp?: boolean;
+  /** Mensaje prellenado del chat de WhatsApp; si no se da, usa el de los cursos. */
+  whatsappMessage?: string;
 }
 
 export default function AppShell({
   children,
   navCourses = [],
   pathname,
+  autoOpenWhatsApp = true,
+  whatsappMessage,
 }: AppShellProps) {
   return (
     <QueryClientProvider client={queryClient}>
@@ -33,7 +39,7 @@ export default function AppShell({
               <Toaster />
               <Sonner />
               {children}
-              <WhatsAppButton />
+              <WhatsAppButton autoOpen={autoOpenWhatsApp} message={whatsappMessage} />
             </TooltipProvider>
           </CoursesNavProvider>
         </BannerProvider>

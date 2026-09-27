@@ -3,7 +3,7 @@
  * Es la forma en que GET /api/courses y GET /api/courses/{slug} deben responder.
  */
 
-export type CourseType = "COURSE";
+export type CourseType = "COURSE" | "WORKSHOP";
 export type CourseStatus = "ACTIVE" | "INACTIVE";
 export type CourseModality = "SATURDAY" | "MONDAY_TO_THURSDAY";
 export type TimeSchedule = "FROM_9AM_TO_2PM" | "FROM_8PM_TO_10PM";
