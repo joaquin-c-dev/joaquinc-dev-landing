@@ -185,10 +185,12 @@ const WORKSHOP_CONTENT_BY_SLUG: Record<string, Partial<WorkshopContent>> = {
       },
     ],
     finalCtaHeadline: "Aparta tu lugar y protege tu API este sábado.",
-    // Los tres más afines a un taller de Spring Boot (los mismos del banner de Meta).
+    // Los de Spring Boot primero (los mismos del banner de Meta) + Mario, que habla del
+    // dominio del instructor aunque su curso fue Claude Code.
     testimonials: [
       ALUMNI_TESTIMONIALS.eduardo,
       ALUMNI_TESTIMONIALS.marco,
+      ALUMNI_TESTIMONIALS.mario,
       ALUMNI_TESTIMONIALS.angel,
     ],
   },

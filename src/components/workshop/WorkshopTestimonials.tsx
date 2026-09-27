@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { WorkshopTestimonial } from "@/lib/workshop-content";
 import { WS_CONTAINER, WS_EYEBROW, WS_H2 } from "./workshop-styles";
 
@@ -29,7 +30,7 @@ const ReviewCard = ({ testimonial }: { testimonial: WorkshopTestimonial }) => {
 
   return (
     <figure
-      className={`${REVIEW_FONT} flex flex-col rounded-[14px] bg-white p-6 text-[#202124] shadow-[0_30px_80px_rgba(0,0,0,0.45)]`}
+      className={`${REVIEW_FONT} flex w-[min(340px,82vw)] shrink-0 flex-col rounded-[14px] bg-white p-6 text-[#202124] shadow-[0_16px_36px_rgba(0,0,0,0.4)]`}
     >
       <div className="flex items-center gap-3">
         <span
@@ -64,20 +65,51 @@ const ReviewCard = ({ testimonial }: { testimonial: WorkshopTestimonial }) => {
   );
 };
 
+/**
+ * Carrusel que avanza solo (marquee CSS, sin dependencias): la lista va duplicada y la
+ * pista se desplaza -50%, así el final empalma con el inicio sin salto. Se pausa al pasar
+ * el mouse o enfocar, y con `prefers-reduced-motion` queda como fila con scroll manual.
+ */
+const MARQUEE_CSS = `
+@keyframes ws-marquee { to { transform: translateX(-50%); } }
+.ws-marquee-track { animation: ws-marquee var(--ws-marquee-duration) linear infinite; }
+.ws-marquee:hover .ws-marquee-track,
+.ws-marquee:focus-within .ws-marquee-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .ws-marquee { overflow-x: auto; }
+  .ws-marquee-track { animation: none; }
+  .ws-marquee-clone { display: none; }
+}
+`;
+
+/** Segundos que tarda cada tarjeta en cruzar: más testimonios = vuelta más larga, misma velocidad. */
+const SECONDS_PER_CARD = 9;
+
 /** Solo testimonios reales: si no hay, la sección no se muestra. */
 const WorkshopTestimonials = ({ testimonials }: { testimonials?: WorkshopTestimonial[] }) => {
   if (!testimonials?.length) return null;
 
+  const renderCards = (clone: boolean) =>
+    testimonials.map((testimonial) => (
+      <ReviewCard key={`${clone ? "clone-" : ""}${testimonial.name}`} testimonial={testimonial} />
+    ));
+
   return (
-    <section className={`${WS_CONTAINER} py-[88px]`}>
-      <div className="mb-10 flex flex-col gap-3.5">
+    <section className="py-[64px]">
+      <style>{MARQUEE_CSS}</style>
+      <div className={`${WS_CONTAINER} mb-10 flex flex-col gap-3.5`}>
         <span className={WS_EYEBROW}>LO QUE DICEN MIS ALUMNOS</span>
         <h2 className={WS_H2}>Aprenden haciendo</h2>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
-        {testimonials.map((testimonial) => (
-          <ReviewCard key={testimonial.name} testimonial={testimonial} />
-        ))}
+      <div className="ws-marquee overflow-hidden py-10 [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
+        <div
+          className="ws-marquee-track flex w-max"
+          style={{ "--ws-marquee-duration": `${testimonials.length * SECONDS_PER_CARD}s` } as CSSProperties}
+        >
+          {/* Cada mitad lleva su propio padding derecho para que el -50% cuadre exacto. */}
+          <div className="flex gap-4 pr-4">{renderCards(false)}</div>
+          <div className="ws-marquee-clone flex gap-4 pr-4" aria-hidden="true">{renderCards(true)}</div>
+        </div>
       </div>
     </section>
   );
