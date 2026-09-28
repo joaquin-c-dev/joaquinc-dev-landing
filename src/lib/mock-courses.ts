@@ -353,7 +353,7 @@ export const MOCK_API_COURSES = [
     title: "Java desde Cero",
     subtitle: "Fundamentos hasta profesional",
     description:
-      "Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. Más de 9 años de experiencia en desarrollo backend me respaldan para guiarte en tiempo real en cada paso de tu carrera como developer.",
+      "Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional. Más de 10 años de experiencia en desarrollo backend me respaldan para guiarte en tiempo real en cada paso de tu carrera como developer.",
     level: "Principiante a Intermedio",
     durationInHours: 40,
     stripeUrl: "https://buy.stripe.com/bJe3cx4yy1yP9Vn46Mb3q01",
@@ -363,7 +363,7 @@ export const MOCK_API_COURSES = [
     seo: {
       title: "Curso de Java desde Cero en Vivo | Joaquín C. Dev",
       description:
-        "Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional: POO, colecciones, Streams y MongoDB. Más de 9 años de experiencia backend guiándote en tiempo real.",
+        "Curso de Java en vivo y en línea desde los fundamentos hasta nivel profesional: POO, colecciones, Streams y MongoDB. Más de 10 años de experiencia backend guiándote en tiempo real.",
       keywords: [
         "java",
         "curso java",

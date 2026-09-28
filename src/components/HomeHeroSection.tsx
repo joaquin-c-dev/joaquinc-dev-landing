@@ -47,7 +47,7 @@ const HomeHeroSection = () => {
             />
             <div className="text-left">
               <div className="font-semibold text-foreground">Joaquín Coronado</div>
-              <div className="text-sm text-muted-foreground">Head of Backend • +9 años de experiencia</div>
+              <div className="text-sm text-muted-foreground">Head of Backend • +10 años de experiencia</div>
             </div>
           </div>
 
