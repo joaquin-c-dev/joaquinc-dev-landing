@@ -8,7 +8,7 @@ import { fetchCoursesFromApi } from "./src/lib/course-api.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const SITE = "https://joaquinc.dev";
+const SITE = "https://joaquincoronado.dev";
 
 const apiCourses = await fetchCoursesFromApi().catch(() => []);
 const COURSE_SLUGS = apiCourses
