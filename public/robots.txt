@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://joaquinc.dev/sitemap-index.xml
+Sitemap: https://joaquincoronado.dev/sitemap-index.xml

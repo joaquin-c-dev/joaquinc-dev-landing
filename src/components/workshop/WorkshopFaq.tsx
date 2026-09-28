@@ -97,7 +97,11 @@ const WorkshopFaq = ({ course, price, transferUrl, extraFaq = [] }: WorkshopFaqP
                 <Plus className="h-5 w-5 shrink-0 text-[#45c8ff] transition-transform duration-200 group-data-[state=open]:rotate-45" />
               </AccordionPrimitive.Trigger>
             </AccordionPrimitive.Header>
-            <AccordionPrimitive.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+            {/* forceMount: las respuestas van en el HTML aunque estén cerradas (Google y
+                los buscadores de IA las leen); cerradas se ocultan con CSS. */}
+            <AccordionPrimitive.Content
+              forceMount
+              className="overflow-hidden data-[state=closed]:hidden data-[state=open]:animate-accordion-down">
               <div className="pb-5 leading-[1.6] text-[#aab2bc]">{entry.answer}</div>
             </AccordionPrimitive.Content>
           </AccordionPrimitive.Item>

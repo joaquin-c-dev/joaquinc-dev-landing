@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCourseBySlug, getNavCourses } from "@/lib/courses";
 import { formatSeoKeywords } from "@/lib/course-formatters";
 import CoursePage from "@/screens/CoursePage";
+import { buildWorkshopEventJsonLd, serializeJsonLd } from "@/lib/workshop-structured-data";
 
 const { slug } = Astro.params;
 const [course, navCourses] = await Promise.all([
@@ -13,6 +14,11 @@ const [course, navCourses] = await Promise.all([
 if (!course) {
   return Astro.rewrite("/404");
 }
+
+const workshopJsonLd =
+  course.type === "WORKSHOP"
+    ? buildWorkshopEventJsonLd(course, new URL(Astro.url.pathname, Astro.site).href, Astro.site!.href)
+    : undefined;
 ---
 
 <BaseLayout
@@ -30,6 +36,9 @@ if (!course) {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=JetBrains+Mono:ital,wght@0,400;1,400&family=Roboto:wght@400;500;700&display=swap"
       />
+      {workshopJsonLd && (
+        <script type="application/ld+json" set:html={serializeJsonLd(workshopJsonLd)} />
+      )}
     </Fragment>
   )}
   <CoursePage client:load course={course} navCourses={navCourses} pathname={Astro.url.pathname} />
