@@ -134,7 +134,7 @@ const AcercaDeMiContent = () => {
                   </span>
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Más de 9 años desarrollando backend en empresas Fortune 500 y 8+ años 
+                  Más de 10 años desarrollando backend en empresas Fortune 500 y 8+ años 
                   formando a la próxima generación de desarrolladores Java.
                 </p>
               </div>

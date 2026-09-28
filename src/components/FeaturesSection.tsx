@@ -49,7 +49,7 @@ const features = [
   {
     icon: Award,
     title: "Experiencia Comprobada",
-    description: "Más de 9 años desarrollando sistemas backend escalables con Java."
+    description: "Más de 10 años desarrollando sistemas backend escalables con Java."
   }
 ];
 
