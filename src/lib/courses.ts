@@ -6,7 +6,7 @@ import type { Course, NavCourse } from "@/lib/course-types";
 import type { ApiCourseLandingResponse } from "@/lib/api-course-types";
 import { mapApiCoursesToView, mapApiCourseToView } from "@/lib/course-mapper";
 import { fetchCoursesFromApi } from "@/lib/course-api";
-import { isCourseVisibleOnHome } from "@/lib/course-listings";
+import { selectHomeCourses } from "@/lib/course-listings";
 import { getCourseSchedules } from "@/lib/scheduled-courses";
 
 export type {
@@ -72,9 +72,41 @@ export async function getCourseSlugs(): Promise<string[]> {
   return courses.map((course) => course.slug);
 }
 
+/**
+ * "Próximos inicios" del home: cursos y talleres con un grupo que todavía no empieza,
+ * cada uno con sus grupos futuros, ordenados por la fecha de inicio más cercana.
+ */
+export async function getUpcomingStarts(): Promise<Course[]> {
+  const now = Date.now();
+  const courses = await getAllCourses();
+  const upcoming = await Promise.all(
+    courses.map(async (course): Promise<Course | null> => {
+      const schedules = await getCourseSchedules(course.id, {
+        durationInHours: course.durationInHours,
+        subtitle: course.subtitle,
+        slug: course.slug,
+      });
+      const items = (schedules?.items ?? []).filter(
+        (item) => item.startsAt && new Date(item.startsAt).getTime() > now,
+      );
+      if (!schedules || !items.length) return null;
+      return {
+        ...course,
+        schedules: { ...schedules, items },
+        nearestScheduledCourseId: items[0].id,
+      };
+    }),
+  );
+  const startOf = (course: Course) =>
+    new Date(course.schedules?.items[0]?.startsAt ?? 0).getTime();
+  return upcoming
+    .filter((course): course is Course => course != null)
+    .sort((a, b) => startOf(a) - startOf(b));
+}
+
 export async function getHomeCourses(): Promise<Course[]> {
   const courses = await getAllCourses();
-  return courses.filter((c) => isCourseVisibleOnHome(c.slug));
+  return selectHomeCourses(courses);
 }
 
 export async function getNavCourses(): Promise<NavCourse[]> {

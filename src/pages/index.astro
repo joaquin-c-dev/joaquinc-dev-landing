@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getHomeCourses, getNavCourses } from "@/lib/courses";
+import { getHomeCourses, getNavCourses, getUpcomingStarts } from "@/lib/courses";
 import Index from "@/screens/Index";
 
-const [homeCourses, navCourses] = await Promise.all([
+const [homeCourses, upcomingStarts, navCourses] = await Promise.all([
   getHomeCourses(),
+  getUpcomingStarts(),
   getNavCourses(),
 ]);
 ---
@@ -14,5 +15,11 @@ const [homeCourses, navCourses] = await Promise.all([
   description="Transforma tu futuro en tecnología: empieza hoy con Java y Spring para desarrollar habilidades que abrirán nuevas oportunidades."
   keywords="java, curso java, programación java, aprender java, java desde cero, desarrollo java, spring boot"
 >
-  <Index client:load courses={homeCourses} navCourses={navCourses} pathname={Astro.url.pathname} />
+  <Index
+    client:load
+    courses={homeCourses}
+    upcomingStarts={upcomingStarts}
+    navCourses={navCourses}
+    pathname={Astro.url.pathname}
+  />
 </BaseLayout>

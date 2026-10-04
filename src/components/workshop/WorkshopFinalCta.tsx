@@ -1,6 +1,5 @@
-import { ArrowRight } from "lucide-react";
 import { formatPrice, formatWeekday, formatWorkshopLongDate } from "@/lib/workshop-format";
-import { WS_BAND, WS_CTA, WS_FONT_MONO } from "./workshop-styles";
+import { WS_BAND, WS_CTA, WS_CTA_CAPSULE, WS_FONT_CODE } from "./workshop-styles";
 
 interface WorkshopFinalCtaProps {
   price: number;
@@ -10,6 +9,7 @@ interface WorkshopFinalCtaProps {
   onCheckout?: () => void;
 }
 
+/** CTA final (handoff "CTA 3a"): fecha, titular y el mismo botón con cápsula de precio. */
 const WorkshopFinalCta = ({ price, startsAt, endsAt, headline, onCheckout }: WorkshopFinalCtaProps) => {
   const title =
     headline ??
@@ -17,25 +17,28 @@ const WorkshopFinalCta = ({ price, startsAt, endsAt, headline, onCheckout }: Wor
 
   return (
     <section className={WS_BAND}>
-      <div className="mx-auto flex w-full max-w-[760px] flex-col items-center gap-6 px-6 py-16 md:py-24 text-center">
+      <div className="mx-auto flex w-full max-w-[760px] flex-col items-center px-6 py-14 text-center md:py-24">
         {startsAt && endsAt && (
-          <span className={`${WS_FONT_MONO} text-[12.5px] tracking-[0.04em] text-[#9aa3ae]`}>
+          <span className={`${WS_FONT_CODE} text-[11px] tracking-[0.06em] text-[#9AA0A8] md:text-xs`}>
             {formatWorkshopLongDate(startsAt, endsAt)}
           </span>
         )}
-        <h2 className="text-[clamp(32px,4.4vw,52px)] font-bold leading-[1.05] tracking-[-0.03em] [text-wrap:balance]">
+        <h2 className="mb-5 mt-3 text-[26px] font-extrabold leading-[1.15] [text-wrap:balance] md:mb-7 md:mt-4 md:text-[40px]">
           {title}
         </h2>
         {onCheckout && (
           <button
             type="button"
             onClick={onCheckout}
-            className={`${WS_CTA} rounded-[10px] px-8 py-[18px] text-[17px]`}
+            className={`${WS_CTA} gap-3.5 whitespace-nowrap rounded-xl py-2 pl-[22px] pr-2 text-base sm:text-[17px]`}
           >
-            Inscribirme por {formatPrice(price)} MXN <ArrowRight className="h-4 w-4" />
+            Inscribirme
+            <span className={`${WS_CTA_CAPSULE} rounded-lg px-3.5 py-2.5`}>
+              {formatPrice(price)} MXN →
+            </span>
           </button>
         )}
-        <span className="text-[13px] text-[#8a929c]">Pago único · Pago seguro vía Stripe</span>
+        <span className="mt-3 text-xs text-[#9AA0A8]">Pago único · Pago seguro vía Stripe</span>
       </div>
     </section>
   );

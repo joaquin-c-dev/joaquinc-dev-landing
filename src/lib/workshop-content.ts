@@ -56,8 +56,10 @@ export interface WorkshopContent {
   codeShowcase?: WorkshopCodeShowcase;
   /** "Es para ti si…". Si está vacío se oculta la tarjeta. */
   audience?: string[];
-  /** Preguntas propias del taller; las de lugar, equipo y pago se generan solas. */
+  /** Preguntas propias del taller; las de lugar, equipo, grabación y pago se generan solas. */
   faq?: WorkshopFaqItem[];
+  /** Versión principal que se usa en esta edición, p. ej. "Spring Boot 4". */
+  stackLabel?: string;
   finalCtaHeadline?: string;
   /** Solo testimonios reales. Si está vacío se oculta la sección. */
   testimonials?: WorkshopTestimonial[];
@@ -192,7 +194,13 @@ const WORKSHOP_CONTENT_BY_SLUG: Record<string, Partial<WorkshopContent>> = {
         answer:
           "Sí, pero lo vas a aprovechar mucho más si ya hiciste una API REST con Spring Boot.",
       },
+      {
+        question: "¿Qué versión de Spring Boot usamos?",
+        answer:
+          "Siempre las últimas versiones estables publicadas: en esta edición, Spring Boot 4 con Spring Security.",
+      },
     ],
+    stackLabel: "Spring Boot 4",
     finalCtaHeadline: "Aparta tu lugar y protege tu API este sábado.",
     // Los de Spring Boot primero (los mismos del banner de Meta) + Mario, que habla del
     // dominio del instructor aunque su curso fue Claude Code.
@@ -205,6 +213,24 @@ const WORKSHOP_CONTENT_BY_SLUG: Record<string, Partial<WorkshopContent>> = {
     ],
   },
 };
+
+/** Texto con el que aparece cada curso en la etiqueta `course` de las reseñas. */
+const COURSE_TESTIMONIAL_LABELS: Record<string, string> = {
+  "java-intermedio": "Java Intermedio",
+  "java-desde-cero": "Java desde Cero",
+  "desarrollo-asistido-agentes-ai": "Claude Code",
+};
+
+/**
+ * Reseñas para la página de un curso: las de ese curso si hay al menos dos (con una sola
+ * el carrusel se ve vacío); si no, todas. Sin slug (home) también regresa todas.
+ */
+export function getCourseTestimonials(slug?: string): WorkshopTestimonial[] {
+  const all: WorkshopTestimonial[] = Object.values(ALUMNI_TESTIMONIALS);
+  const label = slug ? COURSE_TESTIMONIAL_LABELS[slug] : undefined;
+  const ofCourse = label ? all.filter((t) => t.course.includes(label)) : [];
+  return ofCourse.length >= 2 ? ofCourse : all;
+}
 
 export function getWorkshopContent(slug: string): WorkshopContent {
   const custom = WORKSHOP_CONTENT_BY_SLUG[slug] ?? {};

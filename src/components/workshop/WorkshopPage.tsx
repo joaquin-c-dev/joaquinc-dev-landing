@@ -2,7 +2,7 @@ import AppShell from "@/components/app/AppShell";
 import type { NavCourse } from "@/contexts/CoursesNavContext";
 import type { Course } from "@/lib/course-types";
 import { getWorkshopContent } from "@/lib/workshop-content";
-import { formatPrice, formatWorkshopShortDate } from "@/lib/workshop-format";
+import { formatPrice, formatWorkshopHeaderDate } from "@/lib/workshop-format";
 import {
   getQuestionWhatsappMessage,
   getTransferWhatsappUrl,
@@ -16,6 +16,7 @@ import WorkshopFooter from "./WorkshopFooter";
 import WorkshopHeader from "./WorkshopHeader";
 import WorkshopHero from "./WorkshopHero";
 import WorkshopInstructor from "./WorkshopInstructor";
+import WorkshopLiveFormat from "./WorkshopLiveFormat";
 import WorkshopTestimonials from "./WorkshopTestimonials";
 import { useWorkshopCheckout } from "./useWorkshopCheckout";
 import { WS_FONT_UI } from "./workshop-styles";
@@ -48,13 +49,11 @@ const WorkshopPage = ({ course, navCourses, pathname }: WorkshopPageProps) => {
 
   return (
     // Sin chat automático: en esta página tapaba la tarjeta de compra. El botón queda,
-    // con un mensaje sobre este taller en vez del genérico de los cursos de Java, y en
-    // celular lleva directo a WhatsApp (la ventana de chat no se podía cerrar bien).
+    // con un mensaje sobre este taller en vez del genérico de los cursos de Java.
     <AppShell
       navCourses={navCourses}
       pathname={pathname}
       autoOpenWhatsApp={false}
-      whatsappDirectOnMobile
       whatsappMessage={getQuestionWhatsappMessage(course.title)}
     >
       {/* Sin cintilla de promoción: la mayoría entra desde el celular y la página ya tiene
@@ -65,7 +64,7 @@ const WorkshopPage = ({ course, navCourses, pathname }: WorkshopPageProps) => {
         <WorkshopHeader
           title={course.title}
           priceLabel={priceLabel}
-          subtitle={startsAt ? formatWorkshopShortDate(startsAt) : undefined}
+          subtitle={startsAt ? formatWorkshopHeaderDate(startsAt) : undefined}
           onCheckout={onCheckout}
         />
         <main>
@@ -78,6 +77,7 @@ const WorkshopPage = ({ course, navCourses, pathname }: WorkshopPageProps) => {
             onCheckout={onCheckout}
             transferUrl={transferUrl}
           />
+          <WorkshopLiveFormat stackLabel={content.stackLabel} />
           <WorkshopCodeShowcase content={content} />
           {course.sections && (
             <WorkshopAgenda sections={course.sections} startsAt={startsAt} />

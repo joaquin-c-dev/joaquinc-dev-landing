@@ -8,6 +8,8 @@ import CoursePrerequisites from "@/components/course/CoursePrerequisites";
 import CourseSchedules from "@/components/course/CourseSchedules";
 import CoursePricing from "@/components/course/CoursePricing";
 import WorkshopPage from "@/components/workshop/WorkshopPage";
+import WorkshopTestimonials from "@/components/workshop/WorkshopTestimonials";
+import { getCourseTestimonials } from "@/lib/workshop-content";
 import { PromoCountdownProvider } from "@/contexts/PromoCountdownContext";
 import type { Course } from "@/lib/course-types";
 import type { NavCourse } from "@/contexts/CoursesNavContext";
@@ -49,6 +51,10 @@ const CoursePage = ({ course, navCourses, pathname }: CoursePageProps) => {
           {course.schedules && (
             <CourseSchedules schedules={course.schedules} />
           )}
+          <WorkshopTestimonials
+            variant="site"
+            testimonials={getCourseTestimonials(course.slug)}
+          />
           {course.regularPrice != null && course.discountPrice != null && (
             <CoursePricing
               title={course.title}

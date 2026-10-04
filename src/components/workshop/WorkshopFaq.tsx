@@ -44,6 +44,16 @@ const WorkshopFaq = ({ course, price, transferUrl, extraFaq = [] }: WorkshopFaqP
       answer:
         "Es en línea y en vivo. Después de pagar recibes por correo el enlace de acceso.",
     },
+    {
+      question: "¿Puedo hacer preguntas durante el taller?",
+      answer:
+        "Sí, para eso es en vivo: preguntas en cualquier momento y resolvemos las dudas mientras programamos, no en un foro días después.",
+    },
+    {
+      question: "¿Se graba el taller?",
+      answer:
+        "Sí. Al terminar te comparto la grabación para que la descargues y te la quedes de por vida para repasar. Descárgala en cuanto la recibas.",
+    },
     ...(equipment.length
       ? [
           {

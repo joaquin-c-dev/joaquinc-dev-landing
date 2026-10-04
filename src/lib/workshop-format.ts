@@ -52,13 +52,13 @@ export function formatWorkshopDay(startsAt: string): string {
   return `${weekday} ${day} de ${month}`;
 }
 
-/** Barra fija: "Sáb 3 oct · 9:00 CDMX · en vivo" */
-export function formatWorkshopShortDate(startsAt: string): string {
+/** Barra fija superior: "Sáb 10 oct · 9:00 CDMX" */
+export function formatWorkshopHeaderDate(startsAt: string): string {
   const weekday = formatPart(startsAt, { weekday: "short" });
   const day = formatPart(startsAt, { day: "numeric" });
   const month = formatPart(startsAt, { month: "short" });
   const weekdayLabel = weekday.charAt(0).toUpperCase() + weekday.slice(1);
-  return `${weekdayLabel} ${day} ${month} · ${getCdmxHour(startsAt)}:00 CDMX · en vivo`;
+  return `${weekdayLabel} ${day} ${month} · ${getCdmxHour(startsAt)}:00 CDMX`;
 }
 
 /** Hora de inicio de un módulo del temario: "09:00", "10:00"… */

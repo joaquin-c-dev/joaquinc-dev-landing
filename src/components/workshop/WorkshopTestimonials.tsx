@@ -87,7 +87,36 @@ const averageRating = (testimonials: WorkshopTestimonial[]) =>
  * una reseña. Cualquier interacción pausa el avance automático un rato; no avanza si la
  * sección no está en pantalla ni con `prefers-reduced-motion`.
  */
-const WorkshopTestimonials = ({ testimonials }: { testimonials?: WorkshopTestimonial[] }) => {
+/**
+ * `workshop`: tokens de la página de talleres (amarillo, Geist). `site`: el estilo del
+ * resto del sitio (home y cursos), con el título en degradado azul→morado.
+ */
+const VARIANT_STYLES = {
+  workshop: {
+    eyebrow: WS_EYEBROW,
+    title: WS_H2,
+    highlight: "",
+    muted: "text-[#aab2bc]",
+    strong: "text-[#eceef1]",
+    activeDot: "bg-[#ffc66d]",
+  },
+  site: {
+    eyebrow: "text-sm font-medium uppercase tracking-wide text-primary",
+    title: "text-3xl font-bold lg:text-5xl",
+    highlight: "bg-gradient-accent bg-clip-text text-transparent",
+    muted: "text-muted-foreground",
+    strong: "text-foreground",
+    activeDot: "bg-primary",
+  },
+} as const;
+
+interface WorkshopTestimonialsProps {
+  testimonials?: WorkshopTestimonial[];
+  variant?: keyof typeof VARIANT_STYLES;
+}
+
+const WorkshopTestimonials = ({ testimonials, variant = "workshop" }: WorkshopTestimonialsProps) => {
+  const styles = VARIANT_STYLES[variant];
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const activeRef = useRef(0);
@@ -160,16 +189,18 @@ const WorkshopTestimonials = ({ testimonials }: { testimonials?: WorkshopTestimo
   };
 
   return (
-    <section className="py-10 md:py-[64px]">
+    <section className="py-10 md:py-[64px]" aria-labelledby="resenas-alumnos">
       <div className={`${WS_CONTAINER} mb-6 flex items-end justify-between gap-4 md:mb-8`}>
         <div className="flex flex-col gap-3.5">
-          <span className={WS_EYEBROW}>LO QUE DICEN MIS ALUMNOS</span>
-          <h2 className={WS_H2}>Aprenden haciendo</h2>
-          <p className="flex flex-wrap items-center gap-x-2 text-[15px] text-[#aab2bc]">
+          <span className={styles.eyebrow}>LO QUE DICEN MIS ALUMNOS</span>
+          <h2 id="resenas-alumnos" className={styles.title}>
+            Aprenden <span className={styles.highlight}>haciendo</span>
+          </h2>
+          <p className={`flex flex-wrap items-center gap-x-2 text-[15px] ${styles.muted}`}>
             <span className="text-lg text-[#fbbc04]" aria-hidden="true">
               ★
             </span>
-            <span className="font-semibold text-[#eceef1]">{averageRating(testimonials)}</span>
+            <span className={`font-semibold ${styles.strong}`}>{averageRating(testimonials)}</span>
             <span>
               · {count} {count === 1 ? "reseña" : "reseñas"} de exalumnos verificados
             </span>
@@ -229,7 +260,7 @@ const WorkshopTestimonials = ({ testimonials }: { testimonials?: WorkshopTestimo
             >
               <span
                 className={`block h-2 rounded-full transition-all duration-300 ${
-                  index === active ? "w-6 bg-[#ffc66d]" : "w-2 bg-white/25"
+                  index === active ? `w-6 ${styles.activeDot}` : "w-2 bg-white/25"
                 }`}
               />
             </button>

@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { formatDurationHours } from "@/lib/course-formatters";
 import { useOpensInSameTab } from "@/lib/mobile-navigation";
 import { formatPrice } from "@/lib/workshop-format";
 import WorkshopCountdown from "./WorkshopCountdown";
-import { WS_CTA, WS_LINK } from "./workshop-styles";
+import { WS_CTA, WS_CTA_CAPSULE, WS_CTA_GLOW, WS_CTA_LINK, WS_FONT_CODE } from "./workshop-styles";
 
 interface WorkshopBuyCardProps {
   price: number;
@@ -25,6 +25,10 @@ interface WorkshopBuyCardProps {
 const WorkshopBuyCard = forwardRef<HTMLDivElement, WorkshopBuyCardProps>(
   ({ price, regularPrice, durationInHours, startsAt, onCheckout, transferUrl }, ref) => {
     const sameTab = useOpensInSameTab();
+    const discountPercent =
+      regularPrice != null && regularPrice > price
+        ? Math.round((1 - price / regularPrice) * 100)
+        : null;
     const benefits = [
       `${formatDurationHours(durationInHours)} de taller en vivo`,
       "Proyecto práctico guiado paso a paso",
@@ -35,19 +39,19 @@ const WorkshopBuyCard = forwardRef<HTMLDivElement, WorkshopBuyCardProps>(
     return (
       <div
         ref={ref}
-        className="flex flex-col gap-5 rounded-2xl border border-white/[0.09] bg-[#12151a] p-6 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] md:p-8 lg:gap-6"
+        className="flex flex-col gap-5 rounded-[14px] border border-[#262A30] bg-[#14171B] p-4 min-[360px]:p-[22px] shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] md:p-8 lg:gap-6"
       >
-        <div className="order-1 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
-          {regularPrice != null && (
-            <span className="text-lg text-[#8a929c] line-through">
-              {formatPrice(regularPrice)}
+        {/* El precio va en el botón; aquí solo el ancla del precio normal y el descuento. */}
+        {regularPrice != null && (
+          <div className="order-1 flex items-baseline justify-between gap-3">
+            <span className="text-sm text-[#9AA0A8]">
+              Precio normal <s>{formatPrice(regularPrice)}</s>
             </span>
-          )}
-          <span className="text-[44px] font-bold leading-none tracking-[-0.03em] md:text-[52px]">
-            {formatPrice(price)}
-          </span>
-          <span className="text-[15px] text-[#9aa3ae]">MXN · pago único</span>
-        </div>
+            {discountPercent != null && (
+              <span className={`${WS_FONT_CODE} text-xs text-[#8FC8FF]`}>-{discountPercent}%</span>
+            )}
+          </div>
+        )}
 
         {startsAt && (
           <div className="order-4 lg:order-2">
@@ -68,21 +72,26 @@ const WorkshopBuyCard = forwardRef<HTMLDivElement, WorkshopBuyCardProps>(
           <button
             type="button"
             onClick={onCheckout}
-            className={`${WS_CTA} order-2 w-full rounded-[10px] p-4 text-base lg:order-4`}
+            className={`${WS_CTA} ${WS_CTA_GLOW} order-2 w-full justify-between gap-3 whitespace-nowrap rounded-xl py-2 pl-4 pr-2 text-[15px] min-[360px]:text-base sm:pl-[22px] sm:text-[17px] lg:order-4`}
           >
-            Apartar mi lugar <ArrowRight className="h-4 w-4" />
+            Apartar mi lugar
+            <span className={`${WS_CTA_CAPSULE} rounded-lg px-3 py-2.5 font-extrabold sm:px-3.5`}>
+              {formatPrice(price)} MXN
+              {/* En pantallas de 320px la flecha no cabe sin partir el botón. */}
+              <span className="hidden min-[360px]:inline"> →</span>
+            </span>
           </button>
         )}
-        <div className="order-3 -mt-2 flex flex-col items-center gap-1.5 text-center text-[13px] lg:order-5 lg:mt-0">
-          <span className="text-[#8a929c]">Pago seguro con tarjeta vía Stripe</span>
+        <div className="order-3 -mt-2 flex flex-col items-center gap-1.5 text-center lg:order-5 lg:mt-0">
+          <span className="text-[13px] text-[#9AA0A8]">Pago único · tarjeta vía Stripe</span>
           {transferUrl && (
             <a
               href={transferUrl}
               target={sameTab ? undefined : "_blank"}
               rel="noopener noreferrer"
-              className={`${WS_LINK} text-sm`}
+              className={`${WS_CTA_LINK} text-sm`}
             >
-              ¿Prefieres pagar por transferencia? →
+              ¿Prefieres hacer tu inversión por transferencia? →
             </a>
           )}
         </div>

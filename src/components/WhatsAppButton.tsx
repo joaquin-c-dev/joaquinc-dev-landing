@@ -10,22 +10,21 @@ interface WhatsAppButtonProps {
   autoOpen?: boolean;
   /** Mensaje prellenado de "Contactar ahora". Por defecto, el de los cursos de Java. */
   message?: string;
-  /** En celular, ir directo a WhatsApp con el mensaje en vez de abrir la ventana de chat. */
-  directOnMobile?: boolean;
 }
 
-const WhatsAppButton = ({
-  autoOpen = true,
-  message = DEFAULT_MESSAGE,
-  directOnMobile = false,
-}: WhatsAppButtonProps) => {
+/**
+ * Botón flotante de WhatsApp. En computadora abre una ventana de chat (y puede abrirse
+ * sola); en celular y en los navegadores de Instagram/Facebook va directo a WhatsApp con
+ * el mensaje y nunca se abre solo: ahí la ventana tapaba el contenido y no se podía cerrar.
+ */
+const WhatsAppButton = ({ autoOpen = true, message = DEFAULT_MESSAGE }: WhatsAppButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
 
-  // Abrir chat automáticamente después de 3 segundos
+  // Abrir chat automáticamente después de 3 segundos (solo en computadora)
   useEffect(() => {
-    if (hasAutoOpened || !autoOpen) return;
+    if (hasAutoOpened || !autoOpen || isMobileOrInAppBrowser()) return;
 
     const timer = setTimeout(() => {
       setIsOpen(true);
@@ -35,9 +34,9 @@ const WhatsAppButton = ({
     return () => clearTimeout(timer);
   }, [hasAutoOpened, autoOpen]);
 
-  // Abrir chat cuando el usuario haga scroll más allá del video
+  // Abrir chat cuando el usuario haga scroll más allá del video (solo en computadora)
   useEffect(() => {
-    if (hasAutoOpened || !autoOpen) return;
+    if (hasAutoOpened || !autoOpen || isMobileOrInAppBrowser()) return;
 
     const handleScroll = () => {
       const videoElement = document.querySelector("video");
@@ -104,7 +103,7 @@ const WhatsAppButton = ({
   };
 
   const handleButtonClick = () => {
-    if (directOnMobile && isMobileOrInAppBrowser()) {
+    if (isMobileOrInAppBrowser()) {
       openExternal(whatsappUrl);
       return;
     }
@@ -116,7 +115,7 @@ const WhatsAppButton = ({
       <button
         data-whatsapp-button
         onClick={handleButtonClick}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+        className="fixed bottom-4 right-4 z-50 w-12 h-12 md:bottom-6 md:right-6 md:w-14 md:h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group"
         style={{
           background: "linear-gradient(135deg, #25D366, #128C7E)",
           boxShadow: "0 0 30px rgba(37, 211, 102, 0.3)",
