@@ -17,7 +17,7 @@ const WorkshopFinalCta = ({ price, startsAt, endsAt, headline, onCheckout }: Wor
 
   return (
     <section className={WS_BAND}>
-      <div className="mx-auto flex w-full max-w-[760px] flex-col items-center gap-6 px-6 py-24 text-center">
+      <div className="mx-auto flex w-full max-w-[760px] flex-col items-center gap-6 px-6 py-16 md:py-24 text-center">
         {startsAt && endsAt && (
           <span className={`${WS_FONT_MONO} text-[12.5px] tracking-[0.04em] text-[#9aa3ae]`}>
             {formatWorkshopLongDate(startsAt, endsAt)}

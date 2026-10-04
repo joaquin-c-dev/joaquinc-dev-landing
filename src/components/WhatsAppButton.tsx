@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ASSETS } from "@/lib/assets";
+import { isMobileOrInAppBrowser, openExternal } from "@/lib/mobile-navigation";
 
 const WHATSAPP_NUMBER = "5213331071527";
 const DEFAULT_MESSAGE = "Hola! Me interesa el curso de Java. ¿Puedes asesorarme?";
@@ -9,9 +10,15 @@ interface WhatsAppButtonProps {
   autoOpen?: boolean;
   /** Mensaje prellenado de "Contactar ahora". Por defecto, el de los cursos de Java. */
   message?: string;
+  /** En celular, ir directo a WhatsApp con el mensaje en vez de abrir la ventana de chat. */
+  directOnMobile?: boolean;
 }
 
-const WhatsAppButton = ({ autoOpen = true, message = DEFAULT_MESSAGE }: WhatsAppButtonProps) => {
+const WhatsAppButton = ({
+  autoOpen = true,
+  message = DEFAULT_MESSAGE,
+  directOnMobile = false,
+}: WhatsAppButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
@@ -89,19 +96,26 @@ const WhatsAppButton = ({ autoOpen = true, message = DEFAULT_MESSAGE }: WhatsApp
     }, 300); // Duración del fadeout
   };
 
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
   const handleWhatsAppClick = () => {
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank",
-    );
+    window.open(whatsappUrl, "_blank");
     handleClose();
+  };
+
+  const handleButtonClick = () => {
+    if (directOnMobile && isMobileOrInAppBrowser()) {
+      openExternal(whatsappUrl);
+      return;
+    }
+    setIsOpen(true);
   };
 
   return (
     <>
       <button
         data-whatsapp-button
-        onClick={() => setIsOpen(true)}
+        onClick={handleButtonClick}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-glow hover:shadow-glow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group"
         style={{
           background: "linear-gradient(135deg, #25D366, #128C7E)",

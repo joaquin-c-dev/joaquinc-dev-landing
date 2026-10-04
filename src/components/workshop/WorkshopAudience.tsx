@@ -27,7 +27,7 @@ const WorkshopAudience = ({ audience, prerequisites }: WorkshopAudienceProps) =>
   const courseLink = prerequisites?.prerequisiteCourseLink;
 
   return (
-    <section className={`${WS_CONTAINER} pb-[88px]`}>
+    <section className={`${WS_CONTAINER} pb-14 md:pb-[88px]`}>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-4">
         {hasAudience && (
           <div className={`${WS_CARD} flex flex-col gap-4 p-7`}>

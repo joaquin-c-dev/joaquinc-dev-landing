@@ -34,9 +34,9 @@ const WorkshopAgenda = ({ sections, startsAt }: WorkshopAgendaProps) => {
     <section
       id={COURSE_CURRICULUM_SECTION_ID}
       data-section={COURSE_CURRICULUM_SECTION_ID}
-      className={`${WS_CONTAINER} py-[88px]`}
+      className={`${WS_CONTAINER} py-14 md:py-[88px]`}
     >
-      <div className="mb-10 flex max-w-[640px] flex-col gap-3.5">
+      <div className="mb-8 md:mb-10 flex max-w-[640px] flex-col gap-3.5">
         <span className={WS_EYEBROW}>{eyebrow}</span>
         <h2 className={WS_H2}>
           {startsAt ? `Así va el ${formatWeekday(startsAt)}` : "Así va el taller"}

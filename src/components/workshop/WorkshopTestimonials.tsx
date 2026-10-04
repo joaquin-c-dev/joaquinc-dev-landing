@@ -1,4 +1,5 @@
-import type { CSSProperties } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { WorkshopTestimonial } from "@/lib/workshop-content";
 import { WS_CONTAINER, WS_EYEBROW, WS_H2 } from "./workshop-styles";
 
@@ -30,7 +31,7 @@ const ReviewCard = ({ testimonial }: { testimonial: WorkshopTestimonial }) => {
 
   return (
     <figure
-      className={`${REVIEW_FONT} flex w-[min(340px,82vw)] shrink-0 flex-col rounded-[14px] bg-white p-6 text-[#202124] shadow-[0_16px_36px_rgba(0,0,0,0.4)]`}
+      className={`${REVIEW_FONT} flex w-[calc(100vw-4.5rem)] max-w-[340px] shrink-0 snap-start flex-col rounded-[14px] bg-white p-6 text-[#202124] shadow-[0_16px_36px_rgba(0,0,0,0.4)]`}
     >
       <div className="flex items-center gap-3">
         <span
@@ -65,52 +66,176 @@ const ReviewCard = ({ testimonial }: { testimonial: WorkshopTestimonial }) => {
   );
 };
 
+/** Cada cuánto avanza solo una reseña, y cuánto espera tras tocarlo para volver a avanzar. */
+const AUTO_ADVANCE_MS = 5000;
+const RESUME_AFTER_MS = 7000;
+
 /**
- * Carrusel que avanza solo (marquee CSS, sin dependencias): la lista va duplicada y la
- * pista se desplaza -50%, así el final empalma con el inicio sin salto. Se pausa al pasar
- * el mouse o enfocar, y con `prefers-reduced-motion` queda como fila con scroll manual.
+ * Alineado con el contenedor de la página: 24 px en celular y, en pantallas anchas, el
+ * mismo margen que el resto de las secciones (máx. 1160 px).
  */
-const MARQUEE_CSS = `
-@keyframes ws-marquee { to { transform: translateX(-50%); } }
-.ws-marquee-track { animation: ws-marquee var(--ws-marquee-duration) linear infinite; }
-.ws-marquee:hover .ws-marquee-track,
-.ws-marquee:focus-within .ws-marquee-track { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) {
-  .ws-marquee { overflow-x: auto; }
-  .ws-marquee-track { animation: none; }
-  .ws-marquee-clone { display: none; }
-}
-`;
+const TRACK_GUTTER = "px-[max(1.5rem,calc((100vw-1160px)/2+1.5rem))]";
+const TRACK_SCROLL_PADDING = "scroll-px-[max(1.5rem,calc((100vw-1160px)/2+1.5rem))]";
 
-/** Segundos que tarda cada tarjeta en cruzar: más testimonios = vuelta más larga, misma velocidad. */
-const SECONDS_PER_CARD = 9;
+/** "4.7": promedio de estrellas (NPS / 2) de las reseñas que se muestran. */
+const averageRating = (testimonials: WorkshopTestimonial[]) =>
+  (testimonials.reduce((sum, t) => sum + t.nps / 2, 0) / testimonials.length).toFixed(1);
 
-/** Solo testimonios reales: si no hay, la sección no se muestra. */
+/**
+ * Carrusel de reseñas: avanza solo una tarjeta cada pocos segundos y también se desliza
+ * con el dedo (scroll nativo con snap), con flechas en escritorio y puntos para saltar a
+ * una reseña. Cualquier interacción pausa el avance automático un rato; no avanza si la
+ * sección no está en pantalla ni con `prefers-reduced-motion`.
+ */
 const WorkshopTestimonials = ({ testimonials }: { testimonials?: WorkshopTestimonial[] }) => {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+  const activeRef = useRef(0);
+  const pausedUntil = useRef(0);
+  const hovering = useRef(false);
+  const inView = useRef(false);
+  const count = testimonials?.length ?? 0;
+
+  const cardLeft = useCallback((index: number) => {
+    const track = trackRef.current;
+    const card = track?.children[index] as HTMLElement | undefined;
+    if (!track || !card) return 0;
+    return card.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft);
+  }, []);
+
+  const goTo = useCallback(
+    (index: number) => trackRef.current?.scrollTo({ left: cardLeft(index), behavior: "smooth" }),
+    [cardLeft],
+  );
+
+  const pauseAutoAdvance = useCallback(() => {
+    pausedUntil.current = Date.now() + RESUME_AFTER_MS;
+  }, []);
+
+  // La tarjeta activa sale de la posición del scroll (sirve igual para el dedo y para el auto).
+  const handleScroll = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+    let nearest = 0;
+    if (atEnd) nearest = count - 1;
+    else {
+      let best = Infinity;
+      for (let i = 0; i < count; i++) {
+        const distance = Math.abs(cardLeft(i) - track.scrollLeft);
+        if (distance < best) {
+          best = distance;
+          nearest = i;
+        }
+      }
+    }
+    activeRef.current = nearest;
+    setActive(nearest);
+  }, [cardLeft, count]);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track || count < 2) return;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const observer = new IntersectionObserver(([entry]) => {
+      inView.current = entry.isIntersecting;
+    });
+    observer.observe(track);
+    const id = window.setInterval(() => {
+      const idle = Date.now() >= pausedUntil.current;
+      if (reducedMotion || document.hidden || !inView.current || hovering.current || !idle) return;
+      goTo((activeRef.current + 1) % count);
+    }, AUTO_ADVANCE_MS);
+    return () => {
+      observer.disconnect();
+      window.clearInterval(id);
+    };
+  }, [count, goTo]);
+
   if (!testimonials?.length) return null;
 
-  const renderCards = (clone: boolean) =>
-    testimonials.map((testimonial) => (
-      <ReviewCard key={`${clone ? "clone-" : ""}${testimonial.name}`} testimonial={testimonial} />
-    ));
+  const step = (delta: number) => {
+    pauseAutoAdvance();
+    goTo((active + delta + count) % count);
+  };
 
   return (
-    <section className="py-[64px]">
-      <style>{MARQUEE_CSS}</style>
-      <div className={`${WS_CONTAINER} mb-10 flex flex-col gap-3.5`}>
-        <span className={WS_EYEBROW}>LO QUE DICEN MIS ALUMNOS</span>
-        <h2 className={WS_H2}>Aprenden haciendo</h2>
-      </div>
-      <div className="ws-marquee overflow-hidden py-10 [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
-        <div
-          className="ws-marquee-track flex w-max"
-          style={{ "--ws-marquee-duration": `${testimonials.length * SECONDS_PER_CARD}s` } as CSSProperties}
-        >
-          {/* Cada mitad lleva su propio padding derecho para que el -50% cuadre exacto. */}
-          <div className="flex gap-4 pr-4">{renderCards(false)}</div>
-          <div className="ws-marquee-clone flex gap-4 pr-4" aria-hidden="true">{renderCards(true)}</div>
+    <section className="py-10 md:py-[64px]">
+      <div className={`${WS_CONTAINER} mb-6 flex items-end justify-between gap-4 md:mb-8`}>
+        <div className="flex flex-col gap-3.5">
+          <span className={WS_EYEBROW}>LO QUE DICEN MIS ALUMNOS</span>
+          <h2 className={WS_H2}>Aprenden haciendo</h2>
+          <p className="flex flex-wrap items-center gap-x-2 text-[15px] text-[#aab2bc]">
+            <span className="text-lg text-[#fbbc04]" aria-hidden="true">
+              ★
+            </span>
+            <span className="font-semibold text-[#eceef1]">{averageRating(testimonials)}</span>
+            <span>
+              · {count} {count === 1 ? "reseña" : "reseñas"} de exalumnos verificados
+            </span>
+          </p>
         </div>
+        {count > 1 && (
+          <div className="hidden shrink-0 gap-2 md:flex">
+            {[
+              { delta: -1, label: "Reseña anterior", Icon: ChevronLeft },
+              { delta: 1, label: "Siguiente reseña", Icon: ChevronRight },
+            ].map(({ delta, label, Icon }) => (
+              <button
+                key={label}
+                type="button"
+                onClick={() => step(delta)}
+                aria-label={label}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.12] text-[#d5dae0] transition-colors hover:border-white/30 hover:text-white"
+              >
+                <Icon className="h-5 w-5" />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
+
+      <div
+        ref={trackRef}
+        onScroll={handleScroll}
+        onPointerDown={pauseAutoAdvance}
+        onTouchStart={pauseAutoAdvance}
+        onWheel={pauseAutoAdvance}
+        onFocus={pauseAutoAdvance}
+        onMouseEnter={() => (hovering.current = true)}
+        onMouseLeave={() => (hovering.current = false)}
+        className={`relative flex snap-x snap-mandatory gap-4 overflow-x-auto pb-8 pt-2 ${TRACK_GUTTER} ${TRACK_SCROLL_PADDING} [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`}
+      >
+        {testimonials.map((testimonial) => (
+          <ReviewCard key={testimonial.name} testimonial={testimonial} />
+        ))}
+        {/* Safari ignora el padding derecho en contenedores con scroll. */}
+        <div className="w-px shrink-0" aria-hidden="true" />
+      </div>
+
+      {count > 1 && (
+        <div className="flex justify-center">
+          {testimonials.map((testimonial, index) => (
+            <button
+              key={testimonial.name}
+              type="button"
+              onClick={() => {
+                pauseAutoAdvance();
+                goTo(index);
+              }}
+              aria-label={`Ver reseña de ${testimonial.name}`}
+              aria-current={index === active}
+              className="p-2"
+            >
+              <span
+                className={`block h-2 rounded-full transition-all duration-300 ${
+                  index === active ? "w-6 bg-[#ffc66d]" : "w-2 bg-white/25"
+                }`}
+              />
+            </button>
+          ))}
+        </div>
+      )}
     </section>
   );
 };

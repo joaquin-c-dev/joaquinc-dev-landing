@@ -21,6 +21,8 @@ interface AppShellProps {
   autoOpenWhatsApp?: boolean;
   /** Mensaje prellenado del chat de WhatsApp; si no se da, usa el de los cursos. */
   whatsappMessage?: string;
+  /** En celular, el botón de WhatsApp lleva directo al chat (sin la ventana de chat). */
+  whatsappDirectOnMobile?: boolean;
 }
 
 export default function AppShell({
@@ -29,6 +31,7 @@ export default function AppShell({
   pathname,
   autoOpenWhatsApp = true,
   whatsappMessage,
+  whatsappDirectOnMobile = false,
 }: AppShellProps) {
   return (
     <QueryClientProvider client={queryClient}>
@@ -39,7 +42,11 @@ export default function AppShell({
               <Toaster />
               <Sonner />
               {children}
-              <WhatsAppButton autoOpen={autoOpenWhatsApp} message={whatsappMessage} />
+              <WhatsAppButton
+                autoOpen={autoOpenWhatsApp}
+                message={whatsappMessage}
+                directOnMobile={whatsappDirectOnMobile}
+              />
             </TooltipProvider>
           </CoursesNavProvider>
         </BannerProvider>

@@ -8,13 +8,13 @@ const SOCIAL_LINKS = [
 ];
 
 /**
- * Footer de una fila. El padding inferior (160px) deja libre la barra fija y el botón
- * de WhatsApp, que sube a 88px mientras la barra está visible y mide 56px.
+ * Footer de una fila. El padding inferior (96px) deja libre el botón flotante de
+ * WhatsApp para que no tape los links.
  */
 const WorkshopFooter = () => (
   <footer className="border-t border-white/[0.07]">
     <div
-      className={`${WS_CONTAINER} flex flex-wrap items-center justify-between gap-4 pb-40 pt-8 text-[13px] text-[#8a929c]`}
+      className={`${WS_CONTAINER} flex flex-wrap items-center justify-between gap-4 pb-24 pt-8 text-[13px] text-[#8a929c]`}
     >
       <span>© {new Date().getFullYear()} Joaquín Coronado · Java Developer</span>
       <div className="flex gap-5">

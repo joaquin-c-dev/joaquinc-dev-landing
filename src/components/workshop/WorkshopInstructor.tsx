@@ -4,7 +4,7 @@ import { WS_BAND, WS_CONTAINER, WS_EYEBROW, WS_H2, WS_LINK } from "./workshop-st
 const WorkshopInstructor = () => (
   <section className={WS_BAND}>
     <div
-      className={`${WS_CONTAINER} grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] items-center gap-12 py-[88px]`}
+      className={`${WS_CONTAINER} grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] items-center gap-8 py-14 md:gap-12 md:py-[88px]`}
     >
       <img
         src={INSTRUCTOR_PROFILE.photo}
