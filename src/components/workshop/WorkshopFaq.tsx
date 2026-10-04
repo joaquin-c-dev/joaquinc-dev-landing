@@ -94,7 +94,7 @@ const WorkshopFaq = ({ course, price, transferUrl, extraFaq = [] }: WorkshopFaqP
             <AccordionPrimitive.Header>
               <AccordionPrimitive.Trigger className="group flex w-full items-center justify-between gap-4 py-5 text-left text-[17px] font-medium data-[state=open]:pb-[14px]">
                 {entry.question}
-                <Plus className="h-5 w-5 shrink-0 text-[#45c8ff] transition-transform duration-200 group-data-[state=open]:rotate-45" />
+                <Plus className="h-5 w-5 shrink-0 text-[#ffc66d] transition-transform duration-200 group-data-[state=open]:rotate-45" />
               </AccordionPrimitive.Trigger>
             </AccordionPrimitive.Header>
             {/* forceMount: las respuestas van en el HTML aunque estén cerradas (Google y

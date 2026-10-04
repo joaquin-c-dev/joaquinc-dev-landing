@@ -48,7 +48,7 @@ const WorkshopBuyCard = forwardRef<HTMLDivElement, WorkshopBuyCardProps>(
         <ul className="flex flex-col gap-3 text-[15px] text-[#d5dae0]">
           {benefits.map((benefit) => (
             <li key={benefit} className="flex items-start gap-2.5">
-              <Check className="mt-[3px] h-4 w-4 shrink-0 text-[#45c8ff]" />
+              <Check className="mt-[3px] h-4 w-4 shrink-0 text-[#ffc66d]" />
               {benefit}
             </li>
           ))}

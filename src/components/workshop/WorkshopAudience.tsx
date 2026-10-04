@@ -11,7 +11,7 @@ const ArrowList = ({ items }: { items: string[] }) => (
   <ul className="flex flex-col gap-2.5 text-[15px] text-[#c3c9d1]">
     {items.map((item) => (
       <li key={item} className="flex items-start gap-2.5">
-        <ArrowRight className="mt-[3px] h-4 w-4 shrink-0 text-[#45c8ff]" />
+        <ArrowRight className="mt-[3px] h-4 w-4 shrink-0 text-[#ffc66d]" />
         {item}
       </li>
     ))}

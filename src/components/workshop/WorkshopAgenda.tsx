@@ -53,7 +53,7 @@ const WorkshopAgenda = ({ sections, startsAt }: WorkshopAgendaProps) => {
             className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-x-10 gap-y-3 border-b border-white/[0.08] py-7"
           >
             <div className="flex flex-col gap-1.5">
-              <span className={`${WS_FONT_MONO} text-[13px] text-[#45c8ff]`}>
+              <span className={`${WS_FONT_MONO} text-[13px] text-[#ffc66d]`}>
                 {hour ? `${hour} — ${number}` : number}
               </span>
               <span className="text-xl font-semibold tracking-[-0.01em]">

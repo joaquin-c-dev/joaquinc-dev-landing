@@ -15,12 +15,12 @@ export const WS_BAND = "bg-[#0e1014] border-y border-white/[0.07]";
 
 export const WS_CARD = "rounded-[14px] border border-white/[0.08] bg-[#12151a]";
 
-export const WS_EYEBROW = `${WS_FONT_MONO} text-[12.5px] tracking-[0.04em] text-[#45c8ff]`;
+export const WS_EYEBROW = `${WS_FONT_MONO} text-[12.5px] tracking-[0.04em] text-[#ffc66d]`;
 
 export const WS_H2 =
   "text-[clamp(28px,3.6vw,40px)] font-bold leading-[1.1] tracking-[-0.025em] [text-wrap:balance]";
 
-export const WS_LINK = "text-[#45c8ff] transition-colors hover:text-[#8fe0ff]";
+export const WS_LINK = "text-[#ffc66d] transition-colors hover:text-[#ffd899]";
 
 /**
  * CTA primario: el mismo degradado azul→morado (`--gradient-accent`) y hover de los

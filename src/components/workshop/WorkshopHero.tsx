@@ -29,7 +29,7 @@ const WorkshopHero = forwardRef<HTMLDivElement, WorkshopHeroProps>(
     >
       <div className="flex flex-col gap-7">
         <div className="flex flex-wrap gap-2">
-          <span className={`${BADGE} border-[rgba(69,200,255,0.5)] text-[#7dd8ff]`}>
+          <span className={`${BADGE} border-[rgba(255,198,109,0.5)] text-[#ffc66d]`}>
             EN VIVO · ONLINE
           </span>
           {startsAt && endsAt && (
@@ -42,7 +42,7 @@ const WorkshopHero = forwardRef<HTMLDivElement, WorkshopHeroProps>(
         <h1 className="text-[clamp(38px,5.2vw,60px)] font-bold leading-[1.02] tracking-[-0.035em] [text-wrap:balance]">
           {course.hero.titleLine1}
           {course.hero.titleHighlight && (
-            <span className="text-[#45c8ff]"> {course.hero.titleHighlight}</span>
+            <span className="text-[#ffc66d]"> {course.hero.titleHighlight}</span>
           )}
           {course.subtitle && (
             <span className="mt-3 block text-[#aab2bc]">{course.subtitle}</span>
