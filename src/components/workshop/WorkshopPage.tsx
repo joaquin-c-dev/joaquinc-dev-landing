@@ -1,5 +1,6 @@
 import AppShell from "@/components/app/AppShell";
 import type { NavCourse } from "@/contexts/CoursesNavContext";
+import { findSelectedSchedule } from "@/lib/course-formatters";
 import type { Course } from "@/lib/course-types";
 import { getWorkshopContent } from "@/lib/workshop-content";
 import { formatPrice, formatWorkshopHeaderDate } from "@/lib/workshop-format";
@@ -40,8 +41,8 @@ const WorkshopPage = ({ course, navCourses, pathname }: WorkshopPageProps) => {
   const price = (hasDiscount ? course.discountPrice : course.regularPrice) ?? 0;
   const priceLabel = formatPrice(price);
 
-  // `schedules.items` ya viene ordenado por fecha: el primero es el más próximo.
-  const nextSchedule = course.schedules?.items[0];
+  // El grupo que se vende hoy (el próximo que no ha empezado), el mismo de la compra.
+  const nextSchedule = findSelectedSchedule(course);
   const startsAt = nextSchedule?.startsAt;
   const endsAt = nextSchedule?.endsAt;
   // Un solo enlace de transferencia para la tarjeta y el FAQ: siempre el mismo mensaje.

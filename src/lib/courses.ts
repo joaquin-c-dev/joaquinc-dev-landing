@@ -2,7 +2,7 @@
  * Capa de datos de cursos.
  * Flujo: ApiCourseLandingResponse -> mapApiCoursesToView -> Course (vista React).
  */
-import type { Course, NavCourse } from "@/lib/course-types";
+import type { Course, NavCourse, ScheduleItem } from "@/lib/course-types";
 import type { ApiCourseLandingResponse } from "@/lib/api-course-types";
 import { mapApiCoursesToView, mapApiCourseToView } from "@/lib/course-mapper";
 import { fetchCoursesFromApi } from "@/lib/course-api";
@@ -59,12 +59,24 @@ export async function getCourseBySlug(
   });
   if (!schedules) return course;
 
-  const nearestScheduledCourseId = schedules.items[0]?.id;
+  const nearestScheduledCourseId = pickNextSchedule(schedules.items)?.id;
   return {
     ...course,
     schedules,
     nearestScheduledCourseId,
   };
+}
+
+/**
+ * Grupo al que se vende hoy: el primero que todavía no empieza. Si todos ya empezaron,
+ * el más reciente (no el más viejo). Antes se tomaba el primero de la lista y, mientras
+ * el grupo anterior siguiera en SCHEDULED/ACTIVE, las compras caían en ese grupo viejo.
+ */
+export function pickNextSchedule<T extends ScheduleItem>(items: T[], now = Date.now()): T | undefined {
+  const upcoming = items.find(
+    (item) => item.startsAt && new Date(item.startsAt).getTime() > now,
+  );
+  return upcoming ?? items[items.length - 1];
 }
 
 export async function getCourseSlugs(): Promise<string[]> {
