@@ -120,6 +120,15 @@ export const ALUMNI_TESTIMONIALS = {
     date: "sep 2026",
     avatarColor: "#9334e6",
   },
+  edgar: {
+    quote:
+      "Curso muy recomendable, el instructor está actualizado y responde todas las dudas que se le plantearon. En la medida de lo posible seguiré tomando sus cursos.",
+    name: "Edgar García Aguilar",
+    course: "Java desde Cero · Java Intermedio",
+    nps: 9,
+    date: "sep 2026",
+    avatarColor: "#d93025",
+  },
 } satisfies Record<string, WorkshopTestimonial>;
 
 /** Se usa cuando un taller aún no tiene contenido propio. */
@@ -192,6 +201,7 @@ const WORKSHOP_CONTENT_BY_SLUG: Record<string, Partial<WorkshopContent>> = {
       ALUMNI_TESTIMONIALS.marco,
       ALUMNI_TESTIMONIALS.mario,
       ALUMNI_TESTIMONIALS.angel,
+      ALUMNI_TESTIMONIALS.edgar,
     ],
   },
 };
