@@ -1,52 +1,38 @@
-import { useBanner } from "@/contexts/BannerContext";
-import { WS_CONTAINER, WS_CTA } from "./workshop-styles";
+import { WS_CONTAINER, WS_CTA, WS_CTA_CAPSULE, WS_FONT_CODE } from "./workshop-styles";
 
 interface WorkshopHeaderProps {
+  title: string;
   priceLabel: string;
+  /** Fecha y hora corta del taller ("Sáb 10 oct · 9:00 CDMX"). */
+  subtitle?: string;
   onCheckout?: () => void;
-  /** El contexto del banner arranca en "visible" aunque no se pinte ninguno. */
-  hasPromoBanner?: boolean;
 }
 
 /**
- * Header del taller: más simple que `Navigation` (sin menú de cursos) para no
- * distraer de la compra, con el CTA siempre visible.
+ * Barra fija superior del taller (handoff "CTA 3a"): la fecha a la izquierda y el botón
+ * de compra con el precio en una cápsula. Es el único CTA fijo de la página (casi todo
+ * el tráfico llega en celular desde Instagram/Facebook).
  */
-const WorkshopHeader = ({ priceLabel, onCheckout, hasPromoBanner = false }: WorkshopHeaderProps) => {
-  const { isBannerVisible } = useBanner();
-  const offsetForBanner = hasPromoBanner && isBannerVisible;
-
-  return (
-    <header
-      className={`sticky ${offsetForBanner ? "top-[40px]" : "top-0"} z-20 border-b border-white/[0.07] bg-[rgba(11,13,16,0.85)] backdrop-blur-[12px]`}
-    >
-      <div className={`${WS_CONTAINER} flex items-center justify-between py-3.5`}>
-        <a href="/" className="text-[15px] font-semibold text-[#eceef1]">
-          Joaquín Coronado
-        </a>
-        <nav className="flex items-center gap-6 text-sm">
-          <a href="/" className="hidden text-[#9aa3ae] hover:text-[#eceef1] sm:inline">
-            Inicio
-          </a>
-          <a
-            href="/acerca-de-mi"
-            className="hidden text-[#9aa3ae] hover:text-[#eceef1] sm:inline"
+const WorkshopHeader = ({ title, priceLabel, subtitle, onCheckout }: WorkshopHeaderProps) => (
+  <header className="sticky top-0 z-20 border-b border-[#22262C] bg-[rgba(14,16,19,0.94)] backdrop-blur-[12px]">
+    <div className={`${WS_CONTAINER} flex items-center justify-between gap-4 py-3`}>
+      <span className="min-w-0 truncate text-[13px] text-[#9AA0A8]">{subtitle ?? title}</span>
+      {onCheckout && (
+        <button
+          type="button"
+          onClick={onCheckout}
+          className={`${WS_CTA} shrink-0 gap-2.5 whitespace-nowrap rounded-[10px] py-1.5 pl-3.5 pr-1.5 text-sm`}
+        >
+          Inscribirme
+          <span
+            className={`${WS_CTA_CAPSULE} ${WS_FONT_CODE} rounded-md px-[9px] py-1 text-xs font-medium`}
           >
-            Acerca de mí
-          </a>
-          {onCheckout && (
-            <button
-              type="button"
-              onClick={onCheckout}
-              className={`${WS_CTA} rounded-lg px-3.5 py-2`}
-            >
-              Inscribirme · {priceLabel}
-            </button>
-          )}
-        </nav>
-      </div>
-    </header>
-  );
-};
+            {priceLabel}
+          </span>
+        </button>
+      )}
+    </div>
+  </header>
+);
 
 export default WorkshopHeader;

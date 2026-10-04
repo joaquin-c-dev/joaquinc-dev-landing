@@ -90,7 +90,8 @@ const CourseHero = ({
                     </span>
                   )}
                 </div>
-                {subtitle && <div>{subtitle}</div>}
+                {/* Espacio real: los lectores de texto plano (Bing, ChatGPT) no ven los bloques. */}
+                {subtitle && <div> {subtitle}</div>}
               </h1>
 
               <p className="text-base lg:text-lg text-muted-foreground/90 leading-relaxed">

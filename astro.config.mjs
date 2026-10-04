@@ -31,6 +31,12 @@ export default defineConfig({
       customPages: COURSE_SLUGS.map((slug) => `${SITE}/${slug}`),
       filter: (page) =>
         !NOINDEX_PATHS.some((path) => page.includes(path)),
+      // Sin "/" final, igual que el canonical de cada página (señales consistentes).
+      serialize: (item) => {
+        const url = new URL(item.url);
+        if (url.pathname !== "/") url.pathname = url.pathname.replace(/\/$/, "");
+        return { ...item, url: url.href };
+      },
     }),
   ],
   vite: {

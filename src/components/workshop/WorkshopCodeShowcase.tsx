@@ -10,7 +10,7 @@ interface WorkshopCodeShowcaseProps {
 const WorkshopCodeShowcase = ({ content }: WorkshopCodeShowcaseProps) => (
   <section className={WS_BAND}>
     <div
-      className={`${WS_CONTAINER} grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-14 py-20`}
+      className={`${WS_CONTAINER} grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-10 md:gap-14 py-14 md:py-20`}
     >
       <div className="flex flex-col gap-5">
         <span className={WS_EYEBROW}>LO QUE TE LLEVAS</span>

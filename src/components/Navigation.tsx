@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "@/lib/router";
+import type { MouseEvent } from "react";
+import { useLocation, useNavigate } from "@/lib/router";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import {
@@ -59,25 +60,26 @@ const Navigation = () => {
     }
   }, [location.search, pathname, navigate]);
 
-  const handleNavClick = (item: any) => {
+  // Los items son links reales (<a href>) para que buscadores y asistentes de IA puedan
+  // recorrer el sitio; solo se intercepta el clic cuando hay que hacer scroll.
+  const handleNavClick = (event: MouseEvent<HTMLAnchorElement>, item: NavItem) => {
     if (item.action === "pricing") {
+      event.preventDefault();
       if (pathname === "/") {
-        // Already on home page, just scroll
         const pricingSection = document.querySelector('section[data-section="pricing"]');
         pricingSection?.scrollIntoView({ behavior: "smooth" });
       } else {
-        // Navigate to home page with scroll parameter
         navigate("/?scroll=pricing");
       }
     } else if (item.path === "/" && pathname === "/") {
-      // If clicking "Inicio" while on home page, scroll to top
+      // "Inicio" estando en el home: sube al inicio en vez de recargar.
+      event.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      navigate(item.path);
     }
   };
 
-  const navItems: { name: string; path: string; action?: string }[] = [
+  type NavItem = { name: string; path: string; action?: string };
+  const navItems: NavItem[] = [
     { name: "Inicio", path: "/" },
     { name: "Acerca de mí", path: "/acerca-de-mi" },
   ];
@@ -101,9 +103,10 @@ const Navigation = () => {
           {/* Centered Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.slice(0, 3).map((item) => (
-              <button
+              <a
                 key={item.name}
-                onClick={() => handleNavClick(item)}
+                href={item.path}
+                onClick={(event) => handleNavClick(event, item)}
                 className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer ${
                   pathname === item.path && !item.action
                     ? "bg-gradient-accent bg-clip-text text-transparent"
@@ -111,7 +114,7 @@ const Navigation = () => {
                 }`}
               >
                 {item.name}
-              </button>
+              </a>
             ))}
 
             {/* Cursos Dropdown */}
@@ -136,12 +139,12 @@ const Navigation = () => {
                 {courseItems.map((course) => (
                   <DropdownMenuItem
                     key={course.name}
-                    onClick={() => navigate(course.path)}
+                    asChild
                     className={`cursor-pointer hover:text-blue-500 hover:bg-transparent focus:bg-transparent data-[highlighted]:bg-transparent data-[highlighted]:text-blue-500 transition-colors duration-200 font-medium ${
                       pathname === course.path ? "bg-gradient-accent bg-clip-text text-transparent" : ""
                     }`}
                   >
-                    {course.name}
+                    <a href={course.path}>{course.name}</a>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
@@ -149,9 +152,10 @@ const Navigation = () => {
 
             {/* Remaining nav items */}
             {navItems.slice(3).map((item) => (
-              <button
+              <a
                 key={item.name}
-                onClick={() => handleNavClick(item)}
+                href={item.path}
+                onClick={(event) => handleNavClick(event, item)}
                 className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer ${
                   pathname === item.path && !item.action
                     ? "bg-gradient-accent bg-clip-text text-transparent"
@@ -159,7 +163,7 @@ const Navigation = () => {
                 }`}
               >
                 {item.name}
-              </button>
+              </a>
             ))}
           </div>
 
@@ -176,10 +180,11 @@ const Navigation = () => {
           <div className="md:hidden py-4 border-t border-border/50">
             <div className="flex flex-col gap-4">
               {navItems.slice(0, 3).map((item) => (
-                <button
+                <a
                   key={item.name}
-                  onClick={() => {
-                    handleNavClick(item);
+                  href={item.path}
+                  onClick={(event) => {
+                    handleNavClick(event, item);
                     setIsMobileMenuOpen(false);
                   }}
                   className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ${
@@ -189,7 +194,7 @@ const Navigation = () => {
                   }`}
                 >
                   {item.name}
-                </button>
+                </a>
               ))}
 
               {/* Cursos section in mobile */}
@@ -204,26 +209,25 @@ const Navigation = () => {
                   Cursos
                 </div>
                 {courseItems.map((course) => (
-                  <button
+                  <a
                     key={course.name}
-                    onClick={() => {
-                      navigate(course.path);
-                      setIsMobileMenuOpen(false);
-                    }}
+                    href={course.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className={`text-foreground hover:text-blue-500 transition-colors duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ml-4 block w-full ${
                       pathname === course.path ? "bg-gradient-accent bg-clip-text text-transparent" : ""
                     }`}
                   >
                     {course.name}
-                  </button>
+                  </a>
                 ))}
               </div>
 
               {navItems.slice(3).map((item) => (
-                <button
+                <a
                   key={item.name}
-                  onClick={() => {
-                    handleNavClick(item);
+                  href={item.path}
+                  onClick={(event) => {
+                    handleNavClick(event, item);
                     setIsMobileMenuOpen(false);
                   }}
                   className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ${
@@ -233,7 +237,7 @@ const Navigation = () => {
                   }`}
                 >
                   {item.name}
-                </button>
+                </a>
               ))}
             </div>
           </div>

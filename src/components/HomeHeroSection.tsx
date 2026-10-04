@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Code, GraduationCap, Rocket, ArrowRight, Play } from "lucide-react";
 import { ASSETS } from "@/lib/assets";
-import { useNavigate } from "@/lib/router";
+import { useCoursesNav } from "@/contexts/CoursesNavContext";
 
 const HomeHeroSection = () => {
-  const navigate = useNavigate();
+  // Cursos y talleres activos: el contador se actualiza solo al agregar uno nuevo.
+  const { courses } = useCoursesNav();
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-20 pb-16">
@@ -24,7 +25,7 @@ const HomeHeroSection = () => {
 
           {/* Main title */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight animate-fade-in">
-            <span className="text-foreground">Conviértete en</span>
+            <span className="text-foreground">Conviértete en</span>{" "}
             <br />
             <span className="bg-gradient-accent bg-clip-text text-transparent">
               Java Developer
@@ -55,38 +56,46 @@ const HomeHeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
             <div className="group relative">
               <div className="absolute -inset-1 bg-gradient-accent rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-              <Button 
+              <Button
+                asChild
                 size="lg"
                 className="relative bg-gradient-accent text-white text-lg px-8 py-6 transition-all duration-300 hover:opacity-90 shadow-elegant border border-primary/30"
-                onClick={() => {
-                  const section = document.querySelector('[data-section="courses"]');
-                  section?.scrollIntoView({ behavior: 'smooth' });
-                }}
               >
-                <Play className="w-5 h-5 mr-2" />
-                Explorar Cursos
+                <a
+                  href="#cursos"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    const section = document.querySelector('[data-section="courses"]');
+                    section?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  <Play className="w-5 h-5 mr-2" />
+                  Explorar Cursos
+                </a>
               </Button>
             </div>
-            <Button 
-              variant="outline" 
-              size="lg" 
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
               className="border-primary/30 hover:border-primary/50 text-lg px-8 py-6 hover:bg-primary/5 hover:text-primary"
-              onClick={() => navigate('/acerca-de-mi')}
             >
-              Conocer al Instructor
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <a href="/acerca-de-mi">
+                Conocer al Instructor
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </a>
             </Button>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 animate-fade-in">
             <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent">+9</div>
+              <div className="text-3xl lg:text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent">+10</div>
               <div className="text-sm text-muted-foreground">Años de experiencia</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent">3</div>
-              <div className="text-sm text-muted-foreground">Cursos disponibles</div>
+              <div className="text-3xl lg:text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent">{courses.length}</div>
+              <div className="text-sm text-muted-foreground">Cursos y talleres</div>
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent">100%</div>

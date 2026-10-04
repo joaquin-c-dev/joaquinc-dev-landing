@@ -4,6 +4,7 @@ import { Plus } from "lucide-react";
 import { ASSETS } from "@/lib/assets";
 import type { Course } from "@/lib/course-types";
 import { INTERNET_REQUIREMENT, type WorkshopFaqItem } from "@/lib/workshop-content";
+import { useOpensInSameTab } from "@/lib/mobile-navigation";
 import { formatPrice } from "@/lib/workshop-format";
 import { getQuestionWhatsappUrl } from "@/lib/workshop-whatsapp";
 import { WS_H2, WS_LINK } from "./workshop-styles";
@@ -34,12 +35,24 @@ const WorkshopFaq = ({ course, price, transferUrl, extraFaq = [] }: WorkshopFaqP
   const equipment = course.prerequisites?.equipment ?? [];
   const priceLabel = `${formatPrice(price)} MXN`;
   const questionUrl = getQuestionWhatsappUrl(course.title);
+  const sameTab = useOpensInSameTab();
+  const linkTarget = sameTab ? undefined : "_blank";
 
   const entries: FaqEntry[] = [
     {
       question: "¿Dónde es el taller?",
       answer:
         "Es en línea y en vivo. Después de pagar recibes por correo el enlace de acceso.",
+    },
+    {
+      question: "¿Puedo hacer preguntas durante el taller?",
+      answer:
+        "Sí, para eso es en vivo: preguntas en cualquier momento y resolvemos las dudas mientras programamos, no en un foro días después.",
+    },
+    {
+      question: "¿Se graba el taller?",
+      answer:
+        "Sí. Al terminar te comparto la grabación para que la descargues y te la quedes de por vida para repasar. Descárgala en cuanto la recibas.",
     },
     ...(equipment.length
       ? [
@@ -71,7 +84,7 @@ const WorkshopFaq = ({ course, price, transferUrl, extraFaq = [] }: WorkshopFaqP
               escríbeme por WhatsApp y te comparto los datos de la cuenta.
             </li>
           </ul>
-          <a href={transferUrl} target="_blank" rel="noopener noreferrer" className={WHATSAPP_CTA}>
+          <a href={transferUrl} target={linkTarget} rel="noopener noreferrer" className={WHATSAPP_CTA}>
             <img src={ASSETS.whatsappLogo} alt="" className="h-5 w-5" />
             Pedir datos para transferir
           </a>
@@ -81,7 +94,7 @@ const WorkshopFaq = ({ course, price, transferUrl, extraFaq = [] }: WorkshopFaqP
   ];
 
   return (
-    <section className="mx-auto w-full max-w-[820px] px-6 pb-[88px] pt-10">
+    <section className="mx-auto w-full max-w-[820px] px-6 pb-14 pt-6 md:pb-[88px] md:pt-10">
       <h2 className={`${WS_H2} mb-8`}>Preguntas frecuentes</h2>
 
       <AccordionPrimitive.Root type="multiple">
@@ -94,7 +107,7 @@ const WorkshopFaq = ({ course, price, transferUrl, extraFaq = [] }: WorkshopFaqP
             <AccordionPrimitive.Header>
               <AccordionPrimitive.Trigger className="group flex w-full items-center justify-between gap-4 py-5 text-left text-[17px] font-medium data-[state=open]:pb-[14px]">
                 {entry.question}
-                <Plus className="h-5 w-5 shrink-0 text-[#45c8ff] transition-transform duration-200 group-data-[state=open]:rotate-45" />
+                <Plus className="h-5 w-5 shrink-0 text-[#ffc66d] transition-transform duration-200 group-data-[state=open]:rotate-45" />
               </AccordionPrimitive.Trigger>
             </AccordionPrimitive.Header>
             {/* forceMount: las respuestas van en el HTML aunque estén cerradas (Google y
@@ -110,7 +123,7 @@ const WorkshopFaq = ({ course, price, transferUrl, extraFaq = [] }: WorkshopFaqP
 
       <p className="mt-8 text-[#9aa3ae]">
         ¿Otra duda?{" "}
-        <a href={questionUrl} target="_blank" rel="noopener noreferrer" className={WS_LINK}>
+        <a href={questionUrl} target={linkTarget} rel="noopener noreferrer" className={WS_LINK}>
           Escríbeme por WhatsApp →
         </a>
       </p>
