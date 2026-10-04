@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { buildHomeJsonLd } from "@/lib/structured-data";
+import { serializeJsonLd } from "@/lib/workshop-structured-data";
 import { getHomeCourses, getNavCourses, getUpcomingStarts } from "@/lib/courses";
 import Index from "@/screens/Index";
 
@@ -8,13 +10,17 @@ const [homeCourses, upcomingStarts, navCourses] = await Promise.all([
   getUpcomingStarts(),
   getNavCourses(),
 ]);
+const jsonLd = buildHomeJsonLd(Astro.site!.href);
 ---
 
 <BaseLayout
-  title="Java y Spring con Joaquín C. Dev"
-  description="Transforma tu futuro en tecnología: empieza hoy con Java y Spring para desarrollar habilidades que abrirán nuevas oportunidades."
+  title="Cursos de Java y Spring Boot en vivo | Joaquín C. Dev"
+  description="Cursos y talleres de Java, Spring Boot y Spring Security 100% en vivo y en línea, con proyectos reales y un Head of Backend con +10 años de experiencia."
   keywords="java, curso java, programación java, aprender java, java desde cero, desarrollo java, spring boot"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />
+  </Fragment>
   <Index
     client:load
     courses={homeCourses}

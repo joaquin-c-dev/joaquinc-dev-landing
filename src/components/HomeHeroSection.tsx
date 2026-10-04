@@ -25,7 +25,7 @@ const HomeHeroSection = () => {
 
           {/* Main title */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight animate-fade-in">
-            <span className="text-foreground">Conviértete en</span>
+            <span className="text-foreground">Conviértete en</span>{" "}
             <br />
             <span className="bg-gradient-accent bg-clip-text text-transparent">
               Java Developer

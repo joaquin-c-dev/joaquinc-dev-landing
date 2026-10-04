@@ -1,9 +1,12 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { buildProfileJsonLd } from "@/lib/structured-data";
+import { serializeJsonLd } from "@/lib/workshop-structured-data";
 import { getNavCourses } from "@/lib/courses";
 import AcercaDeMi from "@/screens/AcercaDeMi";
 
 const navCourses = await getNavCourses();
+const jsonLd = buildProfileJsonLd(new URL(Astro.url.pathname, Astro.site).href, Astro.site!.href);
 ---
 
 <BaseLayout
@@ -11,5 +14,8 @@ const navCourses = await getNavCourses();
   description="Conoce a Joaquín Coronado, Head of Backend con más de 10 años de experiencia. Instructor de Java y Spring con trayectoria en empresas tecnológicas."
   keywords="joaquín coronado, instructor java, head of backend, mentor programación, desarrollador backend"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />
+  </Fragment>
   <AcercaDeMi client:load navCourses={navCourses} pathname={Astro.url.pathname} />
 </BaseLayout>

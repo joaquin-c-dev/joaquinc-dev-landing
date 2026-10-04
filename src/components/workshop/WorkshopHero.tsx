@@ -54,6 +54,7 @@ const WorkshopHero = forwardRef<HTMLDivElement, WorkshopHeroProps>(
             {course.hero.titleHighlight && (
               <span className="text-[#ffc66d]"> {course.hero.titleHighlight}</span>
             )}
+            {course.subtitle && " "}
             {course.subtitle && (
               <span className="mt-2 block text-[0.8em] text-[#aab2bc] lg:mt-3 lg:text-[1em]">{course.subtitle}</span>
             )}
