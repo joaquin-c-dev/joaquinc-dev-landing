@@ -1,11 +1,7 @@
 import CheckoutForm from "@/components/checkout/CheckoutForm";
-import {
-  asksJavaExperience,
-  getCurrentPrice,
-  getFallbackCheckoutUrl,
-} from "@/components/checkout/CheckoutContext";
+import { getCurrentPrice, getFallbackCheckoutUrl } from "@/components/checkout/CheckoutContext";
 import type { Course } from "@/lib/course-types";
-import { captureAttribution } from "@/lib/checkout";
+import { captureAttribution, resolveCheckoutSettings } from "@/lib/checkout";
 import { formatPrice } from "@/lib/workshop-format";
 import { useEffect } from "react";
 
@@ -42,7 +38,7 @@ const PagarCurso = ({ course, apiBaseUrl, editMode = false }: PagarCursoProps) =
             price={price}
             fallbackUrl={getFallbackCheckoutUrl(course)}
             startInEditMode={editMode}
-            askJavaExperience={asksJavaExperience(course)}
+            questions={resolveCheckoutSettings(course)}
           />
         </div>
         <a href={`/${course.slug}`} className="mt-6 block text-center text-sm text-white/50 underline">

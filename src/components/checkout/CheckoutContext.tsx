@@ -3,7 +3,7 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import type { Course } from "@/lib/course-types";
 import { buildStripeCheckoutUrl } from "@/lib/course-formatters";
-import { captureAttribution } from "@/lib/checkout";
+import { captureAttribution, resolveCheckoutSettings } from "@/lib/checkout";
 import { openExternal } from "@/lib/mobile-navigation";
 import { formatPrice } from "@/lib/workshop-format";
 import CheckoutForm from "./CheckoutForm";
@@ -22,11 +22,6 @@ export function getCurrentPrice(course: Course): number {
   const hasDiscount =
     course.discountPrice != null && course.regularPrice != null && course.discountPrice < course.regularPrice;
   return (hasDiscount ? course.discountPrice : course.regularPrice) ?? 0;
-}
-
-/** Los cursos de Java (y Spring) preguntan la experiencia con Java; los de IA con Claude no. */
-export function asksJavaExperience(course: Course): boolean {
-  return /java|spring/i.test(`${course.slug} ${course.title}`);
 }
 
 /** Enlace de pago de Stripe de siempre (con cupón): respaldo si la API no responde. */
@@ -49,26 +44,30 @@ interface CheckoutProviderProps {
 export function CheckoutProvider({ course, apiBaseUrl, children }: CheckoutProviderProps) {
   const [open, setOpen] = useState(false);
   const fallbackUrl = useMemo(() => getFallbackCheckoutUrl(course), [course]);
+  const settings = useMemo(() => resolveCheckoutSettings(course), [course]);
+  // El panel decide entre formulario y liga directa de Stripe (la opción por defecto). Un curso
+  // sin liga de Stripe usa el formulario para no quedarse sin forma de cobrar.
+  const usesForm = Boolean(apiBaseUrl) && (settings.mode === "FORM" || !fallbackUrl);
 
   useEffect(() => captureAttribution(), []);
 
   const openCheckout = useCallback(() => {
-    if (apiBaseUrl) {
+    if (usesForm) {
       setOpen(true);
       return;
     }
     if (fallbackUrl) openExternal(fallbackUrl);
-  }, [apiBaseUrl, fallbackUrl]);
+  }, [usesForm, fallbackUrl]);
 
   const value = useMemo(
-    () => ({ openCheckout, canCheckout: Boolean(apiBaseUrl || fallbackUrl) }),
-    [openCheckout, apiBaseUrl, fallbackUrl],
+    () => ({ openCheckout, canCheckout: usesForm || Boolean(fallbackUrl) }),
+    [openCheckout, usesForm, fallbackUrl],
   );
 
   return (
     <CheckoutContext.Provider value={value}>
       {children}
-      {apiBaseUrl && (
+      {usesForm && apiBaseUrl && (
         <CheckoutDialog
           open={open}
           onOpenChange={setOpen}
@@ -123,7 +122,7 @@ const CheckoutDialog = ({ open, onOpenChange, course, apiBaseUrl, fallbackUrl }:
               courseSlug={course.slug}
               price={price}
               fallbackUrl={fallbackUrl}
-              askJavaExperience={asksJavaExperience(course)}
+              questions={resolveCheckoutSettings(course)}
             />
           </div>
           <DialogPrimitive.Close

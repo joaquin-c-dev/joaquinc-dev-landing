@@ -38,6 +38,48 @@ export const PHONE_COUNTRY_CODES = [
   { code: "+34", label: "🇪🇸 +34" },
 ] as const;
 
+/** Preguntas opcionales del formulario; el correo y el aviso de privacidad siempre van. */
+export interface CheckoutQuestions {
+  askName: boolean;
+  askPhone: boolean;
+  askJavaExperience: boolean;
+  askOccupation: boolean;
+  askSeniority: boolean;
+}
+
+export interface ResolvedCheckoutSettings extends CheckoutQuestions {
+  mode: "FORM" | "PAYMENT_LINK";
+}
+
+/**
+ * Configuración de pago del curso (se edita en el panel). Sin configurar = liga directa de Stripe;
+ * si se activa el formulario sin preguntas guardadas, va completo, con la pregunta de Java solo en
+ * cursos de Java/Spring. Mismo criterio que el panel y la API.
+ */
+export function resolveCheckoutSettings(course: {
+  slug: string;
+  title: string;
+  checkout?: {
+    mode?: "FORM" | "PAYMENT_LINK" | null;
+    askName?: boolean | null;
+    askPhone?: boolean | null;
+    askJavaExperience?: boolean | null;
+    askOccupation?: boolean | null;
+    askSeniority?: boolean | null;
+  } | null;
+}): ResolvedCheckoutSettings {
+  const checkout = course.checkout ?? {};
+  const isJavaCourse = /java|spring/i.test(`${course.slug} ${course.title}`);
+  return {
+    mode: checkout.mode ?? "PAYMENT_LINK",
+    askName: checkout.askName ?? true,
+    askPhone: checkout.askPhone ?? true,
+    askJavaExperience: checkout.askJavaExperience ?? isJavaCourse,
+    askOccupation: checkout.askOccupation ?? true,
+    askSeniority: checkout.askSeniority ?? true,
+  };
+}
+
 export type JavaExperience = (typeof JAVA_EXPERIENCE_OPTIONS)[number]["value"];
 export type Occupation = (typeof OCCUPATION_OPTIONS)[number]["value"];
 export type Seniority = (typeof SENIORITY_OPTIONS)[number]["value"];
@@ -151,9 +193,10 @@ export async function createCheckoutSession(
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       courseSlug,
-      name: profile.name,
       email: profile.email,
-      phone: toE164(profile.phoneCountryCode, profile.phoneNumber),
+      // Sin número (el curso no pide WhatsApp) no se manda solo la lada.
+      phone: profile.phoneNumber.replace(/\D/g, "") ? toE164(profile.phoneCountryCode, profile.phoneNumber) : undefined,
+      name: profile.name.trim() || undefined,
       javaExperience: profile.javaExperience,
       occupation: profile.occupation,
       seniority: profile.seniority,

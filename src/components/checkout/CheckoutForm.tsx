@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { ArrowLeft, ArrowRight, Check, Loader2, Lock, Pencil } from "lucide-react";
 import {
   CheckoutError,
@@ -11,6 +11,7 @@ import {
   saveCheckoutProfile,
   trackCheckoutFunnel,
   type CheckoutProfile,
+  type CheckoutQuestions,
 } from "@/lib/checkout";
 import { PRIVACY_CONTACT, PRIVACY_SECTIONS } from "@/lib/privacy-policy";
 
@@ -23,14 +24,27 @@ interface CheckoutFormProps {
   fallbackUrl?: string;
   /** Viene de "Corrígelo aquí" en Stripe: muestra los datos guardados ya editables. */
   startInEditMode?: boolean;
-  /** `false` en los cursos de IA (Claude): no se pregunta la experiencia con Java. */
-  askJavaExperience?: boolean;
+  /** Preguntas que se activaron en el panel para este curso (correo y aviso siempre van). */
+  questions: CheckoutQuestions;
 }
 
 /** Una pregunta por pantalla, en este orden; `consent` es la última, con el botón de pago. */
 const ALL_STEPS = ["name", "email", "phoneNumber", "javaExperience", "occupation", "seniority", "consent"] as const;
 type Step = (typeof ALL_STEPS)[number];
-const STEPS_WITHOUT_JAVA: readonly Step[] = ALL_STEPS.filter((step) => step !== "javaExperience");
+/** Pregunta → bandera del panel que la activa; las que no aparecen siempre se hacen. */
+const STEP_FLAG: Partial<Record<Step, keyof CheckoutQuestions>> = {
+  name: "askName",
+  phoneNumber: "askPhone",
+  javaExperience: "askJavaExperience",
+  occupation: "askOccupation",
+  seniority: "askSeniority",
+};
+
+const buildSteps = (questions: CheckoutQuestions): readonly Step[] =>
+  ALL_STEPS.filter((step) => {
+    const flag = STEP_FLAG[step];
+    return flag ? questions[flag] : true;
+  });
 type FieldErrors = Partial<Record<Step, string>>;
 
 const EMPTY_PROFILE: CheckoutProfile = {
@@ -91,9 +105,13 @@ const CheckoutForm = ({
   price,
   fallbackUrl,
   startInEditMode = false,
-  askJavaExperience = true,
+  questions,
 }: CheckoutFormProps) => {
-  const STEPS: readonly Step[] = askJavaExperience ? ALL_STEPS : STEPS_WITHOUT_JAVA;
+  const { askName, askPhone, askJavaExperience, askOccupation, askSeniority } = questions;
+  const STEPS = useMemo(
+    () => buildSteps({ askName, askPhone, askJavaExperience, askOccupation, askSeniority }),
+    [askName, askPhone, askJavaExperience, askOccupation, askSeniority],
+  );
   const [profile, setProfile] = useState<CheckoutProfile>(EMPTY_PROFILE);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [confirming, setConfirming] = useState(false);
@@ -223,11 +241,13 @@ const CheckoutForm = ({
     return (
       <form onSubmit={handleSubmit} className="relative flex h-full flex-col gap-5">
         <div className="space-y-1 rounded-xl border border-white/10 bg-white/[0.04] p-4 text-[15px]">
-          <p className="font-semibold text-white">{profile.name}</p>
-          <p className="text-white/70">{profile.email}</p>
-          <p className="text-white/70">
-            {profile.phoneCountryCode} {profile.phoneNumber}
-          </p>
+          {askName && profile.name && <p className="font-semibold text-white">{profile.name}</p>}
+          <p className={askName && profile.name ? "text-white/70" : "font-semibold text-white"}>{profile.email}</p>
+          {askPhone && profile.phoneNumber && (
+            <p className="text-white/70">
+              {profile.phoneCountryCode} {profile.phoneNumber}
+            </p>
+          )}
           <button
             type="button"
             onClick={() => {
