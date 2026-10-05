@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCourseBySlug, getNavCourses } from "@/lib/courses";
+import { getCourseApiBaseUrl } from "@/lib/course-api";
 import { formatSeoKeywords } from "@/lib/course-formatters";
 import CoursePage from "@/screens/CoursePage";
 import { buildCourseJsonLd } from "@/lib/structured-data";
@@ -48,5 +49,11 @@ const jsonLd =
     )}
     {jsonLd && <script type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />}
   </Fragment>
-  <CoursePage client:load course={course} navCourses={navCourses} pathname={Astro.url.pathname} />
+  <CoursePage
+    client:load
+    course={course}
+    navCourses={navCourses}
+    pathname={Astro.url.pathname}
+    apiBaseUrl={getCourseApiBaseUrl()}
+  />
 </BaseLayout>

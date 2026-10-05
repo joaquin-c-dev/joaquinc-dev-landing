@@ -3,6 +3,8 @@
  * Siempre se obtiene via mapApiCourseToView() / getAllCourses(); no construir a mano.
  */
 
+import type { ApiCheckoutSettings } from "@/lib/api-course-types";
+
 export type CourseType = "COURSE" | "WORKSHOP";
 export type CourseStatus = "ACTIVE" | "INACTIVE";
 
@@ -109,6 +111,7 @@ export interface Course {
   seo: CourseSeo;
   hero: CourseHeroData;
   promo?: CoursePromo;
+  checkout?: ApiCheckoutSettings | null;
   sections?: CurriculumModule[];
   prerequisites?: CoursePrerequisites;
   schedules?: {

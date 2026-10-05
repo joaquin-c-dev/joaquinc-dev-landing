@@ -3,6 +3,7 @@
  * próxima como `Event` en línea, con el instructor como `Person`. Todo sale del curso y
  * de su agendado, así cada taller nuevo los tiene sin tocar código.
  */
+import { findSelectedSchedule } from "@/lib/course-formatters";
 import type { Course } from "@/lib/course-types";
 import { INSTRUCTOR_PROFILE } from "@/lib/workshop-content";
 
@@ -12,8 +13,8 @@ export function buildWorkshopEventJsonLd(
   pageUrl: string,
   siteUrl: string,
 ): Record<string, unknown> | undefined {
-  // `schedules.items` ya viene ordenado por fecha: el primero es el más próximo.
-  const nextSchedule = course.schedules?.items[0];
+  // El grupo que se vende hoy (el próximo que no ha empezado), el mismo de la compra.
+  const nextSchedule = findSelectedSchedule(course);
   if (!nextSchedule?.startsAt || !nextSchedule.endsAt) return undefined;
 
   // Misma regla de precio que WorkshopPage: el precio con descuento si es menor.

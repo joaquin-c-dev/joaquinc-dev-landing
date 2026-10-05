@@ -26,6 +26,8 @@ const {
 
 const canonicalURL =
   canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+// El pixel de Meta solo reporta desde el dominio real (ver el script del pixel abajo).
+const isProductionHost = ["joaquincoronado.dev", "www.joaquincoronado.dev"].includes(Astro.url.hostname);
 ---
 
 <!doctype html>
@@ -62,8 +64,11 @@ const canonicalURL =
       })(window, document, "clarity", "script", "t1nvxhngqo");
     </script>
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code: solo en el dominio de producción. En local o en previews de Netlify no se
+         carga, así las pruebas (formulario, pagos de prueba de Stripe) no le reportan a Meta
+         leads ni compras falsas; sin `fbq`, los eventos del sitio simplemente no se mandan. -->
     <script is:inline>
+      if (["joaquincoronado.dev", "www.joaquincoronado.dev"].includes(window.location.hostname))
       !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
         n = f.fbq = function () {
@@ -87,8 +92,10 @@ const canonicalURL =
         "script",
         "https://connect.facebook.net/en_US/fbevents.js",
       );
-      fbq("init", "1801982907110402");
-      fbq("track", "PageView");
+      if (window.fbq) {
+        fbq("init", "1801982907110402");
+        fbq("track", "PageView");
+      }
     </script>
 
     <!-- Stripe Buy Button -->
@@ -99,6 +106,7 @@ const canonicalURL =
   <body>
     <slot />
 
+    {isProductionHost && (
     <noscript>
       <img
         height="1"
@@ -108,5 +116,6 @@ const canonicalURL =
         alt=""
       />
     </noscript>
+    )}
   </body>
 </html>

@@ -76,6 +76,7 @@ export function mapApiCourseToView(api: ApiCourseLandingResponse): Course {
       video: api.hero.video,
     },
     promo: api.promo ?? api.promotion,
+    checkout: api.checkout ?? null,
     prerequisites: api.prerequisites
       ? {
           items: api.prerequisites.items,

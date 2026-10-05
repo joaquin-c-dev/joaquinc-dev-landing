@@ -1,6 +1,8 @@
 import AppShell from "@/components/app/AppShell";
 import type { NavCourse } from "@/contexts/CoursesNavContext";
+import { findSelectedSchedule } from "@/lib/course-formatters";
 import type { Course } from "@/lib/course-types";
+import { useCheckout } from "@/components/checkout/CheckoutContext";
 import { getWorkshopContent } from "@/lib/workshop-content";
 import { formatPrice, formatWorkshopHeaderDate } from "@/lib/workshop-format";
 import {
@@ -18,7 +20,6 @@ import WorkshopHero from "./WorkshopHero";
 import WorkshopInstructor from "./WorkshopInstructor";
 import WorkshopLiveFormat from "./WorkshopLiveFormat";
 import WorkshopTestimonials from "./WorkshopTestimonials";
-import { useWorkshopCheckout } from "./useWorkshopCheckout";
 import { WS_FONT_UI } from "./workshop-styles";
 
 interface WorkshopPageProps {
@@ -29,8 +30,8 @@ interface WorkshopPageProps {
 
 /** Página de venta de un taller (`course.type === "WORKSHOP"`). */
 const WorkshopPage = ({ course, navCourses, pathname }: WorkshopPageProps) => {
-  const { checkoutUrl, openCheckout } = useWorkshopCheckout(course);
-  const onCheckout = checkoutUrl ? openCheckout : undefined;
+  const { openCheckout, canCheckout } = useCheckout();
+  const onCheckout = canCheckout ? openCheckout : undefined;
   const content = getWorkshopContent(course.slug);
 
   const hasDiscount =
@@ -40,8 +41,8 @@ const WorkshopPage = ({ course, navCourses, pathname }: WorkshopPageProps) => {
   const price = (hasDiscount ? course.discountPrice : course.regularPrice) ?? 0;
   const priceLabel = formatPrice(price);
 
-  // `schedules.items` ya viene ordenado por fecha: el primero es el más próximo.
-  const nextSchedule = course.schedules?.items[0];
+  // El grupo que se vende hoy (el próximo que no ha empezado), el mismo de la compra.
+  const nextSchedule = findSelectedSchedule(course);
   const startsAt = nextSchedule?.startsAt;
   const endsAt = nextSchedule?.endsAt;
   // Un solo enlace de transferencia para la tarjeta y el FAQ: siempre el mismo mensaje.

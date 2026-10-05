@@ -11,6 +11,7 @@ import WorkshopPage from "@/components/workshop/WorkshopPage";
 import WorkshopTestimonials from "@/components/workshop/WorkshopTestimonials";
 import { getCourseTestimonials } from "@/lib/workshop-content";
 import { PromoCountdownProvider } from "@/contexts/PromoCountdownContext";
+import { CheckoutProvider } from "@/components/checkout/CheckoutContext";
 import type { Course } from "@/lib/course-types";
 import type { NavCourse } from "@/contexts/CoursesNavContext";
 
@@ -18,9 +19,17 @@ interface CoursePageProps {
   course: Course;
   navCourses: NavCourse[];
   pathname: string;
+  /** Base de la API para crear la sesión de pago; sin ella se usa el enlace de pago directo. */
+  apiBaseUrl?: string;
 }
 
-const CoursePage = ({ course, navCourses, pathname }: CoursePageProps) => {
+const CoursePage = ({ course, navCourses, pathname, apiBaseUrl }: CoursePageProps) => (
+  <CheckoutProvider course={course} apiBaseUrl={apiBaseUrl}>
+    <CourseLayout course={course} navCourses={navCourses} pathname={pathname} />
+  </CheckoutProvider>
+);
+
+const CourseLayout = ({ course, navCourses, pathname }: Omit<CoursePageProps, "apiBaseUrl">) => {
   if (course.type === "WORKSHOP") {
     return <WorkshopPage course={course} navCourses={navCourses} pathname={pathname} />;
   }
@@ -35,9 +44,6 @@ const CoursePage = ({ course, navCourses, pathname }: CoursePageProps) => {
             hero={course.hero}
             subtitle={course.subtitle}
             description={course.description}
-            stripeUrl={course.stripeUrl}
-            stripeCoupon={course.stripeCoupon}
-            clientReferenceId={course.nearestScheduledCourseId}
           />
           {course.sections && (
             <CourseCurriculum
@@ -61,7 +67,6 @@ const CoursePage = ({ course, navCourses, pathname }: CoursePageProps) => {
               regularPrice={course.regularPrice}
               discountPrice={course.discountPrice}
               stripeUrl={course.stripeUrl}
-              stripeCoupon={course.stripeCoupon}
               clientReferenceId={course.nearestScheduledCourseId}
             />
           )}
