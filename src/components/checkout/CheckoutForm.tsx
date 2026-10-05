@@ -26,6 +26,8 @@ interface CheckoutFormProps {
   startInEditMode?: boolean;
   /** Preguntas que se activaron en el panel para este curso (correo y aviso siempre van). */
   questions: CheckoutQuestions;
+  /** En el diálogo la X de cerrar vive arriba a la derecha: la barra de progreso le deja lugar. */
+  reserveCloseButtonSpace?: boolean;
 }
 
 /** Una pregunta por pantalla, en este orden; `consent` es la última, con el botón de pago. */
@@ -106,6 +108,7 @@ const CheckoutForm = ({
   fallbackUrl,
   startInEditMode = false,
   questions,
+  reserveCloseButtonSpace = false,
 }: CheckoutFormProps) => {
   const { askName, askPhone, askJavaExperience, askOccupation, askSeniority } = questions;
   const STEPS = useMemo(
@@ -239,7 +242,7 @@ const CheckoutForm = ({
 
   if (confirming) {
     return (
-      <form onSubmit={handleSubmit} className="relative flex h-full flex-col gap-5">
+      <form onSubmit={handleSubmit} className={`relative flex h-full flex-col gap-5 ${reserveCloseButtonSpace ? "pt-9" : ""}`}>
         <div className="space-y-1 rounded-xl border border-white/10 bg-white/[0.04] p-4 text-[15px]">
           {askName && profile.name && <p className="font-semibold text-white">{profile.name}</p>}
           <p className={askName && profile.name ? "text-white/70" : "font-semibold text-white"}>{profile.email}</p>
@@ -280,7 +283,7 @@ const CheckoutForm = ({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="relative flex h-full flex-col">
-      <div className="mb-6 flex shrink-0 items-center gap-3">
+      <div className={`mb-6 flex shrink-0 items-center gap-3 ${reserveCloseButtonSpace ? "pr-9" : ""}`}>
         <button
           type="button"
           onClick={() => goTo(stepIndex - 1)}

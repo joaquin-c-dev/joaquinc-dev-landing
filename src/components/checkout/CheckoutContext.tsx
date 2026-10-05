@@ -104,17 +104,15 @@ const CheckoutDialog = ({ open, onOpenChange, course, apiBaseUrl, fallbackUrl }:
             fuera de la hoja y cerrarla, perdiendo lo que la persona ya había llenado. */}
         <DialogPrimitive.Content
           onInteractOutside={(event) => event.preventDefault()}
-          className="fixed inset-x-0 bottom-0 z-[60] flex h-[min(660px,92dvh)] flex-col outline-none rounded-t-2xl border border-white/10 bg-[#101318] px-5 pb-6 pt-5 text-white shadow-2xl data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:w-full sm:max-w-lg sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl sm:px-7 sm:data-[state=open]:slide-in-from-bottom-0 sm:data-[state=open]:zoom-in-95"
+          className="fixed inset-x-0 bottom-0 z-[60] flex h-[min(560px,92dvh)] flex-col outline-none rounded-t-2xl border border-white/10 bg-[#101318] px-5 pb-6 pt-5 text-white shadow-2xl data-[state=open]:animate-in data-[state=open]:slide-in-from-bottom sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:w-full sm:max-w-lg sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl sm:px-7 sm:data-[state=open]:slide-in-from-bottom-0 sm:data-[state=open]:zoom-in-95"
         >
           <div className="mx-auto mb-4 h-1 w-10 shrink-0 rounded-full bg-white/20 sm:hidden" aria-hidden />
-          <div className="mb-5 shrink-0 pr-8">
-            <DialogPrimitive.Title className="text-lg font-semibold leading-snug">
-              {course.title}
-            </DialogPrimitive.Title>
-            <DialogPrimitive.Description className="mt-1 text-sm text-white/60">
-              {formatPrice(price)} MXN · Déjanos tus datos y te llevamos al pago seguro.
-            </DialogPrimitive.Description>
-          </div>
+          {/* Sin encabezado visible: todo el espacio es para las preguntas. Título y descripción
+              quedan solo para lectores de pantalla (Radix los pide para el diálogo). */}
+          <DialogPrimitive.Title className="sr-only">{course.title}</DialogPrimitive.Title>
+          <DialogPrimitive.Description className="sr-only">
+            {formatPrice(price)} MXN · Déjanos tus datos y te llevamos al pago seguro.
+          </DialogPrimitive.Description>
           {/* Altura fija (la de la pregunta más larga): al cambiar de pregunta nada se mueve. */}
           <div className="min-h-0 flex-1">
             <CheckoutForm
@@ -123,6 +121,7 @@ const CheckoutDialog = ({ open, onOpenChange, course, apiBaseUrl, fallbackUrl }:
               price={price}
               fallbackUrl={fallbackUrl}
               questions={resolveCheckoutSettings(course)}
+              reserveCloseButtonSpace
             />
           </div>
           <DialogPrimitive.Close
