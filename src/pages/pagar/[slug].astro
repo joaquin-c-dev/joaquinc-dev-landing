@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCourseBySlug } from "@/lib/courses";
+import { getCourseApiBaseUrl } from "@/lib/course-api";
+import PagarCurso from "@/screens/PagarCurso";
+import { getFallbackCheckoutUrl } from "@/components/checkout/CheckoutContext";
+import { resolveCheckoutSettings } from "@/lib/checkout";
+
+const { slug } = Astro.params;
+const course = await getCourseBySlug(slug);
+
+if (!course) {
+  return Astro.rewrite("/404");
+}
+
+// Con el formulario apagado desde el panel, la liga corta lleva directo al pago de Stripe.
+const paymentLinkUrl = getFallbackCheckoutUrl(course);
+if (resolveCheckoutSettings(course).mode === "PAYMENT_LINK" && paymentLinkUrl) {
+  return Astro.redirect(paymentLinkUrl, 302);
+}
+---
+
+<BaseLayout
+  title={`Inscríbete: ${course.title} | Joaquín C. Dev`}
+  description={course.seo.description}
+  ogImage={course.seo.ogImage}
+  noindex={true}
+>
+  <PagarCurso
+    client:load
+    course={course}
+    apiBaseUrl={getCourseApiBaseUrl()}
+    editMode={Astro.url.searchParams.get("editar") === "1"}
+  />
+</BaseLayout>

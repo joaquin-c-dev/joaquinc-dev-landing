@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Code, Zap } from "lucide-react";
 import { ASSETS } from "@/lib/assets";
-import { buildStripeCheckoutUrl } from "@/lib/course-formatters";
+import { useCheckout } from "@/components/checkout/CheckoutContext";
 import { COURSE_CURRICULUM_SECTION_ID, type CourseHeroData } from "@/lib/course-types";
 
 const CURRICULUM_CTA_LABEL = "Ver Temario";
@@ -10,23 +10,15 @@ interface CourseHeroProps {
   hero: CourseHeroData;
   subtitle?: string;
   description: string;
-  stripeUrl?: string;
-  stripeCoupon?: string;
-  clientReferenceId?: string;
 }
 
 const CourseHero = ({
   hero,
   subtitle,
   description,
-  stripeUrl,
-  stripeCoupon,
-  clientReferenceId,
 }: CourseHeroProps) => {
   const isCentered = !hero.video;
-  const checkoutUrl = stripeUrl
-    ? buildStripeCheckoutUrl(stripeUrl, stripeCoupon, clientReferenceId)
-    : undefined;
+  const { openCheckout, canCheckout } = useCheckout();
 
   const handleViewCurriculum = () => {
     document
@@ -122,11 +114,11 @@ const CourseHero = ({
                   isCentered ? "justify-center" : "justify-center lg:justify-start"
                 }`}
               >
-                {checkoutUrl && (
+                {canCheckout && (
                   <Button
                     size="lg"
                     className="relative bg-gradient-accent text-white text-base px-6 py-3 transition-all duration-300 hover:opacity-90 shadow-accent hover:shadow-glow border-0 min-w-[180px] h-[48px]"
-                    onClick={() => window.open(checkoutUrl, "_blank")}
+                    onClick={openCheckout}
                   >
                     <Zap className="w-5 h-5 mr-2" />
                     Inscribirme Ahora

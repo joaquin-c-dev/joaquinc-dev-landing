@@ -5,13 +5,13 @@ import { useState } from "react";
 import PaymentInfoModal from "@/components/PaymentInfoModal";
 import { usePromoCountdown } from "@/contexts/PromoCountdownContext";
 import { buildStripeCheckoutUrl } from "@/lib/course-formatters";
+import { useCheckout } from "@/components/checkout/CheckoutContext";
 
 interface CoursePricingProps {
   title: string;
   regularPrice: number;
   discountPrice: number;
   stripeUrl?: string;
-  stripeCoupon?: string;
   clientReferenceId?: string;
   sectionId?: string;
 }
@@ -23,7 +23,7 @@ const PRICING_SUBTITLE =
   "Diferentes opciones de pago para que elijas el plan que mejor se adapte a ti";
 
 const RECOMMENDED_MODAL_CONDITIONS = [
-  "Aplica el cupón de descuento del curso antes de continuar",
+  "El descuento ya va aplicado en la página de pago",
   "Debes ingresar una tarjeta de crédito válida",
   'Selecciona la opción "Pagar en cuotas (meses sin intereses)"',
 ] as const;
@@ -36,7 +36,6 @@ const CoursePricing = ({
   regularPrice,
   discountPrice,
   stripeUrl,
-  stripeCoupon,
   clientReferenceId,
   sectionId,
 }: CoursePricingProps) => {
@@ -44,9 +43,7 @@ const CoursePricing = ({
   const [showRecommendedModal, setShowRecommendedModal] = useState(false);
   const { timeLeft, formatNumber } = usePromoCountdown();
   const isDiscountActive = !timeLeft.isExpired;
-  const checkoutUrl = stripeUrl
-    ? buildStripeCheckoutUrl(stripeUrl, stripeCoupon, clientReferenceId)
-    : undefined;
+  const { openCheckout } = useCheckout();
   const flexibleCheckoutUrl = stripeUrl
     ? buildStripeCheckoutUrl(stripeUrl, undefined, clientReferenceId)
     : undefined;
@@ -84,7 +81,7 @@ const CoursePricing = ({
 
   const handleContinueToRecommendedPayment = () => {
     setShowRecommendedModal(false);
-    if (checkoutUrl) window.open(checkoutUrl, "_blank");
+    openCheckout();
   };
 
   const countdownBlock = (
@@ -514,7 +511,7 @@ const CoursePricing = ({
                 <Button
                   variant="outline"
                   className="w-full border-primary/30 hover:border-primary/50 hover:bg-primary/5 hover:text-primary mt-auto"
-                  onClick={() => checkoutUrl && window.open(checkoutUrl, "_blank")}
+                  onClick={openCheckout}
                 >
                   Hacer pago preferente
                 </Button>

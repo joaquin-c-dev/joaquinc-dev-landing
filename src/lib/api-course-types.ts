@@ -52,6 +52,19 @@ export interface ApiCoursePromotion {
   bannerMobile: string;
 }
 
+/**
+ * Cómo se cobra el curso en la landing (se edita en el panel). `null`/ausente en una bandera =
+ * valor por defecto; ver `resolveCheckoutSettings`.
+ */
+export interface ApiCheckoutSettings {
+  mode?: "FORM" | "PAYMENT_LINK" | null;
+  askName?: boolean | null;
+  askPhone?: boolean | null;
+  askJavaExperience?: boolean | null;
+  askOccupation?: boolean | null;
+  askSeniority?: boolean | null;
+}
+
 export interface ApiPrerequisiteCourseLink {
   label: string;
   /** Slug del curso recomendado (campo real de la API Java). */
@@ -90,6 +103,7 @@ export interface ApiCourseLandingResponse {
   promo?: ApiCoursePromotion;
   /** Forma legacy del mock local. */
   promotion?: ApiCoursePromotion;
+  checkout?: ApiCheckoutSettings | null;
   prerequisites?: ApiCoursePrerequisites;
   summarySections?: string;
   sections?: ApiCourseSection[];

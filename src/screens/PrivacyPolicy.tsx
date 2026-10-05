@@ -4,6 +4,7 @@ import { Shield, Mail, Phone } from "lucide-react";
 import Footer from "@/components/Footer";
 import AppShell from "@/components/app/AppShell";
 import type { NavCourse } from "@/contexts/CoursesNavContext";
+import { PRIVACY_CONTACT, PRIVACY_SECTIONS } from "@/lib/privacy-policy";
 
 interface PrivacyPolicyProps {
   navCourses?: NavCourse[];
@@ -26,144 +27,53 @@ const PrivacyPolicy = ({ navCourses = [], pathname }: PrivacyPolicyProps) => {
           </p>
         </div>
 
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center text-2xl">
-              <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg font-bold">1</span>
-              Introducción
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground leading-relaxed">
-              Nos comprometemos a proteger la privacidad de nuestros estudiantes y a garantizar que su información personal sea tratada de manera segura y responsable. Esta política de privacidad describe cómo recopilamos, usamos y protegemos la información que obtenemos de nuestros estudiantes.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center text-2xl">
-              <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg font-bold">2</span>
-              Información que recopilamos
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              Recopilamos información personal que nos proporcionas al registrarte para nuestros cursos, que puede incluir:
-            </p>
-            <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-              <li>Nombre</li>
-              <li>Correo electrónico</li>
-              <li>Número de teléfono</li>
-              <li>Información de pago (si aplica)</li>
-            </ul>
-          </CardContent>
-        </Card>
-
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center text-2xl">
-              <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg font-bold">3</span>
-              Uso de la información
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              Utilizamos la información recopilada para:
-            </p>
-            <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-              <li>Proporcionar acceso a nuestros cursos y materiales de aprendizaje.</li>
-              <li>Enviar confirmaciones de registro y detalles sobre el curso.</li>
-              <li>Comunicarte sobre futuras ofertas y eventos relacionados con nuestros cursos.</li>
-              <li>Mejorar nuestros servicios y la experiencia del estudiante.</li>
-            </ul>
-          </CardContent>
-        </Card>
-
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center text-2xl">
-              <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg font-bold">4</span>
-              Compartir información
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              No compartimos tu información personal con terceros, excepto en los siguientes casos:
-            </p>
-            <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-              <li>Con proveedores de servicios que nos ayudan a operar nuestro negocio (por ejemplo, procesadores de pagos).</li>
-              <li>Cuando sea requerido por la ley o para proteger nuestros derechos.</li>
-            </ul>
-          </CardContent>
-        </Card>
-
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center text-2xl">
-              <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg font-bold">5</span>
-              Seguridad de la información
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground leading-relaxed">
-              Implementamos medidas de seguridad adecuadas para proteger tu información personal contra el acceso no autorizado, la divulgación, la alteración o la destrucción.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center text-2xl">
-              <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg font-bold">6</span>
-              Derechos del usuario
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground leading-relaxed">
-              Tienes derecho a acceder, corregir o eliminar tu información personal en cualquier momento. Si deseas ejercer estos derechos, contáctanos a través de la información proporcionada al final de esta política.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center text-2xl">
-              <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg font-bold">7</span>
-              Cambios en la política de privacidad
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground leading-relaxed">
-              Nos reservamos el derecho de actualizar esta política de privacidad en cualquier momento. Te notificaremos sobre cualquier cambio significativo a través de tu correo electrónico o mediante un aviso en nuestro sitio web.
-            </p>
-          </CardContent>
-        </Card>
+        {PRIVACY_SECTIONS.map((section, index) => (
+          <Card key={section.title} className="mb-8">
+            <CardHeader>
+              <CardTitle className="flex items-center text-2xl">
+                <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg font-bold">{index + 1}</span>
+                {section.title}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className={`text-muted-foreground leading-relaxed${section.items ? " mb-4" : ""}`}>
+                {section.text}
+              </p>
+              {section.items && (
+                <ul className="list-disc pl-6 text-muted-foreground space-y-2">
+                  {section.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
+            </CardContent>
+          </Card>
+        ))}
 
         <Card className="mb-12">
           <CardHeader>
             <CardTitle className="flex items-center text-2xl">
-              <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg font-bold">8</span>
+              <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg font-bold">{PRIVACY_SECTIONS.length + 1}</span>
               Contacto
             </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Si tienes preguntas o inquietudes sobre nuestras políticas de privacidad, no dudes en contactarnos a través de:
+              {PRIVACY_CONTACT.intro}
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="flex items-center p-4 bg-muted/50 rounded-lg">
                 <Mail className="w-6 h-6 text-primary mr-3" />
                 <div>
                   <p className="font-semibold text-foreground">Correo electrónico:</p>
-                  <p className="text-muted-foreground">joaquincorram@gmail.com</p>
+                  <p className="text-muted-foreground">{PRIVACY_CONTACT.email}</p>
                 </div>
               </div>
               <div className="flex items-center p-4 bg-muted/50 rounded-lg">
                 <Phone className="w-6 h-6 text-primary mr-3" />
                 <div>
                   <p className="font-semibold text-foreground">Teléfono:</p>
-                  <p className="text-muted-foreground">3310881011</p>
+                  <p className="text-muted-foreground">{PRIVACY_CONTACT.phone}</p>
                 </div>
               </div>
             </div>
