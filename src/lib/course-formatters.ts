@@ -1,4 +1,14 @@
 import type { CourseModality, TimeSchedule } from "@/lib/api-course-types";
+import type { Course, ScheduleItem } from "@/lib/course-types";
+
+/**
+ * El grupo que se vende hoy (el que eligió el servidor en `nearestScheduledCourseId`):
+ * así la fecha que se muestra y el grupo al que se inscribe la compra siempre coinciden.
+ */
+export function findSelectedSchedule(course: Course): ScheduleItem | undefined {
+  const items = course.schedules?.items ?? [];
+  return items.find((item) => item.id === course.nearestScheduledCourseId) ?? items[0];
+}
 
 const MODALITY_LABELS: Record<CourseModality, string> = {
   SATURDAY: "Modalidad Sabatina",
