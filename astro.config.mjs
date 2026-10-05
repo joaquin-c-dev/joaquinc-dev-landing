@@ -16,7 +16,7 @@ const COURSE_SLUGS = apiCourses
   .map((course) => course.slug);
 
 // Paginas que no deben indexarse (coinciden con noindex en cada pagina).
-const NOINDEX_PATHS = ["/gracias-por-tu-compra", "/politicas-de-privacidad"];
+const NOINDEX_PATHS = ["/gracias-por-tu-compra", "/politicas-de-privacidad", "/pagar/"];
 
 // https://astro.build/config
 export default defineConfig({

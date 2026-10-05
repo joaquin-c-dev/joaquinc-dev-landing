@@ -1,6 +1,7 @@
 import AppShell from "@/components/app/AppShell";
 import type { NavCourse } from "@/contexts/CoursesNavContext";
 import type { Course } from "@/lib/course-types";
+import { useCheckout } from "@/components/checkout/CheckoutContext";
 import { getWorkshopContent } from "@/lib/workshop-content";
 import { formatPrice, formatWorkshopHeaderDate } from "@/lib/workshop-format";
 import {
@@ -18,7 +19,6 @@ import WorkshopHero from "./WorkshopHero";
 import WorkshopInstructor from "./WorkshopInstructor";
 import WorkshopLiveFormat from "./WorkshopLiveFormat";
 import WorkshopTestimonials from "./WorkshopTestimonials";
-import { useWorkshopCheckout } from "./useWorkshopCheckout";
 import { WS_FONT_UI } from "./workshop-styles";
 
 interface WorkshopPageProps {
@@ -29,8 +29,8 @@ interface WorkshopPageProps {
 
 /** Página de venta de un taller (`course.type === "WORKSHOP"`). */
 const WorkshopPage = ({ course, navCourses, pathname }: WorkshopPageProps) => {
-  const { checkoutUrl, openCheckout } = useWorkshopCheckout(course);
-  const onCheckout = checkoutUrl ? openCheckout : undefined;
+  const { openCheckout, canCheckout } = useCheckout();
+  const onCheckout = canCheckout ? openCheckout : undefined;
   const content = getWorkshopContent(course.slug);
 
   const hasDiscount =
