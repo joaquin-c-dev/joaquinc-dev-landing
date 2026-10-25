@@ -57,7 +57,7 @@ const HOME_COURSE_LISTINGS: Record<string, HomeCourseListing> = {
     color: "from-tech-cyan to-primary",
     bgColor: "bg-tech-cyan/10",
     borderColor: "border-tech-cyan/20",
-    features: ["Workflows y agent loop", "Sistemas multi-agente", "Proyecto integrador real"],
+    features: ["Agentes y herramientas", "MCP y webhooks", "Proyecto: resolución de tickets"],
   },
   "taller-spring-security-jwt": {
     icon: "shield",
