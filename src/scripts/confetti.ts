@@ -1,12 +1,13 @@
 /**
- * Confeti de celebración (página de gracias) en un `<canvas>`, sin librerías: dos ráfagas desde
- * las esquinas de abajo con los colores de la marca. Corre una vez (~4 s), no bloquea clics y se
- * borra al terminar. Con "reducir movimiento" no se lanza.
+ * Confeti de celebración (página de gracias) en un `<canvas>`, sin librerías: lluvia de papelitos
+ * desde arriba, a todo lo ancho, con los colores de la marca. Corre una vez (~5 s), no bloquea
+ * clics y se borra al terminar. Con "reducir movimiento" no se lanza.
  */
 const COLORS = ["#ffc66d", "#3ccf7a", "#2A9DF4", "#7B5CF0", "#D97757", "#eceef1"];
-const DURATION_MS = 4200;
-const GRAVITY = 0.32;
-const DRAG = 0.985;
+const DURATION_MS = 5500;
+/** Caen acelerando hasta una velocidad máxima, como papel (no como piedra). */
+const GRAVITY = 0.06;
+const MAX_FALL_SPEED = 6.5;
 
 interface Piece {
   x: number;
@@ -17,8 +18,9 @@ interface Piece {
   color: string;
   rotation: number;
   spin: number;
-  /** Fase del "aleteo": hace que cada papelito se vea girar en 3D. */
+  /** Fase del "aleteo": hace que cada papelito se vea girar en 3D y se mece de lado a lado. */
   wobble: number;
+  sway: number;
   round: boolean;
 }
 
@@ -39,26 +41,22 @@ export function launchConfetti(): void {
   canvas.height = height * ratio;
   context.scale(ratio, ratio);
 
-  // Menos papelitos en celular para que no se sature la pantalla ni el procesador.
-  const perBurst = width < 640 ? 70 : 130;
-  const burst = (originX: number, direction: 1 | -1): Piece[] =>
-    Array.from({ length: perBurst }, () => {
-      const angle = (-Math.PI / 2) + direction * (Math.PI / 9 + Math.random() * (Math.PI / 4));
-      const speed = 11 + Math.random() * 11;
-      return {
-        x: originX,
-        y: height + 10,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed * (height / 800 + 0.35),
-        size: 6 + Math.random() * 6,
-        color: COLORS[Math.floor(Math.random() * COLORS.length)],
-        rotation: Math.random() * Math.PI,
-        spin: (Math.random() - 0.5) * 0.3,
-        wobble: Math.random() * Math.PI * 2,
-        round: Math.random() < 0.25,
-      };
-    });
-  const pieces = [...burst(width * 0.08, 1), ...burst(width * 0.92, -1)];
+  // Menos papelitos en celular para que no se sature la pantalla ni el procesador. Empiezan a
+  // distintas alturas sobre la pantalla para que caigan escalonados, no todos de golpe.
+  const count = width < 640 ? 120 : 220;
+  const pieces: Piece[] = Array.from({ length: count }, () => ({
+    x: Math.random() * width,
+    y: -20 - Math.random() * height * 0.6,
+    vx: (Math.random() - 0.5) * 1.2,
+    vy: 2.5 + Math.random() * 3,
+    size: 6 + Math.random() * 6,
+    color: COLORS[Math.floor(Math.random() * COLORS.length)],
+    rotation: Math.random() * Math.PI,
+    spin: (Math.random() - 0.5) * 0.2,
+    wobble: Math.random() * Math.PI * 2,
+    sway: 0.6 + Math.random() * 1.2,
+    round: Math.random() < 0.25,
+  }));
 
   const start = performance.now();
   let last = start;
@@ -71,13 +69,11 @@ export function launchConfetti(): void {
     const fade = Math.min(1, (DURATION_MS - elapsed) / 1000);
     context.clearRect(0, 0, width, height);
     for (const piece of pieces) {
-      const drag = DRAG ** dt;
-      piece.vx *= drag;
-      piece.vy = piece.vy * drag + GRAVITY * dt;
-      piece.x += piece.vx * dt;
+      piece.vy = Math.min(piece.vy + GRAVITY * dt, MAX_FALL_SPEED);
+      piece.x += (piece.vx + Math.sin(piece.wobble) * piece.sway) * dt;
       piece.y += piece.vy * dt;
       piece.rotation += piece.spin * dt;
-      piece.wobble += 0.12 * dt;
+      piece.wobble += 0.08 * dt;
       context.save();
       context.globalAlpha = Math.max(0, fade);
       context.translate(piece.x, piece.y);
