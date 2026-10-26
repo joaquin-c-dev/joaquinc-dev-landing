@@ -164,8 +164,12 @@ const AcercaDeMi = ({ navCourses = [] }: AcercaDeMiProps) => {
                 height={560}
                 className="relative aspect-[46/56] w-[82%] rounded-[22px] border border-white/10 object-cover"
               />
-              {/* Empresas en las que he trabajado, encimadas sobre la foto. */}
-              <div className="home-pop absolute -bottom-8 right-0 w-[62%] rounded-xl border border-white/10 bg-[#14171c]/95 p-3.5 shadow-[0_30px_70px_-30px_rgba(0,0,0,0.85)] backdrop-blur">
+              {/* Empresas en las que he trabajado, encimadas sobre la foto. Entra justo después de la
+                  foto (en el inicio `home-pop` espera 1.1 s a que se escriba el código; aquí no hay código). */}
+              <div
+                style={{ animationDelay: "350ms" }}
+                className="home-pop absolute -bottom-8 right-0 w-[62%] rounded-xl border border-white/10 bg-[#14171c]/95 p-3.5 shadow-[0_30px_70px_-30px_rgba(0,0,0,0.85)] backdrop-blur"
+              >
                 <p className="px-0.5 text-[11.5px] font-medium text-[#9da3ad]">Empresas con las que he trabajado</p>
                 <ul className="mt-2.5 grid grid-cols-2 gap-2">
                   {COMPANIES.map((company) => (
