@@ -24,7 +24,8 @@ export function buildInstructor(siteUrl: string): JsonLd {
     "@id": `${siteUrl}#joaquin-coronado`,
     name: "Joaquín Coronado Ramírez",
     alternateName: "Joaquín Coronado",
-    jobTitle: "Head of Backend",
+    jobTitle: "Líder Técnico",
+    worksFor: { "@type": "Organization", name: "Avena Health", url: "https://avena.io/" },
     url: new URL("/acerca-de-mi", siteUrl).href,
     image: new URL(ASSETS.joaquinProfile, siteUrl).href,
     sameAs: SOCIAL_PROFILES,
@@ -44,8 +45,11 @@ function buildOrganization(siteUrl: string): JsonLd {
   };
 }
 
-/** Home: organización, sitio e instructor. */
-export function buildHomeJsonLd(siteUrl: string): JsonLd {
+/**
+ * Home: organización, sitio, instructor y la lista de cursos activos. La `ItemList` con las URLs
+ * de cada curso (que ya tienen su `Course`) es lo que Google usa para el carrusel de cursos.
+ */
+export function buildHomeJsonLd(siteUrl: string, courses: Course[]): JsonLd {
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -59,6 +63,15 @@ export function buildHomeJsonLd(siteUrl: string): JsonLd {
         publisher: { "@id": `${siteUrl}#organizacion` },
       },
       buildInstructor(siteUrl),
+      {
+        "@type": "ItemList",
+        "@id": `${siteUrl}#cursos`,
+        itemListElement: courses.map((course, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          url: new URL(`/${course.slug}`, siteUrl).href,
+        })),
+      },
     ],
   };
 }

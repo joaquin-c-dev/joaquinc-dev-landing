@@ -28,7 +28,7 @@ export const WS_LINK = "text-[#ffc66d] transition-colors hover:text-[#ffd899]";
  */
 export const WS_CTA =
   "inline-flex min-h-[44px] items-center font-bold text-white " +
-  "bg-[linear-gradient(100deg,#2A9DF4,#7B5CF0)] shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] " +
+  "bg-[linear-gradient(100deg,#1877D0,#7B5CF0)] shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] " +
   "transition-[filter] duration-150 hover:brightness-110 " +
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8FC8FF]";
 

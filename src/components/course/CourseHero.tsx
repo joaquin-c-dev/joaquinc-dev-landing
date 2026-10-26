@@ -105,7 +105,7 @@ const CourseHero = ({
                   <span className="text-primary font-medium">
                     Joaquín Coronado
                   </span>{" "}
-                  • Head of Backend
+                  • Líder Técnico en Avena Health
                 </div>
               </div>
 

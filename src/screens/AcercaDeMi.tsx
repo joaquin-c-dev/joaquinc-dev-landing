@@ -12,7 +12,8 @@ const AcercaDeMiContent = () => {
   const experiences = [
     {
       company: "Avena Health",
-      role: "Head of Backend Development",
+      companyUrl: "https://avena.io/",
+      role: "Líder Técnico",
       period: "Mayo 2024 - Actual",
       location: "Guadalajara, México",
       type: "current",
@@ -112,7 +113,16 @@ const AcercaDeMiContent = () => {
                   </h1>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
                     <p className="text-xl text-muted-foreground">
-                      Head of Backend Development • Course Instructor
+                      Líder Técnico en{" "}
+                      <a
+                        href="https://avena.io/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline"
+                      >
+                        Avena Health
+                      </a>{" "}
+                      • Instructor
                     </p>
                     <Button 
                       variant="outline" 
@@ -143,7 +153,7 @@ const AcercaDeMiContent = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
                 <Card className="p-6 text-center border-primary/20 hover:border-primary/40 transition-all">
                   <Building2 className="w-8 h-8 text-primary mx-auto mb-3" />
-                  <div className="text-2xl font-bold text-primary mb-1">Head of Backend</div>
+                  <div className="text-2xl font-bold text-primary mb-1">Líder Técnico</div>
                   <div className="text-sm text-muted-foreground">Avena Health</div>
                 </Card>
                 <Card className="p-6 text-center border-primary/20 hover:border-primary/40 transition-all">
@@ -183,7 +193,15 @@ const AcercaDeMiContent = () => {
                               <Badge variant="outline">Fortune 500</Badge>
                             )}
                           </div>
-                          <div className="text-primary font-medium mb-1">{exp.company}</div>
+                          <div className="text-primary font-medium mb-1">
+                            {"companyUrl" in exp && exp.companyUrl ? (
+                              <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                {exp.company}
+                              </a>
+                            ) : (
+                              exp.company
+                            )}
+                          </div>
                           <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                             <span>{exp.period}</span>
                             <div className="flex items-center gap-1">

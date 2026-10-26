@@ -1,5 +1,12 @@
-import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { useCoursesNav } from "@/contexts/CoursesNavContext";
+import { ASSETS } from "@/lib/assets";
+
+/** Redes con su logo oficial a color (archivos en public/images/logos). */
+const SOCIAL_LINKS = [
+  { name: "Facebook", url: "https://www.facebook.com/profile.php?id=61579829160975", logo: "/images/logos/facebook.svg" },
+  { name: "Instagram", url: "https://instagram.com/joaquinc.dev", logo: "/images/logos/instagram.svg" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/joaquincr/", logo: "/images/logos/linkedin.svg" },
+];
 
 const SITE_LINKS = [
   { name: "Inicio", path: "/" },
@@ -17,11 +24,14 @@ const Footer = () => {
   return (
     <footer className="py-8 bg-course-darker border-t border-primary/20">
       <div className="container mx-auto px-6">
+        <a href="/" aria-label="joaquinc.dev, ir al inicio" className="mx-auto mb-8 block w-fit">
+          <img src={ASSETS.brandLogo} alt="" width={108} height={96} loading="lazy" className="h-24 w-auto" />
+        </a>
         <nav aria-label="Cursos y páginas" className="mb-8 flex flex-col items-center gap-3 text-sm">
           <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             {SITE_LINKS.map((link) => (
               <li key={link.path}>
-                <a href={link.path} className="text-muted-foreground hover:text-primary transition-colors">
+                <a href={link.path} className="inline-block py-1 text-muted-foreground hover:text-primary transition-colors">
                   {link.name}
                 </a>
               </li>
@@ -31,7 +41,7 @@ const Footer = () => {
             <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
               {courses.map((course) => (
                 <li key={course.slug}>
-                  <a href={`/${course.slug}`} className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href={`/${course.slug}`} className="inline-block py-1 text-muted-foreground hover:text-primary transition-colors">
                     {course.name}
                   </a>
                 </li>
@@ -43,36 +53,29 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4 text-foreground">Sígueme en mis redes sociales</h3>
 
           <div className="flex justify-center gap-6 mb-6">
-            <a
-              href="https://www.facebook.com/profile.php?id=61579829160975"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors duration-300 group"
-            >
-              <Facebook className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
-            </a>
-
-            <a
-              href="https://instagram.com/joaquinc.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors duration-300 group"
-            >
-              <Instagram className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/joaquincr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors duration-300 group"
-            >
-              <Linkedin className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
-            </a>
+            {SOCIAL_LINKS.map((social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                className="w-12 h-12 bg-white/[0.06] rounded-full flex items-center justify-center hover:bg-white/[0.12] transition-colors duration-300 group"
+              >
+                <img
+                  src={social.logo}
+                  alt=""
+                  width={26}
+                  height={26}
+                  loading="lazy"
+                  className="w-[26px] h-[26px] group-hover:scale-110 transition-transform duration-300"
+                />
+              </a>
+            ))}
           </div>
 
           <div className="text-sm text-muted-foreground">
-            © 2026 Joaquín C. - Java Developer | Todos los derechos reservados
+            © 2026 Joaquín Coronado - Líder Técnico en Avena Health | Todos los derechos reservados
           </div>
         </div>
       </div>

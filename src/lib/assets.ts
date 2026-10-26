@@ -7,6 +7,8 @@
  * en lugar de un string URL).
  */
 export const ASSETS = {
+  /** Logo de la marca (cara + "joaquinc.dev" curvo), crema sobre transparente: solo para fondos oscuros. */
+  brandLogo: "/images/joaquincdev-logo.webp",
   joaquinProfile: "/images/joaquin-profile.jpg",
   whatsappLogo: "/images/whatsapp-logo.svg",
   intellijLogo: "/images/intellij-logo.png",

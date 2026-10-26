@@ -69,9 +69,10 @@ export interface WorkshopContent {
 export const INSTRUCTOR_PROFILE = {
   name: "Joaquín Coronado",
   photo: ASSETS.joaquinProfile,
-  tagline: "Head of Backend · +10 años en backend Java",
-  bio: "Head of Backend con más de 10 años construyendo sistemas en Java. En el taller te enseño lo que uso en producción, no solo lo que dice la documentación.",
+  tagline: "Líder Técnico en Avena Health · +10 años en backend Java",
+  bio: "Líder Técnico en Avena Health, con más de 10 años construyendo sistemas en Java. En el taller te enseño lo que uso en producción, no solo lo que dice la documentación.",
   linkedinUrl: "https://www.linkedin.com/in/joaquincr/",
+  company: { name: "Avena Health", url: "https://avena.io/" },
 } as const;
 
 export const WHATSAPP_NUMBER = "5213331071527";

@@ -12,6 +12,7 @@ import {
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useCoursesNav } from "@/contexts/CoursesNavContext";
 import { useActivePathname } from "@/contexts/PathnameContext";
+import { ASSETS } from "@/lib/assets";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -100,6 +101,10 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-center h-16 py-2">
+          <a href="/" aria-label="joaquinc.dev, ir al inicio" className="absolute left-6 top-2">
+            <img src={ASSETS.brandLogo} alt="" width={54} height={48} className="h-12 w-auto" />
+          </a>
+
           {/* Centered Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.slice(0, 3).map((item) => (
@@ -169,7 +174,13 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden absolute right-6">
-            <Button variant="ghost" size="sm" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <Button
+              variant="ghost"
+              size="sm"
+              aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
           </div>
