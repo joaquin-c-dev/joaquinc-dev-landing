@@ -32,31 +32,32 @@ const NEXT_STEPS = [
  */
 const GraciasPorTuCompra = () => (
   <>
-    <main id="contenido" className="relative overflow-hidden">
+    {/* Todo en una pantalla: contenido centrado en la altura de la ventana. */}
+    <main id="contenido" className="relative flex min-h-[100svh] items-center overflow-hidden">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(55%_60%_at_50%_0%,rgba(60,207,122,0.12),transparent_70%)]"
       />
-      <div className={`${HOME_CONTAINER} relative max-w-[760px] py-20 text-center md:py-28`}>
-        <div {...rise(0)} className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#3ccf7a]/15 ring-1 ring-[#3ccf7a]/40">
-          <Check className="h-8 w-8 text-[#7ee2a8]" strokeWidth={2.5} aria-hidden />
+      <div className={`${HOME_CONTAINER} relative max-w-[1000px] py-10 text-center`}>
+        <div {...rise(0)} className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#3ccf7a]/15 ring-1 ring-[#3ccf7a]/40">
+          <Check className="h-7 w-7 text-[#7ee2a8]" strokeWidth={2.5} aria-hidden />
         </div>
-        <p {...rise(60)} className={`${HOME_EYEBROW} mt-6`}>
+        <p {...rise(60)} className={`${HOME_EYEBROW} mt-5`}>
           {"// pago confirmado"}
         </p>
         <h1
           {...rise(100)}
-          className="mt-4 text-[clamp(34px,7vw,56px)] font-bold leading-[1.05] tracking-[-0.03em] [text-wrap:balance]"
+          className="mt-3 text-[clamp(32px,6vw,52px)] font-bold leading-[1.05] tracking-[-0.03em] [text-wrap:balance]"
         >
           ¡Listo, ya tienes tu lugar!
         </h1>
-        <p {...rise(140)} className={`mx-auto mt-5 max-w-[560px] text-[17px] leading-[1.6] ${HOME_MUTED}`}>
+        <p {...rise(140)} className={`mx-auto mt-4 max-w-[560px] text-[16.5px] leading-[1.55] ${HOME_MUTED}`}>
           Tu inscripción quedó registrada. Gracias por tu confianza: me da mucho gusto tenerte en el grupo.
         </p>
 
-        <ol {...rise(180)} className="mt-12 space-y-3 text-left">
+        <ol {...rise(180)} className="mt-9 grid gap-3 text-left md:grid-cols-3">
           {NEXT_STEPS.map(({ icon: Icon, title, text }, index) => (
-            <li key={title} className="flex gap-4 rounded-[16px] border border-white/[0.08] bg-[#12151a] p-5">
+            <li key={title} className="flex gap-4 rounded-[16px] border border-white/[0.08] bg-[#12151a] p-4 md:flex-col md:gap-3 md:p-5">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#ffc66d]/10 text-[#ffc66d]">
                 <Icon className="h-5 w-5" aria-hidden />
               </span>
@@ -64,14 +65,14 @@ const GraciasPorTuCompra = () => (
                 <span className="block font-['JetBrains_Mono',ui-monospace,monospace] text-[12px] text-[#8b919b]">
                   paso {index + 1}
                 </span>
-                <span className="mt-0.5 block text-[17px] font-semibold text-white">{title}</span>
-                <span className={`mt-1 block text-[15px] leading-[1.55] ${HOME_MUTED}`}>{text}</span>
+                <span className="mt-0.5 block text-[16px] font-semibold text-white">{title}</span>
+                <span className={`mt-1 block text-[14px] leading-[1.5] ${HOME_MUTED}`}>{text}</span>
               </span>
             </li>
           ))}
         </ol>
 
-        <div {...rise(220)} className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+        <div {...rise(220)} className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
           <a
             href={QUESTION_URL}
             target="_blank"
