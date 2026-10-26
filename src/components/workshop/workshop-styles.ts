@@ -6,9 +6,9 @@
 
 export const WS_CONTAINER = "mx-auto w-full max-w-[1160px] px-6";
 
-export const WS_FONT_UI = "font-['Geist',ui-sans-serif,system-ui,sans-serif]";
-export const WS_FONT_MONO = "font-['Geist_Mono',ui-monospace,monospace]";
-export const WS_FONT_CODE = "font-['JetBrains_Mono',ui-monospace,monospace]";
+export const WS_FONT_UI = "font-['Geist_Variable',ui-sans-serif,system-ui,sans-serif]";
+export const WS_FONT_MONO = "font-['Geist_Mono_Variable',ui-monospace,monospace]";
+export const WS_FONT_CODE = "font-['JetBrains_Mono_Variable',ui-monospace,monospace]";
 
 /** Banda alterna de sección. */
 export const WS_BAND = "bg-[#0e1014] border-y border-white/[0.07]";

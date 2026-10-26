@@ -36,7 +36,7 @@ const PrivacyPolicy = ({ navCourses = [] }: PrivacyPolicyProps) => (
                     href={`#${toAnchor(title)}`}
                     className="-ml-px block border-l border-transparent py-1.5 pl-4 text-[14px] text-[#9da3ad] transition-colors hover:border-[#ffc66d] hover:text-[#ffc66d]"
                   >
-                    <span className="mr-2 font-['JetBrains_Mono',ui-monospace,monospace] text-[12px] text-[#8b919b]">
+                    <span className="mr-2 font-['JetBrains_Mono_Variable',ui-monospace,monospace] text-[12px] text-[#8b919b]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     {title}
@@ -66,7 +66,7 @@ const PrivacyPolicy = ({ navCourses = [] }: PrivacyPolicyProps) => (
             {PRIVACY_SECTIONS.map((section, index) => (
               <section key={section.title} id={toAnchor(section.title)} className="scroll-mt-28">
                 <h2 className="flex items-baseline gap-3 text-[21px] font-semibold tracking-[-0.015em] text-white">
-                  <span className="font-['JetBrains_Mono',ui-monospace,monospace] text-[13px] font-normal text-[#ffc66d]">
+                  <span className="font-['JetBrains_Mono_Variable',ui-monospace,monospace] text-[13px] font-normal text-[#ffc66d]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   {section.title}
@@ -89,7 +89,7 @@ const PrivacyPolicy = ({ navCourses = [] }: PrivacyPolicyProps) => (
 
             <section id="contacto" className="scroll-mt-28 rounded-[16px] border border-white/[0.08] bg-[#12151a] p-6">
               <h2 className="flex items-baseline gap-3 text-[21px] font-semibold tracking-[-0.015em] text-white">
-                <span className="font-['JetBrains_Mono',ui-monospace,monospace] text-[13px] font-normal text-[#ffc66d]">
+                <span className="font-['JetBrains_Mono_Variable',ui-monospace,monospace] text-[13px] font-normal text-[#ffc66d]">
                   {String(PRIVACY_SECTIONS.length + 1).padStart(2, "0")}
                 </span>
                 Contacto

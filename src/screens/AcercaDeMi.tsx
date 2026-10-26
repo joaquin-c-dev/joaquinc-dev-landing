@@ -228,7 +228,7 @@ const AcercaDeMi = ({ navCourses = [] }: AcercaDeMiProps) => {
                       experience.current ? "bg-[#3ccf7a]" : "bg-[#56A8F5]"
                     }`}
                   />
-                  <p className="font-['JetBrains_Mono',ui-monospace,monospace] text-[12.5px] text-[#8b919b]">
+                  <p className="font-['JetBrains_Mono_Variable',ui-monospace,monospace] text-[12.5px] text-[#8b919b]">
                     {experience.period}
                   </p>
                   <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -290,7 +290,7 @@ const AcercaDeMi = ({ navCourses = [] }: AcercaDeMiProps) => {
               {SKILLS.map((skill) => (
                 <li
                   key={skill}
-                  className="rounded-lg border border-white/10 bg-white/[0.03] px-3.5 py-2 font-['JetBrains_Mono',ui-monospace,monospace] text-[13.5px] text-[#d5d8dd]"
+                  className="rounded-lg border border-white/10 bg-white/[0.03] px-3.5 py-2 font-['JetBrains_Mono_Variable',ui-monospace,monospace] text-[13.5px] text-[#d5d8dd]"
                 >
                   {skill}
                 </li>

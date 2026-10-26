@@ -16,7 +16,7 @@ const initials = (name: string) =>
     .toUpperCase();
 
 const Stars = ({ count }: { count: number }) => (
-  <span className="flex gap-0.5" aria-label={`${count} de 5 estrellas`}>
+  <span role="img" className="flex gap-0.5" aria-label={`${count} de 5 estrellas`}>
     {Array.from({ length: 5 }, (_, index) => (
       <Star
         key={index}

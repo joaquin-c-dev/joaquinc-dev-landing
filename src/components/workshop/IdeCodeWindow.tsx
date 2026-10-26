@@ -60,7 +60,7 @@ const IdeCodeWindow = ({ showcase }: { showcase: WorkshopCodeShowcase }) => {
       >
         {showcase.lines.map((line, index) => (
           <div key={index} className="flex whitespace-pre">
-            <span className="w-11 shrink-0 select-none pr-[18px] text-right text-[#4B5059]">
+            <span className="w-11 shrink-0 select-none pr-[18px] text-right text-[#8b919b]" aria-hidden>
               {index + 1}
             </span>
             <span>
