@@ -74,9 +74,9 @@ const EXPERIENCES: Experience[] = [
   },
 ];
 
-/** Logos oficiales (Wikimedia Commons, simple-icons y el sitio de Avena) sobre fondo blanco. */
+/** Logos oficiales (Wikimedia Commons y Avena Health) sobre fondo blanco. */
 const COMPANIES = [
-  { name: "Avena Health", logo: "/images/companies/avena-health.svg", logoClass: "h-6", label: "Avena Health" },
+  { name: "Avena Health", logo: "/images/companies/avena-health.png", logoClass: "h-6" },
   { name: "Capital One", logo: "/images/companies/capital-one.svg", logoClass: "h-6" },
   { name: "GoDaddy", logo: "/images/companies/godaddy.svg", logoClass: "h-6" },
   { name: "Globant", logo: "/images/companies/globant.svg", logoClass: "h-5" },
@@ -172,14 +172,11 @@ const AcercaDeMi = ({ navCourses = [] }: AcercaDeMiProps) => {
                     <li key={company.name} className="flex h-12 items-center justify-center rounded-lg bg-white px-3">
                       <img
                         src={company.logo}
-                        alt={company.label ? "" : company.name}
+                        alt={company.name}
                         width={120}
                         height={32}
                         className={`${company.logoClass} w-auto max-w-full object-contain`}
                       />
-                      {company.label && (
-                        <span className="ml-1.5 whitespace-nowrap text-[13px] font-bold text-[#13243f]">{company.label}</span>
-                      )}
                     </li>
                   ))}
                 </ul>
