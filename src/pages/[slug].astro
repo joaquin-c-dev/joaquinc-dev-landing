@@ -3,7 +3,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCourseBySlug, getNavCourses } from "@/lib/courses";
 import { getCourseApiBaseUrl } from "@/lib/course-api";
 import { formatSeoKeywords } from "@/lib/course-formatters";
-import CoursePage from "@/screens/CoursePage";
+import WorkshopPage from "@/components/workshop/WorkshopPage";
+import CheckoutTrigger from "@/components/checkout/CheckoutTrigger";
+import { getFallbackCheckoutUrl } from "@/components/checkout/CheckoutContext";
+import { getQuestionWhatsappMessage } from "@/lib/workshop-whatsapp";
 import HomeNavigation from "@/components/home/HomeNavigation";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CourseContent from "@/components/coursepage/CourseContent";
@@ -36,7 +39,7 @@ const jsonLd =
     : buildCourseJsonLd(course, pageUrl, siteUrl);
 
 // Cursos: diseño del inicio, como HTML sin hidratar más islas (menú, precio, WhatsApp).
-// Talleres: siguen con su propia página (`CoursePage` → `WorkshopPage`).
+// Talleres: su propia página de venta, también sin hidratar (islas: pago y WhatsApp).
 const isCourse = course.type !== "WORKSHOP";
 const now = Date.now();
 const groups = (course.schedules?.items ?? [])
@@ -88,17 +91,22 @@ const apiBaseUrl = getCourseApiBaseUrl();
       <WhatsAppButton client:idle autoOpen={false} message={`Hola, tengo una duda sobre el curso ${course.title}`} />
     </div>
   ) : (
-    <CoursePage
-      client:load
-      course={course}
-      navCourses={navCourses}
-      pathname={Astro.url.pathname}
-      apiBaseUrl={apiBaseUrl}
-    />
+    <div class={`${WS_FONT_UI} min-h-screen overflow-x-clip bg-[#0b0d10] text-[#eceef1] antialiased`}>
+      {/* Hay forma de pagar con el formulario (API) o con la liga de Stripe. */}
+      <WorkshopPage
+        course={course}
+        navCourses={navCourses}
+        canCheckout={Boolean(apiBaseUrl) || Boolean(getFallbackCheckoutUrl(course))}
+      />
+      <CheckoutTrigger client:load course={course} apiBaseUrl={apiBaseUrl} />
+      <WhatsAppButton client:idle autoOpen={false} message={getQuestionWhatsappMessage(course.title)} />
+    </div>
   )}
-  <!-- Sin efecto en talleres: solo actúan si la página tiene `[data-reveal]` o la barra fija. -->
+  <!-- Cada script solo actúa si la página tiene sus elementos (reveal, barra fija, cuenta
+       regresiva o links de WhatsApp del taller). -->
   <script>
     import "@/scripts/home-reveal";
     import "@/scripts/course-sticky";
+    import "@/scripts/workshop-page";
   </script>
 </BaseLayout>

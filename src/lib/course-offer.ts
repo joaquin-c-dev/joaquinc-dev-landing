@@ -11,7 +11,7 @@ const COURSE_LOGOS: Record<string, string> = {
   "java-intermedio": "/images/logos/spring.svg",
   "desarrollo-asistido-agentes-ai": "/images/logos/claude.svg",
   "arquitectura-agentica-ai": "/images/logos/claude-mascot.svg",
-  "taller-spring-security-jwt": "/images/logos/spring.svg",
+  "taller-spring-security-jwt": "/images/logos/spring-security.svg",
 };
 
 export const getCourseLogo = (slug: string): string | undefined => COURSE_LOGOS[slug];
