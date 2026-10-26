@@ -44,7 +44,7 @@ const WorkshopAudience = ({ audience, prerequisites }: WorkshopAudienceProps) =>
               {courseLink && (
                 <>
                   {" "}¿Aún no llegas ahí?{" "}
-                  <a href={`/${courseLink.courseSlug}`} className={WS_LINK}>
+                  <a href={`/${courseLink.courseSlug}`} className={`${WS_LINK} underline underline-offset-2`}>
                     {courseLink.label} →
                   </a>
                 </>

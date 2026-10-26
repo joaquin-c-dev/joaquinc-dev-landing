@@ -106,7 +106,7 @@ export const ALUMNI_TESTIMONIALS = {
     course: "Java Intermedio · Claude Code",
     nps: 9,
     date: "sep 2026",
-    avatarColor: "#e8710a",
+    avatarColor: "#b35300",
   },
   mario: {
     quote: "Confianza, certeza y dominio del tema.",
@@ -141,7 +141,7 @@ export const ALUMNI_TESTIMONIALS = {
     course: "Taller de Spring Security con JWT",
     nps: 10,
     date: "oct 2026",
-    avatarColor: "#12a4af",
+    avatarColor: "#0b7d86",
   },
   dario: {
     quote:
@@ -159,7 +159,7 @@ export const ALUMNI_TESTIMONIALS = {
     course: "Taller de Spring Security con JWT",
     nps: 10,
     date: "oct 2026",
-    avatarColor: "#f29900",
+    avatarColor: "#9c5d00",
   },
   jaime: {
     quote: "Curso muy comprensible y detallado.",
@@ -167,7 +167,7 @@ export const ALUMNI_TESTIMONIALS = {
     course: "Taller de Spring Security con JWT",
     nps: 10,
     date: "oct 2026",
-    avatarColor: "#5b6ee1",
+    avatarColor: "#4f5fd6",
   },
   // No dio permiso de nombre: se publica anónima, solo con su respuesta a "lo más valioso".
   anonymousJavaIntermedio: {

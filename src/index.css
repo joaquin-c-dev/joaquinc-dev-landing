@@ -157,14 +157,15 @@ All colors MUST be HSL.
     transform: none;
   }
 
-  /* Hero: entrada al cargar, solo CSS (no espera a ningún script). */
+  /* Hero: entrada al cargar, solo CSS (no espera a ningún script). Solo se desliza, sin
+     desvanecer: el texto es visible desde el primer pintado y no retrasa el LCP. */
   [data-rise] {
     animation: home-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: var(--reveal-delay, 0ms);
   }
 
   @keyframes home-rise {
-    from { opacity: 0; transform: translateY(20px); }
+    from { transform: translateY(14px); }
   }
 
   /* Editor del hero: las líneas de código aparecen una tras otra. */
