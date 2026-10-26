@@ -31,7 +31,7 @@ const Footer = () => {
           <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             {SITE_LINKS.map((link) => (
               <li key={link.path}>
-                <a href={link.path} className="inline-block py-1 text-muted-foreground hover:text-primary transition-colors">
+                <a href={link.path} className="inline-block py-1 text-muted-foreground hover:text-[#ffc66d] transition-colors">
                   {link.name}
                 </a>
               </li>
@@ -41,7 +41,7 @@ const Footer = () => {
             <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
               {courses.map((course) => (
                 <li key={course.slug}>
-                  <a href={`/${course.slug}`} className="inline-block py-1 text-muted-foreground hover:text-primary transition-colors">
+                  <a href={`/${course.slug}`} className="inline-block py-1 text-muted-foreground hover:text-[#ffc66d] transition-colors">
                     {course.name}
                   </a>
                 </li>

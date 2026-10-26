@@ -123,7 +123,7 @@ export function buildCourseJsonLd(course: Course, pageUrl: string, siteUrl: stri
         name: course.title,
         description: course.seo.description || course.description,
         url: pageUrl,
-        image: course.seo.ogImage,
+        image: course.seo.ogImage || new URL("/images/og-home.jpg", siteUrl).href,
         inLanguage: "es-MX",
         provider: buildOrganization(siteUrl),
         offers:
@@ -140,6 +140,14 @@ export function buildCourseJsonLd(course: Course, pageUrl: string, siteUrl: stri
         hasCourseInstance: instances,
       },
       buildInstructor(siteUrl),
+      // Migas: Inicio › curso. Google las muestra en lugar de la URL en los resultados.
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Inicio", item: siteUrl },
+          { "@type": "ListItem", position: 2, name: course.title, item: pageUrl },
+        ],
+      },
     ],
   };
 }
