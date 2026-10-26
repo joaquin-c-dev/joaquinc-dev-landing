@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import type { MouseEvent } from "react";
 import { useLocation, useNavigate } from "@/lib/router";
-import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
@@ -174,15 +173,19 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden absolute right-6">
-            <Button
-              variant="ghost"
-              size="sm"
+            <button
+              type="button"
               aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`inline-flex h-11 w-11 items-center justify-center rounded-[10px] border transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffc66d]/60 ${
+                isMobileMenuOpen
+                  ? "border-[#ffc66d]/40 bg-[#ffc66d]/10 text-[#ffc66d]"
+                  : "border-white/10 bg-white/[0.04] text-[#eceef1] hover:border-[#ffc66d]/40 hover:text-[#ffc66d]"
+              }`}
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </Button>
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </div>
 
