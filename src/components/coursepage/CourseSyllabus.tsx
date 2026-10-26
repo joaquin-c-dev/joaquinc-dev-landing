@@ -54,7 +54,7 @@ const CourseSyllabus = ({ sections, hours, summary }: CourseSyllabusProps) => {
 
         <div
           {...reveal(100)}
-          className="overflow-hidden rounded-xl border border-[#393B40] bg-[#1E1F22] font-['JetBrains_Mono',ui-monospace,monospace]"
+          className="overflow-hidden rounded-xl border border-[#393B40] bg-[#1E1F22] font-['JetBrains_Mono_Variable',ui-monospace,monospace]"
         >
           <div className="flex items-center justify-between border-b border-black/30 bg-[#2B2D30] px-4 py-2.5 text-[12.5px] text-[#9DA0A8]">
             <span className="inline-flex items-center gap-2">
@@ -75,7 +75,7 @@ const CourseSyllabus = ({ sections, hours, summary }: CourseSyllabusProps) => {
                       className="h-4 w-4 shrink-0 text-[#6F737A] transition-transform group-open:rotate-90"
                       aria-hidden
                     />
-                    <span className="min-w-0 flex-1 font-['Geist',ui-sans-serif,system-ui,sans-serif]">
+                    <span className="min-w-0 flex-1 font-['Geist_Variable',ui-sans-serif,system-ui,sans-serif]">
                       <span className="block text-[12px] text-[#8b919b]">
                         {String(index + 1).padStart(2, "0")}-{toFileName(module.title)}
                       </span>
@@ -87,7 +87,7 @@ const CourseSyllabus = ({ sections, hours, summary }: CourseSyllabusProps) => {
                       {module.duration}
                     </span>
                   </summary>
-                  <ul className="space-y-2 pb-4 pl-11 pr-4 font-['Geist',ui-sans-serif,system-ui,sans-serif] text-[14.5px] text-[#c9cdd3]">
+                  <ul className="space-y-2 pb-4 pl-11 pr-4 font-['Geist_Variable',ui-sans-serif,system-ui,sans-serif] text-[14.5px] text-[#c9cdd3]">
                     {module.specificTopics.map((topic) => (
                       <li key={topic} className="flex gap-2.5">
                         <span aria-hidden className="text-[#6AAB73]">

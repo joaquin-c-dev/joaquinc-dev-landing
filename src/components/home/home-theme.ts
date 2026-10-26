@@ -13,7 +13,7 @@ export const HOME_CONTAINER = "mx-auto w-full max-w-[1200px] px-5 md:px-8";
 
 /** Etiqueta de sección estilo comentario de código: `// 01 — el problema`. */
 export const HOME_EYEBROW =
-  "font-['JetBrains_Mono',ui-monospace,monospace] text-[12.5px] tracking-[0.02em] text-[#ffc66d]";
+  "font-['JetBrains_Mono_Variable',ui-monospace,monospace] text-[12.5px] tracking-[0.02em] text-[#ffc66d]";
 
 export const HOME_H2 =
   "text-[clamp(30px,4.4vw,52px)] font-bold leading-[1.05] tracking-[-0.03em] [text-wrap:balance]";

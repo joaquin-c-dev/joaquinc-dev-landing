@@ -112,7 +112,7 @@ const CourseHero = ({ course, nextGroup }: CourseHeroProps) => {
             </div>
           ) : (
             <>
-              <p className="mb-3 font-['JetBrains_Mono',ui-monospace,monospace] text-[12px] text-[#7d838d]">
+              <p className="mb-3 font-['JetBrains_Mono_Variable',ui-monospace,monospace] text-[12px] text-[#7d838d]">
                 Lo que escribes en clase ↓
               </p>
               <HomeCodeEditor snippet={getCourseSnippet(course.slug)} />
