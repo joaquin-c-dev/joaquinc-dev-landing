@@ -1,6 +1,7 @@
 import { ArrowRight, CalendarCheck, Check, Mail, MessageCircle, Video } from "lucide-react";
 import { HOME_CONTAINER, HOME_EYEBROW, HOME_MUTED, rise } from "@/components/home/home-theme";
 import { WS_CTA, WS_CTA_GLOW } from "@/components/workshop/workshop-styles";
+import { ASSETS } from "@/lib/assets";
 import { WHATSAPP_NUMBER } from "@/lib/workshop-content";
 
 const QUESTION_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -39,10 +40,14 @@ const GraciasPorTuCompra = () => (
         className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(55%_60%_at_50%_0%,rgba(60,207,122,0.12),transparent_70%)]"
       />
       <div className={`${HOME_CONTAINER} relative max-w-[1000px] py-10 text-center`}>
-        <div {...rise(0)} className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#3ccf7a]/15 ring-1 ring-[#3ccf7a]/40">
-          <Check className="h-7 w-7 text-[#7ee2a8]" strokeWidth={2.5} aria-hidden />
-        </div>
-        <p {...rise(60)} className={`${HOME_EYEBROW} mt-5`}>
+        {/* Logo de la marca con la palomita de "pago confirmado" como insignia; lleva al inicio. */}
+        <a {...rise(0)} href="/" aria-label="joaquinc.dev, ir al inicio" className="relative mx-auto block w-fit">
+          <img src={ASSETS.brandLogo} alt="" width={108} height={96} className="h-20 w-auto md:h-24" />
+          <span className="absolute -right-2 top-0 flex h-9 w-9 items-center justify-center rounded-full bg-[#163a26] ring-2 ring-[#0b0d10]">
+            <Check className="h-5 w-5 text-[#7ee2a8]" strokeWidth={3} aria-hidden />
+          </span>
+        </a>
+        <p {...rise(60)} className={`${HOME_EYEBROW} mt-4`}>
           {"// pago confirmado"}
         </p>
         <h1
