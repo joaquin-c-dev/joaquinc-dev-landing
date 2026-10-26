@@ -1,5 +1,4 @@
-import { ArrowRight, Check, Mail, MessageCircle, Users, Video } from "lucide-react";
-import PurchaseHeader from "@/components/purchase/PurchaseHeader";
+import { ArrowRight, CalendarCheck, Check, Mail, MessageCircle, Video } from "lucide-react";
 import { HOME_CONTAINER, HOME_EYEBROW, HOME_MUTED, rise } from "@/components/home/home-theme";
 import { WS_CTA, WS_CTA_GLOW } from "@/components/workshop/workshop-styles";
 import { WHATSAPP_NUMBER } from "@/lib/workshop-content";
@@ -15,9 +14,9 @@ const NEXT_STEPS = [
     text: "Te enviamos los detalles del curso, las instrucciones de acceso y los siguientes pasos. Si no lo ves, revisa spam o promociones.",
   },
   {
-    icon: Users,
-    title: "Antes del inicio te contactamos",
-    text: "Te damos acceso a los materiales del curso y al grupo de estudiantes antes de la primera clase.",
+    icon: CalendarCheck,
+    title: "Aparta la fecha en tu agenda",
+    text: "Anota el día y la hora de tu primera clase (hora del centro de México) para que no se te pase.",
   },
   {
     icon: Video,
@@ -33,13 +32,12 @@ const NEXT_STEPS = [
  */
 const GraciasPorTuCompra = () => (
   <>
-    <PurchaseHeader secureNote={false} />
     <main id="contenido" className="relative overflow-hidden">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(55%_60%_at_50%_0%,rgba(60,207,122,0.12),transparent_70%)]"
       />
-      <div className={`${HOME_CONTAINER} relative max-w-[760px] py-16 text-center md:py-24`}>
+      <div className={`${HOME_CONTAINER} relative max-w-[760px] py-20 text-center md:py-28`}>
         <div {...rise(0)} className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#3ccf7a]/15 ring-1 ring-[#3ccf7a]/40">
           <Check className="h-8 w-8 text-[#7ee2a8]" strokeWidth={2.5} aria-hidden />
         </div>
