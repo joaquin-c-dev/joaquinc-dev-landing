@@ -1,7 +1,6 @@
 import { forwardRef } from "react";
 import { Check } from "lucide-react";
 import { formatDurationHours } from "@/lib/course-formatters";
-import { useOpensInSameTab } from "@/lib/mobile-navigation";
 import { formatPrice } from "@/lib/workshop-format";
 import WorkshopCountdown from "./WorkshopCountdown";
 import { WS_CTA, WS_CTA_CAPSULE, WS_CTA_GLOW, WS_CTA_LINK, WS_FONT_CODE } from "./workshop-styles";
@@ -12,7 +11,8 @@ interface WorkshopBuyCardProps {
   regularPrice?: number;
   durationInHours: number;
   startsAt?: string;
-  onCheckout?: () => void;
+  /** Si hay forma de pagar: el botón abre el formulario (ver `CheckoutTrigger`). */
+  canCheckout?: boolean;
   /** WhatsApp para pedir los datos bancarios, para quien no paga con tarjeta. */
   transferUrl?: string;
 }
@@ -23,8 +23,7 @@ interface WorkshopBuyCardProps {
  * en escritorio (`lg`) el orden es precio → cuenta regresiva → beneficios → botón.
  */
 const WorkshopBuyCard = forwardRef<HTMLDivElement, WorkshopBuyCardProps>(
-  ({ price, regularPrice, durationInHours, startsAt, onCheckout, transferUrl }, ref) => {
-    const sameTab = useOpensInSameTab();
+  ({ price, regularPrice, durationInHours, startsAt, canCheckout = false, transferUrl }, ref) => {
     const discountPercent =
       regularPrice != null && regularPrice > price
         ? Math.round((1 - price / regularPrice) * 100)
@@ -68,10 +67,10 @@ const WorkshopBuyCard = forwardRef<HTMLDivElement, WorkshopBuyCardProps>(
           ))}
         </ul>
 
-        {onCheckout && (
+        {canCheckout && (
           <button
             type="button"
-            onClick={onCheckout}
+            data-checkout-trigger
             className={`${WS_CTA} ${WS_CTA_GLOW} order-2 w-full justify-between gap-3 whitespace-nowrap rounded-xl py-2 pl-4 pr-2 text-[15px] min-[360px]:text-base sm:pl-[22px] sm:text-[17px] lg:order-4`}
           >
             Apartar mi lugar
@@ -87,7 +86,8 @@ const WorkshopBuyCard = forwardRef<HTMLDivElement, WorkshopBuyCardProps>(
           {transferUrl && (
             <a
               href={transferUrl}
-              target={sameTab ? undefined : "_blank"}
+              target="_blank"
+              data-same-tab-mobile
               rel="noopener noreferrer"
               className={`${WS_CTA_LINK} text-sm`}
             >

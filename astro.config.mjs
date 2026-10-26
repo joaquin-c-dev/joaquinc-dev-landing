@@ -25,6 +25,10 @@ export default defineConfig({
   output: "server",
   adapter: netlify(),
   site: SITE,
+  // `/temario` era la página vieja del temario de Java desde Cero: ahora vive en la página del curso.
+  redirects: {
+    "/temario": { status: 301, destination: "/java-desde-cero" },
+  },
   integrations: [
     react(),
     sitemap({

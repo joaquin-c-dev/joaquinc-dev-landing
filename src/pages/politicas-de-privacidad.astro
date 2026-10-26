@@ -2,6 +2,9 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getNavCourses } from "@/lib/courses";
 import PrivacyPolicy from "@/screens/PrivacyPolicy";
+import HomeNavigation from "@/components/home/HomeNavigation";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { WS_FONT_UI } from "@/components/workshop/workshop-styles";
 
 const navCourses = await getNavCourses();
 ---
@@ -11,5 +14,24 @@ const navCourses = await getNavCourses();
   description="Políticas de privacidad para los cursos de programación de Joaquín C. Dev: cómo recopilamos, usamos y protegemos tu información personal."
   noindex={true}
 >
-  <PrivacyPolicy client:load navCourses={navCourses} pathname={Astro.url.pathname} />
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+  </Fragment>
+  <!-- HTML sin hidratar; solo el menú y el botón de WhatsApp cargan React. -->
+  <div class={`${WS_FONT_UI} min-h-screen overflow-x-clip bg-[#0b0d10] text-[#eceef1] antialiased`}>
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:font-semibold focus:text-[#0b0d10]"
+    >
+      Saltar al contenido
+    </a>
+    <HomeNavigation client:load navCourses={navCourses} pathname={Astro.url.pathname} />
+    <PrivacyPolicy navCourses={navCourses} />
+    <WhatsAppButton client:idle autoOpen={false} />
+  </div>
 </BaseLayout>

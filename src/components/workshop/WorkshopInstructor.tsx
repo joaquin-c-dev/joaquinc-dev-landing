@@ -9,6 +9,9 @@ const WorkshopInstructor = () => (
       <img
         src={INSTRUCTOR_PROFILE.photo}
         alt={INSTRUCTOR_PROFILE.name}
+        width={380}
+        height={475}
+        loading="lazy"
         className="aspect-[4/5] w-full max-w-[380px] rounded-[14px] border border-white/[0.09] object-cover"
       />
       <div className="flex flex-col gap-4">

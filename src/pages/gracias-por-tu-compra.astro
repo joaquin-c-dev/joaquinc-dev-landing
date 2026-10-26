@@ -1,10 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getNavCourses } from "@/lib/courses";
 import { getCourseApiBaseUrl } from "@/lib/course-api";
 import GraciasPorTuCompra from "@/screens/GraciasPorTuCompra";
+import { WS_FONT_UI } from "@/components/workshop/workshop-styles";
 
-const navCourses = await getNavCourses();
 const apiBaseUrl = getCourseApiBaseUrl();
 ---
 
@@ -13,5 +12,27 @@ const apiBaseUrl = getCourseApiBaseUrl();
   description="Tu inscripción ha sido procesada exitosamente. Revisa tu correo para los detalles del curso y los próximos pasos."
   noindex={true}
 >
-  <GraciasPorTuCompra client:load navCourses={navCourses} pathname={Astro.url.pathname} apiBaseUrl={apiBaseUrl} />
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+  </Fragment>
+  <!-- HTML sin React. -->
+  <div class={`${WS_FONT_UI} min-h-screen overflow-x-clip bg-[#0b0d10] text-[#eceef1] antialiased`} data-api-base-url={apiBaseUrl}>
+    <GraciasPorTuCompra />
+  </div>
+  <script>
+    import { trackPurchaseFromStripeSession } from "@/lib/meta-pixel";
+    import { launchConfetti } from "@/scripts/confetti";
+
+    // Celebración al llegar: arranca cuando ya entró la palomita del título.
+    setTimeout(launchConfetti, 250);
+
+    // El evento de compra de Meta es señal de marketing: si falla, la página sigue igual.
+    const apiBaseUrl = document.querySelector<HTMLElement>("[data-api-base-url]")?.dataset.apiBaseUrl;
+    if (apiBaseUrl) void trackPurchaseFromStripeSession(apiBaseUrl).catch(() => {});
+  </script>
 </BaseLayout>

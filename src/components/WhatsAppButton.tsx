@@ -122,7 +122,7 @@ const WhatsAppButton = ({ autoOpen = true, message = DEFAULT_MESSAGE }: WhatsApp
         }}
         aria-label="Contactar por WhatsApp"
       >
-        <img src={ASSETS.whatsappLogo} alt="WhatsApp" className="w-7 h-7" />
+        <img src={ASSETS.whatsappLogo} alt="" width={28} height={28} className="w-7 h-7" />
 
         {/* Tooltip */}
         <div className="absolute right-16 top-1/2 transform -translate-y-1/2 bg-card border border-border text-card-foreground px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-card">

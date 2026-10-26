@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import type { Course } from "@/lib/course-types";
+import { getCourseLogo } from "@/lib/course-offer";
 import { INSTRUCTOR_PROFILE } from "@/lib/workshop-content";
 import { formatWorkshopBadgeDate } from "@/lib/workshop-format";
 import WorkshopBuyCard from "./WorkshopBuyCard";
@@ -11,7 +12,7 @@ interface WorkshopHeroProps {
   regularPrice?: number;
   startsAt?: string;
   endsAt?: string;
-  onCheckout?: () => void;
+  canCheckout?: boolean;
   transferUrl?: string;
 }
 
@@ -29,8 +30,9 @@ const toParagraphs = (text: string) =>
  * En escritorio el texto va completo a la izquierda y la tarjeta a la derecha.
  */
 const WorkshopHero = forwardRef<HTMLDivElement, WorkshopHeroProps>(
-  ({ course, price, regularPrice, startsAt, endsAt, onCheckout, transferUrl }, cardRef) => {
+  ({ course, price, regularPrice, startsAt, endsAt, canCheckout, transferUrl }, cardRef) => {
     const [leadParagraph, ...restParagraphs] = toParagraphs(course.description);
+    const logo = getCourseLogo(course.slug);
 
     return (
       <section
@@ -38,7 +40,9 @@ const WorkshopHero = forwardRef<HTMLDivElement, WorkshopHeroProps>(
         className={`${WS_CONTAINER} grid items-center gap-x-14 gap-y-6 pb-12 pt-6 lg:grid-cols-[minmax(0,1fr)_440px] lg:pb-16 lg:pt-[72px]`}
       >
         <div className="flex flex-col gap-4 lg:col-start-1 lg:row-start-1 lg:gap-7 lg:self-end">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            {/* Logo de la tecnología del taller, como en las páginas de curso. */}
+            {logo && <img src={logo} alt="" aria-hidden width={128} height={128} className="mr-1 h-7 w-auto" />}
             <span className={`${BADGE} border-[rgba(255,198,109,0.5)] text-[#ffc66d]`}>
               EN VIVO · ONLINE
             </span>
@@ -73,7 +77,7 @@ const WorkshopHero = forwardRef<HTMLDivElement, WorkshopHeroProps>(
             regularPrice={regularPrice}
             durationInHours={course.durationInHours}
             startsAt={startsAt}
-            onCheckout={onCheckout}
+            canCheckout={canCheckout}
             transferUrl={transferUrl}
           />
         </div>
@@ -92,6 +96,8 @@ const WorkshopHero = forwardRef<HTMLDivElement, WorkshopHeroProps>(
             <img
               src={INSTRUCTOR_PROFILE.photo}
               alt={INSTRUCTOR_PROFILE.name}
+              width={44}
+              height={44}
               className="h-11 w-11 rounded-full border border-white/[0.09] object-cover"
             />
             <div className="flex flex-col text-sm">

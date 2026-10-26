@@ -1,101 +1,129 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Shield, Mail, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import Footer from "@/components/Footer";
-import AppShell from "@/components/app/AppShell";
-import type { NavCourse } from "@/contexts/CoursesNavContext";
+import { HOME_CONTAINER, HOME_EYEBROW, HOME_MUTED, rise } from "@/components/home/home-theme";
+import { CoursesNavProvider, type NavCourse } from "@/contexts/CoursesNavContext";
 import { PRIVACY_CONTACT, PRIVACY_SECTIONS } from "@/lib/privacy-policy";
 
 interface PrivacyPolicyProps {
   navCourses?: NavCourse[];
-  pathname: string;
 }
 
-const PrivacyPolicy = ({ navCourses = [], pathname }: PrivacyPolicyProps) => {
-  return (
-    <AppShell navCourses={navCourses} pathname={pathname}>
-    <div className="min-h-screen bg-background">
-      {/* SEO Meta tags would be handled by a head component if available */}
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center mb-4">
-            <Shield className="w-12 h-12 text-primary mr-3" />
-            <h1 className="text-4xl font-bold text-foreground">Políticas de Privacidad</h1>
+/** "Uso de la información" -> "uso-de-la-informacion", para los anclas del índice. */
+const toAnchor = (title: string) =>
+  title
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+/**
+ * Aviso de privacidad con el look del sitio, pensado para leerse: columna angosta, secciones
+ * numeradas e índice fijo en escritorio. El texto vive en `lib/privacy-policy.ts` (también lo
+ * usa el formulario de pago). HTML sin hidratar.
+ */
+const PrivacyPolicy = ({ navCourses = [] }: PrivacyPolicyProps) => (
+  <>
+    <main id="contenido" className="pb-24 pt-28 md:pb-32 md:pt-36">
+      <div className={`${HOME_CONTAINER} grid gap-12 lg:grid-cols-[240px_minmax(0,720px)] lg:gap-16`}>
+        <nav aria-label="Secciones" className="hidden lg:block">
+          <div className="sticky top-28">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[#9da3ad]">En esta página</p>
+            <ol className="mt-4 space-y-1 border-l border-white/10">
+              {[...PRIVACY_SECTIONS.map((section) => section.title), "Contacto"].map((title, index) => (
+                <li key={title}>
+                  <a
+                    href={`#${toAnchor(title)}`}
+                    className="-ml-px block border-l border-transparent py-1.5 pl-4 text-[14px] text-[#9da3ad] transition-colors hover:border-[#ffc66d] hover:text-[#ffc66d]"
+                  >
+                    <span className="mr-2 font-['JetBrains_Mono',ui-monospace,monospace] text-[12px] text-[#8b919b]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    {title}
+                  </a>
+                </li>
+              ))}
+            </ol>
           </div>
-          <p className="text-xl text-muted-foreground">
-            Para Cursos de Programación
+        </nav>
+
+        <article className="min-w-0">
+          <p {...rise(0)} className={HOME_EYEBROW}>
+            {"// legal"}
           </p>
-        </div>
-
-        {PRIVACY_SECTIONS.map((section, index) => (
-          <Card key={section.title} className="mb-8">
-            <CardHeader>
-              <CardTitle className="flex items-center text-2xl">
-                <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg font-bold">{index + 1}</span>
-                {section.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className={`text-muted-foreground leading-relaxed${section.items ? " mb-4" : ""}`}>
-                {section.text}
-              </p>
-              {section.items && (
-                <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-                  {section.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              )}
-            </CardContent>
-          </Card>
-        ))}
-
-        <Card className="mb-12">
-          <CardHeader>
-            <CardTitle className="flex items-center text-2xl">
-              <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 text-lg font-bold">{PRIVACY_SECTIONS.length + 1}</span>
-              Contacto
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              {PRIVACY_CONTACT.intro}
-            </p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="flex items-center p-4 bg-muted/50 rounded-lg">
-                <Mail className="w-6 h-6 text-primary mr-3" />
-                <div>
-                  <p className="font-semibold text-foreground">Correo electrónico:</p>
-                  <p className="text-muted-foreground">{PRIVACY_CONTACT.email}</p>
-                </div>
-              </div>
-              <div className="flex items-center p-4 bg-muted/50 rounded-lg">
-                <Phone className="w-6 h-6 text-primary mr-3" />
-                <div>
-                  <p className="font-semibold text-foreground">Teléfono:</p>
-                  <p className="text-muted-foreground">{PRIVACY_CONTACT.phone}</p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Separator className="my-8" />
-        
-        <div className="text-center">
-          <p className="text-sm text-muted-foreground">
-            Última actualización: {new Date().toLocaleDateString('es-ES', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-            })}
+          <h1
+            {...rise(60)}
+            className="mt-4 text-[clamp(34px,6vw,52px)] font-bold leading-[1.06] tracking-[-0.03em]"
+          >
+            Políticas de privacidad
+          </h1>
+          <p {...rise(120)} className={`mt-5 text-[17px] leading-[1.65] ${HOME_MUTED}`}>
+            Cómo recopilamos, usamos y protegemos tu información personal cuando te inscribes a un curso o
+            taller.
           </p>
-        </div>
+
+          <div className="mt-12 space-y-10">
+            {PRIVACY_SECTIONS.map((section, index) => (
+              <section key={section.title} id={toAnchor(section.title)} className="scroll-mt-28">
+                <h2 className="flex items-baseline gap-3 text-[21px] font-semibold tracking-[-0.015em] text-white">
+                  <span className="font-['JetBrains_Mono',ui-monospace,monospace] text-[13px] font-normal text-[#ffc66d]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {section.title}
+                </h2>
+                <p className="mt-3 text-[16.5px] leading-[1.75] text-[#c9cdd3]">{section.text}</p>
+                {section.items && (
+                  <ul className="mt-3 space-y-2 text-[16.5px] leading-[1.65] text-[#c9cdd3]">
+                    {section.items.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span aria-hidden className="text-[#6AAB73]">
+                          ›
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))}
+
+            <section id="contacto" className="scroll-mt-28 rounded-[16px] border border-white/[0.08] bg-[#12151a] p-6">
+              <h2 className="flex items-baseline gap-3 text-[21px] font-semibold tracking-[-0.015em] text-white">
+                <span className="font-['JetBrains_Mono',ui-monospace,monospace] text-[13px] font-normal text-[#ffc66d]">
+                  {String(PRIVACY_SECTIONS.length + 1).padStart(2, "0")}
+                </span>
+                Contacto
+              </h2>
+              <p className={`mt-3 text-[16px] leading-[1.65] ${HOME_MUTED}`}>{PRIVACY_CONTACT.intro}</p>
+              <ul className="mt-4 flex flex-col gap-1 sm:flex-row sm:gap-8">
+                <li>
+                  <a
+                    href={`mailto:${PRIVACY_CONTACT.email}`}
+                    className="inline-flex min-h-[44px] items-center gap-2 text-[15.5px] font-medium text-[#ffc66d] transition-colors hover:text-[#ffd899]"
+                  >
+                    <Mail className="h-4 w-4" aria-hidden />
+                    {PRIVACY_CONTACT.email}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`tel:+52${PRIVACY_CONTACT.phone}`}
+                    className="inline-flex min-h-[44px] items-center gap-2 text-[15.5px] font-medium text-[#ffc66d] transition-colors hover:text-[#ffd899]"
+                  >
+                    <Phone className="h-4 w-4" aria-hidden />
+                    {PRIVACY_CONTACT.phone}
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </article>
       </div>
+    </main>
+    <CoursesNavProvider courses={navCourses}>
       <Footer />
-    </div>
-    </AppShell>
-  );
-};
+    </CoursesNavProvider>
+  </>
+);
 
 export default PrivacyPolicy;
