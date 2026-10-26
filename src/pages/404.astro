@@ -16,14 +16,6 @@ const requestedPath = (Astro.originPathname ?? Astro.url.pathname).replace(/(.)\
   description="La página que buscas no existe. Vuelve al inicio para explorar los cursos de Java y programación."
   noindex={true}
 >
-  <Fragment slot="head">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
-    />
-  </Fragment>
   <!-- HTML sin hidratar; solo el menú y el botón de WhatsApp cargan React. -->
   <div class={`${WS_FONT_UI} min-h-screen overflow-x-clip bg-[#0b0d10] text-[#eceef1] antialiased`}>
     <a

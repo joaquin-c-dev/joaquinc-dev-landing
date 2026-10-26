@@ -67,7 +67,7 @@ const GraciasPorTuCompra = () => (
                 <Icon className="h-5 w-5" aria-hidden />
               </span>
               <span>
-                <span className="block font-['JetBrains_Mono',ui-monospace,monospace] text-[12px] text-[#8b919b]">
+                <span className="block font-['JetBrains_Mono_Variable',ui-monospace,monospace] text-[12px] text-[#8b919b]">
                   paso {index + 1}
                 </span>
                 <span className="mt-0.5 block text-[16px] font-semibold text-white">{title}</span>

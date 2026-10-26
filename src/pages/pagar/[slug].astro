@@ -37,14 +37,6 @@ const editMode = Astro.url.searchParams.get("editar") === "1";
   ogImage={course.seo.ogImage}
   noindex={true}
 >
-  <Fragment slot="head">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
-    />
-  </Fragment>
   <div class={`${WS_FONT_UI} min-h-screen overflow-x-clip bg-[#0b0d10] text-[#eceef1] antialiased`}>
     <PurchaseHeader />
     <main id="contenido" class="mx-auto grid w-full max-w-[1100px] gap-10 px-5 py-10 md:px-8 md:py-16 lg:grid-cols-[1fr_440px] lg:items-start lg:gap-x-16 lg:gap-y-6">

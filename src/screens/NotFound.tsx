@@ -72,7 +72,7 @@ const NotFound = ({ navCourses = [], requestedPath }: NotFoundProps) => {
                   </span>
                 ))}
               </div>
-              <div className="flex items-center gap-2.5 border-b border-[#393B40] px-4 py-3 font-['JetBrains_Mono',ui-monospace,monospace] text-[14px]">
+              <div className="flex items-center gap-2.5 border-b border-[#393B40] px-4 py-3 font-['JetBrains_Mono_Variable',ui-monospace,monospace] text-[14px]">
                 <Search className="h-4 w-4 shrink-0 text-[#8C8F96]" aria-hidden />
                 <span className="truncate text-[#DFE1E5]">{query}</span>
                 <span aria-hidden className="-ml-1 h-4 w-px animate-pulse bg-[#DFE1E5] motion-reduce:animate-none" />

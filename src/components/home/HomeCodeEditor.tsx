@@ -47,13 +47,13 @@ const HomeCodeEditor = ({ snippet = DEFAULT_SNIPPET }: HomeCodeEditorProps) => {
         )}
       </div>
       <div
-        className="overflow-x-auto py-4 pr-4 font-['JetBrains_Mono',ui-monospace,monospace] text-[12px] leading-[1.75] sm:text-[13px] [@media(min-width:1024px)_and_(max-height:760px)]:py-3 [@media(min-width:1024px)_and_(max-height:760px)]:text-[12.5px] [@media(min-width:1024px)_and_(max-height:760px)]:leading-[1.5] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="overflow-x-auto py-4 pr-4 font-['JetBrains_Mono_Variable',ui-monospace,monospace] text-[12px] leading-[1.75] sm:text-[13px] [@media(min-width:1024px)_and_(max-height:760px)]:py-3 [@media(min-width:1024px)_and_(max-height:760px)]:text-[12.5px] [@media(min-width:1024px)_and_(max-height:760px)]:leading-[1.5] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         role="img"
         aria-label={snippet.ariaLabel}
       >
         {lines.map((line, index) => (
           <div key={index} className="home-code-line flex whitespace-pre" style={{ "--line": index } as CSSProperties}>
-            <span className="w-10 shrink-0 select-none pr-4 text-right text-[#4B5059]">{index + 1}</span>
+            <span className="w-10 shrink-0 select-none pr-4 text-right text-[#8b919b]" aria-hidden>{index + 1}</span>
             <span>
               {line.map(([text, kind], tokenIndex) => (
                 <span key={tokenIndex} className={TOKEN_CLASS[kind]}>

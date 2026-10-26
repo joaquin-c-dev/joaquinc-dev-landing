@@ -25,6 +25,8 @@ export default defineConfig({
   output: "server",
   adapter: netlify(),
   site: SITE,
+  // El CSS va dentro del HTML: sin una petición extra que bloquee el primer pintado.
+  build: { inlineStylesheets: "always" },
   // `/temario` era la página vieja del temario de Java desde Cero: ahora vive en la página del curso.
   redirects: {
     "/temario": { status: 301, destination: "/java-desde-cero" },

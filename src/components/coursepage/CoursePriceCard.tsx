@@ -64,7 +64,7 @@ const PriceCard = ({ course, nextStartsAt }: Omit<CoursePriceCardProps, "apiBase
         {!timeLeft.isExpired && (
           <div className="mt-5 flex flex-wrap items-center gap-3 rounded-xl border border-[#ffc66d]/25 bg-[#ffc66d]/[0.06] px-4 py-3">
             <span className="text-[13.5px] text-[#ffc66d]">El precio especial termina en</span>
-            <span className="flex gap-1.5 font-['JetBrains_Mono',ui-monospace,monospace] text-[14px] text-white tabular-nums">
+            <span className="flex gap-1.5 font-['JetBrains_Mono_Variable',ui-monospace,monospace] text-[14px] text-white tabular-nums">
               {[
                 [timeLeft.days, "d"],
                 [timeLeft.hours, "h"],
