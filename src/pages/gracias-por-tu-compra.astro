@@ -26,6 +26,10 @@ const apiBaseUrl = getCourseApiBaseUrl();
   </div>
   <script>
     import { trackPurchaseFromStripeSession } from "@/lib/meta-pixel";
+    import { launchConfetti } from "@/scripts/confetti";
+
+    // Celebración al llegar: arranca cuando ya entró la palomita del título.
+    setTimeout(launchConfetti, 250);
 
     // El evento de compra de Meta es señal de marketing: si falla, la página sigue igual.
     const apiBaseUrl = document.querySelector<HTMLElement>("[data-api-base-url]")?.dataset.apiBaseUrl;
