@@ -85,8 +85,8 @@ export const INTERNET_REQUIREMENT = "Conexión a internet estable (recomendado p
  * OUTPUTS/2026-09-26-encuesta-experiencia-alumnos.md). Frases del alumno con solo ortografía
  * corregida; en las de oct se suma su respuesta a "lo más valioso" cuando aporta.
  * El nombre respeta el permiso de cada alumno: "con mi nombre" = completo,
- * "solo mi inicial" = iniciales. No se publican: Juan E., Hugo R. y Fabián E. (sin frase ni
- * permiso), José Antonio V. y otro alumno del taller (frase sin contenido).
+ * "solo mi inicial" = iniciales; sin permiso = anónima. No se publican: Juan E., Hugo R.,
+ * José Antonio V. y otro alumno del taller (ni frase ni "lo más valioso" con contenido).
  * Son de los cursos que tomaron (no de un taller), por eso la tarjeta muestra el curso.
  */
 export const ALUMNI_TESTIMONIALS = {
@@ -168,6 +168,16 @@ export const ALUMNI_TESTIMONIALS = {
     nps: 10,
     date: "oct 2026",
     avatarColor: "#5b6ee1",
+  },
+  // No dio permiso de nombre: se publica anónima, solo con su respuesta a "lo más valioso".
+  anonymousJavaIntermedio: {
+    quote:
+      "La forma en que el profe explicaba los temas. Yo no aprendo de forma normal, pero la paciencia y las formas sencillas de explicar definiciones abstractas me ayudaron.",
+    name: "Alumno anónimo",
+    course: "Java Intermedio",
+    nps: 10,
+    date: "oct 2026",
+    avatarColor: "#5f6368",
   },
 } satisfies Record<string, WorkshopTestimonial>;
 
