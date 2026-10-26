@@ -81,10 +81,12 @@ export const WHATSAPP_NUMBER = "5213331071527";
 export const INTERNET_REQUIREMENT = "Conexión a internet estable (recomendado por cable)";
 
 /**
- * Testimonios reales de exalumnos (encuesta de experiencia, sep 2026; second brain:
- * OUTPUTS/2026-09-26-encuesta-experiencia-alumnos.md). Frases TEXTUALES, sin corregir.
+ * Testimonios reales de exalumnos (encuesta de experiencia, sep–oct 2026; second brain:
+ * OUTPUTS/2026-09-26-encuesta-experiencia-alumnos.md). Frases del alumno con solo ortografía
+ * corregida; en las de oct se suma su respuesta a "lo más valioso" cuando aporta.
  * El nombre respeta el permiso de cada alumno: "con mi nombre" = completo,
- * "solo mi inicial" = iniciales. Juan E. no dejó frase ni permiso: no se publica.
+ * "solo mi inicial" = iniciales. No se publican: Juan E., Hugo R. y Fabián E. (sin frase ni
+ * permiso), José Antonio V. y otro alumno del taller (frase sin contenido).
  * Son de los cursos que tomaron (no de un taller), por eso la tarjeta muestra el curso.
  */
 export const ALUMNI_TESTIMONIALS = {
@@ -131,6 +133,41 @@ export const ALUMNI_TESTIMONIALS = {
     nps: 9,
     date: "sep 2026",
     avatarColor: "#d93025",
+  },
+  jonathan: {
+    quote:
+      "Excelente curso, excelente explicación, dominio del tema, explica las veces que sea necesario. Me llevé la satisfacción de saber por qué es necesario cada componente.",
+    name: "Jonathan Ulises Carrillo Madrigal",
+    course: "Taller de Spring Security con JWT",
+    nps: 10,
+    date: "oct 2026",
+    avatarColor: "#12a4af",
+  },
+  dario: {
+    quote:
+      "Excelente tutor, se explica muy bien y por ende los temas pueden comprenderse fácilmente. Lo más valioso: la gestión de roles y permisos.",
+    name: "José Darío González Alonso",
+    course: "Taller de Spring Security con JWT",
+    nps: 10,
+    date: "oct 2026",
+    avatarColor: "#b0247a",
+  },
+  gerardo: {
+    quote:
+      "Un curso “corto” pero muy sustancioso, bien equilibrado entre teoría y práctica: paso a paso, lo que se requiere para implementar Spring Security.",
+    name: "Gerardo Hernández Soriano",
+    course: "Taller de Spring Security con JWT",
+    nps: 10,
+    date: "oct 2026",
+    avatarColor: "#f29900",
+  },
+  jaime: {
+    quote: "Curso muy comprensible y detallado.",
+    name: "J. C.",
+    course: "Taller de Spring Security con JWT",
+    nps: 10,
+    date: "oct 2026",
+    avatarColor: "#5b6ee1",
   },
 } satisfies Record<string, WorkshopTestimonial>;
 
@@ -203,9 +240,13 @@ const WORKSHOP_CONTENT_BY_SLUG: Record<string, Partial<WorkshopContent>> = {
     ],
     stackLabel: "Spring Boot 4",
     finalCtaHeadline: "Aparta tu lugar y protege tu API este sábado.",
-    // Los de Spring Boot primero (los mismos del banner de Meta) + Mario, que habla del
-    // dominio del instructor aunque su curso fue Claude Code.
+    // Primero los de alumnos del propio taller, luego los de Spring Boot (los del banner de
+    // Meta) + Mario, que habla del dominio del instructor aunque su curso fue Claude Code.
     testimonials: [
+      ALUMNI_TESTIMONIALS.jonathan,
+      ALUMNI_TESTIMONIALS.dario,
+      ALUMNI_TESTIMONIALS.gerardo,
+      ALUMNI_TESTIMONIALS.jaime,
       ALUMNI_TESTIMONIALS.eduardo,
       ALUMNI_TESTIMONIALS.marco,
       ALUMNI_TESTIMONIALS.mario,
@@ -220,6 +261,7 @@ const COURSE_TESTIMONIAL_LABELS: Record<string, string> = {
   "java-intermedio": "Java Intermedio",
   "java-desde-cero": "Java desde Cero",
   "desarrollo-asistido-agentes-ai": "Claude Code",
+  "taller-spring-security-jwt": "Spring Security",
 };
 
 /**
