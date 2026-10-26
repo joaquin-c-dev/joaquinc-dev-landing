@@ -111,9 +111,9 @@ const Navigation = () => {
                 key={item.name}
                 href={item.path}
                 onClick={(event) => handleNavClick(event, item)}
-                className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer ${
+                className={`text-foreground hover:text-[#ffc66d] transition-colors duration-200 font-medium bg-transparent border-none cursor-pointer ${
                   pathname === item.path && !item.action
-                    ? "bg-gradient-accent bg-clip-text text-transparent"
+                    ? "!text-[#ffc66d]"
                     : ""
                 }`}
               >
@@ -125,16 +125,16 @@ const Navigation = () => {
             <DropdownMenu modal={false}>
               <DropdownMenuTrigger asChild>
                 <button
-                  className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer flex items-center gap-1 group ${
+                  className={`text-foreground hover:text-[#ffc66d] transition-colors duration-200 font-medium bg-transparent border-none cursor-pointer flex items-center gap-1 group ${
                     courseItems.some((course) => pathname === course.path)
-                      ? "bg-gradient-accent bg-clip-text text-transparent"
+                      ? "!text-[#ffc66d]"
                       : ""
                   }`}
                 >
                   Cursos
                   <ChevronDown
-                    className={`w-4 h-4 transition-colors duration-200 group-hover:text-blue-500 ${
-                      courseItems.some((course) => pathname === course.path) ? "text-blue-500" : ""
+                    className={`w-4 h-4 transition-colors duration-200 group-hover:text-[#ffc66d] ${
+                      courseItems.some((course) => pathname === course.path) ? "!text-[#ffc66d]" : ""
                     }`}
                   />
                 </button>
@@ -144,8 +144,8 @@ const Navigation = () => {
                   <DropdownMenuItem
                     key={course.name}
                     asChild
-                    className={`cursor-pointer hover:text-blue-500 hover:bg-transparent focus:bg-transparent data-[highlighted]:bg-transparent data-[highlighted]:text-blue-500 transition-colors duration-200 font-medium ${
-                      pathname === course.path ? "bg-gradient-accent bg-clip-text text-transparent" : ""
+                    className={`cursor-pointer hover:text-[#ffc66d] hover:bg-transparent focus:bg-transparent data-[highlighted]:bg-transparent data-[highlighted]:text-[#ffc66d] transition-colors duration-200 font-medium ${
+                      pathname === course.path ? "!text-[#ffc66d]" : ""
                     }`}
                   >
                     <a href={course.path}>{course.name}</a>
@@ -160,9 +160,9 @@ const Navigation = () => {
                 key={item.name}
                 href={item.path}
                 onClick={(event) => handleNavClick(event, item)}
-                className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium bg-transparent border-none cursor-pointer ${
+                className={`text-foreground hover:text-[#ffc66d] transition-colors duration-200 font-medium bg-transparent border-none cursor-pointer ${
                   pathname === item.path && !item.action
-                    ? "bg-gradient-accent bg-clip-text text-transparent"
+                    ? "!text-[#ffc66d]"
                     : ""
                 }`}
               >
@@ -201,9 +201,9 @@ const Navigation = () => {
                     handleNavClick(event, item);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ${
+                  className={`text-foreground hover:text-[#ffc66d] transition-colors duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ${
                     pathname === item.path && !item.action
-                      ? "bg-gradient-accent bg-clip-text text-transparent"
+                      ? "!text-[#ffc66d]"
                       : ""
                   }`}
                 >
@@ -214,9 +214,9 @@ const Navigation = () => {
               {/* Cursos section in mobile */}
               <div className="py-2">
                 <div
-                  className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium mb-2 ${
+                  className={`text-foreground hover:text-[#ffc66d] transition-colors duration-200 font-medium mb-2 ${
                     courseItems.some((course) => pathname === course.path)
-                      ? "bg-gradient-accent bg-clip-text text-transparent"
+                      ? "!text-[#ffc66d]"
                       : ""
                   }`}
                 >
@@ -227,8 +227,8 @@ const Navigation = () => {
                     key={course.name}
                     href={course.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-foreground hover:text-blue-500 transition-colors duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ml-4 block w-full ${
-                      pathname === course.path ? "bg-gradient-accent bg-clip-text text-transparent" : ""
+                    className={`text-foreground hover:text-[#ffc66d] transition-colors duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ml-4 block w-full ${
+                      pathname === course.path ? "!text-[#ffc66d]" : ""
                     }`}
                   >
                     {course.name}
@@ -244,9 +244,9 @@ const Navigation = () => {
                     handleNavClick(event, item);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`text-foreground hover:bg-gradient-accent hover:bg-clip-text hover:text-transparent transition-all duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ${
+                  className={`text-foreground hover:text-[#ffc66d] transition-colors duration-200 font-medium py-2 bg-transparent border-none cursor-pointer text-left ${
                     pathname === item.path && !item.action
-                      ? "bg-gradient-accent bg-clip-text text-transparent"
+                      ? "!text-[#ffc66d]"
                       : ""
                   }`}
                 >
