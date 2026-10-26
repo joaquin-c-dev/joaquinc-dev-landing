@@ -2,20 +2,13 @@ import { ArrowRight } from "lucide-react";
 import type { Course, ScheduleItem } from "@/lib/course-types";
 import { CLASS_PHOTOS } from "@/lib/class-photos";
 import { getCourseSnippet } from "@/lib/code-snippets";
+import { getCourseLogo } from "@/lib/course-offer";
 import { formatDurationHours } from "@/lib/course-formatters";
 import { WS_CTA, WS_CTA_GLOW } from "@/components/workshop/workshop-styles";
 import HomeCodeEditor from "@/components/home/HomeCodeEditor";
 import ZoomFrame from "@/components/home/ZoomFrame";
 import { HOME_CONTAINER, HOME_EYEBROW, HOME_MUTED, rise } from "@/components/home/home-theme";
 import { startDateParts } from "@/components/home/home-course-utils";
-
-/** Logo de la tecnología principal de cada curso, en la etiqueta de arriba del título. */
-const COURSE_LOGOS: Record<string, string> = {
-  "java-desde-cero": "/images/logos/java.svg",
-  "java-intermedio": "/images/logos/spring.svg",
-  "desarrollo-asistido-agentes-ai": "/images/logos/claude.svg",
-  "arquitectura-agentica-ai": "/images/logos/claude-mascot.svg",
-};
 
 interface CourseHeroProps {
   course: Course;
@@ -31,7 +24,7 @@ interface CourseHeroProps {
 const CourseHero = ({ course, nextGroup }: CourseHeroProps) => {
   const date = nextGroup?.startsAt ? startDateParts(nextGroup.startsAt) : undefined;
   const video = course.hero.video;
-  const logo = COURSE_LOGOS[course.slug];
+  const logo = getCourseLogo(course.slug);
   return (
     <section className="relative overflow-hidden pb-20 pt-28 md:pb-28 md:pt-36 lg:flex lg:min-h-[100svh] lg:items-center lg:pb-12 lg:pt-28 [@media(min-width:1024px)_and_(max-height:760px)]:pb-6 [@media(min-width:1024px)_and_(max-height:760px)]:pt-20">
       <div

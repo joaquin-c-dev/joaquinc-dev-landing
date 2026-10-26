@@ -2,7 +2,7 @@ import { ArrowRight, Check, Lock } from "lucide-react";
 import type { Course } from "@/lib/course-types";
 import { CheckoutProvider, getCurrentPrice, useCheckout } from "@/components/checkout/CheckoutContext";
 import { PromoCountdownProvider, usePromoCountdown } from "@/contexts/PromoCountdownContext";
-import { formatDurationHours } from "@/lib/course-formatters";
+import { MAX_INSTALLMENTS, getCourseIncludes } from "@/lib/course-offer";
 import { getCourseTransferUrl } from "@/lib/course-whatsapp";
 import { formatPrice } from "@/lib/workshop-format";
 import { useOpensInSameTab } from "@/lib/mobile-navigation";
@@ -14,9 +14,6 @@ interface CoursePriceCardProps {
   nextStartsAt?: string;
   apiBaseUrl?: string;
 }
-
-/** Los meses sin intereses que ofrece Stripe con tarjetas de crédito mexicanas. */
-const MAX_INSTALLMENTS = 12;
 
 /**
  * Isla de la tarjeta de precio: un solo precio (el que se cobra), lo que cuesta al mes con meses
@@ -39,12 +36,7 @@ const PriceCard = ({ course, nextStartsAt }: Omit<CoursePriceCardProps, "apiBase
   const savings = course.regularPrice != null && course.regularPrice > price ? course.regularPrice - price : 0;
   const monthly = Math.ceil(price / MAX_INSTALLMENTS);
   const transferUrl = getCourseTransferUrl(course.title, nextStartsAt);
-  const includes = [
-    `${formatDurationHours(course.durationInHours)} de clases en vivo por Zoom`,
-    "Grabación de cada clase",
-    "Grupo de WhatsApp para dudas entre clases",
-    "Proyecto real para tu portafolio",
-  ];
+  const includes = getCourseIncludes(course);
 
   return (
     <div className="grid overflow-hidden rounded-[20px] border border-white/[0.09] bg-[#12151a] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.9)] md:grid-cols-[1.15fr_1fr]">
