@@ -4,6 +4,9 @@ import { buildProfileJsonLd } from "@/lib/structured-data";
 import { serializeJsonLd } from "@/lib/workshop-structured-data";
 import { getNavCourses } from "@/lib/courses";
 import AcercaDeMi from "@/screens/AcercaDeMi";
+import HomeNavigation from "@/components/home/HomeNavigation";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { WS_FONT_UI } from "@/components/workshop/workshop-styles";
 
 const navCourses = await getNavCourses();
 const jsonLd = buildProfileJsonLd(new URL(Astro.url.pathname, Astro.site).href, Astro.site!.href);
@@ -12,10 +15,31 @@ const jsonLd = buildProfileJsonLd(new URL(Astro.url.pathname, Astro.site).href, 
 <BaseLayout
   title="Acerca de mí | Joaquín C. Dev"
   description="Conoce a Joaquín Coronado, Líder Técnico en Avena Health con más de 10 años de experiencia. Instructor de Java y Spring con trayectoria en empresas tecnológicas."
-  keywords="joaquín coronado, instructor java, head of backend, mentor programación, desarrollador backend"
+  keywords="joaquín coronado, instructor java, líder técnico, mentor programación, desarrollador backend"
 >
   <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+    />
     <script type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />
+    <script is:inline>document.documentElement.classList.add("js");</script>
   </Fragment>
-  <AcercaDeMi client:load navCourses={navCourses} pathname={Astro.url.pathname} />
+  <!-- HTML sin hidratar; solo el menú y el botón de WhatsApp cargan React. -->
+  <div class={`${WS_FONT_UI} min-h-screen overflow-x-clip bg-[#0b0d10] text-[#eceef1] antialiased`}>
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:font-semibold focus:text-[#0b0d10]"
+    >
+      Saltar al contenido
+    </a>
+    <HomeNavigation client:load navCourses={navCourses} pathname={Astro.url.pathname} />
+    <AcercaDeMi navCourses={navCourses} />
+    <WhatsAppButton client:idle autoOpen={false} />
+  </div>
+  <script>
+    import "@/scripts/home-reveal";
+  </script>
 </BaseLayout>
