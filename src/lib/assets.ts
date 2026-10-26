@@ -11,8 +11,4 @@ export const ASSETS = {
   brandLogo: "/images/joaquincdev-logo.webp",
   joaquinProfile: "/images/joaquin-profile.jpg",
   whatsappLogo: "/images/whatsapp-logo.svg",
-  intellijLogo: "/images/intellij-logo.png",
-  stripeLogo: "/images/stripe-logo.png",
-  paypalLogo: "/images/paypal-logo.png",
-  javaHero: "/images/java-hero.jpg",
 } as const;
