@@ -1,73 +1,46 @@
-# Welcome to your Lovable project
+# joaquinc-dev-landing
 
-## Project info
+Sitio público de [joaquincoronado.dev](https://joaquincoronado.dev): cursos y talleres en vivo de Java, Spring Boot y Claude, con inscripción y pago.
 
-**URL**: https://lovable.dev/projects/5bccaca1-cb46-4ef7-9ad8-8ce7b78f9680
+## Stack
 
-## How can I edit this code?
+- **Astro** (SSR) con el adaptador de **Netlify**.
+- **React** solo en islas pequeñas (menú, WhatsApp, tarjeta de precio, formulario de pago); el resto es HTML sin hidratar.
+- **Tailwind CSS** y animaciones con CSS + `IntersectionObserver` (`src/scripts/`).
+- Los cursos vienen de **academy-api** (`GET /course/v1/course/query?status=ACTIVE`); el pago crea una sesión de Stripe en la API.
 
-There are several ways of editing your application.
+## Correr en local
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/5bccaca1-cb46-4ef7-9ad8-8ce7b78f9680) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Requiere Node 24 y npm (Netlify instala con npm; no uses otro gestor).
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm install
+COURSE_API_BASE_URL=http://localhost:8081 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+`COURSE_API_BASE_URL` apunta a la API de cursos. Sin ella se usa `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Scripts
 
-**Use GitHub Codespaces**
+| Comando | Qué hace |
+|---|---|
+| `npm run dev` | Servidor de desarrollo en `http://localhost:4321` |
+| `npm run build` | Build de producción en `dist/` |
+| `npm run preview` | Sirve el build localmente |
+| `npm run lint` | ESLint |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Estructura
 
-## What technologies are used for this project?
+```
+src/
+├── pages/        # Rutas: home, /{curso}, /pagar/{curso}, gracias, acerca de mí, privacidad, 404
+├── screens/      # Páginas completas en React renderizadas como HTML estático
+├── components/   # home/, coursepage/, workshop/, purchase/, checkout/ y compartidos
+├── lib/          # Cliente de la API, textos, reseñas, SEO / JSON-LD, utilidades
+├── scripts/      # JS sin React: animaciones al hacer scroll, cuenta regresiva, confeti
+└── layouts/      # BaseLayout con meta tags y SEO
+```
 
-This project is built with:
+## Deploy
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/5bccaca1-cb46-4ef7-9ad8-8ce7b78f9680) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Netlify despliega automáticamente al hacer merge a `main` (merge a `main` = producción). La URL de la API de producción está en `netlify.toml` (`COURSE_API_BASE_URL`).
