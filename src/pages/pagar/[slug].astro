@@ -2,9 +2,12 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCourseBySlug } from "@/lib/courses";
 import { getCourseApiBaseUrl } from "@/lib/course-api";
-import PagarCurso from "@/screens/PagarCurso";
 import { getFallbackCheckoutUrl } from "@/components/checkout/CheckoutContext";
 import { resolveCheckoutSettings } from "@/lib/checkout";
+import PurchaseHeader from "@/components/purchase/PurchaseHeader";
+import PurchaseSummary from "@/components/purchase/PurchaseSummary";
+import PurchaseForm from "@/components/purchase/PurchaseForm";
+import { WS_FONT_UI } from "@/components/workshop/workshop-styles";
 
 const { slug } = Astro.params;
 const course = await getCourseBySlug(slug);
@@ -18,18 +21,35 @@ const paymentLinkUrl = getFallbackCheckoutUrl(course);
 if (resolveCheckoutSettings(course).mode === "PAYMENT_LINK" && paymentLinkUrl) {
   return Astro.redirect(paymentLinkUrl, 302);
 }
+
+const now = Date.now();
+const nextGroup = (course.schedules?.items ?? [])
+  .filter((item) => item.startsAt && new Date(item.startsAt).getTime() > now)
+  .sort((a, b) => new Date(a.startsAt!).getTime() - new Date(b.startsAt!).getTime())[0];
+const editMode = Astro.url.searchParams.get("editar") === "1";
 ---
 
+<!-- Liga corta de pago (`/pagar/{curso}`) para WhatsApp o anuncios: resumen sin hidratar + el
+     formulario como única isla. Sin menú para no sacar a nadie del pago. -->
 <BaseLayout
   title={`Inscríbete: ${course.title} | Joaquín C. Dev`}
   description={course.seo.description}
   ogImage={course.seo.ogImage}
   noindex={true}
 >
-  <PagarCurso
-    client:load
-    course={course}
-    apiBaseUrl={getCourseApiBaseUrl()}
-    editMode={Astro.url.searchParams.get("editar") === "1"}
-  />
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+  </Fragment>
+  <div class={`${WS_FONT_UI} min-h-screen overflow-x-clip bg-[#0b0d10] text-[#eceef1] antialiased`}>
+    <PurchaseHeader />
+    <main id="contenido" class="mx-auto grid w-full max-w-[1100px] gap-10 px-5 py-10 md:px-8 md:py-16 lg:grid-cols-[1fr_440px] lg:items-start lg:gap-x-16 lg:gap-y-6">
+      <PurchaseSummary course={course} nextGroup={nextGroup} editMode={editMode} />
+      <PurchaseForm client:load course={course} apiBaseUrl={getCourseApiBaseUrl()} editMode={editMode} />
+    </main>
+  </div>
 </BaseLayout>

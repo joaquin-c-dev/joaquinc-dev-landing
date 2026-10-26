@@ -3,7 +3,17 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCourseBySlug, getNavCourses } from "@/lib/courses";
 import { getCourseApiBaseUrl } from "@/lib/course-api";
 import { formatSeoKeywords } from "@/lib/course-formatters";
-import CoursePage from "@/screens/CoursePage";
+import WorkshopPage from "@/components/workshop/WorkshopPage";
+import CheckoutTrigger from "@/components/checkout/CheckoutTrigger";
+import { getFallbackCheckoutUrl } from "@/components/checkout/CheckoutContext";
+import { getQuestionWhatsappMessage } from "@/lib/workshop-whatsapp";
+import HomeNavigation from "@/components/home/HomeNavigation";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import CourseContent from "@/components/coursepage/CourseContent";
+import CoursePriceHeading from "@/components/coursepage/CoursePriceHeading";
+import CoursePriceCard from "@/components/coursepage/CoursePriceCard";
+import CourseClosing from "@/components/coursepage/CourseClosing";
+import { WS_FONT_UI } from "@/components/workshop/workshop-styles";
 import { buildCourseJsonLd } from "@/lib/structured-data";
 import { buildWorkshopEventJsonLd, serializeJsonLd } from "@/lib/workshop-structured-data";
 
@@ -27,6 +37,16 @@ const jsonLd =
   course.type === "WORKSHOP"
     ? buildWorkshopEventJsonLd(course, pageUrl, siteUrl)
     : buildCourseJsonLd(course, pageUrl, siteUrl);
+
+// Cursos: diseño del inicio, como HTML sin hidratar más islas (menú, precio, WhatsApp).
+// Talleres: su propia página de venta, también sin hidratar (islas: pago y WhatsApp).
+const isCourse = course.type !== "WORKSHOP";
+const now = Date.now();
+const groups = (course.schedules?.items ?? [])
+  .filter((item) => item.startsAt && new Date(item.startsAt).getTime() > now)
+  .sort((a, b) => new Date(a.startsAt!).getTime() - new Date(b.startsAt!).getTime());
+const nextGroup = groups[0];
+const apiBaseUrl = getCourseApiBaseUrl();
 ---
 
 <BaseLayout
@@ -37,23 +57,56 @@ const jsonLd =
   ogType="website"
 >
   <Fragment slot="head">
-    {course.type === "WORKSHOP" && (
-      <>
+    {/* Las dos plantillas usan Geist y JetBrains Mono; el taller además Roboto. */}
+    <>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=JetBrains+Mono:ital,wght@0,400;1,400&family=Roboto:wght@400;500;700&display=swap"
         />
-      </>
-    )}
+    </>
     {jsonLd && <script type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />}
   </Fragment>
-  <CoursePage
-    client:load
-    course={course}
-    navCourses={navCourses}
-    pathname={Astro.url.pathname}
-    apiBaseUrl={getCourseApiBaseUrl()}
-  />
+  {isCourse && <script is:inline>document.documentElement.classList.add("js");</script>}
+  {isCourse ? (
+    <div class={`${WS_FONT_UI} min-h-screen overflow-x-clip bg-[#0b0d10] text-[#eceef1] antialiased`}>
+      <a
+        href="#contenido"
+        class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:font-semibold focus:text-[#0b0d10]"
+      >
+        Saltar al contenido
+      </a>
+      <HomeNavigation client:load navCourses={navCourses} pathname={Astro.url.pathname} />
+      <main id="contenido">
+        <CourseContent course={course} groups={groups} />
+        <section id="precio" class="scroll-mt-24 border-t border-white/[0.07] py-24 md:py-28">
+          <div class="mx-auto w-full max-w-[1200px] px-5 md:px-8">
+            <CoursePriceHeading nextGroup={nextGroup} />
+            <CoursePriceCard client:idle course={course} nextStartsAt={nextGroup?.startsAt} apiBaseUrl={apiBaseUrl} />
+          </div>
+        </section>
+        <CourseClosing course={course} nextGroup={nextGroup} navCourses={navCourses} />
+      </main>
+      <WhatsAppButton client:idle autoOpen={false} message={`Hola, tengo una duda sobre el curso ${course.title}`} />
+    </div>
+  ) : (
+    <div class={`${WS_FONT_UI} min-h-screen overflow-x-clip bg-[#0b0d10] text-[#eceef1] antialiased`}>
+      {/* Hay forma de pagar con el formulario (API) o con la liga de Stripe. */}
+      <WorkshopPage
+        course={course}
+        navCourses={navCourses}
+        canCheckout={Boolean(apiBaseUrl) || Boolean(getFallbackCheckoutUrl(course))}
+      />
+      <CheckoutTrigger client:load course={course} apiBaseUrl={apiBaseUrl} />
+      <WhatsAppButton client:idle autoOpen={false} message={getQuestionWhatsappMessage(course.title)} />
+    </div>
+  )}
+  <!-- Cada script solo actúa si la página tiene sus elementos (reveal, barra fija, cuenta
+       regresiva o links de WhatsApp del taller). -->
+  <script>
+    import "@/scripts/home-reveal";
+    import "@/scripts/course-sticky";
+    import "@/scripts/workshop-page";
+  </script>
 </BaseLayout>

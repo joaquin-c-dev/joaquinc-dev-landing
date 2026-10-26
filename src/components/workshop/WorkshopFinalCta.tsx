@@ -6,11 +6,12 @@ interface WorkshopFinalCtaProps {
   startsAt?: string;
   endsAt?: string;
   headline?: string;
-  onCheckout?: () => void;
+  /** Si hay forma de pagar: el botón abre el formulario (ver `CheckoutTrigger`). */
+  canCheckout?: boolean;
 }
 
 /** CTA final (handoff "CTA 3a"): fecha, titular y el mismo botón con cápsula de precio. */
-const WorkshopFinalCta = ({ price, startsAt, endsAt, headline, onCheckout }: WorkshopFinalCtaProps) => {
+const WorkshopFinalCta = ({ price, startsAt, endsAt, headline, canCheckout = false }: WorkshopFinalCtaProps) => {
   const title =
     headline ??
     (startsAt ? `Aparta tu lugar para este ${formatWeekday(startsAt)}.` : "Aparta tu lugar en el taller.");
@@ -26,10 +27,10 @@ const WorkshopFinalCta = ({ price, startsAt, endsAt, headline, onCheckout }: Wor
         <h2 className="mb-5 mt-3 text-[26px] font-extrabold leading-[1.15] [text-wrap:balance] md:mb-7 md:mt-4 md:text-[40px]">
           {title}
         </h2>
-        {onCheckout && (
+        {canCheckout && (
           <button
             type="button"
-            onClick={onCheckout}
+            data-checkout-trigger
             className={`${WS_CTA} gap-3.5 whitespace-nowrap rounded-xl py-2 pl-[22px] pr-2 text-base sm:text-[17px]`}
           >
             Inscribirme

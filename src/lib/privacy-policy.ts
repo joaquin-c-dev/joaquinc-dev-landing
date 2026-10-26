@@ -55,6 +55,6 @@ export const PRIVACY_SECTIONS: PrivacySection[] = [
 export const PRIVACY_CONTACT = {
   intro:
     "Si tienes preguntas o inquietudes sobre nuestras políticas de privacidad, no dudes en contactarnos a través de:",
-  email: "joaquincorram@gmail.com",
+  email: "contacto@joaquincoronado.dev",
   phone: "3310881011",
 };

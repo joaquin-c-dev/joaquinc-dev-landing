@@ -1,6 +1,6 @@
 ---
-const DEFAULT_OG_IMAGE =
-  "https://res.cloudinary.com/joaquin-test/image/upload/w_1200,h_630,c_fill,f_auto,q_auto/v1757136018/joaquin%20c.%20dev/java%20desde%20cero/Screenshot_at_Aug_26_23-53-12_vavqyx.png";
+/** Imagen para compartir de la marca (1200×630), para páginas o cursos sin imagen propia. */
+const DEFAULT_OG_IMAGE = "/images/og-home.jpg";
 
 interface Props {
   title: string;
@@ -25,7 +25,7 @@ const {
 } = Astro.props;
 
 const resolveImage = (img?: string) => {
-  if (!img) return DEFAULT_OG_IMAGE;
+  if (!img) return new URL(DEFAULT_OG_IMAGE, Astro.site).href;
   if (img.startsWith("http")) return img;
   try {
     return new URL(img, Astro.site).href;

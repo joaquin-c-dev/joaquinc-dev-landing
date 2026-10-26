@@ -4,28 +4,50 @@ import { buildHomeJsonLd } from "@/lib/structured-data";
 import { serializeJsonLd } from "@/lib/workshop-structured-data";
 import { getHomeCourses, getNavCourses, getUpcomingStarts } from "@/lib/courses";
 import Index from "@/screens/Index";
+import HomeNavigation from "@/components/home/HomeNavigation";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { WS_FONT_UI } from "@/components/workshop/workshop-styles";
 
 const [homeCourses, upcomingStarts, navCourses] = await Promise.all([
   getHomeCourses(),
   getUpcomingStarts(),
   getNavCourses(),
 ]);
-const jsonLd = buildHomeJsonLd(Astro.site!.href);
+const jsonLd = buildHomeJsonLd(Astro.site!.href, homeCourses);
 ---
 
 <BaseLayout
-  title="Cursos de Java y Spring Boot en vivo | Joaquín C. Dev"
-  description="Cursos y talleres de Java, Spring Boot y Spring Security 100% en vivo y en línea, con proyectos reales y un Head of Backend con +10 años de experiencia."
-  keywords="java, curso java, programación java, aprender java, java desde cero, desarrollo java, spring boot"
+  title="Cursos de Java, Spring Boot y Claude en vivo | Joaquín C. Dev"
+  description="Cursos en vivo por Zoom de Java, Spring Boot y desarrollo con IA usando Claude Code. Grupos pequeños, proyecto real y un Líder Técnico de Avena Health."
+  ogImage="/images/og-home.jpg"
+  keywords="curso java, curso spring boot, aprender java, java desde cero, spring security, claude code, desarrollo con ia, cursos en vivo"
 >
   <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap"
+    />
     <script type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />
+    <!-- Marca que hay JS antes de pintar: solo así se ocultan los elementos que entran al hacer
+         scroll (si el JS falla, todo queda visible). -->
+    <script is:inline>document.documentElement.classList.add("js");</script>
   </Fragment>
-  <Index
-    client:load
-    courses={homeCourses}
-    upcomingStarts={upcomingStarts}
-    navCourses={navCourses}
-    pathname={Astro.url.pathname}
-  />
+  <!-- El contenido es HTML sin hidratar; solo el menú y el botón de WhatsApp cargan React. -->
+  <div class={`${WS_FONT_UI} min-h-screen overflow-x-clip bg-[#0b0d10] text-[#eceef1] antialiased`}>
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:font-semibold focus:text-[#0b0d10]"
+    >
+      Saltar al contenido
+    </a>
+    <HomeNavigation client:load navCourses={navCourses} pathname={Astro.url.pathname} />
+    <Index courses={homeCourses} upcomingStarts={upcomingStarts} navCourses={navCourses} />
+    <!-- En el inicio el chat solo se abre con clic; carga cuando el navegador está libre. -->
+    <WhatsAppButton client:idle autoOpen={false} />
+  </div>
+  <script>
+    import "@/scripts/home-reveal";
+  </script>
 </BaseLayout>
