@@ -2,12 +2,10 @@ import { ArrowRight, Linkedin, MapPin } from "lucide-react";
 import Footer from "@/components/Footer";
 import HomeClasses from "@/components/home/HomeClasses";
 import HomeReviews from "@/components/home/HomeReviews";
-import ZoomFrame from "@/components/home/ZoomFrame";
 import { HOME_CONTAINER, HOME_EYEBROW, HOME_H2, HOME_MUTED, reveal, rise } from "@/components/home/home-theme";
 import { WS_CTA, WS_CTA_GLOW } from "@/components/workshop/workshop-styles";
 import { CoursesNavProvider, type NavCourse } from "@/contexts/CoursesNavContext";
 import { ASSETS } from "@/lib/assets";
-import { CLASS_PHOTOS } from "@/lib/class-photos";
 import { INSTRUCTOR_PROFILE, getCourseTestimonials } from "@/lib/workshop-content";
 
 interface Experience {
@@ -74,6 +72,14 @@ const EXPERIENCES: Experience[] = [
       "Implementación de seguridad a gran escala",
     ],
   },
+];
+
+/** Logos oficiales (Wikimedia Commons, simple-icons y el sitio de Avena) sobre fondo blanco. */
+const COMPANIES = [
+  { name: "Avena Health", logo: "/images/companies/avena-health.svg", logoClass: "h-6", label: "Avena Health" },
+  { name: "Capital One", logo: "/images/companies/capital-one.svg", logoClass: "h-6" },
+  { name: "GoDaddy", logo: "/images/companies/godaddy.svg", logoClass: "h-6" },
+  { name: "Globant", logo: "/images/companies/globant.svg", logoClass: "h-5" },
 ];
 
 const SKILLS = [
@@ -158,9 +164,25 @@ const AcercaDeMi = ({ navCourses = [] }: AcercaDeMiProps) => {
                 height={560}
                 className="relative aspect-[46/56] w-[82%] rounded-[22px] border border-white/10 object-cover"
               />
-              {/* Captura real de una clase en Zoom, encimada: enseña en vivo. */}
-              <div className="home-pop absolute -bottom-6 right-0 w-[58%]">
-                <ZoomFrame photo={CLASS_PHOTOS[0]} live eager />
+              {/* Empresas en las que he trabajado, encimadas sobre la foto. */}
+              <div className="home-pop absolute -bottom-8 right-0 w-[62%] rounded-xl border border-white/10 bg-[#14171c]/95 p-3.5 shadow-[0_30px_70px_-30px_rgba(0,0,0,0.85)] backdrop-blur">
+                <p className="px-0.5 text-[11.5px] font-medium text-[#9da3ad]">Empresas con las que he trabajado</p>
+                <ul className="mt-2.5 grid grid-cols-2 gap-2">
+                  {COMPANIES.map((company) => (
+                    <li key={company.name} className="flex h-12 items-center justify-center rounded-lg bg-white px-3">
+                      <img
+                        src={company.logo}
+                        alt={company.label ? "" : company.name}
+                        width={120}
+                        height={32}
+                        className={`${company.logoClass} w-auto max-w-full object-contain`}
+                      />
+                      {company.label && (
+                        <span className="ml-1.5 whitespace-nowrap text-[13px] font-bold text-[#13243f]">{company.label}</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
