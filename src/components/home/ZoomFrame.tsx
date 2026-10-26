@@ -24,7 +24,7 @@ const ZoomFrame = ({ photo, live = false, eager = false, className = "" }: ZoomF
         Zoom · Clase en vivo
       </span>
       {live && (
-        <span className="inline-flex items-center gap-1 rounded bg-[#e5484d] px-1.5 py-px text-[10.5px] font-semibold text-white">
+        <span className="inline-flex items-center gap-1 rounded bg-[#d93a3f] px-1.5 py-px text-[10.5px] font-semibold text-white">
           <span className="h-1.5 w-1.5 rounded-full bg-white motion-safe:animate-pulse" />
           EN VIVO
         </span>
