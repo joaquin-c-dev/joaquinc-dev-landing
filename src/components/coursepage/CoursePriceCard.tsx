@@ -1,6 +1,7 @@
 import { ArrowRight, Check, Lock } from "lucide-react";
 import type { Course } from "@/lib/course-types";
 import { CheckoutProvider, getCurrentPrice, useCheckout } from "@/components/checkout/CheckoutContext";
+import { CheckoutTriggerListener } from "@/components/checkout/CheckoutTrigger";
 import { PromoCountdownProvider, usePromoCountdown } from "@/contexts/PromoCountdownContext";
 import { MAX_INSTALLMENTS, getCourseIncludes } from "@/lib/course-offer";
 import { getCourseTransferUrl } from "@/lib/course-whatsapp";
@@ -22,6 +23,8 @@ interface CoursePriceCardProps {
  */
 const CoursePriceCard = ({ course, nextStartsAt, apiBaseUrl }: CoursePriceCardProps) => (
   <CheckoutProvider course={course} apiBaseUrl={apiBaseUrl}>
+    {/* Los "Inscribirme" del resto de la página (hero, grupos, cierre, barra fija) abren este mismo pago. */}
+    <CheckoutTriggerListener />
     <PromoCountdownProvider endsAt={course.promo?.endsAt}>
       <PriceCard course={course} nextStartsAt={nextStartsAt} />
     </PromoCountdownProvider>
@@ -86,7 +89,7 @@ const PriceCard = ({ course, nextStartsAt }: Omit<CoursePriceCardProps, "apiBase
             onClick={openCheckout}
             className={`${WS_CTA} ${WS_CTA_GLOW} mt-6 min-h-[52px] w-full justify-center gap-3 whitespace-nowrap rounded-xl px-5 text-[16px] sm:justify-between sm:py-2 sm:pl-5 sm:pr-2`}
           >
-            Aparta tu lugar
+            Inscribirme
             {/* En celular el precio ya está justo arriba: el botón queda en una línea. */}
             <ArrowRight className="h-4 w-4 sm:hidden" aria-hidden />
             <span className={`${WS_CTA_CAPSULE} hidden rounded-lg px-3.5 py-2.5 font-extrabold sm:inline`}>
@@ -100,7 +103,7 @@ const PriceCard = ({ course, nextStartsAt }: Omit<CoursePriceCardProps, "apiBase
             rel="noopener noreferrer"
             className={`${WS_CTA} ${WS_CTA_GLOW} mt-6 w-full justify-center gap-2 rounded-xl px-5 text-[16px]`}
           >
-            Aparta tu lugar por WhatsApp
+            Inscribirme por WhatsApp
             <ArrowRight className="h-4 w-4" aria-hidden />
           </a>
         )}

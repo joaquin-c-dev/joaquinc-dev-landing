@@ -5,6 +5,7 @@ import { HOME_CONTAINER, HOME_EYEBROW, HOME_H2, HOME_MUTED, reveal } from "@/com
 import { startDateParts } from "@/components/home/home-course-utils";
 
 interface CourseGroupsProps {
+  slug: string;
   /** Grupos que no han empezado, del más cercano al más lejano. */
   groups: ScheduleItem[];
   /** WhatsApp para pedir aviso cuando no hay grupo agendado. */
@@ -15,7 +16,7 @@ interface CourseGroupsProps {
  * Próximos grupos del curso con el bloque de calendario del inicio. Sin grupos agendados,
  * invita a pedir aviso por WhatsApp en lugar de esconder la sección.
  */
-const CourseGroups = ({ groups, notifyUrl }: CourseGroupsProps) => (
+const CourseGroups = ({ slug, groups, notifyUrl }: CourseGroupsProps) => (
   <section id="grupos" className="scroll-mt-24 border-y border-white/[0.07] bg-[#0e1014] py-24 md:py-28">
     <div className={HOME_CONTAINER}>
       <p {...reveal(0)} className={HOME_EYEBROW}>
@@ -61,8 +62,12 @@ const CourseGroups = ({ groups, notifyUrl }: CourseGroupsProps) => (
                       {group.note && <p className="mt-1.5 text-[13.5px] text-[#c9cdd3]">{group.note}</p>}
                     </div>
                   </div>
-                  <a href="#precio" className={`${WS_CTA} gap-2 self-start whitespace-nowrap rounded-xl px-5 text-[14.5px] sm:self-center`}>
-                    Aparta tu lugar
+                  <a
+                    href={`/pagar/${slug}`}
+                    data-checkout-trigger
+                    className={`${WS_CTA} gap-2 self-start whitespace-nowrap rounded-xl px-5 text-[14.5px] sm:self-center`}
+                  >
+                    Inscribirme
                     <ArrowRight className="h-4 w-4" aria-hidden />
                   </a>
                 </div>

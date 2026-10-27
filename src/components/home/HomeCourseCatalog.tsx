@@ -119,7 +119,7 @@ const CourseCard = ({ course, upcoming, revealDelay }: CourseCardProps) => {
                 nextStart ? "text-[#ffc66d]" : "text-[#c9cdd3]"
               }`}
             >
-              {nextStart ? "Apartar mi lugar" : "Ver temario"}
+              {nextStart ? "Ver curso" : "Ver temario"}
               <ArrowRight
                 className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                 aria-hidden

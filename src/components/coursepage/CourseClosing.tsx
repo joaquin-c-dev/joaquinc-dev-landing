@@ -18,11 +18,11 @@ interface CourseClosingProps {
 const CourseClosing = ({ course, nextGroup, navCourses }: CourseClosingProps) => (
   <>
     <CourseFaq prerequisites={course.prerequisites} questionUrl={getCourseQuestionUrl(course.title)} />
-    <CourseFinalCta title={course.title} nextGroup={nextGroup} />
+    <CourseFinalCta slug={course.slug} title={course.title} nextGroup={nextGroup} />
     <CoursesNavProvider courses={navCourses}>
       <Footer />
     </CoursesNavProvider>
-    <CourseStickyBar price={getCurrentPrice(course)} />
+    <CourseStickyBar slug={course.slug} price={getCurrentPrice(course)} />
   </>
 );
 

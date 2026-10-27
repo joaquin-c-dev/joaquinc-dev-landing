@@ -82,8 +82,12 @@ const CourseHero = ({ course, nextGroup }: CourseHeroProps) => {
               <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" aria-hidden />
             </a>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              <a href="#precio" className={`${WS_CTA} ${WS_CTA_GLOW} gap-2 rounded-xl px-6 text-[15.5px]`}>
-                Aparta tu lugar
+              <a
+                href={`/pagar/${course.slug}`}
+                data-checkout-trigger
+                className={`${WS_CTA} ${WS_CTA_GLOW} gap-2 rounded-xl px-6 text-[15.5px]`}
+              >
+                Inscribirme
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </a>
               <a

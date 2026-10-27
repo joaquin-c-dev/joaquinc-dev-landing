@@ -41,10 +41,10 @@ const HomeNextStartCard = ({ upcomingStarts }: HomeNextStartCardProps) => {
         </a>
       )}
       <a
-        href={nextCourse ? "#proximos-inicios" : "#cursos"}
+        href={nextCourse ? `/pagar/${nextCourse.slug}` : "#cursos"}
         className={`${WS_CTA} ${WS_CTA_GLOW} gap-2 rounded-xl px-6 text-[15.5px]`}
       >
-        {nextCourse ? "Aparta tu lugar" : "Ver cursos"}
+        {nextCourse ? "Inscribirme" : "Ver cursos"}
         <ArrowRight className="h-4 w-4" aria-hidden />
       </a>
     </div>
