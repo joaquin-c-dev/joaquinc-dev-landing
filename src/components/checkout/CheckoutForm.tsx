@@ -4,6 +4,7 @@ import {
   CheckoutError,
   JAVA_EXPERIENCE_OPTIONS,
   OCCUPATION_OPTIONS,
+  OCCUPATION_OTHER_MAX_LENGTH,
   PHONE_COUNTRY_CODES,
   SENIORITY_OPTIONS,
   createCheckoutSession,
@@ -69,6 +70,9 @@ function validateStep(step: Step, profile: CheckoutProfile, privacyAccepted: boo
   if (step === "phoneNumber" && (phoneDigits.length < 7 || phoneDigits.length > 13)) return "Revisa tu número";
   if (step === "javaExperience" && !profile.javaExperience) return "Elige una opción";
   if (step === "occupation" && !profile.occupation) return "Elige una opción";
+  if (step === "occupation" && profile.occupation === "OTHER" && (profile.occupationOther ?? "").trim().length < 2) {
+    return "Cuéntanos a qué te dedicas";
+  }
   if (step === "seniority" && !profile.seniority) return "Elige una opción";
   if (step === "consent" && !privacyAccepted) return "Necesitamos tu aceptación para continuar";
   return undefined;
@@ -87,6 +91,7 @@ const API_FIELD_TO_STEP: Record<string, Step> = {
   phone: "phoneNumber",
   javaExperience: "javaExperience",
   occupation: "occupation",
+  occupationOther: "occupation",
   seniority: "seniority",
   privacyAccepted: "consent",
 };
@@ -220,6 +225,8 @@ const CheckoutForm = ({
   const choose = <K extends "javaExperience" | "occupation" | "seniority">(key: K, value: CheckoutProfile[K]) => {
     update(key, value);
     clearTimeout(autoAdvance.current);
+    // "Otro" se queda en la pregunta para que escriba a qué se dedica y avance con "Siguiente".
+    if (key === "occupation" && value === "OTHER") return;
     autoAdvance.current = setTimeout(() => setStepIndex((index) => index + 1), AUTO_ADVANCE_MS);
   };
 
@@ -380,6 +387,17 @@ const CheckoutForm = ({
               value={profile.occupation}
               onChoose={(value) => choose("occupation", value)}
             />
+            {profile.occupation === "OTHER" && (
+              <input
+                autoFocus
+                aria-label="¿A qué te dedicas?"
+                className={`${fieldBaseClass} mt-3 w-full`}
+                maxLength={OCCUPATION_OTHER_MAX_LENGTH}
+                value={profile.occupationOther ?? ""}
+                onChange={(e) => update("occupationOther", e.target.value)}
+                placeholder="¿A qué te dedicas?"
+              />
+            )}
           </Question>
         )}
         {step === "seniority" && (
@@ -443,7 +461,7 @@ const CheckoutForm = ({
         {isLastStep ? (
           payButton
         ) : (
-          !isChoiceStep(step) && (
+          (!isChoiceStep(step) || (step === "occupation" && profile.occupation === "OTHER")) && (
             <button
               type="submit"
               className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-white text-[15px] font-semibold text-[#0b0d10] transition hover:bg-white/90"
