@@ -58,8 +58,10 @@ const CourseHero = ({ course, nextGroup }: CourseHeroProps) => {
           )}
 
           <div {...rise(180)} className="mt-8 flex flex-col items-start gap-4">
+            {/* Con fecha, el aviso también abre el pago; sin grupo agendado baja a la sección de grupos. */}
             <a
-              href="#grupos"
+              href={date ? `/pagar/${course.slug}` : "#grupos"}
+              data-checkout-trigger={date ? true : undefined}
               className="group inline-flex min-h-[40px] items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 text-[13.5px] text-[#c9cdd3] transition-colors hover:border-white/25 hover:text-white"
             >
               {date ? (
@@ -82,8 +84,12 @@ const CourseHero = ({ course, nextGroup }: CourseHeroProps) => {
               <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5" aria-hidden />
             </a>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              <a href="#precio" className={`${WS_CTA} ${WS_CTA_GLOW} gap-2 rounded-xl px-6 text-[15.5px]`}>
-                Aparta tu lugar
+              <a
+                href={`/pagar/${course.slug}`}
+                data-checkout-trigger
+                className={`${WS_CTA} ${WS_CTA_GLOW} gap-2 rounded-xl px-6 text-[15.5px]`}
+              >
+                Inscribirme
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </a>
               <a

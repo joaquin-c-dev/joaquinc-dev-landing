@@ -73,7 +73,7 @@ const WorkshopBuyCard = forwardRef<HTMLDivElement, WorkshopBuyCardProps>(
             data-checkout-trigger
             className={`${WS_CTA} ${WS_CTA_GLOW} order-2 w-full justify-between gap-3 whitespace-nowrap rounded-xl py-2 pl-4 pr-2 text-[15px] min-[360px]:text-base sm:pl-[22px] sm:text-[17px] lg:order-4`}
           >
-            Apartar mi lugar
+            Inscribirme
             <span className={`${WS_CTA_CAPSULE} rounded-lg px-3 py-2.5 font-extrabold sm:px-3.5`}>
               {formatPrice(price)} MXN
               {/* En pantallas de 320px la flecha no cabe sin partir el botón. */}

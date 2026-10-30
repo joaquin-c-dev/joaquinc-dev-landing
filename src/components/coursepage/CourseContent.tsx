@@ -44,7 +44,7 @@ const CourseContent = ({ course, groups }: CourseContentProps) => {
       {sections.length > 0 && (
         <CourseSyllabus sections={sections} hours={course.durationInHours} summary={course.summarySections} />
       )}
-      <CourseGroups groups={groups} notifyUrl={getCourseNotifyUrl(course.title)} />
+      <CourseGroups slug={course.slug} groups={groups} notifyUrl={getCourseNotifyUrl(course.title)} />
       {course.prerequisites && <CourseRequirements prerequisites={course.prerequisites} />}
       <HomeClasses />
       <HomeInstructor />

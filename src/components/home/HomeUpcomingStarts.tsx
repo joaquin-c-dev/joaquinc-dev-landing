@@ -60,7 +60,7 @@ const HomeUpcomingStarts = ({ upcomingStarts }: HomeUpcomingStartsProps) => {
             return (
               <li key={course.slug} {...reveal(index * 80)}>
                 <a
-                  href={`/${course.slug}`}
+                  href={`/pagar/${course.slug}`}
                   className="group flex flex-col gap-5 rounded-[18px] border border-[#ffc66d]/30 bg-[linear-gradient(110deg,rgba(255,198,109,0.08),#12151a_40%)] p-5 transition-colors hover:border-[#ffc66d]/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8FC8FF] sm:flex-row sm:items-center sm:p-6"
                 >
                   <div className="flex min-w-0 flex-1 items-center gap-4 sm:gap-5">
@@ -120,7 +120,7 @@ const HomeUpcomingStarts = ({ upcomingStarts }: HomeUpcomingStartsProps) => {
                     <span
                       className={`${WS_CTA} gap-2 whitespace-nowrap rounded-xl px-5 text-[14.5px]`}
                     >
-                      Apartar mi lugar
+                      Inscribirme
                       <ArrowRight
                         className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
                         aria-hidden
