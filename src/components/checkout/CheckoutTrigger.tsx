@@ -14,22 +14,27 @@ interface CheckoutTriggerProps {
  */
 const CheckoutTrigger = ({ course, apiBaseUrl }: CheckoutTriggerProps) => (
   <CheckoutProvider course={course} apiBaseUrl={apiBaseUrl}>
-    <TriggerListener />
+    <CheckoutTriggerListener />
   </CheckoutProvider>
 );
 
-const TriggerListener = () => {
-  const { openCheckout } = useCheckout();
+/**
+ * Abre el pago al hacer clic en cualquier `[data-checkout-trigger]`. Va dentro de un
+ * `CheckoutProvider`. Si el botón es un link (`/pagar/{curso}`) y no hay forma de pagar aquí, o la
+ * isla aún no carga, el link sigue su camino y esa página resuelve formulario o liga de Stripe.
+ */
+export const CheckoutTriggerListener = () => {
+  const { openCheckout, canCheckout } = useCheckout();
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       const trigger = (event.target as Element | null)?.closest("[data-checkout-trigger]");
-      if (!trigger) return;
+      if (!trigger || !canCheckout) return;
       event.preventDefault();
       openCheckout();
     };
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
-  }, [openCheckout]);
+  }, [openCheckout, canCheckout]);
   return null;
 };
 

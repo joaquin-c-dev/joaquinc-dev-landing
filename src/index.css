@@ -188,7 +188,7 @@ All colors MUST be HSL.
     from { opacity: 0; transform: translateY(24px) rotate(2deg); }
   }
 
-  /* Páginas de curso en celular: WhatsApp sube encima de la barra fija de "Aparta tu lugar". */
+  /* Páginas de curso en celular: WhatsApp sube encima de la barra fija de "Inscribirme". */
   @media (max-width: 767px) {
     html[data-sticky-cta="true"] [data-whatsapp-button] {
       bottom: 84px;

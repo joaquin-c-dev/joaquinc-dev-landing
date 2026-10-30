@@ -6,12 +6,13 @@ import { capitalize } from "@/components/home/home-course-utils";
 import { formatWorkshopDay } from "@/lib/workshop-format";
 
 interface CourseFinalCtaProps {
+  slug: string;
   title: string;
   nextGroup?: ScheduleItem;
 }
 
-/** Cierre de la página de curso: el siguiente grupo y un solo botón a la tarjeta de precio. */
-const CourseFinalCta = ({ title, nextGroup }: CourseFinalCtaProps) => (
+/** Cierre de la página de curso: el siguiente grupo y un solo botón que abre el pago. */
+const CourseFinalCta = ({ slug, title, nextGroup }: CourseFinalCtaProps) => (
   <section className="relative overflow-hidden border-t border-white/[0.07] py-24 md:py-32">
     <div
       aria-hidden
@@ -35,8 +36,13 @@ const CourseFinalCta = ({ title, nextGroup }: CourseFinalCtaProps) => (
           "Grupos pequeños, en vivo por Zoom y con grabación de cada clase."
         )}
       </p>
-      <a {...reveal(210)} href="#precio" className={`${WS_CTA} ${WS_CTA_GLOW} mt-9 gap-2 rounded-xl px-6 text-[15.5px]`}>
-        Aparta tu lugar
+      <a
+        {...reveal(210)}
+        href={`/pagar/${slug}`}
+        data-checkout-trigger
+        className={`${WS_CTA} ${WS_CTA_GLOW} mt-9 gap-2 rounded-xl px-6 text-[15.5px]`}
+      >
+        Inscribirme
         <ArrowRight className="h-4 w-4" aria-hidden />
       </a>
     </div>
