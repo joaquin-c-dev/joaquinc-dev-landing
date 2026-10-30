@@ -17,7 +17,11 @@ export const OCCUPATION_OPTIONS = [
   { value: "JAVA_DEVELOPER", label: "Trabajo como programador Java" },
   { value: "IT_NOT_JAVA", label: "Trabajo en TI, pero no con Java" },
   { value: "STUDY_AND_WORK_IN_IT", label: "Estudio y trabajo en TI" },
+  { value: "OTHER", label: "Otro" },
 ] as const;
+
+/** Largo máximo del texto de "Otro" (mismo límite que la API). */
+export const OCCUPATION_OTHER_MAX_LENGTH = 80;
 
 export const SENIORITY_OPTIONS = [
   { value: "JUNIOR", label: "Junior" },
@@ -92,6 +96,8 @@ export interface CheckoutProfile {
   phoneNumber: string;
   javaExperience?: JavaExperience;
   occupation?: Occupation;
+  /** Lo que escribió al elegir "Otro" en ocupación. */
+  occupationOther?: string;
   seniority?: Seniority;
   whatsappContactAccepted: boolean;
 }
@@ -199,6 +205,7 @@ export async function createCheckoutSession(
       name: profile.name.trim() || undefined,
       javaExperience: profile.javaExperience,
       occupation: profile.occupation,
+      occupationOther: profile.occupation === "OTHER" ? profile.occupationOther?.trim() : undefined,
       seniority: profile.seniority,
       privacyAccepted: true,
       whatsappContactAccepted: profile.whatsappContactAccepted,
